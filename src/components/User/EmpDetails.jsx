@@ -7,6 +7,7 @@ import { useState,useEffect } from "react";
 import { SERVER_URL } from "../../Api Services/serverUrl";
 import "../../CSS/employeedet.css";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 const EmpDetails = ({ employeeData }) => {
@@ -296,7 +297,7 @@ const EmpDetails = ({ employeeData }) => {
                                               </Link>}
                                               {socialMediaLink.twitter&&<Link target="_blank"  to={`${socialMediaLink.twitter}`} >
         
-                                              <TbBrandTwitter  size={35} className="text-yellow-500 cursor-pointer" />
+                                              <FaXTwitter   size={35} className="text-yellow-500 cursor-pointer" />
                                               </Link>}
       </div>
     </>

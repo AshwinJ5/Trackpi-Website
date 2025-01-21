@@ -9,6 +9,7 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 import { TbBrandLinkedin, TbBrandTwitter } from "react-icons/tb";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import { SERVER_URL } from "../../Api Services/serverUrl";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 
@@ -121,7 +122,7 @@ useEffect(() => {
                                       </Link>}
                                       {socialMediaLink.twitter&&<Link target="_blank"  to={`${socialMediaLink.twitter}`} >
 
-                                      <TbBrandTwitter  size={35} className="text-yellow-500 cursor-pointer" />
+                                      <FaXTwitter   size={35} className="text-yellow-500 cursor-pointer" />
                                       </Link>}
                               </div>
                       </div>

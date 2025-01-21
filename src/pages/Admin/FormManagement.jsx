@@ -140,11 +140,11 @@ function FormManagement() {
               </div>
 
               {/* Table */}
-              <div className="relative shadow-md sm:rounded-lg border-[#939393] border-1">
+              <div className="relative shadow-md sm:rounded-lg ">
                 <div className="table-wrapper">
                   <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
                     {/* Table Headers */}
-                    <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
+                    <thead className="text-md font-bold text-black uppercase ">
                       <tr>
                         <th
                           scope="col"
@@ -274,7 +274,7 @@ function FormManagement() {
                             {/* Extract time */}
                           </td>
                           <td
-                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
+                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px]"
                             onClick={() => handleViewDetails(form)}
                           >
                             <div  className="flex justify-center gap-2">
