@@ -276,8 +276,8 @@ if (!emailPattern.test(email)) {
                         />
                       </div>
                       <div className="mt-4 flex-grow-1 row justify-evenly">
-                        <div className="col-md-4">
-                          <label className="form-label font-bold text-[15px]">Name</label>
+                        <div className="col-md-3">
+                          <label className="form-label  font-md  text-[15px]">Name</label>
                           <input
                             type="text"
                             name="name"
@@ -286,23 +286,23 @@ if (!emailPattern.test(email)) {
                             value={formData.name ||'' } 
                             onChange={handleInputChange}  
                             
-                            style={{fontSize: '12px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                            style={{fontSize: '12px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                             onFocus={ e => {
                               
                               e.target.style.borderColor = 'white';
-                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                             }}
                             onBlur={e => {
                               
                               e.target.style.borderColor = 'white';
-                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.03),2px 1px 4px 0px rgba(10, 10, 10, 0.01),0px -2px 4px 0px rgba(10, 10, 10, 0.03)';
                             }}
                             
             
                           />
                         </div>
-                        <div className="col-md-4 ">
-              <label className="form-label  font-bold text-[15px]">Email ID</label>
+                        <div className="col-md-3 ">
+              <label className="form-label   font-md  text-[15px]">Email ID</label>
               <input
                 type="email"
                 name="email"
@@ -311,21 +311,21 @@ if (!emailPattern.test(email)) {
                 // value={formData.email}
                 value={formData.email ||'' } 
               onChange={handleInputChange} 
-                style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
             </div>
-                        <div className="col-md-4 ">
-                          <label className="form-label  font-bold text-[15px]">Designation</label>
+                        <div className="col-md-3 ">
+                          <label className="form-label   font-md  text-[15px]">Designation</label>
                           <input
                             type="text"
                             name="desig"
@@ -333,16 +333,16 @@ if (!emailPattern.test(email)) {
                             placeholder="Designation"
                             value={formData.desig ||'' } 
                             onChange={handleInputChange}  
-                            style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                            style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                             onFocus={ e => {
                               
                               e.target.style.borderColor = 'white';
-                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                             }}
                             onBlur={e => {
                               
                               e.target.style.borderColor = 'white';
-                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                              e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                             }}
                           />
                         </div>
@@ -351,26 +351,26 @@ if (!emailPattern.test(email)) {
 
 
                     <div className=" flex justify-evenly">
-                    <div className="  w-[507px] h-[324px]  ">
+                    <div className="  w-[507px] h-[324px]  p-8 ">
                                             <h4 className="text-[22px]">Description</h4>
                                             <textarea
                                               type="text"
                                               name="selfIntroduction"
-                                              className="form-control  w-[507px] h-[324px] plac"
+                                              className="mt-8 form-control  w-[507px] h-[310px] plac"
                                               placeholder="Enter here"
                                               rows="4"
                                               value={formData.selfIntroduction ||'' } 
                                               onChange={handleInputChange}  
-                                              style={{border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                                              style={{border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                                                       onFocus={ e => {
                                                         
                                                         e.target.style.borderColor = 'white';
-                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                                                        e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                                                       }}
                                                       onBlur={e => {
                                                     
                                                         e.target.style.borderColor = 'white';
-                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                                                       }}
                                                       // value={employeeData.selfIntroduction}
                                               // value={formData.selfIntroduction}
@@ -380,7 +380,7 @@ if (!emailPattern.test(email)) {
        
         <div className="vertical-line w-[1px] h-[400px] bg-gray-400"></div>
         {/* Social Media Section */}
-        <div className="flex flex-col">
+        <div className="flex flex-col  p-8">
           <h4 className="mb-4 text-[22px]">Social Media</h4>
           <div className="flex gap-5">
                 <div className="mb-3">
@@ -393,16 +393,16 @@ if (!emailPattern.test(email)) {
                     value={formData.socialmedia1 || ''}
                     onChange={handleInputChange}
                     className="form-select rounded-lg plac"
-                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                    
                     
@@ -426,16 +426,16 @@ if (!emailPattern.test(email)) {
                 placeholder="URL Link"
                 value={formData.platform1 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                     
@@ -450,16 +450,16 @@ if (!emailPattern.test(email)) {
                     id="socialmedia2"
                     name="socialmedia2"
                     className="form-select rounded-lg plac"
-                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onChange={handleInputChange}
                     
@@ -483,16 +483,16 @@ if (!emailPattern.test(email)) {
                 placeholder="URL Link"
                 value={formData.platform2 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                 </div>
@@ -506,16 +506,16 @@ if (!emailPattern.test(email)) {
                     id="socialmedia3"
                     name="socialmedia3"
                     className="form-select rounded-lg plac"
-                    style={{fontSize: '12px' , width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' , width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onChange={handleInputChange}
                     
@@ -539,16 +539,16 @@ if (!emailPattern.test(email)) {
                 placeholder="URL Link"
                 value={formData.platform3 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                 </div>
@@ -565,16 +565,16 @@ if (!emailPattern.test(email)) {
                     className="form-select rounded-lg plac"
                     value={formData.socialmedia4 ||''}
                     onChange={handleInputChange}
-                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                    
                     
@@ -598,16 +598,16 @@ if (!emailPattern.test(email)) {
                 placeholder="URL Link"
                 value={formData.platform4 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                     

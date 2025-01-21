@@ -301,109 +301,109 @@ category:'intern',
               onChange={handleFileChange}
             />
           </div>
-          <div className="mt-4 flex-grow-1 row justify-evenly">
-            <div className="col-md-4">
-              <label className="form-label font-bold text-[15px]">Name</label>
+          <div className="mt-3 flex-grow-1 row justify-evenly ">
+            <div className="col-md-3  ">
+              <label className="form-label font-md text-[15px]">Name</label>
               <input
                 type="text"
                 name="name"
+                 placeholder="Name"
                 className="form-control rounded-2xl plac"
-                placeholder="Name"
                 value={formData.name ||'' } 
-                onChange={handleInputChange} 
-                
-                style={{fontSize: '12px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              onChange={handleInputChange}  
+                // value={formData.name}
+                style={{fontSize: '12px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 
-
               />
             </div>
-            <div className="col-md-4">
-              <label className="form-label  font-bold text-[15px]">Employee ID</label>
+            <div className="col-md-3">
+              <label className="form-label   font-md text-[15px]">Employee ID</label>
               <input
                 type="text"
                 name="empID"
                 className="form-control rounded-2xl plac"
                 placeholder="Employee ID"
+                value={formData.empID } 
+              onChange={handleInputChange}
                 // value={formData.empID}
-                value={formData.empID  } 
-              onChange={handleInputChange} 
-                style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                
+                style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
             </div>
-            <div className="col-md-4 ">
-              <label className="form-label  font-bold text-[15px]">Email ID</label>
+            <div className="col-md-3 ">
+              <label className="form-label   font-md  text-[15px]">Email ID</label>
               <input
                 type="email"
                 name="email"
                 className="form-control rounded-2xl plac"
                 placeholder="Email-ID"
-                // value={formData.email}
                 value={formData.email ||'' } 
-              onChange={handleInputChange} 
-                style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              onChange={handleInputChange}
+                // value={formData.email}
+              
+                style={{fontSize: '12px' ,border:'1px solid whie',boxShadow: '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
             </div>
           </div>
         </div>
-        
-            {/* Personal Information Section */}
+
+    {/* Personal Information Section */}
     <div className="flex justify-between ">
-          <div className=" flex flex-col w-[310px]">
+          <div className=" flex flex-col  p-8 w-[310px]">
           <h4 className="mb-4 text-[22px]">Personal Information</h4>
           <div className="mb-3">
             <label className="form-label text-[15px] font-md text-[15px]" htmlFor="phone">
               Phone Number
             </label>
             <input
-              type="text"
+              type="tel"
               id="phone"
               name="phone"
               className="form-control plac"
               placeholder="Phone Number"
-
               value={formData.phone ||'' } 
-              onChange={handleInputChange} 
+              onChange={handleInputChange}
               // value={formData.phoneNumber}
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
             />
           </div>
@@ -417,44 +417,43 @@ category:'intern',
               name="fullAddress"
               className="form-control plac"
               placeholder="Address"
-              value={formData.fullAddress ||'' } 
-              onChange={handleInputChange} 
-              // value={formData.fullAddress}
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              value={formData.fullAddress || ''} 
+              onChange={handleInputChange}
+             
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
             />
           </div>
           <div className="flex gap-5">
           <div className="mb-3 w-[100px]">
-            <label className="form-label text-[15px]" htmlFor="gender">
+            <label className="form-label  text-[15px]" htmlFor="gender">
               Gender
             </label>
             <select
               id="gender"
               name="gender"
               className="form-select rounded-lg plac"
-              
               value={formData.gender ||'' } 
               onChange={handleInputChange} 
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               // value={formData.gender}
             >
@@ -472,21 +471,20 @@ category:'intern',
               type="date"
               id="dob"
               name="dob"
-              value={formData.dob ||'' } 
-              onChange={handleInputChange} 
               className="form-control rounded-lg plac"
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
-              
+              value={formData.dob ||'' } 
+              onChange={handleInputChange} 
               // value={formData.dob}
               
             />
@@ -501,18 +499,18 @@ category:'intern',
               id="bloodgroup"
               name="bloodGroup"
               className="form-select plac"
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
-              value={formData.bloodGroup  } 
+              value={formData.bloodGroup } 
               onChange={handleInputChange} 
               // value={formData.bloodGroup}
             >
@@ -526,23 +524,14 @@ category:'intern',
               <option value="AB-">AB-</option>
             </select>
           </div>
-         
-          
-          
-        </div>
-        <div className="vertical-line w-[1px] h-[400px] bg-gray-400"></div>
-        {/* Employment Overview Section */}
-        <div className="flex flex-col w-[310px]">
-          <h4 className="mb-4 text-[22px]">Employment Overview</h4>
-          <div className="mb-3">
-            <label className="form-label text-[15px]" htmlFor="doj">
-              Date of Joining
+          {/* <div className="mb-3  w-[170px]">
+            <label className="form-label text-[15px]" htmlFor="category">
+              Type
             </label>
-            <input
-              type="date"
-              id="doj"
-              name="dateOfJoining"
-              className="form-control plac"
+            <select
+              id="category"
+              name="category"
+              className="form-select plac"
               style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
               onFocus={ e => {
                 
@@ -553,6 +542,43 @@ category:'intern',
                   
                 e.target.style.borderColor = 'white';
                 e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+              }}
+              value={formData.category ||'' } 
+              onChange={handleInputChange} 
+              // value={formData.bloodGroup}
+            >
+              <option value="employee+">  Employee</option>
+              <option value="sales">Sales</option>
+              <option value="intern">Intern</option>
+       
+            </select>
+          </div> */}
+          
+        
+        </div>
+        <div className="vertical-line w-[1px] h-[400px] bg-gray-400"></div>
+        {/* Employment Overview Section */}
+        <div className="flex flex-col p-8 w-[310px]">
+          <h4 className="mb-4 text-[22px]">Employment Overview</h4>
+          <div className="mb-3">
+            <label className="form-label text-[15px]" htmlFor="doj">
+              Date of Joining
+            </label>
+            <input
+              type="date"
+              id="doj"
+              name="dateOfJoining"
+              className="form-control plac"
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
+              onFocus={ e => {
+                
+                e.target.style.borderColor = 'white';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
+              }}
+              onBlur={e => {
+                  
+                e.target.style.borderColor = 'white';
+                e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               value={formData.dateOfJoining ||'' } 
               onChange={handleInputChange} 
@@ -567,16 +593,16 @@ category:'intern',
               id="jobrole"
               name="jobRole"
               className="form-select plac"
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               value={formData.jobRole  } 
               onChange={handleInputChange} 
@@ -601,18 +627,19 @@ category:'intern',
               id="empsatus"
               name="employeeStatus"
               className="form-select plac"
-              ovalue={formData.employeeStatus  } 
+              value={formData.employeeStatus  } 
               onChange={handleInputChange} 
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               // value={formData.employeeStatus}
             >
@@ -629,16 +656,16 @@ category:'intern',
               id="joblevel"
               name="jobLevel"
               className="form-select plac"
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               onBlur={e => {
                   
                 e.target.style.borderColor = 'white';
-                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
               }}
               value={formData.jobLevel  } 
               onChange={handleInputChange} 
@@ -656,7 +683,7 @@ category:'intern',
         </div>
         <div className="vertical-line w-[1px] h-[400px] bg-gray-400"></div>
         {/* Social Media Section */}
-        <div className="flex flex-col">
+        <div className="flex  flex-col p-8">
           <h4 className="mb-4 text-[22px]">Social Media</h4>
           <div className="flex gap-5">
                 <div className="mb-3">
@@ -669,16 +696,16 @@ category:'intern',
                     value={formData.socialmedia1 }
                     onChange={handleInputChange}
                     className="form-select rounded-lg plac"
-                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                    
                     
@@ -702,16 +729,16 @@ category:'intern',
                 placeholder="URL Link"
                 value={formData.platform1 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                     
@@ -726,16 +753,16 @@ category:'intern',
                     id="socialmedia2"
                     name="socialmedia2"
                     className="form-select rounded-lg plac"
-                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onChange={handleInputChange}
                     
@@ -759,16 +786,16 @@ category:'intern',
                 placeholder="URL Link"
                 value={formData.platform2 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                 </div>
@@ -782,16 +809,16 @@ category:'intern',
                     id="socialmedia3"
                     name="socialmedia3"
                     className="form-select rounded-lg plac"
-                    style={{fontSize: '12px' , width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' , width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow =  '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onChange={handleInputChange}
                     
@@ -815,16 +842,16 @@ category:'intern',
                 placeholder="URL Link"
                 value={formData.platform3 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                 </div>
@@ -841,16 +868,16 @@ category:'intern',
                     className="form-select rounded-lg plac"
                     value={formData.socialmedia4 }
                     onChange={handleInputChange}
-                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                    style={{fontSize: '12px' ,  width:'140px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                     onFocus={ e => {
                       
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                     onBlur={e => {
                   
                       e.target.style.borderColor = 'white';
-                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                      e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                     }}
                    
                     
@@ -874,16 +901,16 @@ category:'intern',
                 placeholder="URL Link"
                 value={formData.platform4 || ''}
                 onChange={handleInputChange}
-                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                style={{fontSize: '12px' ,  width:'170px',border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                 onFocus={ e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow ='-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
                 onBlur={e => {
                   
                   e.target.style.borderColor = 'white';
-                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                  e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                 }}
               />
                     
@@ -898,21 +925,21 @@ category:'intern',
                                             <h4 className="text-[22px]">Feedback</h4>
                                             <textarea
                                             name="feedback"
-                                              className="form-control w-[660px] h-[150px] plac"
+                                              className="form-control w-[660px] h-[150px]  plac"
                                               placeholder="Enter here"
                                               rows="4"
                                               value={formData.feedback.join('\n') ||'' } 
                                               onChange={handleFeedbackChange} 
-                                              style={{border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)'}}
+                                              style={{border:'1px solid whie',fontSize:'14px',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
                                                       onFocus={ e => {
                                                         
                                                         e.target.style.borderColor = 'white';
-                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                                                       }}
                                                       onBlur={e => {
                                                     
                                                         e.target.style.borderColor = 'white';
-                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.15),2px 1px 4px 0px rgba(10, 10, 10, 0.15),0px -2px 4px 0px rgba(10, 10, 10, 0.15)';
+                                                        e.target.style.boxShadow = '-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)';
                                                       }}
                                               
                                             ></textarea>
