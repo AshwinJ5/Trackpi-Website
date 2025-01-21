@@ -135,7 +135,7 @@ function App() {
                                    </Route>
 
                                     {/* 404 Not Found */}
-                                    <Route path="/*" element={<Navigate to={"/not-found"} />} />
+                                    <Route path="/not-found" element={<Navigate to={"/not-found"} />} />
                                     <Route path="/*" element={<NotFound />} />
                                 </Routes>
                             </div>

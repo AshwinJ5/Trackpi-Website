@@ -1,5 +1,5 @@
 // Created by Shalu
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useInView } from '../../components/User/UseInView';
@@ -27,6 +27,7 @@ function Home() {
   const isInView1 = useInView({ selector: '.section1' });
   const isInView2 = useInView({ selector: '.section2' });
   const isInView3 = useInView({ selector: '.section3' });
+  const [heading, setHeading] = useState({});
 
   const [cards, setCards] = useState([]);
   console.log(cards, 'Cards');
@@ -56,87 +57,117 @@ function Home() {
   const [isPaused, setIsPaused] = useState(false);
 
   // Function to group cards based on the current cardsPerGroup value
-  const groupCards = () => {
-    const groups = [];
-    for (let i = 0; i < cards.length; i += cardsPerGroup) {
-      groups.push(cards.slice(i, i + cardsPerGroup));
-    }
-    setGroupedCards(groups);
-  };
+  // const groupCards = () => {
+  //   const groups = [];
+  //   for (let i = 0; i < cards.length; i += cardsPerGroup) {
+  //     groups.push(cards.slice(i, i + cardsPerGroup));
+  //   }
+  //   setGroupedCards(groups);
+  // };
 
-  // // Initial grouping and on resize update
+  // // // Initial grouping and on resize update
   // useEffect(() => {
   //   groupCards(); // Initial grouping
   // }, [cards, cardsPerGroup]);
+  useEffect(() => {
+    setGroupedCards(() => {
+      const groups = [];
+      for (let i = 0; i < cards.length; i += cardsPerGroup) {
+        groups.push(cards.slice(i, i + cardsPerGroup));
+      }
+      return groups;
+    });
+  }, [cards, cardsPerGroup]);
 
-  // // Handle window resize
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     let newCardsPerGroup = 4; // Default to 4 cards for large screens
-
-  //     if (window.innerWidth < 640) {
-  //       newCardsPerGroup = 1; // Only 1 card for small screens
-  //     } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
-  //       newCardsPerGroup = 3; // 2 cards for medium screens
-  //     }
-
-  //     if (newCardsPerGroup !== cardsPerGroup) {
-  //       setCardsPerGroup(newCardsPerGroup);
-  //     }
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, [cardsPerGroup]);
-
+  // Handle window resize
   useEffect(() => {
     const handleResize = () => {
-      let newCardsPerGroup = 4;
+      let newCardsPerGroup = 4; // Default to 4 cards for large screens
 
       if (window.innerWidth < 640) {
-        newCardsPerGroup = 1; // Show only 1 card at a time in small screens
-        setCards(prevCards => prevCards.slice(-4)); // Keep only last 4 images
+        newCardsPerGroup = 1; // Only 1 card for small screens
       } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
-        newCardsPerGroup = 3;
+        newCardsPerGroup = 3; // 2 cards for medium screens
       }
 
       if (newCardsPerGroup !== cardsPerGroup) {
         setCardsPerGroup(newCardsPerGroup);
       }
-      groupCards();
-
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Run on initial load
-
     return () => window.removeEventListener('resize', handleResize);
   }, [cardsPerGroup]);
 
-  useEffect(() => {
-    groupCards(); // Re-group cards when the data changes
-  }, [cards, cardsPerGroup]);
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     let newCardsPerGroup = 4;
+
+  //     if (window.innerWidth < 640) {
+  //       newCardsPerGroup = 1; // Show only 1 card at a time in small screens
+  //       setCards(prevCards => prevCards.slice(-4)); // Keep only last 4 images
+  //     } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
+  //       newCardsPerGroup = 3;
+  //     }
+
+  //     if (newCardsPerGroup !== cardsPerGroup) {
+  //       setCardsPerGroup(newCardsPerGroup);
+  //     }
+
+  //   };
+
+  //   window.addEventListener('resize', handleResize);
+  //   handleResize(); // Run on initial load
+
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, [cardsPerGroup]);
+
+  // useEffect(() => {
+  //   groupCards(); // Re-group cards when the data changes
+  // }, [cards, cardsPerGroup]);
+
+  // useEffect(() => {
+  //   if (isPaused) return; // Pause interval when hovering
+
+  //   const bulgeInterval = setInterval(() => {
+  //     setBulgingCard(prev => {
+  //       const isLastCardInSlide = prev === cardsPerGroup - 1;
+
+  //       if (isLastCardInSlide) {
+  //         // Move to the next slide after the last card
+  //         setCurrentIndex(prevIndex =>
+  //           prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
+  //         );
+  //         return 0; // Reset to first card of the next slide
+  //       }
+  //       return prev + 1; // Otherwise, continue to the next card
+  //     });
+  //   }, 2000); // Bulge interval (2 seconds)
+
+  //   return () => clearInterval(bulgeInterval);
+  // }, [groupedCards.length, cardsPerGroup, isPaused]);
+
+  const intervalRef = useRef(null);
 
   useEffect(() => {
-    if (isPaused) return; // Pause interval when hovering
+    if (isPaused) return;
 
-    const bulgeInterval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setBulgingCard(prev => {
         const isLastCardInSlide = prev === cardsPerGroup - 1;
 
         if (isLastCardInSlide) {
-          // Move to the next slide after the last card
           setCurrentIndex(prevIndex =>
             prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
           );
-          return 0; // Reset to first card of the next slide
+          return 0;
         }
-        return prev + 1; // Otherwise, continue to the next card
+        return prev + 1;
       });
-    }, 2000); // Bulge interval (2 seconds)
+    }, 2000);
 
-    return () => clearInterval(bulgeInterval);
-  }, [groupedCards.length, cardsPerGroup, isPaused]);
+    return () => clearInterval(intervalRef.current);
+  }, [isPaused, cardsPerGroup]);
 
   const handleDotClick = index => {
     setCurrentIndex(index);
@@ -200,7 +231,22 @@ function Home() {
     };
     getClients(); // Fetch client data on component mount
   }, []);
+  useEffect(() => {
+    getAllHeadings();
+  }, []);
 
+  const getAllHeadings = async () => {
+    try {
+      const response = await baseURL.get(
+        '/api/headingfornewspatnership/getallheading'
+      );
+      if (response.data && response.data.length > 0) {
+        setHeading(response.data[0]);
+      }
+    } catch (error) {
+      console.error('Error fetching haeding data:', error);
+    }
+  };
   return (
     <>
       <PopUp />
@@ -237,7 +283,7 @@ function Home() {
       <section>
         <div className="text-center lg:pb-12  sm:pb-3 px-2">
           <h1 className="text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  font-bold text-[#FFC100] ">
-            Real-Time Business News Updates?
+            {heading.newsHeading}
           </h1>
         </div>
         <div className="relative bg-gradient-to-r from-[#FFC100] to-[#FF9D00]">
@@ -280,13 +326,17 @@ function Home() {
                               : 'scale-100'
                           }`}
                         >
-                          <img
-                            // src={card.newsFile}
-                            src={`${SERVER_URL}${card.newsFile}`}
-                            // src="http://localhost:3001/uploads/news/1736834859992.jpg"
-                            alt={`News ${card.id}`}
-                            className=" w-full h-full rounded-lg"
-                          />
+                          <a
+                            href={card.newsLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              src={`${SERVER_URL}${card.newsFile}`}
+                              alt={`News ${card.id}`}
+                              className="w-full h-full rounded-lg"
+                            />
+                          </a>
                           {/* 
                           <img
                             src={card.logo}
@@ -350,7 +400,7 @@ function Home() {
               </button>
             </a>
           </div>{' '}
-          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-2">
+          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-2 dotsMob">
             {dotsToRender.map((_, index) => (
               <button
                 key={index}
@@ -363,7 +413,7 @@ function Home() {
           </div>
           <div className=" mt-4 sm:mx-2 md:mx-4 lg:mx-16 px-2">
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/trackpi_official"
               target="_blank"
               rel="noopener noreferrer" // Security reason when using target="_blank"
             >
@@ -378,22 +428,15 @@ function Home() {
       <section className="w-full h-full mt-12 xl:mt-20 2xl:mt-24">
         <Row className="mt-5 text-center">
           <h1 className="text-[#FFC100] font-extrabold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">
-            OUR CLIENTS
+            {heading.partnershipHeading}
           </h1>
           <h4 className="fw-bold text-[#0A0A0A] text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
-            We’re fortunate to work with the best
+            {heading.partnershipSubHeading}
           </h4>
         </Row>
 
         {/* Client Logos Section */}
-        <div
-          className="flex justify-center md:mt-4 lg:mt-18 sm:mt-2 items-center bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 "
-          // style={{
-          //   marginTop: '3rem',
-          //   overflow: 'hidden',
-          //   whiteSpace: 'nowrap',
-          // }}
-        >
+        <div className=" md:mt-4 lg:mt-18 sm:mt-2 items-center bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 ">
           {/* <div className="flex animate-scroll">
             {clients.concat(clients).map((client, index) => (
               <Col xs={3} md={2} key={index}>
@@ -406,7 +449,8 @@ function Home() {
             ))}
           </div> */}
 
-          <div className="flex animate-scroll">
+            <div className="flex animate-scroll">
+
             {clientsLogo.concat(clientsLogo).map((client, index) => (
               <Col xs={3} md={2} key={index}>
                 <img
@@ -416,7 +460,8 @@ function Home() {
                 />
               </Col>
             ))}
-          </div>
+             
+            </div>
         </div>
       </section>
 
