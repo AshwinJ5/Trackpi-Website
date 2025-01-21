@@ -108,3 +108,9 @@
   }
   
  
+  @media (max-width: 300px) {
+
+  .KeyBenefitFirstDiv .containerThree{
+    width: 100%;
+  }
+}

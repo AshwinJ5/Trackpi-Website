@@ -6,7 +6,10 @@ import EmpDetails from "../../components/User/EmpDetails";
 import "../../CSS/employeeinternship.css";
 function EmployeeSales() {
   const location = useLocation();
-  const employeeData = location.state?.rowDatas || {};
+  const employeeData = location.state.rowDatas ;
+  console.log(employeeData);
+  console.log(location.state);
+  
 
   return (
     <div className="pad mt-20  w-full py-5 md:py-10 md:px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto "  >

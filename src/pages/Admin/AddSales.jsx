@@ -131,7 +131,7 @@ const handleBusinessCardFileChange = (e) => {
     e.preventDefault();
     
     const empID = formData.empID;
-     const empIDPattern = /^TPE1D\d{6}$/; // Regular expression to match 'TPE1D' followed by 6 digits
+     const empIDPattern = /^TPEID\d{6}$/; // Regular expression to match 'TPE1D' followed by 6 digits
       if (!empIDPattern.test(empID)) {
         toast.error("Employee ID must start with 'TPE1D' followed by 6 digits (e.g., TPE1D123456).");
         return; // Prevent form submission

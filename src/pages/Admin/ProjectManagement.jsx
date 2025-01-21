@@ -115,15 +115,15 @@ function ProjectManagement() {
               <div className="text-[#FF9D00] text-[20px]">{date}</div>
 
               {/* Table */}
-              <div className="relative shadow-md sm:rounded-lg border-[#939393] border-1">
+              <div className="relative shadow-md sm:rounded-lg ">
                 <div className="table-wrapper">
                   <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
                     {/* Table Headers */}
-                    <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
+                    <thead className="text-md font-bold text-black uppercase  ">
                       <tr>
                         <th
                           scope="col"
-                          className=" border-r text-center"
+                          className="  text-center"
                           style={{ width: '10%' }}
                         >
                           {' '}
@@ -131,7 +131,7 @@ function ProjectManagement() {
                         </th>
                         <th
                           scope="col"
-                          className="px-2 py-3 border-r text-center"
+                          className="px-2 py-3  text-center"
                           style={{ width: '25%' }}
                         >
                           {' '}
@@ -139,7 +139,7 @@ function ProjectManagement() {
                         </th>
                         <th
                           scope="col"
-                          className="px-2 py-3 border-r text-center"
+                          className="px-2 py-3  text-center"
                           style={{ width: '25%' }}
                         >
                           {' '}
@@ -147,7 +147,7 @@ function ProjectManagement() {
                         </th>
                         <th
                           scope="col"
-                          className="px-2 py-3 border-r text-center"
+                          className="px-2 py-3  text-center"
                           style={{ width: '25%' }}
                         >
                           {' '}
@@ -155,7 +155,7 @@ function ProjectManagement() {
                         </th>
                         <th
                           scope="col"
-                          className="px-2 py-3 border-r text-center"
+                          className="px-2 py-3  text-center"
                           style={{ width: '25%' }}
                         >
                           {' '}
@@ -163,7 +163,7 @@ function ProjectManagement() {
                         </th>
                         <th
                           scope="col"
-                          className="px-2 py-3 border-r text-center"
+                          className="px-2 py-3  text-center"
                           style={{ width: '20%' }}
                         >
                           {' '}
@@ -184,10 +184,10 @@ function ProjectManagement() {
                       {groupedProjects[date].map((project, projectIndex) => (
                         <tr
                           key={project._id}
-                          className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 custom-table"
+                          className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 "
                         >
                           <td
-                            className=" border-r text-center"
+                            className="  text-center"
                             style={{
                               wordWrap: 'break-word',
                               overflowWrap: 'break-word',
@@ -197,7 +197,7 @@ function ProjectManagement() {
                             {projectIndex + 1}
                           </td>
                           <td
-                            className={`px-2 py-3 border-r text-center`}
+                            className={`px-2 py-3  text-center`}
                             style={{
                               wordWrap: 'break-word',
                               overflowWrap: 'break-word',
@@ -207,7 +207,7 @@ function ProjectManagement() {
                             {project.fullName}
                           </td>
                           <td
-                            className={`px-2 py-3 border-r text-center`}
+                            className={`px-2 py-3  text-center`}
                             style={{
                               wordWrap: 'break-word',
                               overflowWrap: 'break-word',
@@ -217,7 +217,7 @@ function ProjectManagement() {
                             {project.emailAddress}
                           </td>
                           <td
-                            className={`px-2 py-3 border-r text-center`}
+                            className={`px-2 py-3  text-center`}
                             style={{
                               wordWrap: 'break-word',
                               overflowWrap: 'break-word',
@@ -227,7 +227,7 @@ function ProjectManagement() {
                             {project.contactNumber}
                           </td>
                           <td
-                            className={`px-2 py-3 border-r text-center`}
+                            className={`px-2 py-3  text-center`}
                             style={{
                               wordWrap: 'break-word',
                               overflowWrap: 'break-word',
@@ -237,7 +237,7 @@ function ProjectManagement() {
                             {project.projectName}
                           </td>
                           <td
-                            className={`px-2 py-3 border-r text-center`}
+                            className={`px-2 py-3  text-center`}
                             style={{
                               wordWrap: 'break-word',
                               overflowWrap: 'break-word',
@@ -248,7 +248,7 @@ function ProjectManagement() {
                             {/* Extract time */}
                           </td>
                           <td
-                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
+                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px] "
                             onClick={() => handleViewDetails(project)}
                           >
                             View Details <FiExternalLink size={20} />

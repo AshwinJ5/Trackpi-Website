@@ -1,23 +1,23 @@
-.projectManagement table {
-    border: 1px solid #0A0A0A;
+.table-wrapper table {
+    border: .5px solid #0A0A0A;
     border-spacing: 0;
     border-radius: 10px;
     overflow: hidden;
     border-collapse: separate;
   }
-  .projectManagement table td,  .projectManagement table th{
+  .table-wrapper table td,  .table-wrapper table th{
     padding: 10px 0 ;
-    border-right: 1px  solid #0A0A0A;
+    border-right: .5px  solid #0A0A0A;
   }
-.projectManagement table td:last-child, 
-.projectManagement table th:last-child {
+.table-wrapper table td:last-child, 
+.table-wrapper table th:last-child {
     padding: 10px 0;
     border-right: 0;
 }
 
- .projectManagement table th {
+ .table-wrapper table th {
     padding: 10px 0 ;
-    border-bottom: 1px  solid #0A0A0A;
+    border-bottom: .5px  solid #0A0A0A;
   }
   .projectManagement table th{
     font-size: 18px;
@@ -120,3 +120,5 @@
   word-wrap: break-word !important;
   white-space: normal !important;
 }
+
+

@@ -28,7 +28,7 @@ function ServicesSub({
     return (
         <section
             ref={refMainHeading}
-            className={`${classname} px-6 py-[15px] sm:py-6 md:py-8 lg:py-[50px] lg:px-20 xl:px-24 2xl:px-32 mx-auto grid gap-[15px] sm:gap-6 md:gap-8 lg:gap-[50px]  `}
+            className={`${classname} px-6 py-[15px] sm:py-6 md:py-8 lg:py-[50px] md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto grid gap-[15px] sm:gap-6 md:gap-8 lg:gap-[50px]  `}
         >
             <motion.div
                 initial={{ opacity: 0, z: 50 }}

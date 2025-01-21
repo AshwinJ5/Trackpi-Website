@@ -15,7 +15,7 @@ function Details() {
           info_from:"",
           message:""
       })
-console.log(newDatas);
+// console.log(newDatas);
 
 
       const handlePhoneChange = (value, country) => {
@@ -257,7 +257,7 @@ console.log(newDatas);
             }}
             
           >
-            <option value="" disabled selected hidden >
+            <option value="" disabled  hidden >
             How Did You Hear About Us?
             </option>
             <option value="Social Media" >Social Media</option>

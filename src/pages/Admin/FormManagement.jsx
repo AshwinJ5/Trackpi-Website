@@ -113,15 +113,15 @@ function FormManagement() {
                   <div className="text-[#FF9D00] text-[20px]">{date}</div>
     
                   {/* Table */}
-                  <div className="relative shadow-md sm:rounded-lg border-[#939393] border-1">
+                  <div className="relative shadow-md sm:rounded-lg ">
                     <div className="table-wrapper">
                       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
                         {/* Table Headers */}
-                        <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
+                        <thead className="text-md font-bold text-black uppercase ">
                           <tr>
                             <th
                               scope="col"
-                              className=" border-r text-center"
+                              className=" text-center"
                               style={{ width: '10%' }}
                             >
                               {' '}
@@ -129,7 +129,7 @@ function FormManagement() {
                             </th>
                             <th
                               scope="col"
-                              className="px-2 py-3 border-r text-center"
+                              className="px-2 py-3 text-center"
                               style={{ width: '25%' }}
                             >
                               {' '}
@@ -137,7 +137,7 @@ function FormManagement() {
                             </th>
                             <th
                               scope="col"
-                              className="px-2 py-3 border-r text-center"
+                              className="px-2 py-3 text-center"
                               style={{ width: '25%' }}
                             >
                               {' '}
@@ -145,7 +145,7 @@ function FormManagement() {
                             </th>
                             <th
                               scope="col"
-                              className="px-2 py-3 border-r text-center"
+                              className="px-2 py-3 text-center"
                               style={{ width: '25%' }}
                             >
                               {' '}
@@ -153,7 +153,7 @@ function FormManagement() {
                             </th>
                             <th
                               scope="col"
-                              className="px-2 py-3 border-r text-center"
+                              className="px-2 py-3 text-center"
                               style={{ width: '25%' }}
                             >
                               {' '}
@@ -161,7 +161,7 @@ function FormManagement() {
                             </th>
                             <th
                               scope="col"
-                              className="px-2 py-3 border-r text-center"
+                              className="px-2 py-3 text-center"
                               style={{ width: '20%' }}
                             >
                               {' '}
@@ -182,10 +182,10 @@ function FormManagement() {
                           {groupedContactForms[date].map((form, formIndex) => (
                             <tr
                               key={form._id}
-                              className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 custom-table"
+                              className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 "
                             >
                               <td
-                                className=" border-r text-center"
+                                className="  text-center"
                                 style={{
                                   wordWrap: 'break-word',
                                   overflowWrap: 'break-word',
@@ -195,7 +195,7 @@ function FormManagement() {
                                 {formIndex + 1}
                               </td>
                               <td
-                                className={`px-2 py-3 border-r text-center`}
+                                className={`px-2 py-3  text-center`}
                                 style={{
                                   wordWrap: 'break-word',
                                   overflowWrap: 'break-word',
@@ -205,7 +205,7 @@ function FormManagement() {
                                 {form.fullName}
                               </td>
                               <td
-                                className={`px-2 py-3 border-r text-center`}
+                                className={`px-2 py-3  text-center`}
                                 style={{
                                   wordWrap: 'break-word',
                                   overflowWrap: 'break-word',
@@ -215,7 +215,7 @@ function FormManagement() {
                                 {form.email}
                               </td>
                               <td
-                                className={`px-2 py-3 border-r text-center`}
+                                className={`px-2 py-3  text-center`}
                                 style={{
                                   wordWrap: 'break-word',
                                   overflowWrap: 'break-word',
@@ -225,7 +225,7 @@ function FormManagement() {
                                 {form.phone}
                               </td>
                               <td
-                                className={`px-2 py-3 border-r text-center`}
+                                className={`px-2 py-3  text-center`}
                                 style={{
                                   wordWrap: 'break-word',
                                   overflowWrap: 'break-word',
@@ -235,7 +235,7 @@ function FormManagement() {
                                 {form.info_from}
                               </td>
                               <td
-                                className={`px-2 py-3 border-r text-center`}
+                                className={`px-2 py-3  text-center`}
                                 style={{
                                   wordWrap: 'break-word',
                                   overflowWrap: 'break-word',
@@ -246,7 +246,7 @@ function FormManagement() {
                                 {/* Extract time */}
                               </td>
                               <td
-                                className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
+                                className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px]"
                                 onClick={() => handleViewDetails(form)}
                               >
                                 View Details <FiExternalLink size={20} />

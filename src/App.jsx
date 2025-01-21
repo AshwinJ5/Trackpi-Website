@@ -60,11 +60,11 @@ function App() {
 
     const showHeaderFooter = [
         "/",
-        "/about",
-        "/our-services",
-        "/connect-us",
+        "/about-trackpi",
+        "/business-consulting-services",
+        "/contact-us",
         "/employee-verification",
-        "/new-project-form",
+        "/project-submission",
         "/employeesales",
         "/employeeinternship",
         "/termsconditions",
@@ -94,13 +94,12 @@ function App() {
                                 <Routes>
                                     {/* Public Routes */}
                                     <Route path="/" element={<Home />} />
-                                    <Route path="/about" element={<About />} />
-                                    <Route path="/our-services" element={<OurServices />} />
-                                    <Route path="/our-team" element={<OurTeam />} />
+                                    <Route path="/about-trackpi" element={<About />} />
+                                    <Route path="/business-consulting-services" element={<OurServices />} />
                                     <Route path="/employee-verification" element={<EmployeeVerification />} />
-                                    <Route path="/connect-us" element={<Connect />} />
+                                    <Route path="/contact-us" element={<Connect />} />
                                     <Route path="/personnel" element={<Personel />} />
-                                    <Route path="/new-project-form" element={<NewProject />} />
+                                    <Route path="/project-submission" element={<NewProject />} />
                                     <Route path="/employeesales" element={<EmployeeSales />} />
                                     <Route path="/employeeinternship" element={<EmployeeInternship />} />
                                     <Route path="/termsconditions" element={<TermsAndConditions />} />

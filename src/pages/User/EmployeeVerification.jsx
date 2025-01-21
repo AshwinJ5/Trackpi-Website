@@ -6,136 +6,80 @@ import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import Brochure from "../../components/User/Brochure";
 import '../../CSS/employverification.css'
+import baseURL from '../../Api Services/baseURL'
 
 function EmployeeVerification() {
-    const [formData, setFormData] = useState({
-        employeeId: "",
-    });
-    const [errors, setErrors] = useState({});
-    const [searchResults, setSearchResults] = useState([]);
     const [captchaVerified, setCaptchaVerified] = useState(false);
-    // const [captchaMessage, setCaptchaMessage] = useState('');
-    const [isTouched, setIsTouched] = useState(false);
     const [loading, setLoading] = useState(false);
     const [modalShow, setModalShow] = useState(false);
+    const [verifyInput,setVerifyInput]=useState("")
+    const [employeeData,setEmployeeData]=useState({})
+// console.log(verifyInput);
+// console.log(employeeData);
 
     const navigate = useNavigate();
 
-    // Dummy data (simulate a backend response)
-    const dummyData = [
-        { employeeId: "EMP001", fullName: "John Doe", department: "HR" },
-        { employeeId: "EMP002", fullName: "Jane Smith", department: "IT" },
-        { employeeId: "EMP003", fullName: "Alice Johnson", department: "Finance" },
-        { employeeId: "EMP004", fullName: "Bob Brown", department: "IT" },
-        { employeeId: "EMP005", fullName: "Charlie White", department: "HR" },
-    ];
-
-    // Handle input changes
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        setFormData({ ...formData, [id]: value });
-    };
-
-    // Validation function
-    const validate = () => {
-        const { employeeId } = formData;
-
-        if (!employeeId) {
-            toast.error("Please fill the Employee ID field."); // Show toast for empty field
-            return false;
-        }
-
-        if (!/^[a-zA-Z0-9]+$/.test(employeeId)) {
-            toast.error("Employee ID must be alphanumeric."); // Show toast for invalid characters
-            return false;
-        }
-
-        return true;
-    };
-
-    // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmitVerify = async (e) => {
         e.preventDefault();
-        setLoading(true);
-
-        // Validate input and show relevant toast errors
-        if (!validate()) {
-            setLoading(false);
+        if(verifyInput.length===0){
+            toast.info("Please fill the field")
+            return
+        }else if (
+            verifyInput.length !== 11 || 
+            !verifyInput.startsWith('TPEID')
+          ) {
+            toast.error('Please provide the correct format');
             return;
-        }
-
-        // Show CAPTCHA modal if not verified
-        if (!captchaVerified) {
-            setModalShow(true);
-            setLoading(false);
-            return;
-        }
-
-        // Proceed with submission after CAPTCHA
-        setTimeout(() => {
-            const { employeeId } = formData;
-            const filteredResults = dummyData.filter((employee) => employee.employeeId.includes(employeeId));
-
-            if (filteredResults.length === 0) {
-                setSearchResults([]);
-                toast.info("No matching employee found."); // Show toast for no results
-            } else {
-                setSearchResults(filteredResults);
-                toast.success("Employee found!"); // Show toast for success
-            }
-
-            setLoading(false);
-            resetForm();
-        }, 2000);
-    };
+          }  
+          setModalShow(true)
+      };
 
     // Handle CAPTCHA success
-    const handleCaptchaSuccess = () => {
+    const handleCaptchaSuccess = async () => {
         setCaptchaVerified(true);
-        setModalShow(false); // Close the modal
-
-        // Proceed with form submission after CAPTCHA verification
-        if (validate()) {
-            const { employeeId } = formData;
-            const filteredResults = dummyData.filter((employee) => employee.employeeId.includes(employeeId));
-
-            if (filteredResults.length === 0) {
-                setSearchResults([]);
-                setLoading(true);
-                setTimeout(() => {
-                    setLoading(false);
-                    toast.info("No matching employee found.");
-                }, 2000);
-            } else {
-                setLoading(true);
-                setTimeout(() => {
-                    setLoading(false);
-                    navigate("/personel");
-                }, 2000);
+        setModalShow(false);
+        setLoading(true);
+      
+        try {
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+      
+          const response = await baseURL.get(`/api/employee/employeedetail/${verifyInput}`);
+      
+          if (response.status === 200) {
+            const employee = response.data;
+            setEmployeeData(employee);
+      
+            switch (employee.category) {
+              case "intern":
+                navigate("/employeeinternship", { state: { rowDatas: employee } });
+                setVerifyInput("")
+                break;
+              case "sales":
+                navigate("/employeesales", { state: { rowDatas: employee } });
+                setVerifyInput("")
+                break;
+              default:
+                toast.error("No employee data found.");
+                setVerifyInput("")
             }
-            resetForm();
+          } else {
+            toast.error("No employee data found.");
+            setVerifyInput("")
+          }
+        } catch (error) {
+          if (error.response && error.response.status === 404) {
+            toast.error("Employee not found!");
+            setVerifyInput("")
+          } else {
+            console.error("Error fetching employee data:", error.message);
+            toast.error("Failed to fetch employee data. Please try again.");
+            setVerifyInput("")
+          }
+        } finally {
+          setLoading(false);
         }
-    };
-
-    // Mark the input as touched when the user interacts with it
-    const handleTouched = (e) => {
-        setIsTouched(true); // Mark the field as touched
-        handleChange(e); // Update the form data
-    };
-
-    const resetForm = () => {
-        setFormData({ employeeId: "" });
-        setCaptchaVerified(false);
-        // setCaptchaMessage('');
-        setIsTouched(false);
-    };
-
-    // Show toast notification when there's a general error
-    useEffect(() => {
-        if (errors.general) {
-            toast.info(errors.general);
-        }
-    }, [errors.general]);
+      };
+      
 
     const clients = [
         {
@@ -175,7 +119,7 @@ function EmployeeVerification() {
             <p className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[14.4px] sm:leading-[18px] md:leading-[22px] lg:leading-[26px] xl:leading-[28px] 2xl:leading-[31.2px] text-white block md:hidden headerBannerPara">
             Verify employee credentials and details securely
             and efficiently.            </p>
-            <form className=" w-100 mt-[3vh] lg:mt-[4vh] xl:mt-[5vh] 2xl:mt-[7vh]  hidden md:block">
+            <form onSubmit={handleSubmitVerify} className=" w-100 mt-[3vh] lg:mt-[4vh] xl:mt-[5vh] 2xl:mt-[7vh]  hidden md:block">
                         {/* Employee ID */}
                         <div style={{fontWeight:"600", width:"90%"}} className="mb-4 mx-auto lg:text-xl text-lg g-5">
                             <label className="block my-2 text-left text-light" htmlFor="employeeId">
@@ -184,12 +128,13 @@ function EmployeeVerification() {
                             <input
                                 type="text"
                                 id="employeeId"
+                                maxLength={11}
                                 aria-label="Enter Your Employee ID"
-                                value={formData.employeeId}
-                                onChange={handleTouched}
+                                value={verifyInput}
+                                onChange={(e)=>{setVerifyInput(e.target.value)}}
                                 placeholder="Enter Your Employee ID"
                                 className=" p-3  text-base  rounded-md w-full"
-                                style={{border:'2px black solid',outline:"none"}}
+                                style={{border:'2px black solid',outline:"none",letterSpacing:"1.5px"}}
                             />
                         </div>
 
@@ -197,7 +142,7 @@ function EmployeeVerification() {
                         <div className="text-center">
                             <button
                                 type="submit"
-                                onClick={handleSubmit}
+                                // onClick={handleSubmit}
                                 disabled={loading} // Disable button when loading
                                 className="mt-3 transform hover:scale-105 bg-gradient-to-r from-[#FFC100] to-[#FF9D00]  py-2 px-6 rounded-md font-semibold lg:text-xl text-base text-white"
                             >
@@ -218,7 +163,7 @@ function EmployeeVerification() {
             <section className=" mb-14 w-100 block md:hidden">
                 <div style={{maxWidth:'90%'}} className="bg-white shadow-lg mx-auto p-4 rounded-lg ">
                     <div className="font-bold text-[18px] sm:text-[22px] text-amber-400 text-center">Employee Verification</div>
-                    <form>
+                    <form onSubmit={handleSubmitVerify}>
                         <div style={{fontWeight:"600"}} className="mb-4 g-5">
                             <label className="block my-2 text-xs text-dark" htmlFor="employeeId">
                                 Employee ID
@@ -226,19 +171,20 @@ function EmployeeVerification() {
                             <input
                                 type="text"
                                 id="employeeId"
+                                maxLength={11}
                                 aria-label="Enter Employee ID"
-                                value={formData.employeeId}
-                                onChange={handleTouched}
+                                value={verifyInput}
+                                onChange={(e)=>{setVerifyInput(e.target.value)}}
                                 className=" p-[.3rem] font-normal  text-[.625rem] rounded-md w-full employInput"
                                 placeholder="Enter Employee ID"
-                                style={{border:'.32px #0A0A0A80 solid'}}
+                                style={{border:'.32px #0A0A0A80 solid',letterSpacing:"1.5px" , outline:".32px #0A0A0A80 solid"}}
                             />
                         </div>
 
                         <div className="text-center">
                             <button
                                 type="submit"
-                                onClick={handleSubmit}
+                                // onClick={handleSubmit}
                                 disabled={loading} // Disable button when loading
                                 className="w-[92.17px] transform hover:scale-105 bg-gradient-to-r from-[#FFC100] to-[#FF9D00]  py-[3.84px] px-[9.58px]  rounded-md font-semibold text-[10px] text-white"
                             >
@@ -290,7 +236,6 @@ function EmployeeVerification() {
 
             </section>
             </div>
-            <ToastContainer />
         </div>
     );
 }
