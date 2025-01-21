@@ -18,7 +18,9 @@ const NewProject = () => {
         <Container className="flex flex-col ">
           <div className="w-full rounded ">
             <div>
-              <h1 className="text-center mb-8  font-bold text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">Enter the Details</h1>
+              <h1 className="text-center mb-8  font-bold text-[#FFC100] text-[30px] md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">
+                Enter the Details
+              </h1>
             </div>
             <FormNewProject />
           </div>

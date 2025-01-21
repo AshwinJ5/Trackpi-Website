@@ -5,12 +5,10 @@ import { FiExternalLink } from 'react-icons/fi';
 import baseURL from '../../Api Services/baseURL';
 
 function ProjectManagement() {
-  const [fileUrl, setFileUrl] = useState("");
-
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const[refresh,setRefresh] = useState('')
+  const [refresh, setRefresh] = useState('');
 
   const navigate = useNavigate();
 
@@ -21,7 +19,7 @@ function ProjectManagement() {
         const response = await baseURL.get('/api/projects/getAllProjects');
         console.log(response.data, 'responseDataProjects');
         setProjects(response.data); // Assuming the API returns an array of projects
-        setRefresh(response.data)
+        setRefresh(response.data);
         setLoading(false);
       } catch (err) {
         setError('Failed to load projects');
@@ -48,43 +46,40 @@ function ProjectManagement() {
   };
 
   const handleExportCSV = async () => {
-    console.log("clicked");
-  
+    console.log('clicked');
+
     try {
       // const token = localStorage.getItem('adminToken');  // Get token from localStorage
-  
+
       // if (!token) {
       //   return console.error("Token is missing!");
       // }
-  
-      const response = await baseURL.get("export/csv-data?type=project", {
+
+      const response = await baseURL.get('export/csv-data?type=project', {
         headers: {
-          // Authorization: `Bearer ${token}`,  
+          // Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        responseType: "blob",  // Important for handling file download
+        responseType: 'blob', // Important for handling file download
       });
-  
+
       // Create a URL for the blob data
       const url = window.URL.createObjectURL(new Blob([response.data]));
-  
+
       // Create a temporary link element
-      const link = document.createElement("a");
+      const link = document.createElement('a');
       link.href = url;
-      link.setAttribute("download", "project-data.csv"); // Set the filename
+      link.setAttribute('download', 'project-data.csv'); // Set the filename
       document.body.appendChild(link);
       link.click(); // Trigger the download
-  
+
       // Cleanup
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
     } catch (error) {
-      console.error("Error exporting CSV:", error);
+      console.error('Error exporting CSV:', error);
     }
   };
-  
-
-
 
   if (loading) {
     return <div>Loading...</div>; // You can customize the loading indicator
@@ -94,6 +89,28 @@ function ProjectManagement() {
     return <div>{error}</div>; // You can customize the error message
   }
 
+  const formatDate = dateString => {
+    const date = new Date(dateString);
+    const formattedDate = new Intl.DateTimeFormat('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      // hour: '2-digit',
+      // minute: '2-digit',
+      // hour12: true
+    }).format(date);
+
+    return formattedDate;
+  };
+
+  const formatTime = dateString => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    }).format(date);
+  };
   return (
     <div className="bg-white w-full">
       <div className="py-[40px] px-[30px] grid gap-[30px]">
@@ -101,7 +118,10 @@ function ProjectManagement() {
         <div className="flex justify-between items-center">
           <div className="text-[24px] font-bold">Project Management</div>
           <div>
-            <button className="px-4 py-2 rounded-[10px] flex items-center gap-3 font-bold text-white bg-[#FF9D00]" onClick={handleExportCSV}>
+            <button
+              className="px-4 py-2 rounded-[10px] flex items-center gap-3 font-bold text-white bg-[#FF9D00]"
+              onClick={handleExportCSV}
+            >
               <FiUpload size={20} />
               Export
             </button>
@@ -112,7 +132,9 @@ function ProjectManagement() {
           {Object.keys(groupedProjects).map(date => (
             <div className="grid gap-[10px]" key={date}>
               {/* Date Heading */}
-              <div className="text-[#FF9D00] text-[20px]">{date}</div>
+              <div className="text-[#FF9D00] text-[20px]">
+                {formatDate(date)}
+              </div>
 
               {/* Table */}
               <div className="relative shadow-md sm:rounded-lg ">
@@ -244,14 +266,21 @@ function ProjectManagement() {
                               boxSizing: 'border-box',
                             }}
                           >
-                            {project.createdAt.split('T')[1].split('.')[0]}{' '}
-                            {/* Extract time */}
+                            {/* {project.createdAt.split('T')[1].split('.')[0]}{' '} */}
+                            {formatTime(project.createdAt)}{' '}
                           </td>
                           <td
-                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px] "
+                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
                             onClick={() => handleViewDetails(project)}
+                            style={{
+                              wordWrap: 'break-word',
+                              overflowWrap: 'break-word',
+                              boxSizing: 'border-box',
+                            }}
                           >
-                            View Details <FiExternalLink size={20} />
+                            <div className="flex justify-center gap-2">
+                              View Details <FiExternalLink size={20} />
+                            </div>
                           </td>
                         </tr>
                       ))}

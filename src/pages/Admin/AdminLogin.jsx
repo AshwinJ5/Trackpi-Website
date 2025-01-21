@@ -1,57 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import logo from '../../images/trackpi_logo_one.png';
 import { useNavigate } from 'react-router-dom';
 import baseURL from '../../Api Services/baseURL';
 import { jwtDecode } from 'jwt-decode';
 import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for toast notifications
 
 function AdminLogin() {
   const [data, setData] = useState({ username: '', password: '' });
   const navigate = useNavigate();
+  const adminToken = localStorage.getItem('adminToken'); // Get the token from localStorage
+
+  // 🛑 Prevent logged-in users from accessing login page
+  useEffect(() => {
+    if (adminToken) {
+      navigate('/admin/dashboard', { replace: true }); // Redirect to dashboard
+    }
+  }, [adminToken, navigate]);
 
   const onLogin = async () => {
     if (!data.username || !data.password) {
-      alert('Please fill in both fields.');
+      toast.error('Please fill in both fields.');
       return;
     }
+
     try {
       const response = await baseURL.post('/adminlogin', data);
-      console.log(response, 'responseLogin');
-
-      // Extract the token from the response
       const token = response.data.token;
-      console.log(token, 'token');
-
-      // Decode the token to get the user ID
       const decodedToken = jwtDecode(token);
-      console.log(decodedToken, 'decodedToken');
-      const adminId = decodedToken._id; // Adjust based on the token structure
+      const adminId = decodedToken._id;
 
-      // Save token and adminId to localStorage
       localStorage.setItem('adminToken', token);
       localStorage.setItem('adminId', adminId);
 
-      console.log('Token and Admin ID saved to localStorage:', {
-        token,
-        adminId,
-      });
-      toast.success('Successfully Logged In!'); // Toast on successful login
+      toast.success('Successfully Logged In!');
 
-      // Navigate to the admin dashboard
-      navigate('/admin/admin-management');
+      // 🔥 Prevent the login page from staying in history (so back button won't return here)
+      setTimeout(() => {
+        navigate('/admin/admin-management', { replace: true });
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = () => {
+          window.history.pushState(null, "", window.location.href);
+        };
+      }, 500);
     } catch (e) {
       console.error(e);
-      toast.error('Login failed. Please check your credentials.', e); // Toast on failed login
+      toast.error('Login failed. Please check your credentials.');
     }
   };
 
   return (
-    <div
-      className="bg-white d-flex justify-content-center align-items-center"
-      style={{ height: '100vh' }}
-    >
+    <div className="bg-white d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
       <Row className="px-3 py-2">
         <Col sm={12} className="d-flex justify-content-center">
           <img src={logo} alt="logo" className="img-fluid" width={200} />
@@ -61,7 +60,7 @@ function AdminLogin() {
         </Col>
         <Col sm={12} className="d-flex justify-content-center">
           <form
-            onSubmit={e => {
+            onSubmit={(e) => {
               e.preventDefault();
               onLogin();
             }}
@@ -77,7 +76,7 @@ function AdminLogin() {
                   className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
                   placeholder="Username/Email"
                   value={data.username}
-                  onChange={e => setData({ ...data, username: e.target.value })}
+                  onChange={(e) => setData({ ...data, username: e.target.value })}
                   style={{ fontSize: '16px' }}
                   autoComplete="current-username"
                 />
@@ -92,14 +91,14 @@ function AdminLogin() {
                   className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
                   placeholder="Password"
                   value={data.password}
-                  onChange={e => setData({ ...data, password: e.target.value })}
+                  onChange={(e) => setData({ ...data, password: e.target.value })}
                   style={{ fontSize: '16px' }}
                   autoComplete="current-password"
                 />
               </Col>
               <Col sm={12} className="d-flex justify-content-center mt-3">
                 <button
-                  className="w-50 py-2  bg-[#FF9D00] rounded-lg text-white"
+                  className="w-50 py-2 bg-[#FF9D00] rounded-lg text-white"
                   style={{ fontWeight: 'bolder' }}
                   type="submit"
                 >
@@ -110,8 +109,6 @@ function AdminLogin() {
           </form>
         </Col>
       </Row>
-
-      {/* ToastContainer for toasts */}
     </div>
   );
 }

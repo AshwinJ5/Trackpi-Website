@@ -59,7 +59,7 @@ function OurTeam() {
       </section>
       <section
         ref={refFirstSection}
-        className="md:mt-20 w-full px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto section1"
+        className="smallscreen md:mt-20 w-full px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto section1"
       >
         <motion.div
           className="flex flex-col md:flex-row gap-12 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
@@ -112,7 +112,7 @@ function OurTeam() {
           </div>
         </motion.div>
       </section>
-      <section className="section3 md:mt-20 flex flex-col items-center  md:gap-10 md:w-full h-full">
+      <section className="smallscreen section3 md:mt-20 flex flex-col items-center  md:gap-10 md:w-full h-full">
         <div className="flex flex-col items-center ">
           <h1 className="fw-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl text-amber-500  hiring_heading">
             OUR CLIENTS
@@ -127,7 +127,7 @@ function OurTeam() {
 
       <section
         ref={refSecondSection}
-        className="md:mt-28 w-full px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto py-6 md:py-20 bg-gradient-to-r from-[#FFC100] via-[#FFC100] to-[#FFC100] text-black bgg11 section2"
+        className=" smallscreen md:mt-28 w-full px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto py-6 md:py-20 bg-gradient-to-r from-[#FFC100] via-[#FFC100] to-[#FFC100] text-black bgg11 section2"
       >
         <motion.div
           className="flex flex-col md:flex-row gap-12 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
@@ -187,7 +187,7 @@ function OurTeam() {
 
       <section
         ref={refThirdSection}
-        className="section4 px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto w-full h-full mt-28 section3"
+        className="smallscreen section4 px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto w-full h-full mt-28 section3"
       >
         <motion.div
           className=" flex flex-col md:flex-row gap-12 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
@@ -272,7 +272,7 @@ function OurTeam() {
           </div>
         </motion.div>
       </section>
-      <section className="section4   md:mt-10 lg:mt-10 xl:mt-10 2xl:mt-10 md:mb-5  w-full pl-2 pr-2 md:px-6 lg:px-20 xl:px-24 2xl:px-32 md:py-8 mx-auto">
+      <section className="section4 smallscreen  md:mt-10 lg:mt-10 xl:mt-10 2xl:mt-10 md:mb-5  w-full pl-2 pr-2 md:px-6 lg:px-20 xl:px-24 2xl:px-32 md:py-8 mx-auto">
         <Container fluid >
           <Row>
             <h1 className="fw-bold text-center text-amber-500 text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-2   flex justify-center">

@@ -1,6 +1,26 @@
+
+@media (max-width: 768px) and (min-width: 640px) {
+    .firsth1 {
+        text-align: center !important;
+        
+    }
+    .smallscreen{
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+       
+    }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+    .smallscreen{
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+       
+    }
+
+}
 @media (max-width: 640px) {
     .firsth1{
-       text-align: center;
+       text-align: center !important;
     }
     .firstp{
         /* font-size: 17px; */
@@ -24,13 +44,94 @@
     }
    
 }
-.car {
-    box-shadow: 0 0 10px 3px rgba(255, 223, 65, 0.7),
-      /* Yellow glow */ 0 0 20px 6px rgba(255, 136, 0, 0.6) !important; /* Orange glow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+.card-cl {
+    width: 100%;
+    max-width: 400px;
+    height: 384px;
+    background: linear-gradient(to right, #ff9d00, #ffc100, #ff9d00);
+    color: #000;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 20px;
   }
-  .car:hover {
-    transform: scale(1.1) !important; /* Slightly enlarge the icon on hover */
-    box-shadow: 0 0 15px 5px rgba(255, 223, 65, 0.259),
-      0 0 25px 8px rgba(255, 136, 0, 0.241) !important; /* Enhanced glow on hover */
+  
+  .card-cl:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 100, 0, 0.7);
   }
+  
+  .logo {
+    height: auto;
+    max-height: 130px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  
+  .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .active-dot {
+    background-color: #ffc100;
+  }
+  
+  .inactive-dot {
+    background-color: #ccc;
+  }
+  
+  @media (max-width: 746px) {
+    .card-cl {
+      max-width: 80%;
+      margin-right: 0;
+      padding: 10px;
+      height: 240px;
+    }
+  
+    .company-name {
+      font-size: 16px;
+    }
+  
+    .description {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .logo {
+      max-height: 100px;
+    }
+  
+    .card-cl {
+      width: 45%;
+      margin-left: 5px;
+    }
+  
+    .med {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .logo {
+      max-height: 80px;
+    }
+  }
+  

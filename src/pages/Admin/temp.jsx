@@ -27,6 +27,176 @@ function FormManagement() {
       }
     };
 
+<<<<<<< HEAD
+    return (
+     <div className="bg-white w-full">
+          <div className="py-[40px] px-[30px] grid gap-[30px]">
+            {/* Header */}
+            <div className="flex justify-between items-center">
+              <div className="text-[24px] font-bold">Form Management</div>
+              <div>
+                <button className="px-4 py-2 rounded-[10px] flex items-center gap-3 font-bold text-white bg-[#FF9D00]" onClick={handleExportCSV}>
+                  <FiUpload size={20} />
+                  Export
+                </button>
+              </div>
+            </div>
+            {/* Table Content */}
+            <div className="py-[10px] grid gap-[25px]">
+              {Object.keys(groupedContactForms).map(date => (
+                <div className="grid gap-[10px]" key={date}>
+                  {/* Date Heading */}
+                  <div className="text-[#FF9D00] text-[20px]">{date}</div>
+    
+                  {/* Table */}
+                  <div className="relative shadow-md sm:rounded-lg ">
+                    <div className="table-wrapper">
+                      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
+                        {/* Table Headers */}
+                        <thead className="text-md font-bold text-black uppercase ">
+                          <tr>
+                            <th
+                              scope="col"
+                              className=" text-center"
+                              style={{ width: '10%' }}
+                            >
+                              {' '}
+                              Sl No
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-2 py-3 text-center"
+                              style={{ width: '25%' }}
+                            >
+                              {' '}
+                              Name
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-2 py-3 text-center"
+                              style={{ width: '25%' }}
+                            >
+                              {' '}
+                              Email ID
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-2 py-3 text-center"
+                              style={{ width: '25%' }}
+                            >
+                              {' '}
+                              Phone
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-2 py-3 text-center"
+                              style={{ width: '25%' }}
+                            >
+                              {' '}
+                              Hear About Us
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-2 py-3 text-center"
+                              style={{ width: '20%' }}
+                            >
+                              {' '}
+                              Time
+                            </th>
+                            <th
+                              scope="col"
+                              className="px-2 py-3  text-center"
+                              style={{ width: '25%' }}
+                            >
+                              {' '}
+                              View
+                            </th>
+                          </tr>
+                        </thead>
+                        {/* Table Body */}
+                        <tbody>
+                          {groupedContactForms[date].map((form, formIndex) => (
+                            <tr
+                              key={form._id}
+                              className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 "
+                            >
+                              <td
+                                className="  text-center"
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
+                                {formIndex + 1}
+                              </td>
+                              <td
+                                className={`px-2 py-3  text-center`}
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
+                                {form.fullName}
+                              </td>
+                              <td
+                                className={`px-2 py-3  text-center`}
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
+                                {form.email}
+                              </td>
+                              <td
+                                className={`px-2 py-3  text-center`}
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
+                                {form.phone}
+                              </td>
+                              <td
+                                className={`px-2 py-3  text-center`}
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
+                                {form.info_from}
+                              </td>
+                              <td
+                                className={`px-2 py-3  text-center`}
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
+                                {form.createdAt.split('T')[1].split('.')[0]}{' '}
+                                {/* Extract time */}
+                              </td>
+                              <td
+                                className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px]"
+                                onClick={() => handleViewDetails(form)}
+                              >
+                                View Details <FiExternalLink size={20} />
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+=======
     getFormView();
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
@@ -128,6 +298,7 @@ function FormManagement() {
               <FiUpload size={20} />
               Export
             </button>
+>>>>>>> f074d1ca8b5a482c98bfee7ba6092d2410c693f5
           </div>
         </div>
         {/* Table Content */}

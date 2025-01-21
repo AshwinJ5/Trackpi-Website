@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import {Puff}  from 'react-loader-spinner'
 
 // import {
 //   addAdmin,
@@ -48,6 +49,7 @@ function AdminManagement() {
   const handleShow2 = () => setShow2(true);
   const [copied, setCopied] = useState({ status: false, username: '' });
   const [refresh, setRefresh] = useState('');
+  const [loading, setLoading] = useState(true); // Loading state
 
   // const toggleStatus = index => {
   //   console.log('Toggling row:', index); // This logs the index of the row being toggled
@@ -270,19 +272,15 @@ function AdminManagement() {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const response = await baseURL.get('/admin', {
-          headers: {
-            Authorization: `Bearer ${adminToken}`,
-          },
-        });
+        const response = await baseURL.get('/admin', {});
         console.log(response.data, 'AdminReasopnese');
         setAdmins(response.data); // Ensure your API response structure matches this
       } catch (error) {
         console.error('Error fetching admin data:', error);
-      }
+      } 
     };
     fetchAdmins();
-  }, [adminToken, refresh]);
+  }, [refresh]);
 
   return (
     <div className="w-full bg-white">
@@ -516,136 +514,160 @@ function AdminManagement() {
             </tbody>
           </table>
         </div>
-
-        {/* Add admin box */}
-        <div className="d-flex justify-content-center align-items-center my-5">
-          <div className="border m-5 shadow rounded-4">
-            <Modal
-              size="lg"
-              aria-labelledby="contained-modal-title-vcenter"
-              centered
-              show={show1}
-              onHide={handleClose1}
-            >
-              <Modal.Body>
-                <div className="flex justify-center items-center gap-32 pt-5 ">
-                  <h3 className="text-center mx-10 font-bold text-[#0A0A0A]">
-                    Add Admin
-                  </h3>
-                </div>
-
-                <Row className="m-5">
-                  <Col sm={6} className="mb-5">
-                    <label htmlFor="username" className="d-block font-semibold">
-                      User Name
-                    </label>
-                    <input
-                      type="text"
-                      id="username"
-                      className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
-                      placeholder="User Name"
-                      value={addAdminData.username || ''}
-                      onChange={e =>
-                        setAddAdminData({
-                          ...addAdminData,
-                          username: e.target.value,
-                        })
-                      }
-                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                    />
-                  </Col>
-
-                  <Col sm={6} className="mb-5">
-                    <label htmlFor="emailid" className="d-block font-semibold">
-                      Email ID
-                    </label>
-                    <input
-                      type="email"
-                      id="emailid"
-                      className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
-                      placeholder="Email ID"
-                      value={addAdminData.email || ''}
-                      onChange={e =>
-                        setAddAdminData({
-                          ...addAdminData,
-                          email: e.target.value,
-                        })
-                      }
-                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                    />
-                  </Col>
-
-                  <Col sm={6} className="mb-5">
-                    <label htmlFor="password" className="d-block font-semibold">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      id="password"
-                      className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
-                      placeholder="Password"
-                      value={addAdminData.password || ''}
-                      onChange={e =>
-                        setAddAdminData({
-                          ...addAdminData,
-                          password: e.target.value,
-                        })
-                      }
-                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                    />
-                  </Col>
-
-                  <Col sm={6} className="mb-5">
-                    <label
-                      htmlFor="adminType"
-                      className="d-block font-semibold"
-                    >
-                      Admin Type
-                    </label>
-                    <select
-                      className="form-select form-select-lg border-gray-500 my-2 border-2 shadow-md"
-                      aria-label="Default select example"
-                      id="adminType"
-                      value={addAdminData.adminType || ''}
-                      onChange={e =>
-                        setAddAdminData({
-                          ...addAdminData,
-                          adminType: e.target.value,
-                        })
-                      }
-                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                    >
-                      <option defaultChecked value="">
-                        Admin Type
-                      </option>
-                      <option value="admin">Admin</option>
-                      <option value="superadmin">Superadmin</option>
-                    </select>
-                  </Col>
-
-                  <Col sm={12} className="d-flex   gap-12 justify-center mt-3">
-                    <button
-                      className="w-25 py-2 rounded-3 bg-[#FF9D00] text-white font-bold"
-                      onClick={handleAdminAdd}
-                    >
-                      Add
-                    </button>
-                    <button
-                      className="w-25 py-2 rounded-3 text-[#FF9D00] font-bold btnBorder"
-                      onClick={handleAddCancel}
-                    >
-                      Cancel
-                    </button>
-                  </Col>
-                </Row>
-              </Modal.Body>
-            </Modal>
+        {loading || admins.length > 0 ? (
+          // Loader displayed while fetching data
+          <div className="flex justify-center items-start mt-12 h-screen">
+            <Puff
+              visible={true}
+              height="80"
+              width="80"
+              color="#FF9D00"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />{' '}
           </div>
-        </div>
+        ) : (
+          <div className="d-flex justify-content-center align-items-center my-5">
+            <div className="border m-5 shadow rounded-4">
+              <Modal
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                show={show1}
+                onHide={handleClose1}
+              >
+                <Modal.Body>
+                  <div className="flex justify-center items-center gap-32 pt-5 ">
+                    <h3 className="text-center mx-10 font-bold text-[#0A0A0A]">
+                      Add Admin
+                    </h3>
+                  </div>
+
+                  <Row className="m-5">
+                    <Col sm={6} className="mb-5">
+                      <label
+                        htmlFor="username"
+                        className="d-block font-semibold"
+                      >
+                        User Name
+                      </label>
+                      <input
+                        type="text"
+                        id="username"
+                        className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
+                        placeholder="User Name"
+                        value={addAdminData.username || ''}
+                        onChange={e =>
+                          setAddAdminData({
+                            ...addAdminData,
+                            username: e.target.value,
+                          })
+                        }
+                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                      />
+                    </Col>
+
+                    <Col sm={6} className="mb-5">
+                      <label
+                        htmlFor="emailid"
+                        className="d-block font-semibold"
+                      >
+                        Email ID
+                      </label>
+                      <input
+                        type="email"
+                        id="emailid"
+                        className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
+                        placeholder="Email ID"
+                        value={addAdminData.email || ''}
+                        onChange={e =>
+                          setAddAdminData({
+                            ...addAdminData,
+                            email: e.target.value,
+                          })
+                        }
+                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                      />
+                    </Col>
+
+                    <Col sm={6} className="mb-5">
+                      <label
+                        htmlFor="password"
+                        className="d-block font-semibold"
+                      >
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        id="password"
+                        className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
+                        placeholder="Password"
+                        value={addAdminData.password || ''}
+                        onChange={e =>
+                          setAddAdminData({
+                            ...addAdminData,
+                            password: e.target.value,
+                          })
+                        }
+                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                      />
+                    </Col>
+
+                    <Col sm={6} className="mb-5">
+                      <label
+                        htmlFor="adminType"
+                        className="d-block font-semibold"
+                      >
+                        Admin Type
+                      </label>
+                      <select
+                        className="form-select form-select-lg border-gray-500 my-2 border-2 shadow-md"
+                        aria-label="Default select example"
+                        id="adminType"
+                        value={addAdminData.adminType || ''}
+                        onChange={e =>
+                          setAddAdminData({
+                            ...addAdminData,
+                            adminType: e.target.value,
+                          })
+                        }
+                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                      >
+                        <option defaultChecked value="">
+                          Admin Type
+                        </option>
+                        <option value="admin">Admin</option>
+                        <option value="superadmin">Superadmin</option>
+                      </select>
+                    </Col>
+
+                    <Col
+                      sm={12}
+                      className="d-flex   gap-12 justify-center mt-3"
+                    >
+                      <button
+                        className="w-25 py-2 rounded-3 bg-[#FF9D00] text-white font-bold"
+                        onClick={handleAdminAdd}
+                      >
+                        Add
+                      </button>
+                      <button
+                        className="w-25 py-2 rounded-3 text-[#FF9D00] font-bold btnBorder"
+                        onClick={handleAddCancel}
+                      >
+                        Cancel
+                      </button>
+                    </Col>
+                  </Row>
+                </Modal.Body>
+              </Modal>
+            </div>
+          </div>
+        )}
+        {/* Add admin box */}
       </div>
-
       {/* edit modal */}
-
       <Modal
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
@@ -769,41 +791,44 @@ function AdminManagement() {
           </Row>
         </Modal.Body>
       </Modal>
-
       {/* delete Modal */}
-    <div className="custom-overlay"></div> {/* Background overlay */}
-    <Modal
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-      show={show2}
-      onHide={handleClose2}
-      className='bg-[#00000062] '
-    >
-      <Modal.Body>
-        <div className="flex items-center text-[20px] font-bold py-2 justify-start gap-2 text-[#FF9D00]">
-          <IoIosWarning />
-          Delete Admin
-        </div>
-        <p className="text-start font-bold text-[#0A0A0A]">
-          Are you sure you want to delete this admin?
-        </p>
-        <div className="flex gap-4 justify-start">
-          <button
-            onClick={handleAdminDelete}
-            className="bg-[#FF9D00] text-white px-8 py-1 rounded-lg"
-          >
-            Delete
-          </button>
-          <button
-            onClick={handleDeleteCancel}
-            className="text-[#FF9D00] font-semibold btnBorder px-8 py-1 rounded-lg"
-          >
-            Cancel
-          </button>
-        </div>
-      </Modal.Body>
-    </Modal>
+      <div className="custom-overlay"></div> {/* Background overlay */}
+      <Modal
+        size="md"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        show={show2}
+        onHide={handleClose2}
+        className="bg-[#00000062]"
+      >
+        <Modal.Body className="mx-8">
+          <div className="flex items-center text-[24px] font-700 py-2 justify-start gap-2 text-[#FF9D00]">
+            <IoIosWarning />
+            Delete Admin
+          </div>
+          <p className="text-start font-700 text-[#0A0A0A] mt-2 text-[18px]">
+            Are you sure you want to delete this admin?
+          </p>
+          <div className="flex gap-4 justify-between items-center py-2">
+            <div>
+              <button
+                onClick={handleAdminDelete}
+                className="bg-[#FF9D00] text-white px-16 py-1 rounded-lg"
+              >
+                Delete
+              </button>
+            </div>
+            <div>
+              <button
+                onClick={handleDeleteCancel}
+                className="text-[#FF9D00] font-semibold btnBorder px-16 py-1 rounded-lg"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }

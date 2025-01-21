@@ -18,127 +18,23 @@ import PopUp from '../../components/User/PopUp';
 import news1 from '../../images/news 1.png';
 import news2 from '../../images/news 2.png';
 import news3 from '../../images/news 3.png';
-import news4 from '../../images/news 4.png';
-import news5 from '../../images/news5.jpeg';
+import iidm from '../../images/iidm.jpg';
+import luminar from '../../images/luminar.png';
 import baseURL from '../../Api Services/baseURL';
+import { SERVER_URL } from '../../Api Services/serverUrl';
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
   const isInView2 = useInView({ selector: '.section2' });
   const isInView3 = useInView({ selector: '.section3' });
 
-  // const cards = [
-  //   {
-  //     id:1,
-  //     news:{news1}
-  //   },
-  //   {
-  //     id:2,
-  //     news:{news2}
-  //   },
-  //   {
-  //     id:3,
-  //     news:{news3}
-  //   },
-  //   {
-  //     id:4,
-  //     news:{news4}
-  //   },
-
-  // ]
-
-  const cards = [
-    {
-      id: 1,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 2,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 3,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 4,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 5,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 6,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 7,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 8,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 9,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 10,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 11,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-    {
-      id: 12,
-      title: 'We See The Challenge',
-      description:
-        "We're all wrestling with complexity.Every company, work function, and team now facesa tall order",
-      logo: logo,
-    },
-  ];
-
+  const [cards, setCards] = useState([]);
+  console.log(cards, 'Cards');
   const clients = [
     { id: 1, logo: clientLogo1 },
     { id: 2, logo: clientLogo2 },
-    { id: 3, logo: clientLogo1 },
-    { id: 4, logo: clientLogo2 },
+    { id: 3, logo: luminar },
+    { id: 4, logo: iidm },
     { id: 5, logo: clientLogo1 },
     { id: 6, logo: clientLogo2 },
     { id: 7, logo: clientLogo1 },
@@ -150,7 +46,7 @@ function Home() {
     { id: 13, logo: clientLogo1 },
     { id: 14, logo: clientLogo2 },
   ];
-const [clientsLogo,setClientsLogo] = useState([])
+  const [clientsLogo, setClientsLogo] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bulgingCard, setBulgingCard] = useState(0);
   const [groupedCards, setGroupedCards] = useState([]);
@@ -168,30 +64,58 @@ const [clientsLogo,setClientsLogo] = useState([])
     setGroupedCards(groups);
   };
 
-  // Initial grouping and on resize update
-  useEffect(() => {
-    groupCards(); // Initial grouping
-  }, [cardsPerGroup]);
+  // // Initial grouping and on resize update
+  // useEffect(() => {
+  //   groupCards(); // Initial grouping
+  // }, [cards, cardsPerGroup]);
 
-  // Handle window resize
+  // // Handle window resize
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     let newCardsPerGroup = 4; // Default to 4 cards for large screens
+
+  //     if (window.innerWidth < 640) {
+  //       newCardsPerGroup = 1; // Only 1 card for small screens
+  //     } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
+  //       newCardsPerGroup = 3; // 2 cards for medium screens
+  //     }
+
+  //     if (newCardsPerGroup !== cardsPerGroup) {
+  //       setCardsPerGroup(newCardsPerGroup);
+  //     }
+  //   };
+
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, [cardsPerGroup]);
+
   useEffect(() => {
     const handleResize = () => {
-      let newCardsPerGroup = 4; // Default to 4 cards for large screens
+      let newCardsPerGroup = 4;
 
       if (window.innerWidth < 640) {
-        newCardsPerGroup = 1; // Only 1 card for small screens
+        newCardsPerGroup = 1; // Show only 1 card at a time in small screens
+        setCards(prevCards => prevCards.slice(-4)); // Keep only last 4 images
       } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
-        newCardsPerGroup = 3; // 2 cards for medium screens
+        newCardsPerGroup = 3;
       }
 
       if (newCardsPerGroup !== cardsPerGroup) {
         setCardsPerGroup(newCardsPerGroup);
       }
+      groupCards();
+
     };
 
     window.addEventListener('resize', handleResize);
+    handleResize(); // Run on initial load
+
     return () => window.removeEventListener('resize', handleResize);
   }, [cardsPerGroup]);
+
+  useEffect(() => {
+    groupCards(); // Re-group cards when the data changes
+  }, [cards, cardsPerGroup]);
 
   useEffect(() => {
     if (isPaused) return; // Pause interval when hovering
@@ -253,18 +177,30 @@ const [clientsLogo,setClientsLogo] = useState([])
     window.innerWidth < 640 ? groupedCards.slice(0, 4) : groupedCards;
 
   useEffect(() => {
-    const getClients = async () => {
+    const getNews = async () => {
       try {
-        const response = await baseURL.get('api/partner/getpartner');
-        console.log(response.data[0].companylogo, 'clientsData');
-        setClientsLogo(response.data)
-        set
+        const response = await baseURL.get('api/news/newsdetails');
+        console.log(response.data, 'NewsData');
+        setCards(response.data);
       } catch (e) {
         console.error(e);
       }
     };
-    getClients();
+    getNews();
   }, []);
+  useEffect(() => {
+    const getClients = async () => {
+      try {
+        const response = await baseURL.get('api/partner/getpartner');
+        console.log(response.data, 'clientsData');
+        setClientsLogo(response.data); // Set the fetched data in clientsLogo state
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    getClients(); // Fetch client data on component mount
+  }, []);
+
   return (
     <>
       <PopUp />
@@ -276,7 +212,7 @@ const [clientsLogo,setClientsLogo] = useState([])
           <>
             Trackpi your{' '}
             <a
-              href="/about"
+              href="/about-trackpi"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -345,7 +281,9 @@ const [clientsLogo,setClientsLogo] = useState([])
                           }`}
                         >
                           <img
-                            src={news5}
+                            // src={card.newsFile}
+                            src={`${SERVER_URL}${card.newsFile}`}
+                            // src="http://localhost:3001/uploads/news/1736834859992.jpg"
                             alt={`News ${card.id}`}
                             className=" w-full h-full rounded-lg"
                           />
@@ -387,7 +325,32 @@ const [clientsLogo,setClientsLogo] = useState([])
           </div>
 
           {/* Slide Dots */}
-          <div className="absolute top-[110%] md:left-1/2 left-1/2 transform -translate-x-1/2 md:flex justify-center items-center space-x-2">
+          {/* <div className="absolute top-[110%] md:left-1/2 left-1/2 transform -translate-x-1/2 md:flex justify-center items-center space-x-2">
+            {dotsToRender.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentIndex === index ? 'bg-yellow-500 w-4' : 'bg-gray-400'
+                }`}
+              />
+            ))}
+          </div> */}
+        </div>
+
+        <div className="flex justify-between items-center">
+          <div className=" mt-4 sm:mx-0 md:mx-4 lg:mx-16 px-4 invisible">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer" // Security reason when using target="_blank"
+            >
+              <button className="bg-[#0A0A0A] text-white py-1 px-3 rounded-lg hover:bg-amber-400 transition duration-300 text-[14px] 2xl:text-[20px] font-trebuchet font-medium">
+                View More
+              </button>
+            </a>
+          </div>{' '}
+          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-2">
             {dotsToRender.map((_, index) => (
               <button
                 key={index}
@@ -398,18 +361,17 @@ const [clientsLogo,setClientsLogo] = useState([])
               />
             ))}
           </div>
-        </div>
-
-        <div className="text-right mt-4 sm:mx-2 md:mx-4 lg:mx-16   view-more-btn px-4">
-          <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer" // Security reason when using target="_blank"
-          >
-            <button className="bg-[#0A0A0A] text-white py-1 px-3 rounded-lg hover:bg-amber-400 transition duration-300 text-[14px] 2xl:text-[20px] font-trebuchet font-medium">
-              View More
-            </button>
-          </a>
+          <div className=" mt-4 sm:mx-2 md:mx-4 lg:mx-16 px-2">
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer" // Security reason when using target="_blank"
+            >
+              <button className="bg-[#0A0A0A] text-white py-1 px-3 rounded-lg hover:bg-amber-400 transition duration-300 text-[14px] 2xl:text-[20px] font-trebuchet font-medium">
+                View More
+              </button>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -425,19 +387,31 @@ const [clientsLogo,setClientsLogo] = useState([])
 
         {/* Client Logos Section */}
         <div
-          className="flex justify-center md:mt-4 lg:mt-18 sm:mt-2 items-center bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-2 "
+          className="flex justify-center md:mt-4 lg:mt-18 sm:mt-2 items-center bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 "
           // style={{
           //   marginTop: '3rem',
           //   overflow: 'hidden',
           //   whiteSpace: 'nowrap',
           // }}
         >
-          <div className="flex animate-scroll">
+          {/* <div className="flex animate-scroll">
             {clients.concat(clients).map((client, index) => (
               <Col xs={3} md={2} key={index}>
                 <img
                   className="w-[85px] h-[50px]  lg:w-full lg:h-[85px] object-contain"
                   src={client.logo}
+                  alt={`Client ${index + 1}`}
+                />
+              </Col>
+            ))}
+          </div> */}
+
+          <div className="flex animate-scroll">
+            {clientsLogo.concat(clientsLogo).map((client, index) => (
+              <Col xs={3} md={2} key={index}>
+                <img
+                  className="w-[85px] h-[50px]  lg:w-full lg:h-[85px] object-contain"
+                  src={`${SERVER_URL}${client.companylogo}`}
                   alt={`Client ${index + 1}`}
                 />
               </Col>
@@ -478,7 +452,7 @@ const [clientsLogo,setClientsLogo] = useState([])
               business consultant in Kerala and handle multiple clients. We have
               &nbsp;
               <a
-                href="/our-services"
+                href="/business-consulting-services"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -492,7 +466,7 @@ const [clientsLogo,setClientsLogo] = useState([])
               that include detailed strategy planning. Looking to evolve your
               business? Why wait,{' '}
               <a
-                href="/connect-us"
+                href="/contact-us"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

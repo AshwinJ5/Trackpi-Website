@@ -1,19 +1,34 @@
 import React from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import projectManageBack from '../../images/projectManageBack.svg';
-import '../../CSS/Admin/projectManagement.css'
+import '../../CSS/Admin/projectManagement.css';
 
 function FormManagementDetails() {
   const location = useLocation();
   const mockData = location.state;
-console.log(mockData,"mocks")
+    // Function to format the date
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      const formattedDate = new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(date);
+  
+      return formattedDate;
+    };
   return (
     <div className="bg-white w-full">
       <div className="py-[40px] px-[30px] grid gap-[50px]">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <div className="text-[24px] font-bold">Form Management</div>
-          <div className="">
-            <Link
+
+          <div className="flex items-center gap-4">
+          <div className="text-[16px] font-bold">{formatDate(mockData.createdAt)}</div>
+          <Link
               to={'/admin/form-management'}
               className="text-decoration-none"
             >

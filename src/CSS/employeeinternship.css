@@ -13,3 +13,8 @@
     max-width: 100%;
     height: auto;
   }
+  @media (max-width: 1024px) and (min-width: 640px) {
+    .pad {
+       padding: 80px;
+    }
+}

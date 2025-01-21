@@ -62,6 +62,43 @@ const TableIntern = () => {
       alert('Failed to delete the record. Please try again.');
     }
   };
+  const handleExportCSV = async () => {
+    console.log("clicked");
+  
+    try {
+      // const token = localStorage.getItem('adminToken');  // Get token from localStorage
+  
+      // if (!token) {
+      //   return console.error("Token is missing!");
+      // }
+  
+      const response = await baseURL.get("/export/csv-data?type=employee&category=intern", {
+        headers: {
+          // Authorization: `Bearer ${token}`,  
+          'Content-Type': 'application/json',
+        },
+        responseType: "blob",  // Important for handling file download
+      });
+  
+      // Create a URL for the blob data
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+  
+      // Create a temporary link element
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "intern-data.csv"); // Set the filename
+      document.body.appendChild(link);
+      link.click(); // Trigger the download
+  
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error exporting CSV:", error);
+    }
+  };
+  
+
   if (loading) return <div className="text-center mt-4">Loading sales data...</div>;
   if (error) return <div className="text-center mt-4 text-red-500">{error}</div>;
   return (
@@ -70,7 +107,7 @@ const TableIntern = () => {
                   <h4 className="font-bold my-4">Intern Management</h4>
                     <div className="flex gap-2">
                           <div className="px-4 py-1 rounded-md bg-[#FF9D00] text-white flex items-center gap-2 cursor-pointer">
-                            <BsUpload color="white" className="font-bold" /> |{' '}
+                            <BsUpload color="white" className="font-bold" onClick={handleExportCSV}/> |{' '}
                             <BsDownload color="white" />
                           </div>
                           <div onClick={handleAdd} className="px-4 py-1 rounded-md bg-[#FF9D00] text-white flex items-center gap-2 cursor-pointer" >
@@ -79,29 +116,29 @@ const TableIntern = () => {
                           </div>
                     </div>
          </div>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg  border-dark border-2">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"style={{ tableLayout: "fixed" }}>
-          <thead className="text-md font-bold text-black uppercase border-b-2 border-dark">
+      <div className="relative overflow-x-auto  shadow-md sm:rounded-lg  border-[#939393] border-1">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-[#939393]"style={{ tableLayout: "fixed" }}>
+          <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
             <tr>
-              <th scope="col" className=" border-r-2 text-center" style={{ width: "10%" }}>
+              <th scope="col" className=" border-r text-center" style={{ width: "10%" }}>
                 SL No.
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Name
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Employee ID{' '}
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Email ID
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Phone{' '}
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 View
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "10%" }}>
+              <th scope="col" className="px-2 py-3 border-b text-center" style={{ width: "10%" }}>
                 Delete
               </th>
             </tr>

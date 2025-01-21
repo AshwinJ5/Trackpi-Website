@@ -4,14 +4,14 @@ import { IoMdArrowBack } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import EmpDetails from '../../components/User/EmpDetails';
 import { SERVER_URL } from "../../Api Services/serverUrl";
-import { useEffect,useRef,useState } from 'react';
+
 
 
 const InternManagementDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const canvasRef = useRef(null);
-  const [loading, setLoading] = useState(true);
+
+ 
    // Retrieve employeeData passed via navigate
    const employeeData  = location.state.rowDatas || {}; 
 

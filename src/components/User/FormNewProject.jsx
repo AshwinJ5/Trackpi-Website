@@ -3,6 +3,9 @@ import Form from 'react-bootstrap/Form';
 import { GoUpload } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import BaseURL from '../../Api Services/baseURL';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { toast } from 'react-toastify';
 
 const FormNewProject = () => {
   const initialFormData = {
@@ -64,6 +67,16 @@ const FormNewProject = () => {
     document.getElementById('fileInput').value = ''; // Reset file input
   };
 
+  const handlePhoneChange = (value, country) => {
+    if (!value) {
+        setFormData({...formData,phone:""});
+      return;
+    }
+    const formattedPhone = `+${country.dialCode} ${value.slice(country.dialCode.length)}`;
+    setFormData({...formData,phone:formattedPhone});
+    // console.log(formattedPhone); 
+  };
+
   // Handle form submission
   const handleSubmit = async (e) => {
     console.log("Clicked Submit");
@@ -94,9 +107,12 @@ const FormNewProject = () => {
       setFile(null);
       setFileName("");
       localStorage.removeItem('formData'); // Clear stored data after submission
+      toast.success("Submitted New Project")
       
     } catch (error) {
       console.error(error);
+      toast.error(error)
+
     } finally {
       setLoading(false);
     }
@@ -163,6 +179,14 @@ const FormNewProject = () => {
               required
             />
           </div>
+          {/* <div className="mb-4 flex justify-center w-100 connectPhoneInput items-center">
+        <PhoneInput 
+        value={formData.contactNumber}
+        country={"in"}
+        enableSearch={true}
+        onChange={(value, country) => handlePhoneChange(value, country)}
+      />
+      </div> */}
 
           <div className="mb-4">
             <Form.Control

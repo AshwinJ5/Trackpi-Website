@@ -63,6 +63,43 @@ const TableEmployee = () => {
       console.error('Error deleting employee:', error);
     }
   };
+  const handleExportCSV = async () => {
+    console.log("clicked");
+  
+    try {
+      // const token = localStorage.getItem('adminToken');  // Get token from localStorage
+  
+      // if (!token) {
+      //   return console.error("Token is missing!");
+      // }
+  
+      const response = await baseURL.get("/export/csv-data?type=employee&category=employee", {
+        headers: {
+          // Authorization: `Bearer ${token}`,  
+          'Content-Type': 'application/json',
+        },
+        responseType: "blob",  // Important for handling file download
+      });
+  
+      // Create a URL for the blob data
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+  
+      // Create a temporary link element
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "employee-data.csv"); // Set the filename
+      document.body.appendChild(link);
+      link.click(); // Trigger the download
+  
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error exporting CSV:", error);
+    }
+  };
+  
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -76,7 +113,7 @@ const TableEmployee = () => {
             <h4 className="font-bold my-4">Employee Management</h4>
               <div className="flex gap-2">
                     <div className="px-4 py-1 rounded-md bg-[#FF9D00] text-white flex items-center gap-2 cursor-pointer">
-                      <BsUpload color="white" className="font-bold" /> |{' '}
+                      <BsUpload color="white" className="font-bold" onClick={handleExportCSV}/> |{' '}
                       <BsDownload color="white" />
                     </div>
                     <div onClick={handleAdd} className="px-4 py-1 rounded-md bg-[#FF9D00] text-white flex items-center gap-2 cursor-pointer">
@@ -85,27 +122,27 @@ const TableEmployee = () => {
                     </div>
               </div>
           </div>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg  border-dark border-2">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 custom-table" style={{ tableLayout: "fixed" }}>
-          <thead className="text-md font-bold text-black uppercase border-b-2 border-dark">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg border-[#939393] border-1">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 " style={{ tableLayout: "fixed" }}>
+          <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
             <tr>
-              <th scope="col" className=" border-r-2 text-center" style={{ width: "10%" }}>
+              <th scope="col" className=" border-r text-center" style={{ width: "10%" }}>
                 SL No.
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Name
               </th>
 
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Email ID
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 Designation{' '}
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center" style={{ width: "25%" }}>
+              <th scope="col" className="px-2 py-3 border-r text-center" style={{ width: "25%" }}>
                 View
               </th>
-              <th scope="col" className="px-2 py-3 border-r-2 text-center"style={{ width: "10%" }}>
+              <th scope="col" className="px-2 py-3 border-b text-center"style={{ width: "10%" }}>
                 Delete
               </th>
             </tr>
@@ -114,10 +151,10 @@ const TableEmployee = () => {
             {employees.map((employee, index) => (
               <tr
                 key={employee._id || index}
-                className="bg-white text-md font-semibold text-black dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 "
+                className="bg-white text-md font-semibold text-black dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 custom-table "
               >
                 <>
-                  <td key={index} className=" border-r-2  text-center"
+                  <td key={index} className=" border-r  text-center"
                   style={{
                     wordWrap: 'break-word',
                     overflowWrap: 'break-word',
@@ -126,7 +163,7 @@ const TableEmployee = () => {
                   >
                     {index + 1}
                   </td>
-                  <td className={`px-2 py-3 border-r-2 text-center`}
+                  <td className={`px-2 py-3 border-r text-center`}
                   style={{
                     wordWrap: 'break-word',
                     overflowWrap: 'break-word',
@@ -135,7 +172,7 @@ const TableEmployee = () => {
                     {employee.name}
                   </td>
 
-                  <td className={`px-2 py-3 border-r-2 text-center`}
+                  <td className={`px-2 py-3 border-r text-center`}
                   style={{
                     wordWrap: 'break-word',
                     overflowWrap: 'break-word',
@@ -145,7 +182,7 @@ const TableEmployee = () => {
                     {employee.email}
                     {/* </div> */}
                   </td>
-                  <td className={`px-2 py-3 border-r-2 text-center`}
+                  <td className={`px-2 py-3 border-r text-center`}
                   style={{
                     wordWrap: 'break-word',
                     overflowWrap: 'break-word',
@@ -153,7 +190,7 @@ const TableEmployee = () => {
                   }}>
                     {employee.desig}
                   </td>
-                  <td className={`px-2 py-3 border-r-2 text-center`}
+                  <td className={`px-2 py-3 border-r text-center`}
                   style={{
                     wordWrap: 'break-word',
                     overflowWrap: 'break-word',
