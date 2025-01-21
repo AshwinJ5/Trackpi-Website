@@ -3,10 +3,28 @@ import Details from '../../components/User/Form';
 import { Container, Row } from 'react-bootstrap';
 import ConnectButtons from '../../components/ConnectButtons';
 import HeaderBanner from '../../components/User/HeaderBanner';
-
+import MapImg from '../../images/connectmap.svg'
+import PhoneImg from '../../images/connectphone.svg'
+import MailImg from '../../images/connectmail.svg'
 import "../../CSS/connect.css";
 
-
+const features = [
+  {
+      name: "Kakkanad, Kochi, India",
+      description: "Office Location",
+      image:MapImg
+  },
+  {
+      name: "+91 8078179646",
+      description: "Phone Number",
+      image:PhoneImg
+  },
+  {
+      name: "operations@trackpi.in",
+      description: "E-mail ID",
+      image:MailImg
+  },
+];
 function Connect() {
   return (
     <>
@@ -18,55 +36,25 @@ function Connect() {
         noButton={true}
       />
 
-      <div className="bb">
-        <h1 className="text-[#FF9D00] text-center text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl font-bold mb-2 md:mb-8">
+      <div className=''>
+        <h1 className="text-[#FF9D00] text-center text-[20px] sm:text-[27px] md:text-[35px] lg:text-[43px] xl:text-[50px] font-bold mb-2 md:mb-8">
           Contact Us
         </h1>
-
-        <div className=" py-0   w-full flex justify-center px-16   mt-4 md:mt-8 mb-2 md:mb-8">
-          <div className="card-group  w-full flex flex-wrap justify-between gap-10">
-            {[
-              {
-
-                icon: "fa-location-dot",
-                title: "Office Location",
-                text: "Kakkanad, Kochi, India",
-              },
-              {
-                icon: "fa-phone",
-                title: "Phone Number",
-                text: "+91 8078179646",
-              },
-              {
-                icon: "fa-envelope",
-                title: "E-mail ID",
-                text: "operations@trackpi.in",
-
-              },
-            ].map((card, index) => (
-              <div
-                key={index}
-                className="card card1  md:pt-4 rounded-2xl fixed-card  w-[280px] sm:w-[calc(50%-20px)] lg:w-[calc(30%)] md:w-[410px] h-[140px] md:h-[230px] p-[30px] flex flex-col justify-between items-center gap-5  text-center shadow-lg"
-              >
-
-                <div className=" flex flex-col items-center gap-2 ">
-                <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] bg-white rounded-full flex justify-center items-center text-[16px] sm:text-[18px] md:text-[22px] lg:text-[26px] xl:text-[28px] 2xl:text-[30px]    text-amberCustom md:mb-2">
-                  <i className={`fa-solid ${card.icon}`}></i>
-                </div>
-                <h6 className="text-[13px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]  font-medium">
-                  {card.title}
-                </h6>
-                <p className="text-[15px] sm:text-[17px] md:text-[21px] lg:text-[25px] xl:text-[25px] 2xl:text-[25px] font-bold ">
-                  {card.text}
-                </p>
-
-               
-
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+<div className=" px-6 lg:px-20 xl:px-24 2xl:px-32 grid my-[25px] sm:my-[30px] md:my-[37px] lg:my-[42px] xl:my-[50px]">
+        <div className="flex flex-wrap gap-2.5 sm:gap-5 lg:gap-10  justify-center lg:justify-between KeyBenefitFirstDiv">
+                {features.map((card,index)=>(
+                    <div className="bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] sm:w-[calc(50%-20px)] lg:w-[calc(30%)]   text-center rounded md:w-[410px] w-[250px] p-[20px]   sm:p-[22px]   md:p-[25px]  lg:p-[27px] xl:p-[30px]  2xl:p-[33px] grid lg:gap-[20px] md:gap-[15px] gap-[10px] containerThree " key={index}>
+                      <img className='mx-auto w-[40px] sm:w-[45px] md:w-[50px] lg:w-[55px] xl:w-[60px] ' src={card.image} alt="" />
+                        <div className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] ">
+                            {card.description}
+                        </div>
+                        <div className="font-bold text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[30px]">
+                            {card.name}
+                        </div>
+                    </div>
+                ))}
+            </div>
+            </div>
       </div>
 
       <section id='connectUsContainer' className="sectionn w-full  md:px-6 lg:px-20 xl:px-24 2xl:px-32 py-8 mx-auto">

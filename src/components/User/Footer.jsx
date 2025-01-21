@@ -46,7 +46,7 @@ function Footer() {
                                     <p className="text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px] text-justify font-medium footerParagraph">
                                         Empowering businesses to succeed through
                                         <a
-                                            href="/our-services"
+                                            href="/business-consulting-services"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             style={{
@@ -97,29 +97,29 @@ function Footer() {
                             </h5>
                             <ul className="list-unstyled font-medium  text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px] grid gap-[14px] mb-0">
                                 <li>
-                                    <a href="/about" className="text-dark text-decoration-none">
+                                    <Link to="/about-trackpi" className="text-dark text-decoration-none">
                                         About
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="https://trackpi.blogspot.com/" target="_blank" className="text-dark text-decoration-none ">
+                                    <Link to="https://trackpi.blogspot.com/" target="_blank" className="text-dark text-decoration-none ">
                                         Blogs
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="https://trackpi.org/" target="_blank"  className="text-dark text-decoration-none ">
+                                    <Link to="https://trackpi.org/" target="_blank"  className="text-dark text-decoration-none ">
                                         Careers
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/connect-us" className="text-dark text-decoration-none">
+                                    <Link to="/contact-us" className="text-dark text-decoration-none">
                                         Help Center
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="/termsconditions" className="text-dark text-decoration-none">
+                                    <Link to="/termsconditions" className="text-dark text-decoration-none">
                                         Terms & Conditions
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -130,7 +130,7 @@ function Footer() {
                             <ul className="list-unstyled font-medium text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px] grid gap-y-[14px] gap-x-[30px]   mb-0  ">
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/our-services", "#sales-outsourcing")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#sales-outsourcing")}
                                         className="text-dark text-decoration-none cursor-pointer"
                                     >
                                         Sales Outsourcing
@@ -138,7 +138,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/our-services", "#market-positioning")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#market-positioning")}
                                         className="text-dark text-decoration-none cursor-pointer"
                                     >
                                         Market Positioning & Branding
@@ -146,7 +146,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/our-services", "#sales-training")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#sales-training")}
                                         className="text-dark text-decoration-none cursor-pointer"
                                     >
                                         Sales Training Strategies
@@ -154,7 +154,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/our-services", "#operations-training")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#operations-training")}
                                         className="text-dark text-decoration-none cursor-pointer"
                                     >
                                         Operations Training & Strategies
@@ -162,7 +162,7 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/our-services", "#financial-consulting")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#financial-consulting")}
                                         href="#"
                                         className="text-dark text-decoration-none cursor-pointer"
                                     >

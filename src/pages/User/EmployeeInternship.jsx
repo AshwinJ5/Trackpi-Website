@@ -7,6 +7,8 @@ import "../../CSS/employeeinternship.css";
 function EmployeeInternship() {
   const location = useLocation();
   const employeeData = location.state?.rowDatas || {};
+  console.log(employeeData);
+  
 
    const useScreenshotPrevention = () => {
       useEffect(() => {

@@ -76,7 +76,7 @@ function ConnectButtons() {
   data-tooltip-id="connectus-tooltip"
   data-tooltip-content="Connect Us"
   data-tooltip-place="left"
-  onClick={() => handleNavigation("/connect-us", "#connectUsContainer")}  className="button"
+  onClick={() => handleNavigation("/contact-us", "#connectUsContainer")}  className="button"
 >
 
           <div className="icons">

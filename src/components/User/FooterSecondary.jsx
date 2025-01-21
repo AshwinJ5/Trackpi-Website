@@ -50,7 +50,7 @@ function FooterSecondary() {
                             </div>
                             </div>
                             
-                            <Link to={"/connect-us"}>
+                            <Link to={"/contact-us"}>
                                 <button
                                     className=" join_footer_btn text-light px-[20px] py-[10px] sm:px-[24px] sm:py-[12px] md:px-[30px] md:py-[15px] lg:px-[40px] lg:py-[20px] xl:px-[40px] xl:py-[15px]  text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] xl:text-[32px] 2xl:text-[36px]"
 

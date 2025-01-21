@@ -126,7 +126,7 @@
   visibility: hidden;
   opacity: 0;
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .sidebar{
     display: none;
   }

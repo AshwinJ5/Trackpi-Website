@@ -73,8 +73,8 @@ function Header() {
                             ) : null}
                             <Nav.Link
                                 as={Link}
-                                to="/about"
-                                className={`me-2.5 ${isActive("/about") ? "active" : ""}`}
+                                to="/about-trackpi"
+                                className={`me-2.5 ${isActive("/about-trackpi") ? "active" : ""}`}
                                 id="navlink"
                                 onClick={() => setExpanded(false)} 
                             >
@@ -84,10 +84,10 @@ function Header() {
                             <NavDropdown
                                 title="OUR SERVICES"
                                 id="navlink"
-                                className={`me-2.5 ${isActive("/our-services") ? "active" : ""}`}
+                                className={`me-2.5 ${isActive("/business-consulting-services") ? "active" : ""}`}
                             >
                                 <NavDropdown.Item
-                                    onClick={() => handleNavigation("/our-services", "#sales-outsourcing")}
+                                    onClick={() => handleNavigation("/business-consulting-services", "#sales-outsourcing")}
                                     className="me-1 dropdown-sales"
                                 >
                                     Sales Outsourcing
@@ -95,49 +95,49 @@ function Header() {
                                 <NavDropdown title="Business Consulting" className="custom-dropdown" drop="end">
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#hiring")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#hiring")}
                                     >
                                         Hiring & Retention
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#sales-training")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#sales-training")}
                                     >
                                         Sales Training Strategies
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#operations-training")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#operations-training")}
                                     >
                                         Operation Training & Strategies
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#market-positioning")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#market-positioning")}
                                     >
                                         Market Positioning & Branding
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#risk-management")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#risk-management")}
                                     >
                                         Risk Management
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#financial-consulting")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#financial-consulting")}
                                     >
                                         Financial Consulting
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#asset-management")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#asset-management")}
                                     >
                                         Asset Management
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/our-services", "#it-services")}
+                                        onClick={() => handleNavigation("/business-consulting-services", "#it-services")}
                                     >
                                         IT Services
                                     </NavDropdown.Item>
@@ -158,8 +158,8 @@ function Header() {
                             <Nav.Link
                                 as={Link}
                                 id="navlink"
-                                to="/connect-us"
-                                className={`${isActive("/connect-us") ? "active" : ""}`}
+                                to="/contact-us"
+                                className={`${isActive("/contact-us") ? "active" : ""}`}
                                 onClick={() => setExpanded(false)} 
                             >
                                 CONNECT US
