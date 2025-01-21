@@ -1,12 +1,10 @@
 
 import React,{useEffect,useState} from "react";
-
-
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaRegEdit } from 'react-icons/fa';
 import { IoMdArrowBack } from 'react-icons/io';
 import { RiFacebookCircleLine } from "react-icons/ri";
-import { TbBrandLinkedin, TbBrandTwitter } from "react-icons/tb";
+import { TbBrandLinkedin } from "react-icons/tb";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import { SERVER_URL } from "../../Api Services/serverUrl";
 import { FaXTwitter } from "react-icons/fa6";
@@ -63,10 +61,20 @@ useEffect(() => {
   // Log for debugging
   console.log("Employee Data:", employeeData);
   console.log("Image URL:", profileImage);
-  if (!location.state?.rowDatas) {
-    return <div>Loading...</div>; // Optionally, show a loading state if member is not available
-  }
- 
+  
+   if (!location.state?.rowDatas) {
+         return (
+           <div className="flex justify-center items-center ">
+             <Puff
+               visible={true}
+               height={80}
+               width={80}
+               color="#FF9D00"
+               ariaLabel="puff-loading"
+             />
+           </div>
+         );
+       }
   return (
     <div className="bg-white h-[auto]"> 
           <div className="bg-white w-full py-4 px-6 mx-auto flex justify-end items-end gap-3">
@@ -122,7 +130,7 @@ useEffect(() => {
                                       </Link>}
                                       {socialMediaLink.twitter&&<Link target="_blank"  to={`${socialMediaLink.twitter}`} >
 
-                                      <FaXTwitter   size={35} className="text-yellow-500 cursor-pointer" />
+                                      <FaXTwitter  size={35} className="text-yellow-500 cursor-pointer" />
                                       </Link>}
                               </div>
                       </div>

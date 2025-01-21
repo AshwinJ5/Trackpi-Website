@@ -2,15 +2,28 @@
 import { GoDotFill } from "react-icons/go";
 import { IoLogoInstagram } from "react-icons/io5";
 import { RiFacebookCircleLine } from "react-icons/ri";
-import { TbBrandLinkedin, TbBrandTwitter } from "react-icons/tb";
+import { TbBrandLinkedin } from "react-icons/tb";
+import { FaXTwitter } from "react-icons/fa6";
 import { useState,useEffect } from "react";
 import { SERVER_URL } from "../../Api Services/serverUrl";
 import "../../CSS/employeedet.css";
 import { Link } from "react-router-dom";
-import { FaXTwitter } from "react-icons/fa6";
-
+import {Puff}  from 'react-loader-spinner'
 
 const EmpDetails = ({ employeeData }) => {
+   if (!employeeData) {
+         return (
+           <div className="flex justify-center items-center ">
+             <Puff
+               visible={true}
+               height={80}
+               width={80}
+               color="#FF9D00"
+               ariaLabel="puff-loading"
+             />
+           </div>
+         );
+       }
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const day = String(date.getDate()).padStart(2, '0');
@@ -51,7 +64,7 @@ const EmpDetails = ({ employeeData }) => {
 
   return (
     <>
-      <div className="custom-height h-[135px] py-2 flex flex-col md:flex-row justify-between items-center sm:text-lg md:text-2xl xl:text-xl xl:leading-5 2xl:leading-5 2xl:text-2xl">
+      <div className="custom-height h-[135px] py-2 flex flex-col md:flex-row justify-between items-center sm:text-lg md:text-2xl xl:text-xl xl:leading-5 2xl:leading-5 2xl:text-2xl flex-wrap">
         <div className="w-full flex flex-row justify-center items-center gap-4 md:gap-5">
         {profileImage && (
           <img
@@ -71,8 +84,8 @@ const EmpDetails = ({ employeeData }) => {
           />   )}
           <div className="hidden md:block w-full">
             <div className="flex flex-row justify-between items-center text-2xl xl:text-xl w-full">
-              <div>
-                <p className="font-bold text-2xl">{employeeData.name || "Paul Walker"} </p>
+              <div className="w-full flex flex-wrap justify-start">
+                <p className="font-bold text-2xl break-words">{employeeData.name || "Paul Walker"} </p>
                 <button
                   style={{ backgroundColor: "#019304", color: "white" }}
                   className="act rounded-pill px-3 py-1 flex flex-row justify-center items-center md:gap-1 text-xs md:text-sm"
@@ -126,7 +139,7 @@ const EmpDetails = ({ employeeData }) => {
         </div>
       </div>
       <hr className="horizontal" />
-      <div className="custom-height2 h-[300px] mt-3 md:mt-10 flex flex-col md:flex-row md:gap-20 sm:gap-3">
+      <div className="custom-height2 h-[300px] mt-3 md:mt-10 flex flex-col md:flex-row md:gap-20 sm:gap-3 mb-4">
         <div className="div3 w-full h-[300px] flex flex-col gap-2 md:gap-4">
           <h5 className="connect-text-Color font-medium">Personal Information</h5>
           <div className="phone" style={{ lineHeight: "1px" }}>
@@ -180,7 +193,7 @@ const EmpDetails = ({ employeeData }) => {
             </div>
             <div className="phone" style={{ lineHeight: "1px" }}>
               <p className="text-sm" style={{ margin: 0 }}>
-                Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </p>
               <p className="font-bold text-sm" style={{ margin: 0 }}>
                 {employeeData.gender  || "Male"}
@@ -243,7 +256,7 @@ const EmpDetails = ({ employeeData }) => {
             </div>
           </div>
 
-          <div className="md:hidden flex flex-row justify-between">
+          <div className="md:hidden flex flex-row justify-between  mb-18">
             <div className="flex flex-col gap-2">
               <div className="phone" style={{ lineHeight: "1px" }}>
                 <p className="text-sm md:text-lg" style={{ margin: 0 }}>
@@ -284,20 +297,20 @@ const EmpDetails = ({ employeeData }) => {
         </div>
       </div>
 
-      <div className="flex justify-center gap-20 mt-8 md:mt-3 2xl:mt-8 px-10 py-2 md:py-0 mb-3 md:mb-3 lg:mb-3 xl:mb-0 ">
-        {socialMediaLink.facebook&&<Link target="_blank"  to={`${socialMediaLink.facebook}`} >
-                                              <RiFacebookCircleLine size={35} className="text-yellow-500 cursor-pointer" />
+      <div className="bot flex justify-center gap-12 mt-8 sm:mt-16  md:mt-3 2xl:mt-8 px-10 py-2 md:py-0 mb-3  sm:mb-5 md:mb-3 lg:mb-3 xl:mb-0 flex-wrap">
+        {socialMediaLink.facebook&&<Link target="_blank"  to={`${socialMediaLink.facebook}`}  className="flex justify-center items-center">
+                                              <RiFacebookCircleLine size={24} className=" ico text-yellow-500 cursor-pointer" />
                                           </Link>}
-                                          {socialMediaLink.instagram&&<Link target="_blank"  to={`${socialMediaLink.instagram}`} >
-                                              <IoLogoInstagram size={35} className="text-yellow-500 cursor-pointer" />
+                                          {socialMediaLink.instagram&&<Link target="_blank"  to={`${socialMediaLink.instagram}`}className="flex justify-center items-center" >
+                                              <IoLogoInstagram  size={24} className=" ico text-yellow-500 cursor-pointer" />
                                               </Link>}
-                                             {socialMediaLink.likedin&& <Link target="_blank"  to={`${socialMediaLink.likedin}`} >
+                                             {socialMediaLink.likedin&& <Link target="_blank"  to={`${socialMediaLink.likedin}`}className="flex justify-center items-center" >
         
-                                              <TbBrandLinkedin size={35} className="text-yellow-500 cursor-pointer" />
+                                              <TbBrandLinkedin size={24} className="ico text-yellow-500 cursor-pointer" />
                                               </Link>}
-                                              {socialMediaLink.twitter&&<Link target="_blank"  to={`${socialMediaLink.twitter}`} >
+                                              {socialMediaLink.twitter&&<Link target="_blank"  to={`${socialMediaLink.twitter}`} className="flex justify-center items-center">
         
-                                              <FaXTwitter   size={35} className="text-yellow-500 cursor-pointer" />
+                                              <FaXTwitter  size={24} className=" ico text-yellow-500 cursor-pointer" />
                                               </Link>}
       </div>
     </>

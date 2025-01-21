@@ -2,10 +2,8 @@ import React , {useState,useEffect} from 'react';
 import { FiExternalLink } from 'react-icons/fi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
-import { MdAdd } from 'react-icons/md';
-import { BsUpload } from 'react-icons/bs';
-import { BsDownload } from 'react-icons/bs';
 import baseURL from '../../Api Services/baseURL';
+import {Puff}  from 'react-loader-spinner'
 import DeleteModal from './DeleteModal';
 const TableSales = () => {
   const navigate = useNavigate();
@@ -42,9 +40,7 @@ const TableSales = () => {
     console.log(employee, 'employee');
     navigate('/admin/salesManagement-detail', { state: { rowDatas: employee } });
   };
-  const handleAdd = () => {
-    navigate('/admin/salesManagement-add/'); // Navigate Add sales page
-  }
+ 
   const handleDelete = async () => {
     try {
       await baseURL.delete(`/api/employee/employees/${deleteId}`,{
@@ -58,60 +54,26 @@ const TableSales = () => {
       alert('Failed to delete the record. Please try again.');
     }
   };
-  const handleExportCSV = async () => {
-    console.log("clicked");
-  
-    try {
-      // const token = localStorage.getItem('adminToken');  // Get token from localStorage
-  
-      // if (!token) {
-      //   return console.error("Token is missing!");
-      // }
-  
-      const response = await baseURL.get("/export/csv-data?type=employee&category=sales", {
-        headers: {
-          // Authorization: `Bearer ${token}`,  
-          'Content-Type': 'application/json',
-        },
-        responseType: "blob",  // Important for handling file download
-      });
-  
-      // Create a URL for the blob data
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-  
-      // Create a temporary link element
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "sales-data.csv"); // Set the filename
-      document.body.appendChild(link);
-      link.click(); // Trigger the download
-  
-      // Cleanup
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Error exporting CSV:", error);
-    }
-  };
+ 
   
 
-  if (loading) return <div className="text-center mt-4">Loading sales data...</div>;
+   if (loading) {
+     return (
+       <div className="flex justify-center items-center ">
+         <Puff
+           visible={true}
+           height={80}
+           width={80}
+           color="#FF9D00"
+           ariaLabel="puff-loading"
+         />
+       </div>
+     );
+   }
   if (error) return <div className="text-center mt-4 text-red-500">{error}</div>;
   return (
     <div>
-       <div className="flex items-center justify-between">
-                  <h4 className="font-bold my-4">Sales Management</h4>
-                    <div className="flex gap-2">
-                          <div className="px-4 py-1 rounded-md bg-[#FF9D00] text-white flex items-center gap-2 cursor-pointer">
-                            <BsUpload color="white" className="font-bold" onClick={handleExportCSV}/> |{' '}
-                            <BsDownload color="white" />
-                          </div>
-                          <div onClick={handleAdd} className="px-4 py-1 rounded-md bg-[#FF9D00] text-white flex items-center gap-2 cursor-pointer">
-                            <MdAdd color="white" />
-                            Add Sales
-                          </div>
-                    </div>
-                </div>
+      
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg  border-[#939393] border-1">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 " style={{ tableLayout: "fixed" }}>
           <thead className="text-md font-bold text-black uppercase border-[#939393] border-b">

@@ -8,8 +8,9 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 import { TbBrandLinkedin } from "react-icons/tb";
 // import { IoMdClose } from "react-icons/io";
 import { Modal } from "react-bootstrap";
-
+import { FaXTwitter } from "react-icons/fa6";
 import "../../CSS/personnel.css";
+import { Link } from "react-router-dom";
 // import { useLocation, useNavigate } from "react-router-dom";
 import { SERVER_URL } from "../../Api Services/serverUrl";
 function Personel({ show, onHide,employee  }) {
@@ -20,6 +21,26 @@ function Personel({ show, onHide,employee  }) {
             const imageUrl = `${SERVER_URL}${employee.image}`; // Use SERVER_URL directly here
             setProfileImage(imageUrl); // Set the image URL to state
         }
+      }, [employee]);
+      const[socialMediaLink,setSocialMediaLink]=useState({
+        instagram:"",
+        facebook:"",
+        likedin:"",
+        twitter:""
+      })
+      useEffect(() => {
+        const newLinks = { ...socialMediaLink };
+      
+        for (let i = 1; i <= 4; i++) {
+          const socialMediaKey = employee[`socialmedia${i}`];
+          const platformKey = employee[`platform${i}`];
+      
+          if (socialMediaKey && platformKey) {
+            newLinks[socialMediaKey] = platformKey;
+          }
+        }
+      
+        setSocialMediaLink(newLinks);
       }, [employee]);
  
   return (
@@ -66,10 +87,20 @@ function Personel({ show, onHide,employee  }) {
             {employee.selfIntroduction}</p>
           </div>
           <div className=" flex justify-evenly gap-20 md:mt-6 px-10">
-          <RiFacebookCircleLine size={35} className="text-yellow-500 cursor-pointer" />
-          {/* <SlSocialYoutube size={35} className="text-yellow-500 cursor-pointer" /> */}
-          <IoLogoInstagram size={35} className="text-yellow-500 cursor-pointer" />
-          <TbBrandLinkedin size={35} className="text-yellow-500 cursor-pointer" />
+          {socialMediaLink.facebook&&<Link target="_blank"  to={`${socialMediaLink.facebook}`} >
+                                                       <RiFacebookCircleLine size={35} className="text-yellow-500 cursor-pointer" />
+                                                   </Link>}
+                                                   {socialMediaLink.instagram&&<Link target="_blank"  to={`${socialMediaLink.instagram}`} >
+                                                       <IoLogoInstagram size={35} className="text-yellow-500 cursor-pointer" />
+                                                       </Link>}
+                                                      {socialMediaLink.likedin&& <Link target="_blank"  to={`${socialMediaLink.likedin}`} >
+                 
+                                                       <TbBrandLinkedin size={35} className="text-yellow-500 cursor-pointer" />
+                                                       </Link>}
+                                                       {socialMediaLink.twitter&&<Link target="_blank"  to={`${socialMediaLink.twitter}`} >
+                 
+                                                       <FaXTwitter   size={35} className="text-yellow-500 cursor-pointer" />
+                                                       </Link>}
         </div>
         </div>
       </Modal.Body>

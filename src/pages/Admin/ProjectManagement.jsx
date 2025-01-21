@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi';
 import { FiExternalLink } from 'react-icons/fi';
 import baseURL from '../../Api Services/baseURL';
+import { Puff } from 'react-loader-spinner';
 
 function ProjectManagement() {
   const [projects, setProjects] = useState([]);
@@ -19,16 +20,14 @@ function ProjectManagement() {
         const response = await baseURL.get('/api/projects/getAllProjects');
         console.log(response.data, 'responseDataProjects');
         setProjects(response.data); // Assuming the API returns an array of projects
-        setRefresh(response.data);
         setLoading(false);
       } catch (err) {
         setError('Failed to load projects');
-        setLoading(false);
       }
     };
 
     fetchProjects();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, [refresh]); // Empty dependency array means this effect runs once when the component mounts
 
   // Group projects by date
   const groupedProjects = projects.reduce((acc, project) => {
@@ -39,6 +38,8 @@ function ProjectManagement() {
     acc[date].push(project);
     return acc;
   }, {});
+
+  const sortedDates = Object.keys(groupedProjects).sort((a, b) => new Date(b) - new Date(a));
 
   const handleViewDetails = project => {
     console.log(project, 'projectId');
@@ -81,13 +82,7 @@ function ProjectManagement() {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>; // You can customize the loading indicator
-  }
-
-  if (error) {
-    return <div>{error}</div>; // You can customize the error message
-  }
+ 
 
   const formatDate = dateString => {
     const date = new Date(dateString);
@@ -103,13 +98,17 @@ function ProjectManagement() {
     return formattedDate;
   };
 
-  const formatTime = dateString => {
+
+  const formatTime = (dateString) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-GB', {
+    const formattedTime = new Intl.DateTimeFormat('en-GB', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true,
     }).format(date);
+    
+    // Convert "am" or "pm" to uppercase
+    return formattedTime.replace(/am|pm/, (match) => match.toUpperCase());
   };
   return (
     <div className="bg-white w-full">
@@ -128,169 +127,183 @@ function ProjectManagement() {
           </div>
         </div>
         {/* Table Content */}
-        <div className="py-[10px] grid gap-[25px]">
-          {Object.keys(groupedProjects).map(date => (
-            <div className="grid gap-[10px]" key={date}>
-              {/* Date Heading */}
-              <div className="text-[#FF9D00] text-[20px]">
-                {formatDate(date)}
-              </div>
+        {loading ? (
+          <div className="flex justify-center items-start mt-12 h-screen">
+            <Puff
+              visible={true}
+              height="80"
+              width="80"
+              color="#FF9D00"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />{' '}
+          </div>
+        ) : (
+          <div className="py-[10px] grid gap-[25px]">
+            {sortedDates.map(date => (
+              <div className="grid gap-[10px]" key={date}>
+                {/* Date Heading */}
+                <div className="text-[#FF9D00] text-[20px]">
+                  {formatDate(date)}
+                </div>
 
-              {/* Table */}
-              <div className="relative shadow-md sm:rounded-lg ">
-                <div className="table-wrapper">
-                  <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
-                    {/* Table Headers */}
-                    <thead className="text-md font-bold text-black uppercase  ">
-                      <tr>
-                        <th
-                          scope="col"
-                          className="  text-center"
-                          style={{ width: '10%' }}
-                        >
-                          {' '}
-                          Sl No
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Name
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Email ID
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Phone
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Project Name
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '20%' }}
-                        >
-                          {' '}
-                          Time
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          View
-                        </th>
-                      </tr>
-                    </thead>
-                    {/* Table Body */}
-                    <tbody>
-                      {groupedProjects[date].map((project, projectIndex) => (
-                        <tr
-                          key={project._id}
-                          className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 "
-                        >
-                          <td
+                {/* Table */}
+                <div className="relative shadow-md sm:rounded-lg ">
+                  <div className="table-wrapper">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
+                      {/* Table Headers */}
+                      <thead className="text-md font-bold text-black uppercase  ">
+                        <tr>
+                          <th
+                            scope="col"
                             className="  text-center"
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            style={{ width: '10%' }}
                           >
-                            {projectIndex + 1}
-                          </td>
-                          <td
-                            className={`px-2 py-3  text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Sl No
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '25%' }}
                           >
-                            {project.fullName}
-                          </td>
-                          <td
-                            className={`px-2 py-3  text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Name
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '25%' }}
                           >
-                            {project.emailAddress}
-                          </td>
-                          <td
-                            className={`px-2 py-3  text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Email ID
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '25%' }}
                           >
-                            {project.contactNumber}
-                          </td>
-                          <td
-                            className={`px-2 py-3  text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Phone
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '25%' }}
                           >
-                            {project.projectName}
-                          </td>
-                          <td
-                            className={`px-2 py-3  text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Project Name
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '20%' }}
                           >
-                            {/* {project.createdAt.split('T')[1].split('.')[0]}{' '} */}
-                            {formatTime(project.createdAt)}{' '}
-                          </td>
-                          <td
-                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px]"
-                            onClick={() => handleViewDetails(project)}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Time
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '25%' }}
                           >
-                            <div className="flex justify-center gap-2">
-                              View Details <FiExternalLink size={20} />
-                            </div>
-                          </td>
+                            {' '}
+                            View
+                          </th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      {/* Table Body */}
+                      <tbody>
+                        {groupedProjects[date].map((project, projectIndex) => (
+                          <tr
+                            key={project._id}
+                            className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 "
+                          >
+                            <td
+                              className="  text-center"
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {projectIndex + 1}
+                            </td>
+                            <td
+                              className={`px-2 py-3  text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {project.fullName}
+                            </td>
+                            <td
+                              className={`px-2 py-3  text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {project.emailAddress}
+                            </td>
+                            <td
+                              className={`px-2 py-3  text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {project.contactNumber}
+                            </td>
+                            <td
+                              className={`px-2 py-3  text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {project.projectName}
+                            </td>
+                            <td
+                              className={`px-2 py-3  text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {/* {project.createdAt.split('T')[1].split('.')[0]}{' '} */}
+                              {formatTime(project.createdAt)}{' '}
+                            </td>
+                            <td
+                              className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
+                              onClick={() => handleViewDetails(project)}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              <div className="flex justify-center gap-2">
+                                View Details <FiExternalLink size={20} />
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

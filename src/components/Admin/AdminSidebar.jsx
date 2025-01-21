@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '../../images/tpl.png';
 import logoutImg from '../../images/logout.svg';
 import '../../CSS/adminsidebar.css';
 import { toast } from 'react-toastify';
+import { Modal, Button } from 'react-bootstrap';
+import { RiLogoutCircleLine } from 'react-icons/ri';
 
 const Tab = ({ name, route, isActive, onClick }) => (
   <div
@@ -20,6 +22,7 @@ const Tab = ({ name, route, isActive, onClick }) => (
 const AdminSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [showModal, setShowModal] = useState(false);
 
   const tabs = [
     {
@@ -73,12 +76,23 @@ const AdminSidebar = () => {
       pages: ['/admin/partnership-management'],
     },
   ];
+
   const onLogOut = () => {
+    setShowModal(true); // Show the modal when user clicks logout
+  };
+
+  const handleConfirmLogOut = () => {
     localStorage.removeItem('adminToken');
     localStorage.removeItem('adminId');
     toast.success('Logged out successfully!');
     navigate('/admin/admin-login');
+    setShowModal(false); // Close the modal after logout
   };
+
+  const handleCancelLogOut = () => {
+    setShowModal(false); // Close the modal if user clicks Cancel
+  };
+
   return (
     <div className="h-screen adminsidebarMain flex">
       <div className="tabSideMain flex flex-col justify-between items-center py-3">
@@ -143,7 +157,46 @@ const AdminSidebar = () => {
           </div>
         </div>
       </div> */}
-      <div></div>
+      <div>
+        {/* Bootstrap Modal */}
+
+        <Modal
+          size="md"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          show={showModal}
+          onHide={handleCancelLogOut}
+          className="bg-[#00000062]"
+        >
+          <Modal.Body className="mx-8" closeButton>
+            <div className="flex items-center text-[24px] font-700 py-2 justify-start gap-2 text-[#FF9D00]">
+              <RiLogoutCircleLine />
+              Confirm Logout
+            </div>
+            <p className="text-start font-700 text-[#0A0A0A] mt-2 text-[18px]">
+              Do you want to Log out?
+            </p>
+            <div className="flex gap-4 justify-between items-center py-2">
+              <div>
+                <button
+                  onClick={handleConfirmLogOut}
+                  className="bg-[#FF9D00] text-white px-8 py-1 rounded-lg"
+                >
+                  Yes, Log out
+                </button>
+              </div>
+              <div>
+                <button
+                  onClick={handleCancelLogOut}
+                  className="text-[#FF9D00] font-semibold btnBorder px-8 py-1 rounded-lg"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
+      </div>
     </div>
   );
 };

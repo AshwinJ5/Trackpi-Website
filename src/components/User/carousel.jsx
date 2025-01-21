@@ -35,19 +35,31 @@ function Clients() {
   useEffect(() => {
     // Adjust cards per slide dynamically based on screen size
     const updateCardsPerSlide = () => {
-      if (window.innerWidth < 746) {
-        setCardsPerSlide(1); // Single card for small screens
-      } else if (window.innerWidth < 1024) {
-        setCardsPerSlide(2); // Two cards for medium screens
+      let newCardsPerSlide;
+      if (window.innerWidth < 410) {
+        newCardsPerSlide = 1; // Single card for small screens
+      } else if (window.innerWidth < 746) {
+        newCardsPerSlide =1; // Single card for mobile screens
+      } else if (window.innerWidth < 1365) {
+        newCardsPerSlide =2; // Two cards for medium screens
       } else {
-        setCardsPerSlide(3); // Three cards for large screens
+        newCardsPerSlide =3; // Three cards for large screens
       }
+       // Check if cardsPerSlide has changed
+    if (newCardsPerSlide !== cardsPerSlide) {
+      setCardsPerSlide(newCardsPerSlide);
+      setCurrentIndex(0); // Reset to the first slide
+    }
     };
 
     updateCardsPerSlide();
     window.addEventListener("resize", updateCardsPerSlide);
     return () => window.removeEventListener("resize", updateCardsPerSlide);
-  }, []);
+  }, [cardsPerSlide]);
+  useEffect(() => {
+    // Reset currentIndex when cardsPerSlide changes to center the first card
+    setCurrentIndex(0);
+  }, [cardsPerSlide]);
 
   useEffect(() => {
     if (isHovered) return;
@@ -86,7 +98,7 @@ function Clients() {
 
   return (
     <section
-      className="w-full"
+      className="clients-carousel w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -100,21 +112,23 @@ function Clients() {
         {getPartnerSlides().map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className="med flex justify-center items-center"
+            className="med slide flex justify-center items-center"
             style={{
               flex: `0 0 ${100 / totalSlides}%`,
               display: "flex",
               justifyContent: "center",
-              gap: "20px",
+              gap: "0 20px",
             }}
           >
             {slide.map((partner, index) => (
               <div
                 key={partner._id || index}
-                className="card-cl flex flex-col flex-shrink items-center justify-center gap-2 p-6 rounded-lg shadow-lg"
+                className="card-cl flex flex-col flex-shrink items-center justify-center gap-2 p-4 rounded-lg shadow-lg"
                 style={{
                   marginRight: index === slide.length - 1 ? "" : "20px", // No gap after last card
-                  width: "410px", // Card width
+                  width: "100%", // Card width
+                  maxWidth: "380px",
+                  margin: "0 10px",
                 }}
               >
                 <img
