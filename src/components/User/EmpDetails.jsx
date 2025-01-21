@@ -83,12 +83,12 @@ const EmpDetails = ({ employeeData }) => {
             
           />   )}
           <div className="hidden md:block w-full">
-            <div className="flex flex-row justify-between items-center text-2xl xl:text-xl w-full">
-              <div className="w-full flex flex-wrap justify-start">
+            <div className="flex flex-row justify-between items-center text-2xl xl:text-xl ">
+              <div className=" flex flex-col flex-wrap justify-start">
                 <p className="font-bold text-2xl break-words">{employeeData.name || "Paul Walker"} </p>
                 <button
                   style={{ backgroundColor: "#019304", color: "white" }}
-                  className="act rounded-pill px-3 py-1 flex flex-row justify-center items-center md:gap-1 text-xs md:text-sm"
+                  className="act rounded-pill w-[100px] px-3 py-1 flex flex-row justify-center items-center md:gap-1 text-xs md:text-sm"
                 >
                   <GoDotFill size={8} />
                   Active
@@ -107,7 +107,7 @@ const EmpDetails = ({ employeeData }) => {
           </div>
           <div className="md:hidden w-full flex flex-col justify-between items-start md:flex-row lg:flex-row md:text-2xl xl:text-xl">
             <div className="flex flex-row items-center gap-3" style={{ lineHeight: "1px" }}>
-              <p className="font-bold" style={{ margin: 0 }}>
+              <p className="font-bold text-sm" style={{ margin: 0 }}>
                 {employeeData.name || "Paul Walker"}
               </p>
               <button
@@ -128,7 +128,7 @@ const EmpDetails = ({ employeeData }) => {
               </p>
             </div>
             <div className="flex flex-row md:flex-col" style={{ lineHeight: "1px" }}>
-              <p className="email text-sm md:text-lg" style={{ margin: 0 }}>
+              <p className="email text-sm md:text-sm" style={{ margin: 0 }}>
                 Email
               </p>
               <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
@@ -297,7 +297,7 @@ const EmpDetails = ({ employeeData }) => {
         </div>
       </div>
 
-      <div className="bot flex justify-center gap-12 mt-8 sm:mt-16  md:mt-3 2xl:mt-8 px-10 py-2 md:py-0 mb-3  sm:mb-5 md:mb-3 lg:mb-3 xl:mb-0 flex-wrap">
+      <div className="bot flex justify-center gap-12 mt-8 sm:mt-16  md:mt-3 2xl:mt-8 px-10 py-2 md:py-0 mb-3  sm:mb-5 md:mb-3 lg:mb-3 xl:mb-0 ">
         {socialMediaLink.facebook&&<Link target="_blank"  to={`${socialMediaLink.facebook}`}  className="flex justify-center items-center">
                                               <RiFacebookCircleLine size={24} className=" ico text-yellow-500 cursor-pointer" />
                                           </Link>}

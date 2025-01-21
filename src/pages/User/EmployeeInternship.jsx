@@ -57,7 +57,7 @@ function EmployeeInternship() {
         };
       }, []);
     };
-    useScreenshotPrevention();
+    // useScreenshotPrevention();
 
   return (
     <div className="pad mt-20 w-full py-6 md:py-10 md:px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto "
@@ -85,7 +85,7 @@ function EmployeeInternship() {
                              <iframe
                                src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
                                title="Internship Certificate"
-                               className="w-full h-full rounded-lg"
+                               className="w-full h-full iframe11 rounded-lg"
                                style={{
                                  border: 'none',
                                  overflow: 'auto', // Allow scrolling
