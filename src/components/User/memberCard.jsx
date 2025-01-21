@@ -28,7 +28,7 @@ function MemberCard({ employee, onCardClick }) {
                   src={profileImage}
                   
                   alt={employee.title || "Employee"}
-                  className="w-full h-[150px] lg:[300px] xl:h-[400px] 2xl:[300px] transition-transform duration-500 ease-in-out transform hover:scale-110"
+                  className="w-full h-auto transition-transform duration-500 ease-in-out transform hover:scale-110"
                   />
               )}
           

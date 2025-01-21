@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from 'react';
 import EmpDetails from "../../components/User/EmpDetails";
 import "../../CSS/employeeinternship.css";
+import { SERVER_URL } from "../../Api Services/serverUrl";
 function EmployeeInternship() {
   const location = useLocation();
   const employeeData = location.state?.rowDatas || {};
@@ -67,42 +68,70 @@ function EmployeeInternship() {
                     <h5 className="connect-text-Color font-medium ">Feedback</h5>
                     <br/>
                     <ul className="feed list-disc text-justify text-sm sm:text-lg md:text-md xl:text-lg xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  font-medium space-y-2">
-                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo a commodi minus! Repudiandae deleniti excepturi ad ducimus molestiae dicta recusandae nobis earum, quisquam magnam odio! Accusantium ducimus rem fuga optio.</li>
-                        
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla deleniti nihil ad architecto? Corporis laborum impedit rerum expedita non nemo amet quas! Unde ratione sint laboriosam dolores qui repellendus beatae.</li>
-                       
-                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti minus ad, beatae facere sint veniam error natus consectetur corrupti quasi omnis quis illo. Quidem, inventore omnis? Nesciunt officia possimus fugit.</li>
+                    {employeeData.feedback
+                ? employeeData.feedback.split('\n').map((point, index) => (
+                    <li key={index} className="text-base">{point}</li>
+                  ))
+                : <li>No feedback available for this employee.</li>}
                     </ul>
                   </div>
-                <div className="relative flex flex-col justify-center items-center ">
-                        <div
-                            className=" custom-height3 w-[326px] md:w-full h-[138px] md:h-[350px] xl:h-[360px] flex justify-center items-center rounded-t-md"
-                            style={{  backgroundColor: "#2A2A2A" }}
-                        >
+                  <div  className="relative flex flex-col justify-center items-center">
+           
+           <div 
+           className="custom-height3 w-[326px] md:w-full h-[138px] md:h-[310px] xl:h-[320px] flex justify-center items-center rounded-t-md" style={{ backgroundColor: '#2A2A2A' }}
+         >
+         {employeeData.Certificate ? (
+                   <>
+                             <iframe
+                               src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
+                               title="Internship Certificate"
+                               className="w-full h-full rounded-lg"
+                               style={{
+                                 border: 'none',
+                                 overflow: 'auto', // Allow scrolling
+                               }}
+                               onContextMenu={(e) => {
+                                 e.preventDefault(); // Prevent right-click
+                                 alert('Right-click is disabled.');
+                               }}
+                             ></iframe>
+
+                             {/* Transparent Overlay for Right-click Prevention */}
+                             <div
+                               className="absolute top-0 left-0 w-full h-full"
+                               style={{
+                                 backgroundColor: 'transparent',
+                                 pointerEvents: 'auto', // Prevent right-click on the overlay, but allow scrolling
+                               }}
+                               onContextMenu={(e) => {
+                                 e.preventDefault(); // Disable right-click on the overlay
+                                 alert('Right-click is disabled.');
+                               }}
+                             ></div>
+
                            {/* Dynamic Watermark */}
-               <div
-      className="absolute text-gray-500 opacity-30 text-[14px] sm:text-[19px] md:text-[21px] lg:text-[24px] font-bold"
-      style={{
-        
-        top: "50%",
-        left: "50%",
-        transformOrigin: "center",
-        transform: "translate(-50%, -50%) rotate(-45deg)",
-        whiteSpace: "nowrap", // Prevent line breaks
-        pointerEvents: "none", // Ensure it doesn't block user interactions
-        zIndex: 1, // Make sure the watermark appears over the certificate
-      }}
-    >
-      {employeeData.name ||  "Paul Walker"} | {new Date().toLocaleString()}
-    </div>
-                            <h6 className="text-white text-center container w-50 ">
-                            Internship Certificate
-                            </h6>
-                        </div>
-                        <div className=" w-[326px] md:w-full h-[22px] md:h-[60px] xl:h-[70px] bg-yellow-400 flex items-center justify-start rounded-b-md" >
-                            <p className="text-white px-4  mt-3 text-sm sm:text-lg md:text-xl xl:text-xl xl:leading-7 2xl:leading-10 2xl:text-xl">Employee Name</p>
-                        </div>
-                    </div>
+                           <div
+                             className="absolute text-gray-500 opacity-30 text-[14px] sm:text-[19px] md:text-[21px] lg:text-[24px] font-bold"
+                             style={{
+                               top: '50%',
+                               left: '50%',
+                               transform: 'translate(-50%, -50%) rotate(-45deg)',
+                               whiteSpace: 'nowrap', // Prevent line breaks
+                               pointerEvents: 'none', // Ensure it doesn't block user interactions
+                             }}
+                               >
+                                 {employeeData.name} | {new Date().toLocaleString()}
+                               </div>
+                   </>
+               ) : (
+                   <div className="text-white text-center">Internship Certificate</div>
+               )}</div>
+<div className="w-[326px] md:w-full h-[22px] md:h-[29px] xl:h-[39px] bg-yellow-400 flex items-center justify-start rounded-b-md">
+ <p className="text-white px-4 mt-3 text-sm sm:text-lg md:text-xl xl:text-xl xl:leading-7 2xl:leading-10 2xl:text-xl">
+   {employeeData.name}
+ </p>
+</div>
+</div>
                     
         </div>
                 

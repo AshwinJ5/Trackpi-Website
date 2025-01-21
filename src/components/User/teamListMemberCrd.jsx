@@ -6,7 +6,6 @@ import { useState,useRef} from "react";
 import { FaAngleRight } from 'react-icons/fa6';
 import { FaAngleLeft } from 'react-icons/fa6';
 import "../../CSS/teamListMember.css";
-import EmployeeManagementDetail from "../../pages/Admin/EmployeeManagementDetail";
 
 
  function TeamListMemberCrd({ employees  }) {
@@ -40,8 +39,12 @@ import EmployeeManagementDetail from "../../pages/Admin/EmployeeManagementDetail
       });
     }
   };
-    
-   
+
+
+     // Slice employees array to limit to 6 employees 
+  const displayedEmployees = employees?.slice(0, 6);
+
+
     return (
         <div className="md:mt-10 lg:mt-10 xl:mt-10 2xl:mt-10 w-full   ">
             <div>
@@ -50,7 +53,7 @@ import EmployeeManagementDetail from "../../pages/Admin/EmployeeManagementDetail
                         <div 
                             ref={scrollRef}
                             className="flex overflow-x-auto  space-x-0  scroll-snap-x scroll-snap-mandatory  md:grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:gap-8">
-                           {employees?.map((employee, index) => (
+                           {displayedEmployees?.map((employee, index) => (
     <div key={employee._id || index}  className="min-w-[full] md:min-w-0 flex-shrink-0 scroll-snap-align-start">
         <MemberCard employee={employee} onCardClick={() => handleCardClick(employee)} />
     </div>

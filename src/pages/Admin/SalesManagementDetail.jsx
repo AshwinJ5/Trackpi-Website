@@ -3,7 +3,7 @@ import { FaRegEdit } from 'react-icons/fa';
 import { IoMdArrowBack } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import EmpDetails from '../../components/User/EmpDetails';
-
+import {Puff}  from 'react-loader-spinner'
 import { SERVER_URL } from "../../Api Services/serverUrl";
 
 function SalesManagementDetail() {
@@ -26,7 +26,17 @@ function SalesManagementDetail() {
   };
   
   if (!employeeData) {
-    return <div>No employee data found.</div>;
+    return (
+      <div className="flex justify-center items-center ">
+        <Puff
+          visible={true}
+          height={80}
+          width={80}
+          color="#FF9D00"
+          ariaLabel="puff-loading"
+        />
+      </div>
+    );
   }
   return (
     <div >
@@ -49,19 +59,19 @@ function SalesManagementDetail() {
             style={{ backgroundColor: '#2A2A2A' }}
           >
             {employeeData.businessCard ? (
-            <iframe
-              src={`${SERVER_URL}${employeeData.businessCard}#toolbar=0`}
-              className="w-[225px] md:w-[500px] h-[300px] rounded-lg"
-              style={{ border: 'none' }}
-              title="Business Card"
-            />
+                <iframe
+                  src={`${SERVER_URL}${employeeData.businessCard}#toolbar=0`}
+                  className="w-[225px] md:w-[500px] h-[300px] rounded-lg"
+                  style={{ border: 'none' }}
+                  title="Business Card"
+                />
           ) : (
-            <div
-              className="w-[225px] md:w-[500px] h-[121px] md:h-[300px] rounded-lg d-flex justify-content-center align-items-center"
-              style={{ backgroundColor: '#2A2A2A' }}
-            >
-              <h6 className="text-white text-center container w-50">Business Card</h6>
-            </div>
+                <div
+                  className="w-[225px] md:w-[500px] h-[121px] md:h-[300px] rounded-lg d-flex justify-content-center align-items-center"
+                  style={{ backgroundColor: '#2A2A2A' }}
+                >
+                  <h6 className="text-white text-center container w-50">Business Card</h6>
+                </div>
           )}
           </div>
         </div>

@@ -4,7 +4,7 @@ import { IoMdArrowBack } from 'react-icons/io';
 import { useLocation, useNavigate } from 'react-router-dom';
 import EmpDetails from '../../components/User/EmpDetails';
 import { SERVER_URL } from "../../Api Services/serverUrl";
-
+import {Puff}  from 'react-loader-spinner'
 
 
 const InternManagementDetail = () => {
@@ -77,9 +77,20 @@ const InternManagementDetail = () => {
     navigate(-1); // Go back to previous page
   };
 
-  if (!employeeData) {
-    return <div>No employee data found.</div>;
-  }
+ 
+     if (!employeeData) {
+        return (
+          <div className="flex justify-center items-center ">
+            <Puff
+              visible={true}
+              height={80}
+              width={80}
+              color="#FF9D00"
+              ariaLabel="puff-loading"
+            />
+          </div>
+        );
+      }
   // useScreenshotPrevention();
   return (
    
@@ -114,55 +125,55 @@ const InternManagementDetail = () => {
           </div>
           <div  className="relative flex flex-col justify-center items-center">
            
-            <div 
-            className="custom-height3 w-[326px] md:w-full h-[138px] md:h-[310px] xl:h-[320px] flex justify-center items-center rounded-t-md" style={{ backgroundColor: '#2A2A2A' }}
-           >
-    {employeeData.Certificate ? (
-    <>
-      <iframe
-        src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
-        title="Internship Certificate"
-        className="w-full h-full rounded-lg"
-        style={{
-          border: 'none',
-          overflow: 'auto', // Allow scrolling
-        }}
-        onContextMenu={(e) => {
-          e.preventDefault(); // Prevent right-click
-          alert('Right-click is disabled.');
-        }}
-      ></iframe>
+                        <div 
+                        className="custom-height3 w-[326px] md:w-full h-[138px] md:h-[310px] xl:h-[320px] flex justify-center items-center rounded-t-md" style={{ backgroundColor: '#2A2A2A' }}
+                      >
+                      {employeeData.Certificate ? (
+                                <>
+                                          <iframe
+                                            src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
+                                            title="Internship Certificate"
+                                            className="w-full h-full rounded-lg"
+                                            style={{
+                                              border: 'none',
+                                              overflow: 'auto', // Allow scrolling
+                                            }}
+                                            onContextMenu={(e) => {
+                                              e.preventDefault(); // Prevent right-click
+                                              alert('Right-click is disabled.');
+                                            }}
+                                          ></iframe>
 
-      {/* Transparent Overlay for Right-click Prevention */}
-      <div
-        className="absolute top-0 left-0 w-full h-full"
-        style={{
-          backgroundColor: 'transparent',
-          pointerEvents: 'auto', // Prevent right-click on the overlay, but allow scrolling
-        }}
-        onContextMenu={(e) => {
-          e.preventDefault(); // Disable right-click on the overlay
-          alert('Right-click is disabled.');
-        }}
-      ></div>
+                                          {/* Transparent Overlay for Right-click Prevention */}
+                                          <div
+                                            className="absolute top-0 left-0 w-full h-full"
+                                            style={{
+                                              backgroundColor: 'transparent',
+                                              pointerEvents: 'auto', // Prevent right-click on the overlay, but allow scrolling
+                                            }}
+                                            onContextMenu={(e) => {
+                                              e.preventDefault(); // Disable right-click on the overlay
+                                              alert('Right-click is disabled.');
+                                            }}
+                                          ></div>
 
-      {/* Dynamic Watermark */}
-      <div
-        className="absolute text-gray-500 opacity-30 text-[14px] sm:text-[19px] md:text-[21px] lg:text-[24px] font-bold"
-        style={{
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%) rotate(-45deg)',
-          whiteSpace: 'nowrap', // Prevent line breaks
-          pointerEvents: 'none', // Ensure it doesn't block user interactions
-        }}
-      >
-        {employeeData.name} | {new Date().toLocaleString()}
-      </div>
-    </>
-  ) : (
-    <div className="text-white text-center">Internship Certificate</div>
-  )}</div>
+                                        {/* Dynamic Watermark */}
+                                        <div
+                                          className="absolute text-gray-500 opacity-30 text-[14px] sm:text-[19px] md:text-[21px] lg:text-[24px] font-bold"
+                                          style={{
+                                            top: '50%',
+                                            left: '50%',
+                                            transform: 'translate(-50%, -50%) rotate(-45deg)',
+                                            whiteSpace: 'nowrap', // Prevent line breaks
+                                            pointerEvents: 'none', // Ensure it doesn't block user interactions
+                                          }}
+                                            >
+                                              {employeeData.name} | {new Date().toLocaleString()}
+                                            </div>
+                                </>
+                            ) : (
+                                <div className="text-white text-center">Internship Certificate</div>
+                            )}</div>
             <div className="w-[326px] md:w-full h-[22px] md:h-[29px] xl:h-[39px] bg-yellow-400 flex items-center justify-start rounded-b-md">
               <p className="text-white px-4 mt-3 text-sm sm:text-lg md:text-xl xl:text-xl xl:leading-7 2xl:leading-10 2xl:text-xl">
                 {employeeData.name}
