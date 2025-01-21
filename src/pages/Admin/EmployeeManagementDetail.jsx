@@ -1,7 +1,5 @@
 
 import React,{useEffect,useState} from "react";
-
-import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FaRegEdit } from 'react-icons/fa';
 import { IoMdArrowBack } from 'react-icons/io';
@@ -9,6 +7,7 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { Link, useLocation,useNavigate } from "react-router-dom";
 import { SERVER_URL } from "../../Api Services/serverUrl";
+import { FaXTwitter } from "react-icons/fa6";
 
 
 

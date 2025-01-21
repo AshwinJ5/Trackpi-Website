@@ -104,14 +104,18 @@ const sortedDates = Object.keys(groupedContactForms).sort((a, b) => new Date(b) 
     return formattedDate;
   };
 
-  const formatTime = dateString => {
-    const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-GB', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true,
-    }).format(date);
-  };
+const formatTime = (dateString) => {
+  const date = new Date(dateString);
+  const formattedTime = new Intl.DateTimeFormat('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  }).format(date);
+  
+  // Convert "am" or "pm" to uppercase
+  return formattedTime.replace(/am|pm/, (match) => match.toUpperCase());
+};
+
 
   return (
     <div className="bg-white w-full">
@@ -153,7 +157,7 @@ const sortedDates = Object.keys(groupedContactForms).sort((a, b) => new Date(b) 
                 </div>
 
                 {/* Table */}
-                <div className="relative shadow-md sm:rounded-lg border-[#939393] border-1">
+                <div className="relative shadow-md sm:rounded-lg">
                   <div className="table-wrapper">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
                       {/* Table Headers */}

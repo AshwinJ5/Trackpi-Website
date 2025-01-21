@@ -98,13 +98,17 @@ function ProjectManagement() {
     return formattedDate;
   };
 
-  const formatTime = dateString => {
+
+  const formatTime = (dateString) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-GB', {
+    const formattedTime = new Intl.DateTimeFormat('en-GB', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true,
     }).format(date);
+    
+    // Convert "am" or "pm" to uppercase
+    return formattedTime.replace(/am|pm/, (match) => match.toUpperCase());
   };
   return (
     <div className="bg-white w-full">
