@@ -22,7 +22,6 @@
   font-family: 'Urbanist', sans-serif;
 }
 
-
 body,
 html {
   overflow-x: hidden;
@@ -588,7 +587,7 @@ html {
 /* Scroll  Our clients section */
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(5%);
   }
   100% {
     transform: translateX(-100%);
@@ -597,7 +596,7 @@ html {
 
 .animate-scroll {
   display: flex;
-  animation: scroll 20s linear infinite;
+  animation: scroll 10s linear infinite;
 }
 
 .animate-scroll > * {

@@ -3,10 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi';
 import { FiExternalLink } from 'react-icons/fi';
 import baseURL from '../../Api Services/baseURL';
+import { Puff } from 'react-loader-spinner';
+
 
 function FormManagement() {
   const [forms, setForms] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const [error, setError] = useState(null);
   const [refresh, setRefresh] = useState('');
 
@@ -42,6 +45,8 @@ function FormManagement() {
     acc[formattedDate].push(form);
     return acc;
   }, {});
+  // Sort dates in descending order so the latest date appears first
+const sortedDates = Object.keys(groupedContactForms).sort((a, b) => new Date(b) - new Date(a));
 
   const handleViewDetails = form => {
     console.log(form, 'formId');
@@ -84,13 +89,7 @@ function FormManagement() {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>; // You can customize the loading indicator
-  }
-
-  if (error) {
-    return <div>{error}</div>; // You can customize the error message
-  }
+  
   const formatDate = dateString => {
     const date = new Date(dateString);
     const formattedDate = new Intl.DateTimeFormat('en-GB', {
@@ -131,165 +130,180 @@ function FormManagement() {
           </div>
         </div>
         {/* Table Content */}
-        <div className="py-[10px] grid gap-[25px]">
-          {Object.keys(groupedContactForms).map(date => (
-            <div className="grid gap-[10px]" key={date}>
-              {/* Date Heading */}
-              <div className="text-[#FF9D00] text-[20px]">
-                {formatDate(date)}
-              </div>
 
-              {/* Table */}
-              <div className="relative shadow-md sm:rounded-lg border-[#939393] border-1">
-                <div className="table-wrapper">
-                  <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
-                    {/* Table Headers */}
-                    <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
-                      <tr>
-                        <th
-                          scope="col"
-                          className=" border-r text-center"
-                          style={{ width: '10%' }}
-                        >
-                          {' '}
-                          Sl No
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3 border-r text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Name
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3 border-r text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Email ID
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3 border-r text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Phone
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3 border-r text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          Hear About Us
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3 border-r text-center"
-                          style={{ width: '20%' }}
-                        >
-                          {' '}
-                          Time
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-2 py-3  text-center"
-                          style={{ width: '25%' }}
-                        >
-                          {' '}
-                          View
-                        </th>
-                      </tr>
-                    </thead>
-                    {/* Table Body */}
-                    <tbody>
-                      {groupedContactForms[date].map((form, formIndex) => (
-                        <tr
-                          key={form._id}
-                          className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 custom-table"
-                        >
-                          <td
+        {loading ? (
+          <div className="flex justify-center items-start mt-12 h-screen">
+            <Puff
+              visible={true}
+              height="80"
+              width="80"
+              color="#FF9D00"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />{' '}
+          </div>
+        ) : (
+          <div className="py-[10px] grid gap-[25px]">
+            {sortedDates.map(date => (
+              <div className="grid gap-[10px]" key={date}>
+                {/* Date Heading */}
+                <div className="text-[#FF9D00] text-[20px]">
+                  {formatDate(date)}
+                </div>
+
+                {/* Table */}
+                <div className="relative shadow-md sm:rounded-lg border-[#939393] border-1">
+                  <div className="table-wrapper">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
+                      {/* Table Headers */}
+                      <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
+                        <tr>
+                          <th
+                            scope="col"
                             className=" border-r text-center"
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            style={{ width: '10%' }}
                           >
-                            {formIndex + 1}
-                          </td>
-                          <td
-                            className={`px-2 py-3 border-r text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Sl No
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3 border-r text-center"
+                            style={{ width: '25%' }}
                           >
-                            {form.fullName}
-                          </td>
-                          <td
-                            className={`px-2 py-3 border-r text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Name
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3 border-r text-center"
+                            style={{ width: '25%' }}
                           >
-                            {form.email}
-                          </td>
-                          <td
-                            className={`px-2 py-3 border-r text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Email ID
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3 border-r text-center"
+                            style={{ width: '25%' }}
                           >
-                            {form.phone}
-                          </td>
-                          <td
-                            className={`px-2 py-3 border-r text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Phone
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3 border-r text-center"
+                            style={{ width: '25%' }}
                           >
-                            {form.info_from}
-                          </td>
-                          <td
-                            className={`px-2 py-3 border-r text-center`}
-                            style={{
-                              wordWrap: 'break-word',
-                              overflowWrap: 'break-word',
-                              boxSizing: 'border-box',
-                            }}
+                            {' '}
+                            Hear About Us
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3 border-r text-center"
+                            style={{ width: '20%' }}
                           >
-                            {formatTime(form.createdAt)}
-                            {/* {form.createdAt.split('T')[1].split('.')[0]}{' '} */}
-                            {/* Extract time */}
-                          </td>
-                          <td
-                            className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
-                            onClick={() => handleViewDetails(form)}
+                            {' '}
+                            Time
+                          </th>
+                          <th
+                            scope="col"
+                            className="px-2 py-3  text-center"
+                            style={{ width: '25%' }}
                           >
-                            <div  className="flex justify-center gap-2">
-                              View Details <FiExternalLink size={20} />
-                            </div>
-                          </td>
+                            {' '}
+                            View
+                          </th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                      </thead>
+                      {/* Table Body */}
+                      <tbody>
+                        {groupedContactForms[date].map((form, formIndex) => (
+                          <tr
+                            key={form._id}
+                            className="bg-white text-md font-semibold text-black hover:bg-gray-50 dark:hover:bg-gray-600 custom-table"
+                          >
+                            <td
+                              className=" border-r text-center"
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {formIndex + 1}
+                            </td>
+                            <td
+                              className={`px-2 py-3 border-r text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {form.fullName}
+                            </td>
+                            <td
+                              className={`px-2 py-3 border-r text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {form.email}
+                            </td>
+                            <td
+                              className={`px-2 py-3 border-r text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {form.phone}
+                            </td>
+                            <td
+                              className={`px-2 py-3 border-r text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {form.info_from}
+                            </td>
+                            <td
+                              className={`px-2 py-3 border-r text-center`}
+                              style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {formatTime(form.createdAt)}
+                              {/* {form.createdAt.split('T')[1].split('.')[0]}{' '} */}
+                              {/* Extract time */}
+                            </td>
+                            <td
+                              className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 w-[150px]"
+                              onClick={() => handleViewDetails(form)}
+                            >
+                              <div className="flex justify-center gap-2">
+                                View Details <FiExternalLink size={20} />
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -25,8 +25,8 @@
 .carousel-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Default: 4 cards per row */
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
 
 }
 
@@ -90,6 +90,10 @@
   .imgDiv {
     display: flex;
     justify-content: center;
+  }
+  .dotsMob
+  {
+    visibility: hidden;
   }
 }
 

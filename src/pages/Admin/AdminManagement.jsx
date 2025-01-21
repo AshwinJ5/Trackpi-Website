@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import {Puff}  from 'react-loader-spinner'
+import { Puff } from 'react-loader-spinner';
 
 // import {
 //   addAdmin,
@@ -49,7 +49,7 @@ function AdminManagement() {
   const handleShow2 = () => setShow2(true);
   const [copied, setCopied] = useState({ status: false, username: '' });
   const [refresh, setRefresh] = useState('');
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
 
   // const toggleStatus = index => {
   //   console.log('Toggling row:', index); // This logs the index of the row being toggled
@@ -275,9 +275,10 @@ function AdminManagement() {
         const response = await baseURL.get('/admin', {});
         console.log(response.data, 'AdminReasopnese');
         setAdmins(response.data); // Ensure your API response structure matches this
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching admin data:', error);
-      } 
+      }
     };
     fetchAdmins();
   }, [refresh]);
@@ -297,225 +298,7 @@ function AdminManagement() {
             </button>
           </div>
         </div>
-
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg  border-[#939393] border-1">
-          <table
-            className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-[#939393]"
-            style={{ tableLayout: 'fixed' }}
-          >
-            <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
-              <tr>
-                <th
-                  scope="col"
-                  className=" border-r text-center"
-                  style={{ width: '10%' }}
-                >
-                  SL No.
-                </th>
-                <th
-                  scope="col"
-                  className="px-2 py-3 border-r text-center"
-                  style={{ width: '25%' }}
-                >
-                  Username
-                </th>
-                <th
-                  scope="col"
-                  className="px-2 py-3 border-r text-center"
-                  style={{ width: '25%' }}
-                >
-                  Email ID
-                </th>
-                <th
-                  scope="col"
-                  className="px-2 py-3 border-r text-center"
-                  style={{ width: '25%' }}
-                >
-                  Password
-                </th>
-                <th
-                  scope="col"
-                  className="px-2 py-3 border-r text-center"
-                  style={{ width: '25%' }}
-                >
-                  Admin Type
-                </th>
-                <th
-                  scope="col"
-                  className="px-2 py-3 border-r text-center"
-                  style={{ width: '20%' }}
-                >
-                  Edit
-                </th>
-                <th
-                  scope="col"
-                  className="px-2 py-3  text-center"
-                  style={{ width: '25%' }}
-                >
-                  Status
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {admins.map((row, rowIndex) => (
-                <tr
-                  key={rowIndex}
-                  className="bg-white text-md font-semibold text-black dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 custom-table"
-                >
-                  <>
-                    <td
-                      key={row._id}
-                      className=" border-r text-center"
-                      style={{
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      {rowIndex + 1}
-                    </td>
-                    <td
-                      className={`px-2 py-3 border-r text-center`}
-                      style={{
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      {' '}
-                      {row.username}
-                    </td>
-                    <td
-                      className={`px-2 py-3 border-r text-center`}
-                      style={{
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      {' '}
-                      {row.email}
-                    </td>
-                    <td
-                      className="px-2 py-3 border-r text-center"
-                      style={{
-                        whiteSpace: 'normal',
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        wordBreak: 'break-word',
-                      }}
-                    >
-                      <div className="flex justify-center items-center gap-1 cursor-pointer">
-                        {/* Show only the first few characters with '...' */}
-                        <span
-                          title={row.password} // Tooltip shows the full password
-                          style={{
-                            display: 'inline-block',
-                            maxWidth: '150px', // Adjust width as needed
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
-                          }}
-                        >
-                          {row.password}
-                        </span>
-                        {/* Copy Icon */}
-                        <i
-                          className={`fa-copy cursor-pointer ${
-                            copied.status && row.username === copied.username
-                              ? 'text-warning fa-solid'
-                              : 'fa-regular'
-                          }`}
-                          onClick={() => handleCopy(row.password, row.username)}
-                        ></i>
-                      </div>
-                    </td>
-
-                    <td
-                      className={`px-2 py-3 border-r text-center`}
-                      style={{
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      {' '}
-                      {row.adminType}
-                    </td>
-                    <td
-                      className={`px-2 py-3 border-r text-center`}
-                      style={{
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      {' '}
-                      {/* {row.edit} */}
-                      <div className="flex justify-center items-center">
-                        <FaRegEdit
-                          size={15}
-                          onClick={() => handleEditClick(rowIndex)}
-                        />
-                      </div>
-                    </td>
-                    <td
-                      className={`px-2 py-3 border-r text-center`}
-                      style={{
-                        wordWrap: 'break-word',
-                        overflowWrap: 'break-word',
-                        boxSizing: 'border-box',
-                      }}
-                    >
-                      <div className="flex justify-center gap-2.5">
-                        <button
-                          onClick={() => toggleStatus(row._id, true)} // Explicit activation
-                          className={`${
-                            row.isActive
-                              ? 'bg-[#FF9D00] text-white'
-                              : 'bg-white text-black'
-                          } ${
-                            row.isActive ? 'py-1 px-2' : 'py-1 pr-7 pl-2'
-                          } rounded-full cursor-pointer relative text-xs font-bold ${
-                            row.isActive ? 'z-10' : 'z-0'
-                          } mr-[-30px]`}
-                          style={{
-                            border: row.isActive ? 'none' : '1px solid black',
-                          }}
-                        >
-                          Activate
-                        </button>
-                        <button
-                          onClick={() => toggleStatus(row._id, false)} // Explicit deactivation
-                          className={`${
-                            row.isActive
-                              ? 'bg-white text-black'
-                              : 'bg-[#FF0000] text-white'
-                          } ${
-                            row.isActive ? 'py-1 pr-2 pl-7' : 'py-1 px-2'
-                          } rounded-full cursor-pointer relative text-xs font-bold ${
-                            row.isActive ? 'z-0' : 'z-10'
-                          }`}
-                          style={{
-                            border: row.isActive ? '1px solid black' : 'none',
-                            display: 'flex',
-                            justifyContent: row.isActive
-                              ? 'flex-end'
-                              : 'center',
-                          }}
-                        >
-                          Deactivate
-                        </button>
-                      </div>
-                    </td>
-                  </>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {loading || admins.length > 0 ? (
-          // Loader displayed while fetching data
+        {loading ? (
           <div className="flex justify-center items-start mt-12 h-screen">
             <Puff
               visible={true}
@@ -528,143 +311,352 @@ function AdminManagement() {
             />{' '}
           </div>
         ) : (
-          <div className="d-flex justify-content-center align-items-center my-5">
-            <div className="border m-5 shadow rounded-4">
-              <Modal
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-                show={show1}
-                onHide={handleClose1}
-              >
-                <Modal.Body>
-                  <div className="flex justify-center items-center gap-32 pt-5 ">
-                    <h3 className="text-center mx-10 font-bold text-[#0A0A0A]">
-                      Add Admin
-                    </h3>
-                  </div>
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg  border-[#939393] border-1">
+            <table
+              className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-[#939393]"
+              style={{ tableLayout: 'fixed' }}
+            >
+              <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
+                <tr>
+                  <th
+                    scope="col"
+                    className=" border-r text-center"
+                    style={{ width: '10%' }}
+                  >
+                    SL No.
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-2 py-3 border-r text-center"
+                    style={{ width: '25%' }}
+                  >
+                    Username
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-2 py-3 border-r text-center"
+                    style={{ width: '25%' }}
+                  >
+                    Email ID
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-2 py-3 border-r text-center"
+                    style={{ width: '25%' }}
+                  >
+                    Password
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-2 py-3 border-r text-center"
+                    style={{ width: '25%' }}
+                  >
+                    Admin Type
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-2 py-3 border-r text-center"
+                    style={{ width: '20%' }}
+                  >
+                    Edit
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-2 py-3  text-center"
+                    style={{ width: '25%' }}
+                  >
+                    Status
+                  </th>
+                </tr>
+              </thead>
 
-                  <Row className="m-5">
-                    <Col sm={6} className="mb-5">
-                      <label
-                        htmlFor="username"
-                        className="d-block font-semibold"
+              <tbody>
+                {admins.map((row, rowIndex) => (
+                  <tr
+                    key={rowIndex}
+                    className="bg-white text-md font-semibold text-black dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 custom-table"
+                  >
+                    <>
+                      <td
+                        key={row._id}
+                        className=" border-r text-center"
+                        style={{
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          boxSizing: 'border-box',
+                        }}
                       >
-                        User Name
-                      </label>
-                      <input
-                        type="text"
-                        id="username"
-                        className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
-                        placeholder="User Name"
-                        value={addAdminData.username || ''}
-                        onChange={e =>
-                          setAddAdminData({
-                            ...addAdminData,
-                            username: e.target.value,
-                          })
-                        }
-                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                      />
-                    </Col>
+                        {rowIndex + 1}
+                      </td>
+                      <td
+                        className={`px-2 py-3 border-r text-center`}
+                        style={{
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        {' '}
+                        {row.username}
+                      </td>
+                      <td
+                        className={`px-2 py-3 border-r text-center`}
+                        style={{
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        {' '}
+                        {row.email}
+                      </td>
+                      <td
+                        className="px-2 py-3 border-r text-center"
+                        style={{
+                          whiteSpace: 'normal',
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          wordBreak: 'break-word',
+                        }}
+                      >
+                        <div className="flex justify-center items-center gap-1 cursor-pointer">
+                          {/* Show only the first few characters with '...' */}
+                          <span
+                            title={row.password} // Tooltip shows the full password
+                            style={{
+                              display: 'inline-block',
+                              maxWidth: '150px', // Adjust width as needed
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {row.password}
+                          </span>
+                          {/* Copy Icon */}
+                          <i
+                            className={`fa-copy cursor-pointer ${
+                              copied.status && row.username === copied.username
+                                ? 'text-warning fa-solid'
+                                : 'fa-regular'
+                            }`}
+                            onClick={() =>
+                              handleCopy(row.password, row.username)
+                            }
+                          ></i>
+                        </div>
+                      </td>
 
-                    <Col sm={6} className="mb-5">
-                      <label
-                        htmlFor="emailid"
-                        className="d-block font-semibold"
+                      <td
+                        className={`px-2 py-3 border-r text-center`}
+                        style={{
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          boxSizing: 'border-box',
+                        }}
                       >
-                        Email ID
-                      </label>
-                      <input
-                        type="email"
-                        id="emailid"
-                        className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
-                        placeholder="Email ID"
-                        value={addAdminData.email || ''}
-                        onChange={e =>
-                          setAddAdminData({
-                            ...addAdminData,
-                            email: e.target.value,
-                          })
-                        }
-                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                      />
-                    </Col>
-
-                    <Col sm={6} className="mb-5">
-                      <label
-                        htmlFor="password"
-                        className="d-block font-semibold"
+                        {' '}
+                        {row.adminType}
+                      </td>
+                      <td
+                        className={`px-2 py-3 border-r text-center`}
+                        style={{
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          boxSizing: 'border-box',
+                        }}
                       >
-                        Password
-                      </label>
-                      <input
-                        type="password"
-                        id="password"
-                        className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
-                        placeholder="Password"
-                        value={addAdminData.password || ''}
-                        onChange={e =>
-                          setAddAdminData({
-                            ...addAdminData,
-                            password: e.target.value,
-                          })
-                        }
-                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                      />
-                    </Col>
-
-                    <Col sm={6} className="mb-5">
-                      <label
-                        htmlFor="adminType"
-                        className="d-block font-semibold"
+                        {' '}
+                        {/* {row.edit} */}
+                        <div className="flex justify-center items-center">
+                          <FaRegEdit
+                            size={15}
+                            onClick={() => handleEditClick(rowIndex)}
+                          />
+                        </div>
+                      </td>
+                      <td
+                        className={`px-2 py-3 border-r text-center`}
+                        style={{
+                          wordWrap: 'break-word',
+                          overflowWrap: 'break-word',
+                          boxSizing: 'border-box',
+                        }}
                       >
-                        Admin Type
-                      </label>
-                      <select
-                        className="form-select form-select-lg border-gray-500 my-2 border-2 shadow-md"
-                        aria-label="Default select example"
-                        id="adminType"
-                        value={addAdminData.adminType || ''}
-                        onChange={e =>
-                          setAddAdminData({
-                            ...addAdminData,
-                            adminType: e.target.value,
-                          })
-                        }
-                        style={{ fontSize: '16px' }} // Adjust the font size of the input text
-                      >
-                        <option defaultChecked value="">
-                          Admin Type
-                        </option>
-                        <option value="admin">Admin</option>
-                        <option value="superadmin">Superadmin</option>
-                      </select>
-                    </Col>
-
-                    <Col
-                      sm={12}
-                      className="d-flex   gap-12 justify-center mt-3"
-                    >
-                      <button
-                        className="w-25 py-2 rounded-3 bg-[#FF9D00] text-white font-bold"
-                        onClick={handleAdminAdd}
-                      >
-                        Add
-                      </button>
-                      <button
-                        className="w-25 py-2 rounded-3 text-[#FF9D00] font-bold btnBorder"
-                        onClick={handleAddCancel}
-                      >
-                        Cancel
-                      </button>
-                    </Col>
-                  </Row>
-                </Modal.Body>
-              </Modal>
-            </div>
+                        <div className="flex justify-center gap-2.5">
+                          <button
+                            onClick={() => toggleStatus(row._id, true)} // Explicit activation
+                            className={`${
+                              row.isActive
+                                ? 'bg-[#FF9D00] text-white'
+                                : 'bg-white text-black'
+                            } ${
+                              row.isActive ? 'py-1 px-2' : 'py-1 pr-7 pl-2'
+                            } rounded-full cursor-pointer relative text-xs font-bold ${
+                              row.isActive ? 'z-10' : 'z-0'
+                            } mr-[-30px]`}
+                            style={{
+                              border: row.isActive ? 'none' : '1px solid black',
+                            }}
+                          >
+                            Activate
+                          </button>
+                          <button
+                            onClick={() => toggleStatus(row._id, false)} // Explicit deactivation
+                            className={`${
+                              row.isActive
+                                ? 'bg-white text-black'
+                                : 'bg-[#FF0000] text-white'
+                            } ${
+                              row.isActive ? 'py-1 pr-2 pl-7' : 'py-1 px-2'
+                            } rounded-full cursor-pointer relative text-xs font-bold ${
+                              row.isActive ? 'z-0' : 'z-10'
+                            }`}
+                            style={{
+                              border: row.isActive ? '1px solid black' : 'none',
+                              display: 'flex',
+                              justifyContent: row.isActive
+                                ? 'flex-end'
+                                : 'center',
+                            }}
+                          >
+                            Deactivate
+                          </button>
+                        </div>
+                      </td>
+                    </>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
+
+        <div className="d-flex justify-content-center align-items-center my-5">
+          <div className="border m-5 shadow rounded-4">
+            <Modal
+              size="lg"
+              aria-labelledby="contained-modal-title-vcenter"
+              centered
+              show={show1}
+              onHide={handleClose1}
+            >
+              <Modal.Body>
+                <div className="flex justify-center items-center gap-32 pt-5 ">
+                  <h3 className="text-center mx-10 font-bold text-[#0A0A0A]">
+                    Add Admin
+                  </h3>
+                </div>
+
+                <Row className="m-5">
+                  <Col sm={6} className="mb-5">
+                    <label htmlFor="username" className="d-block font-semibold">
+                      User Name
+                    </label>
+                    <input
+                      type="text"
+                      id="username"
+                      className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
+                      placeholder="User Name"
+                      value={addAdminData.username || ''}
+                      onChange={e =>
+                        setAddAdminData({
+                          ...addAdminData,
+                          username: e.target.value,
+                        })
+                      }
+                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                    />
+                  </Col>
+
+                  <Col sm={6} className="mb-5">
+                    <label htmlFor="emailid" className="d-block font-semibold">
+                      Email ID
+                    </label>
+                    <input
+                      type="email"
+                      id="emailid"
+                      className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
+                      placeholder="Email ID"
+                      value={addAdminData.email || ''}
+                      onChange={e =>
+                        setAddAdminData({
+                          ...addAdminData,
+                          email: e.target.value,
+                        })
+                      }
+                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                    />
+                  </Col>
+
+                  <Col sm={6} className="mb-5">
+                    <label htmlFor="password" className="d-block font-semibold">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      id="password"
+                      className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
+                      placeholder="Password"
+                      value={addAdminData.password || ''}
+                      onChange={e =>
+                        setAddAdminData({
+                          ...addAdminData,
+                          password: e.target.value,
+                        })
+                      }
+                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                    />
+                  </Col>
+
+                  <Col sm={6} className="mb-5">
+                    <label
+                      htmlFor="adminType"
+                      className="d-block font-semibold"
+                    >
+                      Admin Type
+                    </label>
+                    <select
+                      className="form-select form-select-lg border-gray-500 my-2 border-2 shadow-md"
+                      aria-label="Default select example"
+                      id="adminType"
+                      value={addAdminData.adminType || ''}
+                      onChange={e =>
+                        setAddAdminData({
+                          ...addAdminData,
+                          adminType: e.target.value,
+                        })
+                      }
+                      style={{ fontSize: '16px' }} // Adjust the font size of the input text
+                    >
+                      <option defaultChecked value="">
+                        Admin Type
+                      </option>
+                      <option value="admin">Admin</option>
+                      <option value="superadmin">Superadmin</option>
+                    </select>
+                  </Col>
+
+                  <Col sm={12} className="d-flex   gap-12 justify-center mt-3">
+                    <button
+                      className="w-25 py-2 rounded-3 bg-[#FF9D00] text-white font-bold"
+                      onClick={handleAdminAdd}
+                    >
+                      Add
+                    </button>
+                    <button
+                      className="w-25 py-2 rounded-3 text-[#FF9D00] font-bold btnBorder"
+                      onClick={handleAddCancel}
+                    >
+                      Cancel
+                    </button>
+                  </Col>
+                </Row>
+              </Modal.Body>
+            </Modal>
+          </div>
+        </div>
+
         {/* Add admin box */}
       </div>
       {/* edit modal */}
