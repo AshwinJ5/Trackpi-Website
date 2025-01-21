@@ -112,7 +112,7 @@ function Clients() {
         {getPartnerSlides().map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className="med slide flex justify-center items-center"
+            className="med slide slide-1 flex justify-center items-center"
             style={{
               flex: `0 0 ${100 / totalSlides}%`,
               display: "flex",
