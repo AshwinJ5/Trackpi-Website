@@ -15,9 +15,7 @@ import HeaderBanner from '../../components/User/HeaderBanner';
 import '../../CSS/User/Home.css';
 import img1 from '../../images/team.png';
 import PopUp from '../../components/User/PopUp';
-import news1 from '../../images/news 1.png';
-import news2 from '../../images/news 2.png';
-import news3 from '../../images/news 3.png';
+import Marquee from 'react-fast-marquee';
 import iidm from '../../images/iidm.jpg';
 import luminar from '../../images/luminar.png';
 import baseURL from '../../Api Services/baseURL';
@@ -31,22 +29,22 @@ function Home() {
 
   const [cards, setCards] = useState([]);
   console.log(cards, 'Cards');
-  const clients = [
-    { id: 1, logo: clientLogo1 },
-    { id: 2, logo: clientLogo2 },
-    { id: 3, logo: luminar },
-    { id: 4, logo: iidm },
-    { id: 5, logo: clientLogo1 },
-    { id: 6, logo: clientLogo2 },
-    { id: 7, logo: clientLogo1 },
-    { id: 8, logo: clientLogo2 },
-    { id: 9, logo: clientLogo1 },
-    { id: 10, logo: clientLogo2 },
-    { id: 11, logo: clientLogo1 },
-    { id: 12, logo: clientLogo2 },
-    { id: 13, logo: clientLogo1 },
-    { id: 14, logo: clientLogo2 },
-  ];
+  // const clients = [
+  //   { id: 1, logo: clientLogo1 },
+  //   { id: 2, logo: clientLogo2 },
+  //   { id: 3, logo: luminar },
+  //   { id: 4, logo: iidm },
+  //   { id: 5, logo: clientLogo1 },
+  //   { id: 6, logo: clientLogo2 },
+  //   { id: 7, logo: clientLogo1 },
+  //   { id: 8, logo: clientLogo2 },
+  //   { id: 9, logo: clientLogo1 },
+  //   { id: 10, logo: clientLogo2 },
+  //   { id: 11, logo: clientLogo1 },
+  //   { id: 12, logo: clientLogo2 },
+  //   { id: 13, logo: clientLogo1 },
+  //   { id: 14, logo: clientLogo2 },
+  // ];
   const [clientsLogo, setClientsLogo] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bulgingCard, setBulgingCard] = useState(0);
@@ -281,7 +279,7 @@ function Home() {
         image={img1}
       />
       <section>
-        <div className="text-center lg:pb-12  sm:pb-3 px-2">
+        <div className="text-center lg:pb-8  sm:pb-3 px-2">
           <h1 className="text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  font-bold text-[#FFC100] ">
             {heading.newsHeading}
           </h1>
@@ -449,19 +447,19 @@ function Home() {
             ))}
           </div> */}
 
+          <Marquee speed={50}>
             <div className="flex animate-scroll">
-
-            {clientsLogo.concat(clientsLogo).map((client, index) => (
-              <Col xs={3} md={2} key={index}>
-                <img
-                  className="w-[85px] h-[50px]  lg:w-full lg:h-[85px] object-contain"
-                  src={`${SERVER_URL}${client.companylogo}`}
-                  alt={`Client ${index + 1}`}
-                />
-              </Col>
-            ))}
-             
+              {clientsLogo.concat(clientsLogo).map((client, index) => (
+                <Col xs={3} md={2} key={index}>
+                  <img
+                    className="w-100 h-[50px]   lg:h-[85px] object-contain"
+                    src={`${SERVER_URL}${client.companylogo}`}
+                    alt={`Client ${index + 1}`}
+                  />
+                </Col>
+              ))}
             </div>
+          </Marquee>
         </div>
       </section>
 

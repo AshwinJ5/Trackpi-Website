@@ -585,19 +585,19 @@ html {
 }
 
 /* Scroll  Our clients section */
-@keyframes scroll {
+/* @keyframes scroll {
   0% {
     transform: translateX(5%);
   }
   100% {
     transform: translateX(-100%);
   }
-}
+} */
 
-.animate-scroll {
+/* .animate-scroll {
   display: flex;
   animation: scroll 10s linear infinite;
-}
+} */
 
 .animate-scroll > * {
   flex-shrink: 0;
