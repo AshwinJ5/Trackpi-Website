@@ -258,10 +258,10 @@ const handleCancel = () => {
  } // Go back to previous page
 
   return (
-    <div className="container mx-auto mt-0 my-5 px-5  pb-5 bg-white shadow rounded-md">
+    <div className="container mx-auto mt-0 my-5 px-5  pb-5 bg-white ">
       <form onSubmit={handleAddSales} className="row g-5">
         {/* Profile Picture Section */}
-        <div className=" d-flex align-items-center mb-4">
+        <div className=" d-flex justify-center items-center mb-4 ">
           <div className="me-4 r pt-10">
           <h2 className="mb-4 text-[22px]">{id ? "Edit Sales Details" : "Add Sales Details"}</h2>
             <div
@@ -311,14 +311,14 @@ const handleCancel = () => {
             />
           </div>
           {/* Personal Information */}
-          <div className="mt-3 flex-grow-1 row justify-evenly ">
-            <div className="col-md-3  ">
+          <div className="mt-5 flex-grow-1 row justify-evenly items-center ">
+            <div className="col-md-3 ">
               <label className="form-label  font-md  text-[15px]">Name</label>
               <input
                 type="text"
                 name="name"
                  placeholder="Name"
-                className="form-control rounded-2xl plac"
+                className="form-control rounded-2xl  plac"
                 value={formData.name ||'' } 
               onChange={handleInputChange}  
                 // value={formData.name}
