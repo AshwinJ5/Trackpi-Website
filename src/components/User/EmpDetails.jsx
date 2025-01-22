@@ -112,7 +112,7 @@ const EmpDetails = ({ employeeData }) => {
               </p>
               <button
                 style={{ backgroundColor: "#019304", color: "white", margin: "0px" }}
-                className="active rounded-pill px-3 py-1 sm:py-0 sm:px-0 flex flex-row justify-center items-center md:gap-1 text-xs sm:text-xs md:text-sm"
+                className="active rounded-pill w-[100px] px-3 py-1 sm:py-0 sm:px-0 flex flex-row justify-center items-center md:gap-1 text-xs sm:text-xs md:text-sm"
               >
                 <GoDotFill size={8} />
                 Active
