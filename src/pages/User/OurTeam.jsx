@@ -1,6 +1,6 @@
 //import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-
+import {Puff}  from 'react-loader-spinner'
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useState,useEffect } from 'react';
@@ -230,7 +230,7 @@ function OurTeam() {
                look no further-Trackpi provides the perfect platform to get started.
                 All you need is passion and skills to embark on your journey.
             </motion.p>
-            <motion.p
+            <motion.div
               className="secondp text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] xl:leading-7 2xl:leading-10  md:mt-8 mb-3 text-justify"
               initial={{ opacity: 0, x: -50 }}
               animate={inViewThirdSection ? { opacity: 1, x: 0 } : {}}
@@ -254,7 +254,7 @@ function OurTeam() {
                 JOIN OUR TEAM <i className="fa-arrow-right fa-solid "></i>
               </Button>
               </div>
-            </motion.p>
+            </motion.div>
           </div>
           <div className="w-full hidden md:block  md:w-1/2 flex justify-center justify-end">
             <motion.img
@@ -280,7 +280,13 @@ function OurTeam() {
             </h1>
           </Row>
           {loading ? (
-            <p>Loading employees...</p>
+             <Puff className="flex justify-center items-center "
+             visible={true}
+             height={80}
+             width={80}
+             color="#FF9D00"
+             ariaLabel="puff-loading"
+           />
           ) : error ? (
             <p className="text-red-500">Error: {error}</p>
           ) : employees.length === 0 ? (
