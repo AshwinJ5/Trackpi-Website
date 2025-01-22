@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import { GoUpload } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import BaseURL from '../../Api Services/baseURL';
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import { toast } from 'react-toastify';
 
 const FormNewProject = () => {
@@ -21,10 +21,12 @@ const FormNewProject = () => {
     successReason: '',
     summary: '',
     skills: '',
-    agreeTerms:'false'
+    agreeTerms: 'false',
   };
   const storedData = localStorage.getItem('formData');
-  const [formData, setFormData] = useState(storedData ? JSON.parse(storedData) : initialFormData);
+  const [formData, setFormData] = useState(
+    storedData ? JSON.parse(storedData) : initialFormData
+  );
   console.log(formData, 'formDataa');
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -36,9 +38,9 @@ const FormNewProject = () => {
   }, [formData]);
 
   // Handle input change
- const handleChange = (e) => {
+  const handleChange = e => {
     const { id, value, type, checked } = e.target;
-    setFormData((prevData) => ({
+    setFormData(prevData => ({
       ...prevData,
       [id]: type === 'checkbox' ? checked : value, // ✅ Handle checkboxes correctly
     }));
@@ -69,56 +71,58 @@ const FormNewProject = () => {
 
   const handlePhoneChange = (value, country) => {
     if (!value) {
-        setFormData({...formData,phone:""});
+      setFormData({ ...formData, contactNumber: '' });
       return;
     }
-    const formattedPhone = `+${country.dialCode} ${value.slice(country.dialCode.length)}`;
-    setFormData({...formData,phone:formattedPhone});
-    // console.log(formattedPhone); 
+    const formattedPhone = `+${country.dialCode} ${value.slice(
+      country.dialCode.length
+    )}`;
+    setFormData({ ...formData, contactNumber: formattedPhone });
+    // console.log(formattedPhone);
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
-    console.log("Clicked Submit");
+  const handleSubmit = async e => {
+    console.log('Clicked Submit');
     e.preventDefault();
     setLoading(true);
-  
+
     const formDataToSend = new FormData();
-    Object.keys(formData).forEach((key) => {
+    Object.keys(formData).forEach(key => {
       formDataToSend.append(key, formData[key]);
     });
-  
+
     if (file) {
-      formDataToSend.append("projectFile", file);
+      formDataToSend.append('projectFile', file);
     }
-  
+
     try {
-      const response = await BaseURL.post("api/projects/submit", formDataToSend, {
-        headers: { "Content-Type": "multipart/form-data" }
-      });
-  
-      console.log(response.data, "Response Data");
-  
+      const response = await BaseURL.post(
+        'api/projects/submit',
+        formDataToSend,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
+
+      console.log(response.data, 'Response Data');
+
       setFormData({
         ...initialFormData,
         agreeTerms: false, // Replace `yourCheckboxField` with your actual checkbox state key
       });
-      
+
       setFile(null);
-      setFileName("");
+      setFileName('');
       localStorage.removeItem('formData'); // Clear stored data after submission
-      toast.success("Submitted New Project")
-      
+      toast.success('Submitted New Project');
     } catch (error) {
       console.error(error);
-      toast.error(error)
-
+      toast.error(error);
     } finally {
       setLoading(false);
     }
   };
-
-
 
   return (
     <>
@@ -127,7 +131,7 @@ const FormNewProject = () => {
           onSubmit={handleSubmit}
           className="flex flex-col  max-w-[712px] mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-4xl mx-auto text-sm sm:text-lg md:text-lg xl:text-lg xl-leading-7 2xl:leading-10 2xl:text-2xl"
         >
-          <div className="mb-4">
+          <div className="mb-4 PhoneInput">
             <Form.Control
               style={{
                 borderRadius: '11.55px',
@@ -153,7 +157,7 @@ const FormNewProject = () => {
             />
           </div>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <Form.Control
               style={{
                 borderRadius: '11.55px',
@@ -178,15 +182,30 @@ const FormNewProject = () => {
               className="border-black text-black placeholder-black p-3 place"
               required
             />
+          </div> */}
+          <div className="mb-4  ">
+            <PhoneInput
+              value={formData.contactNumber}
+              country={'in'}
+              enableSearch={true}
+              onChange={(value, country) => handlePhoneChange(value, country)}
+              inputClass="w-100 PhoneInput"
+              inputStyle={{
+                borderRadius: '11.55px',
+                border: '0.2px solid rgba(10, 10, 10, 0.82)',
+                height: '53.4px',
+              }}
+              onFocus={e => {
+                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
+                e.target.style.boxShadow =
+                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+              }}
+              onBlur={e => {
+                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
+                e.target.style.boxShadow = 'none';
+              }}
+            />
           </div>
-          {/* <div className="mb-4 flex justify-center w-100 connectPhoneInput items-center">
-        <PhoneInput 
-        value={formData.contactNumber}
-        country={"in"}
-        enableSearch={true}
-        onChange={(value, country) => handlePhoneChange(value, country)}
-      />
-      </div> */}
 
           <div className="mb-4">
             <Form.Control
@@ -513,7 +532,6 @@ const FormNewProject = () => {
                 </>
               )}
               {/* Message Display */}
-             
             </label>
           </div>
 
