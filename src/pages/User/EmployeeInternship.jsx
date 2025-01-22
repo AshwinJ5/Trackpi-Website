@@ -1,15 +1,21 @@
-
-
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import EmpDetails from "../../components/User/EmpDetails";
 import "../../CSS/employeeinternship.css";
 import { SERVER_URL } from "../../Api Services/serverUrl";
+
 function EmployeeInternship() {
   const location = useLocation();
   const employeeData = location.state?.rowDatas || {};
-  console.log(employeeData);
-  
+  // console.log(employeeData);
+  const navigate=useNavigate()
+
+  useEffect(() => {
+    if (Object.keys(employeeData).length === 0) {
+      console.log("Due to insufficient data, Redirecting...");
+      navigate("/employee-verification"); 
+    }
+  }, [employeeData, navigate]);
 
    const useScreenshotPrevention = () => {
       useEffect(() => {
