@@ -1,5 +1,5 @@
 .table-wrapper table {
-    border: .5px solid #0A0A0A;
+    border: .5px solid #939393;
     border-spacing: 0;
     border-radius: 10px;
     overflow: hidden;
@@ -7,7 +7,7 @@
   }
   .table-wrapper table td,  .table-wrapper table th{
     padding: 10px 0 ;
-    border-right: .5px  solid #0A0A0A;
+    border-right: .5px  solid #939393;
   }
 .table-wrapper table td:last-child, 
 .table-wrapper table th:last-child {
@@ -17,7 +17,7 @@
 
  .table-wrapper table th {
     padding: 10px 0 ;
-    border-bottom: .5px  solid #0A0A0A;
+    border-bottom: .5px  solid #939393;
   }
   .projectManagement table th{
     font-size: 18px;
