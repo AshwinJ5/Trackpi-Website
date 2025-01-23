@@ -20,6 +20,7 @@ import iidm from '../../images/iidm.jpg';
 import luminar from '../../images/luminar.png';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
+import Marquee from "react-fast-marquee";
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });

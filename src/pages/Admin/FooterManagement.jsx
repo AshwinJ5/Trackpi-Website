@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import editImg from "../../images/editbtn.svg";
 import uploadImg from "../../images/uploadimg.svg";
 import baseURL from "../../Api Services/baseURL";
 import { SERVER_URL } from "../../Api Services/serverUrl";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const FooterManagement = () => {
     const [fileNameImage, setFileNameImage] = useState("Upload Image");
@@ -15,7 +15,8 @@ const FooterManagement = () => {
     const [videoEditMode3, setVideoEditMode3] = useState(false);
     const [imageEditMode, setImageEditMode] = useState(false);
     const [imageHeadingEditMode, setImageHeadingEditMode] = useState(false);
-    const [videoHeadingEditMode, setVideoHeadingEditMode] = useState(false);
+    const [videoHeading1EditMode, setVideoHeading1EditMode] = useState(false);
+    const [bannerHeading2EditMode, setBannerHeading2EditMode] = useState(false);
 
     const [footerVideoDetails, setFooterVideoDetails] = useState({});
     const [footerVideo, setFooterVideo] = useState({});
@@ -39,14 +40,70 @@ const FooterManagement = () => {
     useEffect(() => {
         getAllFooterDatas();
     }, []);
-// console.log(footerVideoDetails);
+    // console.log(footerVideoDetails);
+    const editFooterDetailMainHeading=async(e)=>{
+        e.preventDefault();
+        try {
+            const formData = new FormData();
+            formData.append("videoheading", footerVideoDetails.videoheading);
+
+            const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
+                headers: {
+                    Authorization: `Bearer ${adminToken}`,
+                    "Content-Type": "application/json"
+                },
+            });
+
+            if (response.status === 200) {
+                getAllFooterDatas();
+                toast.success("Footer Heading updated successfully!");
+                setVideoHeading1EditMode(false)
+            }
+        } catch (error) {
+            console.error("Error in updating footer heading:", error);
+            // setFileName("Upload Image");
+            if (error.response && error.response.data) {
+                toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else {
+                toast.error("An error occurred while updating footer heading.");
+            }
+        }
+    }
+    const editFooterDetailSubHeading=async(e)=>{
+        e.preventDefault();
+        try {
+            const formData = new FormData();
+            formData.append("imageheading", footerVideoDetails.imageheading);
+
+            const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
+                headers: {
+                    Authorization: `Bearer ${adminToken}`,
+                    "Content-Type": "application/json"
+                },
+            });
+
+            if (response.status === 200) {
+                getAllFooterDatas();
+                toast.success("Footerbanner Heading updated successfully!");
+                setImageHeadingEditMode(false)
+            }
+        } catch (error) {
+            console.error("Error in updating footerbanner heading:", error);
+            // setFileName("Upload Image");
+            if (error.response && error.response.data) {
+                toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else {
+                toast.error("An error occurred while updating footerbanner heading.");
+            }
+        }
+    }
 
     const editFooterDetails = async (e) => {
         e.preventDefault();
-        if (!videoEditMode1 && !videoEditMode2 && !videoEditMode3 && !videoHeadingEditMode) {
-            toast.error('Please select any footer field to be updated');
+        if (!videoEditMode1 && !videoEditMode2 && !videoEditMode3) {
+            toast.error("Please select any footer field to be updated");
             return;
-        } 
+        }
         try {
             const formData = new FormData();
             formData.append("videofile1", footerVideoDetails.videofile1);
@@ -55,9 +112,7 @@ const FooterManagement = () => {
             formData.append("videourl2", footerVideoDetails.videourl2);
             formData.append("videofile3", footerVideoDetails.videofile3);
             formData.append("videourl3", footerVideoDetails.videourl3);
-            formData.append("videoheading", footerVideoDetails.videoheading);
-            // formData.append("imagefile", footerVideoDetails.imagefile);
-            // formData.append("imagefile", footerVideoDetails.imagefile);
+            // formData.append("videoheading", footerVideoDetails.videoheading);
 
             const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
                 headers: {
@@ -72,7 +127,6 @@ const FooterManagement = () => {
                 setVideoEditMode1(false);
                 setVideoEditMode2(false);
                 setVideoEditMode3(false);
-                setVideoHeadingEditMode(false);
                 setFileNameVideo1("Upload Video");
                 setFileNameVideo2("Upload Video");
                 setFileNameVideo3("Upload Video");
@@ -89,14 +143,14 @@ const FooterManagement = () => {
     };
     const editFooterBannerDetails = async (e) => {
         e.preventDefault();
-        if (!imageEditMode && !imageHeadingEditMode ) {
-            toast.error("Please select any banner field to be updated")
+        if (!imageEditMode && !imageHeadingEditMode) {
+            toast.error("Please select banner edit button");
             return;
-        } 
+        }
         try {
             const formData = new FormData();
             formData.append("imagefile", footerVideoDetails.imagefile);
-            formData.append("imageheading", footerVideoDetails.imageheading);
+            // formData.append("imageheading", footerVideoDetails.imageheading);
 
             const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
                 headers: {
@@ -107,11 +161,10 @@ const FooterManagement = () => {
 
             if (response.status === 200) {
                 getAllFooterDatas();
-                toast.success("Footer Details updated successfully!")
+                toast.success("Footer Details updated successfully!");
                 setImageEditMode(false);
                 setImageHeadingEditMode(false);
                 setFileNameImage("Upload Image");
-
             }
         } catch (error) {
             console.error("Error in updating footer details:", error);
@@ -137,9 +190,9 @@ const FooterManagement = () => {
             }
         }
     };
-    
+
     const uploadVideoAdd2 = (e) => {
-        const file2 = e.target.files[0];        
+        const file2 = e.target.files[0];
         if (file2) {
             if (["video/mp4", "video/avi"].includes(file2.type)) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile2: file2 });
@@ -154,7 +207,7 @@ const FooterManagement = () => {
     const uploadVideoAdd3 = (e) => {
         const file3 = e.target.files[0];
         console.log(file3.type);
-        
+
         if (file3) {
             if (["video/mp4", "video/avi"].includes(file3.type)) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile3: file3 });
@@ -167,7 +220,7 @@ const FooterManagement = () => {
         }
     };
     const uploadImageAdd = (e) => {
-        const file4 = e.target.files[0];        
+        const file4 = e.target.files[0];
         if (file4) {
             if (["image/png", "image/jpg", "image/jpeg"].includes(file4.type)) {
                 setFooterVideoDetails({ ...footerVideoDetails, imagefile: file4 });
@@ -183,19 +236,23 @@ const FooterManagement = () => {
         setVideoEditMode1(false);
         setVideoEditMode2(false);
         setVideoEditMode3(false);
-        setVideoHeadingEditMode(false);
         setFileNameVideo1("Upload Video");
         setFileNameVideo2("Upload Video");
         setFileNameVideo3("Upload Video");
-        getAllFooterDatas()
+        getAllFooterDatas();
     };
     const cancelBannerUpdate = async () => {
         setImageEditMode(false);
         setImageHeadingEditMode(false);
         setFileNameVideo3("Upload Image");
         setFileNameImage("Upload Image");
-        getAllFooterDatas()
+        getAllFooterDatas();
     };
+    const inputRefHeading = useRef(null);
+    const inputRefHeading2 = useRef(null);
+    const inputRefVideo1 = useRef(null);
+    const inputRefVideo2 = useRef(null);
+    const inputRefVideo3 = useRef(null);
 
     return (
         <div className="bg-white w-[calc(100vw-300px)]">
@@ -207,22 +264,55 @@ const FooterManagement = () => {
                             <label className="block text-[14px] font-semibold">Heading</label>
                             <div className="flex items-center gap-[20px]">
                                 <input
-                                readOnly={!videoHeadingEditMode}
-                                value={footerVideoDetails.videoheading}
-                                onChange={(e) =>
-                                    setFooterVideoDetails({ ...footerVideoDetails, videoheading: e.target.value })
-                                }
+                                 ref={inputRefHeading}
+                                    readOnly={!videoHeading1EditMode}
+
+                                    value={footerVideoDetails.videoheading}
+                                    onChange={(e) =>
+                                        setFooterVideoDetails({ ...footerVideoDetails, videoheading: e.target.value })
+                                    }
                                     type="text"
-                                    defaultValue="Discover Winning Business Strategies"
-                                    className="border partnerInput rounded-lg px-[15px] h-[45px] w-3/5 text-[20px] font-semibold"
+                                    className="border partnerInput rounded-lg px-[15px] h-[45px] w-1/2 text-[20px] font-semibold"
                                 />
-                                <button type="submit" className="bg-[#FF9D00] p-[10px] rounded-[8px] h-[45px] w-[45px]"
+                                {/* <button type="submit" className="bg-[#FF9D00] p-[10px] rounded-[8px] h-[45px] w-[45px]"
                                  onClick={(e) => {
                                     e.preventDefault();
                                     videoHeadingEditMode?setVideoHeadingEditMode(false):setVideoHeadingEditMode(true)
                                 }}>
                                     <img src={editImg} alt="" />
-                                </button>
+                                </button> */}
+                                {!videoHeading1EditMode ? (
+                                    <button
+                                        className="bg-[#FF9D00] p-[10px] rounded-[8px]"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setVideoHeading1EditMode(true);
+                                            inputRefHeading.current.focus();
+                                        }}
+                                    >
+                                        <img src={editImg} alt="Edit" />
+                                    </button>
+                                ) : (
+                                    <div className=" flex justify-start gap-[10px]">
+                                        <button
+                                            className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
+                                            onClick={editFooterDetailMainHeading}
+                                        >
+                                            Save
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                setVideoHeading1EditMode(false);
+                                                getAllFooterDatas();
+                                            }}
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="grid py-[20px] gap-[30px] ">
@@ -230,7 +320,8 @@ const FooterManagement = () => {
                                 <div className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 1</div>
                                     <input
-                                    readOnly={!videoEditMode1}
+                                    ref={inputRefVideo1}
+                                        readOnly={!videoEditMode1}
                                         className="px-[20px] py-[15px] footerBanner outline-none rounded-[10px] w-100 border"
                                         type="text"
                                         placeholder="Video Link"
@@ -267,16 +358,18 @@ const FooterManagement = () => {
                                                 </>
                                             ) : (
                                                 <> */}
-                                                    <div>{fileNameVideo1}</div>
-                                                    <img src={uploadImg} alt="Upload Icon" />
-                                                {/* </>
+                                            <div>{fileNameVideo1}</div>
+                                            <img src={uploadImg} alt="Upload Icon" />
+                                            {/* </>
                                             )} */}
                                         </label>
                                     </div>
                                     <button
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            videoEditMode1?setVideoEditMode1(false):setVideoEditMode1(true)
+                                            videoEditMode1 ? setVideoEditMode1(false) : setVideoEditMode1(true);
+                                            inputRefVideo1.current.focus()
+
                                         }}
                                         className="bg-[#FF9D00] min-h-[44px] min-w-[44px] p-[10px] rounded-[8px]"
                                     >
@@ -288,8 +381,9 @@ const FooterManagement = () => {
                                 <div className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 2</div>
                                     <input
-                                    readOnly={!videoEditMode2}
-                                    className="px-[20px] py-[15px] footerBanner outline-none rounded-[10px] w-100 border"
+                                        ref={inputRefVideo2}
+                                        readOnly={!videoEditMode2}
+                                        className="px-[20px] py-[15px] footerBanner outline-none rounded-[10px] w-100 border"
                                         type="text"
                                         placeholder="Video Link"
                                         value={footerVideoDetails.videourl2}
@@ -325,16 +419,17 @@ const FooterManagement = () => {
                                                 </>
                                             ) : (
                                                 <> */}
-                                                    <div>{fileNameVideo2}</div>
-                                                    <img src={uploadImg} alt="Upload Icon" />
-                                                {/* </>
+                                            <div>{fileNameVideo2}</div>
+                                            <img src={uploadImg} alt="Upload Icon" />
+                                            {/* </>
                                             )} */}
                                         </label>
                                     </div>
                                     <button
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            videoEditMode2?setVideoEditMode2(false):setVideoEditMode2(true)
+                                            videoEditMode2 ? setVideoEditMode2(false) : setVideoEditMode2(true);
+                                            inputRefVideo2.current.focus()
                                         }}
                                         className="bg-[#FF9D00] min-h-[44px] min-w-[44px] p-[10px] rounded-[8px]"
                                     >
@@ -346,7 +441,8 @@ const FooterManagement = () => {
                                 <form className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 3</div>
                                     <input
-                                    readOnly={!videoEditMode3}
+                                    ref={inputRefVideo3}
+                                        readOnly={!videoEditMode3}
                                         className="px-[20px] py-[15px] footerBanner outline-none rounded-[10px] w-100 border"
                                         type="text"
                                         placeholder="Video Link"
@@ -383,17 +479,17 @@ const FooterManagement = () => {
                                                 </>
                                             ) : (
                                                 <> */}
-                                                    <div>{fileNameVideo3}</div>
-                                                    <img src={uploadImg} alt="Upload Icon" />
-                                                {/* </>
+                                            <div>{fileNameVideo3}</div>
+                                            <img src={uploadImg} alt="Upload Icon" />
+                                            {/* </>
                                             )} */}
                                         </label>
                                     </div>
                                     <button
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            videoEditMode3?setVideoEditMode3(false):setVideoEditMode3(true)
-                                            
+                                            videoEditMode3 ? setVideoEditMode3(false) : setVideoEditMode3(true);
+                                            inputRefVideo3.current.focus()
                                         }}
                                         className="bg-[#FF9D00] min-h-[44px] min-w-[44px] p-[10px] rounded-[8px]"
                                     >
@@ -419,7 +515,11 @@ const FooterManagement = () => {
                         </div>
                     </form>
                     <div className="flex items-center justify-around gap-[60px]">
-                        <a target="_blank" href={`${footerVideo.videourl1}`} className="aspect-[9/16] cursor-pointer max-h-[500px] text-decoration-none">
+                        <a
+                            target="_blank"
+                            href={`${footerVideo.videourl1}`}
+                            className="aspect-[9/16] cursor-pointer max-h-[500px] text-decoration-none"
+                        >
                             <video
                                 muted
                                 autoPlay
@@ -428,7 +528,11 @@ const FooterManagement = () => {
                                 src={`${SERVER_URL}${footerVideo.videofile1}`}
                             ></video>
                         </a>
-                        <a target="_blank" href={`${footerVideo.videourl2}`} className="aspect-[9/16] cursor-pointer max-h-[500px] text-decoration-none">
+                        <a
+                            target="_blank"
+                            href={`${footerVideo.videourl2}`}
+                            className="aspect-[9/16] cursor-pointer max-h-[500px] text-decoration-none"
+                        >
                             <video
                                 muted
                                 autoPlay
@@ -437,7 +541,11 @@ const FooterManagement = () => {
                                 src={`${SERVER_URL}${footerVideo.videofile2}`}
                             ></video>
                         </a>
-                        <a target="_blank" href={`${footerVideo.videourl3}`} className="aspect-[9/16] cursor-pointer max-h-[500px] text-decoration-none">
+                        <a
+                            target="_blank"
+                            href={`${footerVideo.videourl3}`}
+                            className="aspect-[9/16] cursor-pointer max-h-[500px] text-decoration-none"
+                        >
                             <video
                                 muted
                                 autoPlay
@@ -454,29 +562,59 @@ const FooterManagement = () => {
                             <label className="block text-[14px] font-semibold">Banner Heading</label>
                             <div className="flex items-center gap-[20px]">
                                 <input
-                                readOnly={!imageHeadingEditMode}
-                                value={footerVideoDetails.imageheading}
-                                onChange={(e) =>
-                                    setFooterVideoDetails({ ...footerVideoDetails, imageheading: e.target.value })
-                                }
+                                ref={inputRefHeading2}
+                                    readOnly={!imageHeadingEditMode}
+                                    value={footerVideoDetails.imageheading}
+                                    onChange={(e) =>
+                                        setFooterVideoDetails({ ...footerVideoDetails, imageheading: e.target.value })
+                                    }
                                     type="text"
                                     defaultValue="Want to Learn More"
                                     className="border partnerInput rounded-lg px-[15px] h-[45px] w-3/5 text-[20px] font-semibold"
                                 />
-                                <button type="submit" className="bg-[#FF9D00] p-[10px] rounded-[8px] w-[45px] h-[45px]"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    imageHeadingEditMode?setImageHeadingEditMode(false):setImageHeadingEditMode(true)
-                                }}
-                                >
-                                    <img src={editImg} alt="" />
-                                </button>
+                                {!imageHeadingEditMode ? (
+                                    <button
+                                        className="bg-[#FF9D00] p-[10px] rounded-[8px]"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setImageHeadingEditMode(true);
+                                            inputRefHeading2.current.focus();
+                                        }}
+                                    >
+                                        <img src={editImg} alt="Edit" />
+                                    </button>
+                                ) : (
+                                    <div className=" flex justify-start gap-[10px]">
+                                        <button
+                                            className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
+                                            onClick={editFooterDetailSubHeading }
+                                        >
+                                            Save
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                setImageHeadingEditMode(false);
+                                                getAllFooterDatas();
+                                            }}
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
                         <div className="flex gap-[30px] items-center justify-start">
                             <div className="relative w-[250px] ">
-                                <input type="file" id="fileInput" className="hidden" onChange={uploadImageAdd} 
-                                disabled={!imageEditMode}/>
+                                <input
+                                    type="file"
+                                    id="fileInput"
+                                    className="hidden"
+                                    onChange={uploadImageAdd}
+                                    disabled={!imageEditMode}
+                                />
                                 <label
                                     htmlFor="fileInput"
                                     className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
@@ -495,19 +633,21 @@ const FooterManagement = () => {
                                         </>
                                     ) : (
                                         <> */}
-                                            <div>{fileNameImage}</div>
-                                            <img src={uploadImg} alt="Upload Icon" />
-                                        {/* </>
+                                    <div>{fileNameImage}</div>
+                                    <img src={uploadImg} alt="Upload Icon" />
+                                    {/* </>
                                     )} */}
                                 </label>
                             </div>
                             <div>
-                                <button type="submit" className="bg-[#FF9D00] p-[10px] rounded-[8px]"
-                                onClick={(e) => {
-                                            e.preventDefault();
-                                            imageEditMode?setImageEditMode(false):setImageEditMode(true)
-                                        }}
-                                        >                              
+                                <button
+                                    type="submit"
+                                    className="bg-[#FF9D00] p-[10px] rounded-[8px]"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        imageEditMode ? setImageEditMode(false) : setImageEditMode(true);
+                                    }}
+                                >
                                     <img src={editImg} alt="" />
                                 </button>
                             </div>

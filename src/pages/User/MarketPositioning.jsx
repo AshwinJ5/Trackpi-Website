@@ -34,16 +34,16 @@ const MarketPositioning = () => {
         <section ref={refMainHeading} className="bgSection py-[35px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px] 2xl:py-[80px] px-6  lg:px-20 xl:px-24 2xl:px-32 grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] ">
             <motion.div  initial={{ opacity: 0, y: 5 }}
                 animate={inViewMainHeading ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: .5 }}  className="mx-auto grid max-w-[1048px] gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px]">
+                transition={{ duration: .5 }}  className="mx-auto grid max-w-[1048px] gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px] ">
                 <div
                     style={{ textShadow: "2px 4px  4px #0A0A0A33", color: "white" }}
-                    className="text-center text-[20px] sm:text-[24px] md:text-[30px] lg:text-[40px] xl:text-[44px] 2xl:text-[46px] font-bold"
+                    className="text-center text-[20px] sm:text-[24px] md:text-[30px] lg:text-[40px] xl:text-[44px] 2xl:text-[60px] font-bold"
                 >
                     Market Positioning & Branding
                 </div>
                 <div
                     style={{ color: "white" }}
-                    className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px]  justify_para max-w-[700px]"
+                    className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[25px]  justify_para max-w-[700px]"
                 >
                     These tailored strategies we offer for market positioning and branding will help your business create its own market identity and build trust to earn a competitive edge in the industry.
                 </div>
