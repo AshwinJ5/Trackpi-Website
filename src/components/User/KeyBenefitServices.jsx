@@ -9,23 +9,23 @@ function KeyBenefitServices() {
 
     const features = [
         {
-            name: "Enhanced Productivity",
-            description: "Empower your team to work smarter and achieve more in less time.",
+            name: "Increased Output",
+            description: "Encourage your team to have efficient and effective processes in place so that they can do more in less time",
         },
         {
-            name: "Improved Communication",
-            description: "Strengthen collaboration and create a cohesive team environment.",
+            name: "Strengthened Team Work",
+            description: " Encourage operational success by improving teamwork and communication and ensuring everyone is working towards the same goal",
         },
         {
-            name: "Increased Profitability",
-            description: "Leverage efficient processes to maximize revenue and minimize waste.",
+            name: "Profitable Growth",
+            description: "Develop methods that can be expanded while still remaining effective and profitable for the organization in the long run",
         },
     ];
     return (
         <section className=" px-6 lg:px-20 xl:px-24 2xl:px-32 grid my-[25px] sm:my-[30px] md:my-[37px] lg:my-[42px] xl:my-[50px] gap-[10px] sm:gap-[18px] md:gap-[25px] lg:gap-[32px] xl:gap-[40px]">
             <div className="w-full px-6 lg:px-20 xl:px-24 2xl:px-32  mx-auto ">
                 <h1 style={{ color: "#FFC100" }} className=" text-[18px] sm:text-[20px] md:text-[24px] lg:text-[30px] xl:text-[37px] 2xl:text-[44px] text-center font-bold ">
-                    Key Benefits of Our Training
+                Our Training Offer Should Benefit You In These Ways
                 </h1>
             </div>
             <div ref={refFirstSection} className="flex flex-wrap gap-2.5 sm:gap-5 lg:gap-10  justify-center lg:justify-between KeyBenefitFirstDiv">
@@ -36,7 +36,7 @@ function KeyBenefitServices() {
                         <div className="font-bold text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[30px]">
                             {card.name}
                         </div>
-                        <div className="font-medium text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]">
+                        <div className="font-medium text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] text-justify">
                             {card.description}
                         </div>
                     </motion.div>

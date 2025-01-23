@@ -34,48 +34,48 @@ function OurServices() {
                     <ServicesSub
                         heading="Sales Outsourcing"
                         classname="bg_common"
-                        title1="End-to-End Sales
-Outsourcing Solutions"
-                        description1="Our End-to-End Sales Outsourcing Solutions provide a comprehensive approach to managing your entire sales process, from lead generation to closing deals. We offer specialized eams that seamlessly integrate with your business, helping you expand market reach, increase revenue, and reduce operational costs."
+                        title1="End-to-End Sales Outsourcing Solutions"
+                        description1="Select one of our sales outsourcing solutions and save time as we take care of your lead generation to deal closure activities. Our hand is always on the sales cycle allowing on business to have strong growth overtime. With business consulting services as one of our core functions, we redefine the direction of the business by aligning the strategies to goals placed before the business enhancing your ability to grow faster."
                         img1={financeImg1}
                         title2="Sales Performance Enhancement Services"
-                        description2="With our Sales Performance Enhancement Services, we empower your business to achieve higher sales productivity and improved bottom-line results. We provide flexible outsourcing models where our experienced sales professionals take on key sales responsibilities, ensuring consistency and performance excellence."
+                        description2="Take your team to the next level by hiring our sales performance enhancement services specialists. We have extensive experience working in the Kerala business environment and thus understand the formation of bottlenecks during the sales process and offer practical solutions for their elimination. Such a working experience allows a businessman to measure success in the quite dynamically changing marketplace. thus helping to remain competitive."
                         img2={financeImg2}
                     />
                 </section>
                 <section id="hiring" className=" w-full">
                     <ServicesSub
                         heading="Hiring & Retention"
-                        title1="Our Hiring Process"
-                        description1="We experiment with our own hiring practice to attract and choose people based on demonstrable skills rather than experience, identity, or connections. We want to minimize bias as much as possible, which is why we won’t ask for your resume. Instead, we anonymously review answers to a series of application questions and our interviews are designed as experiential working sessions—rather than performative Q&As—to give insight into what working with The Ready might actually feel like."
+                        title1="Our Hiring Process:"
+                        description1="We have an effective hiring process that makes talent search easier. We will work with you to understand what you are looking for, and subsequently hire applicants who fit your qualifications and procedures. To us, recruitment is more about fitting in to the company culture than fulfilling the job requirements and it enhances the chances of better productivity."
                         img1={hiring}
                         title2="Transformer Role"
-                        description2="The majority of our members at The Ready are in the Transformer role (what we call our “consultants” here). We regularly open our Transformer hiring process, as our business is growing and expanding."
+                        description2="Transform your workforce by hiring for those positions that have the greatest impact. Leveraging on our experience in business consulting and in client retention, we help organizations in Kerala find and develop leaders who can create transformational change. These people help in driving growth and innovation in your company which in turn adds tremendous value to your company and also creates an energised and engaged workforce."
                         img2={consult}
                     />
                 </section>
                 <section id="sales-training" className="w-full">
                     <ServicesSub
                         heading="Sales Training Strategies"
-                        subHeading="Our sales training strategies are designed to equip your team with the skills and insights they need to succeed in a competitive market. With expert guidance and interactive sessions, we focus on practical solutions and growth-oriented techniques."
+                        // subHeading="Our sales training strategies are designed to equip your team with the skills and insights they need to succeed in a competitive market. With expert guidance and interactive sessions, we focus on practical solutions and growth-oriented techniques."
                         classname="bg_common"
                         title1="Customized Training"
-                        description1="Our customized training programs are tailored to meet the unique challenges and objectives of your business. We work closely with your team to identify skill gaps, improve communication, and build confidence. Through hands-on sessions and real-life scenarios, your team learns practical sales techniques that are immediately applicable. Our goal is to ensure that each training session contributes to measurable improvements in your sales performance."
+                        description1="Let your sales team receive special training courses targeted to suit your corporate requirements. Our tailor made approach merges into skill improvement, self confidence building and a refined strategy to fit the wider picture. As a good business consultant - in Kerala - we also help ensure your teams do not get stagnated in meeting market challenges or even helping solve the latter ensuring growth is always consistent."
                         img1={strategyImg1}
                         title2="Expert Guidance"
-                        description2="Led by industry professionals with years of experience in sales and management, our training sessions offer insights that go beyond textbooks. We focus on instilling a strategic mindset, teaching negotiation tactics, and sharpening problem-solving skills. With interactive workshops and individual coaching, participants learn from experts who have a proven track record of success. This guidance ensures your team is equipped to handle high-stakes deals with confidence and professionalism."
+                        description2="Get exposure to a team of professionals who have seen it all and done it. All of those real life interactions should integrate into the performance of trained sales teams. As trusted consultant in Kerala we offer sales champions in training – and no one wins them easily, to our business clientele. In-depth training involves the best techniques imaginable along with novel strategies that should guarantee results that are out of this world."
                         img2={strategyImg2}
-                        title3="Measurable Results"
-                        description3="Our training is designed with a results-oriented approach, so you can track your team’s progress and see tangible outcomes. We provide tools and techniques that help in measuring success, setting achievable targets, and analyzing performance improvements over time. By focusing on measurable results, we ensure that every participant understands the impact of their growth, enabling your organization to maintain a continuous upward trajectory in sales performance."
+                        title3="Measurable Outcomes"
+                        description3="Achieve target success rates in training usign our outcomes centered strategy across CTCR Institutes’ services. We focus on defining goals and improving KPIs such as conversion rates and customer satisfaction levels. As experienced management consultants in Kerala, we invest your money saved on sales training to ensure you obtainable growth in revenues and profits."
                         img3={strategyImg3}
                     />
                 </section>
                 <section id="operations-training" className="w-full">
                 <ServicesSub
-                        heading="Operations Training & Strategies" subHeading='Transform your operations with our tailored strategies. Our training programs focus on optimizing processes, enhancing efficiency, and empowering your team to excel in dynamic environments.'
+                        heading="Operations Training & Strategies" subHeading='Leverage our custom-designed tactics to efficiently enhance your operations. Every process has room for improvement and every member of the team has the potential to flourish while adapting to ever-evolving surroundings, which is why we execute extensive training sessions. Our focus on continuous enhancement guarantees that your business is proactively prepared to succeed in a highly competitive business environment.'
                         classname=""
-                        title1="Why Choose Us?"
-                        description1="Process Optimization: Streamline operations for maximum efficiency. Leadership Development: Equip leaders with practical tools for success. Change Management: Foster adaptability and resilience in your workforce. Custom Solutions: Tailored training to address your unique challenges."
+                        title1="Why Employ Our Services?"
+                        description1="Enhance Efficiency: Unclutter and automate your business processes to increase efficiency and cut costs. Improve Leadership: Provide managers with effective tools which they can use to accomplish operational success. Ensure Change: Promote change and ensure that significant organisational changes go smoothly. Customize Your Solutions: Applications to grant you solutions that solely match your operational problems.
+"
                         img1={hiringImg1}
                         isPointWise={true}
                     />
@@ -92,11 +92,11 @@ Outsourcing Solutions"
                     <ServicesSub
                         heading="Risk Management"
                         classname=""
-                        title1="Strategic Procurement Solutions"
-                        description1="Our Strategic Procurement Solutions focus on optimizing your supply chain and procurement processes to drive cost-efficiency, enhance supplier relationships, and ensure value for money. We assist businesses in sourcing high-quality goods and services through data-driven strategies, market analysis, and vendor management."
+                        title1="State-of-the-Art Procurement Solutions"
+                        description1="We make it simple for our clients to procure companies by optimizing their processes and mitigating risks from supply chain disruptions and market volatility. Our primary objectives are seeking reliable suppliers, negotiating the best possible terms, and maintaining regulatory compliance. We understand and incorporate risk factors into all procurement tasks assisting your organization to mitigate risks and achieve long-term operational goals."
                         img1={assetImg1}
-                        title2="Comprehensive Risk Management Advisory"
-                        description2="At the heart of our Comprehensive Risk Management Advisory, we provide robust strategies to identify, assess, and mitigate risks across your entire organization. From financial, operational, and regulatory risks to supply chain and cybersecurity threats, our experts help safeguard your business by creating proactive risk management frameworks."
+                        title2="Holistic Risk Management Approaches"
+                        description2="Our risk advisory services addresses risk in a multifaceted manner i.e. all the business components are analyzed and possible risks factors as well as mitigation plans are presented. Strategies are put in place to mitigate operational risks and financial risks, market risks and regulatory threats so that the resiliency of the organization is strengthened. You are equipped with tools that allow you to tightly integrate your management with a rapidly evolving business environment through foresight and measurable strategies."
                         img2={assetImg2}
                     />
                 </section>
@@ -105,11 +105,11 @@ Outsourcing Solutions"
                     <ServicesSub
                         heading="Financial Consulting"
                         classname="bg_common"
-                        title1="End-to-End Sales Outsourcing Solutions"
-                        description1="Our End-to-End Sales Outsourcing Solutions provide a comprehensive approach to managing your entire sales process, from lead generation to closing deals. We offer specialized eams that seamlessly integrate with your business, helping you expand market reach, increase revenue, and reduce operational costs."
+                        title1="Financial Planning For Growth"
+                        description1="Every business is unique but what is a common theme across them is setting goals. Through setting goals, we can tailor our financial strategies to fulfill those goals. Forecasting, budgeting and appropriate resource allocation are part of the package so that the business is ready for challenges but also growth. With a focus on achieving and sustaining success."
                         img1={financeImg1}
-                        title2="Sales Performance Enhancement Services"
-                        description2="With our Sales Performance Enhancement Services, we empower your business to achieve higher sales productivity and improved bottom-line results. We provide flexible outsourcing models where our experienced sales professionals take on key sales responsibilities, ensuring consistency and performance excellence."
+                        title2="Cash Flow Enhancement "
+                        description2="Before deciding on a firm to partner with, it is crucial that you gauge the cash flow management strategies they propose. After assessing your income and expenditures, our team of experts recommends a series of actions that streamline and enhance the cash flow management process. Our approach reduces risk, assuring that your company’s needs are catered to even in bio challenges."
                         img2={financeImg2}
                     />
                 </section>
@@ -118,11 +118,11 @@ Outsourcing Solutions"
                     <ServicesSub
                         heading="Asset Management"
                         classname=""
-                        title1="Strategic Procurement Solutions"
-                        description1="Our Strategic Procurement Solutions focus on optimizing your supply chain and procurement processes to drive cost-efficiency, enhance supplier relationships, and ensure value for money. We assist businesses in sourcing high-quality goods and services through data-driven strategies, market analysis, and vendor management."
+                        title1="Asset Management"
+                        description1="Asset Lifecycle Management Keep your asset value at an all-time high by employing strategies that are conducive towards its life cycle management. We assist you in purchasing, maintaining, and replacing or renewing assets while also looking out for financial efficiency and combining our strategy with your goals."
                         img1={assetImg1}
-                        title2="Comprehensive Risk Management Advisory"
-                        description2="At the heart of our Comprehensive Risk Management Advisory, we provide robust strategies to identify, assess, and mitigate risks across your entire organization. From financial, operational, and regulatory risks to supply chain and cybersecurity threats, our experts help safeguard your business by creating proactive risk management frameworks."
+                        title2="Portfolio Optimization"
+                        description2="With our assistance, ensure a diverse and expanding portfolio of the assets. We apply advanced methods to assess the assets, find the weak areas in the portfolio, formulate strategies for the enhancement of the return and the minimization of the risk factors. Our methodology helps ensure that the assets are not squandered and instead are employed efficiently and for the long term."
                         img2={assetImg2}
                     />
                 </section>
@@ -131,12 +131,11 @@ Outsourcing Solutions"
                     <ServicesSub
                         heading="IT Services"
                         classname="bg_common"
-                        title1="End-to-End Sales
-Outsourcing Solutions"
-                        description1="Our End-to-End Sales Outsourcing Solutions provide a comprehensive approach to managing your entire sales process, from lead generation to closing deals. We offer specialized eams that seamlessly integrate with your business, helping you expand market reach, increase revenue, and reduce operational costs."
+                        title1="Application and Web Development"
+                        description1="Breathe life to your vision using top app and website creations. We at our company specialise in designing responsive websites, feature-rich mobile applications, with the focus placed on functionality and user experience scalability, ensuring you get the kind of engagement results you need through your digital channels."
                         img1={financeImg1}
-                        title2="Sales Performance Enhancement Services"
-                        description2="With our Sales Performance Enhancement Services, we empower your business to achieve higher sales productivity and improved bottom-line results. We provide flexible outsourcing models where our experienced sales professionals take on key sales responsibilities, ensuring consistency and performance excellence."
+                        title2="Digital Transformation Solutions"
+                        description2="Improve your business with the best-in-class digital tools and technologies. From cloud integration to workflow automation, we will modernize your processes for higher efficiency and agility. Our IT consulting services make sure your business takes advantage of technology to keep you ahead of the curve in the changing digital world."
                         img2={financeImg2}
                     />
                 </section>

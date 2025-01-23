@@ -28,7 +28,7 @@ function ServicesSub({
     return (
         <section
             ref={refMainHeading}
-            className={`${classname} px-6 py-[15px] sm:py-6 md:py-8 lg:py-[50px] md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto grid gap-[15px] sm:gap-6 md:gap-8 lg:gap-[50px]  `}
+            className={`${classname} px-6 py-[20px] sm:py-[30px] md:py-[40px] lg:py-[60px] md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px]  `}
         >
             <motion.div
                 initial={{ opacity: 0, z: 50 }}
@@ -75,14 +75,14 @@ function ServicesSub({
                         </div>
                         <div className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[30px] xl:leading-[34px] 2xl:leading-[36px]">
                             {isPointWise ? (
-                                <div className=" mt-4">
+                                <ul className=" mt-4">
                                     {description1
                                         .split(". ")
                                         .filter((sentence) => sentence.trim() !== "")
                                         .map((sentence, index) => (
-                                            <div key={index}>{sentence.endsWith(".") ? sentence : sentence + "."}</div>
+                                            <li className="mb-2 list-disc" key={index}>{sentence.endsWith(".") ? sentence : sentence + "."}</li>
                                         ))}
-                                </div>
+                                </ul>
                             ) : (
                                 <div className="text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[30px] xl:leading-[34px] 2xl:leading-[36px]">
                                     {description1}
