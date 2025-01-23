@@ -219,7 +219,7 @@ if (!emailPattern.test(email)) {
         navigate(-1); // Navigate back to the previous page
       }
   return (
-    <div className="container mx-auto mt-0 my-5 px-5  pb-5 bg-white shadow rounded-md">
+    <div className="container mx-auto mt-0 my-5 px-5  pb-5 bg-white ">
        <form className="row g-4" onSubmit={handleSubmit}>
             <div className=" px-5 d-flex align-items-center   mb-3 ">
                       <div className="me-4 pt-10 ">
@@ -275,7 +275,7 @@ if (!emailPattern.test(email)) {
                           onChange={handleFileChange}
                         />
                       </div>
-                      <div className="mt-4 flex-grow-1 row justify-evenly">
+                      <div className="mt-5 flex-grow-1 row justify-evenly">
                         <div className="col-md-3">
                           <label className="form-label  font-md  text-[15px]">Name</label>
                           <input

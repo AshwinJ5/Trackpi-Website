@@ -45,6 +45,69 @@
     }
    
 }
+@media (max-width: 1393px) and (min-width: 1024px) {
+  .card-cl {
+   
+   
+    padding: 10px; /* Inner padding for the card */
+    box-sizing: border-box; 
+    /* Ensure padding is included in width */
+  }
+
+  .med11 {
+    padding-left: 30px; /* Equal left margin for the container */
+    padding-right: 30px; /* Equal right margin for the container */
+   
+    
+  }
+
+  .clients-carousel > .flex {
+    justify-content: center;
+   
+   /* Center the entire row of cards */
+    transform: translateX(0); /* Ensure no shift occurs */
+    gap: 10px; /* Space between slides */
+   
+  }
+
+  .slide-1 {
+    
+    padding-left: 80px;
+    padding-right: 80px;
+  
+    justify-content: center; /* Center align the slides within the container */
+    gap: 10px !important; /* Reduced space between slides */
+  }
+}
+@media (max-width: 2976px) and (min-width: 1499px) {
+  .card-cl {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    max-width: none; /* Ensure no restriction on card width */
+    margin: 0 auto; /* Center cards horizontally */
+    padding: 20px; /* Inner padding */
+    height: 384px; /* Maintain the consistent height */
+  }
+
+  .slide-1 {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    margin: 0 auto; /* Center the slide horizontally */
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+  }
+
+  .med11 {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Optional: Adjust the gap to control spacing between the cards */
+  .clients-carousel > .flex {
+    gap: 20px; /* Space between the cards inside the carousel */
+  }
+}
+
+
+
 .clients-carousel {
   width: 100%;
   overflow: hidden;

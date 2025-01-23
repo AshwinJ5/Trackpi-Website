@@ -71,8 +71,8 @@ const EmpDetails = ({ employeeData }) => {
           src={profileImage}
           style={{
             borderRadius: "30px",
-            width: "150px",  // Set the fixed width
-            height: "120px", // Set the fixed height
+            width: "180px",  // Set the fixed width
+            height: "130px", // Set the fixed height
             objectFit: "cover"  // Ensure the image maintains aspect ratio and doesn't stretch
             
           }}
@@ -85,7 +85,7 @@ const EmpDetails = ({ employeeData }) => {
           <div className="hidden md:block w-full">
             <div className="flex flex-row justify-between items-center text-2xl xl:text-xl ">
               <div className=" flex flex-col flex-wrap justify-start">
-                <p className="font-bold text-2xl break-words">{employeeData.name || "Paul Walker"} </p>
+                <p className="font-bold text-xl break-words">{employeeData.name || "Paul Walker"} </p>
                 <button
                   style={{ backgroundColor: "#019304", color: "white" }}
                   className="act rounded-pill w-[100px] px-3 py-1 flex flex-row justify-center items-center md:gap-1 text-xs md:text-sm"
@@ -96,12 +96,12 @@ const EmpDetails = ({ employeeData }) => {
               </div>
 
               <div>
-                <p className="text-sm md:text-lg">Employee ID</p>
-                <p className="font-bold text-sm md:text-lg">{employeeData.empID || "EMP001"}</p>
+                <p className="text-xs md:text-sm">Employee ID</p>
+                <p className="font-bold text-sm md:text-base">{employeeData.empID || "EMP001"}</p>
               </div>
               <div>
-                <p className="email text-sm md:text-lg">Email</p>
-                <p className="font-bold text-sm md:text-lg">{employeeData.email || "paulwalker@gmail.com"}</p>
+                <p className="email text-xs md:text-sm">Email</p>
+                <p className="font-bold text-sm md:text-base">{employeeData.email || "paulwalker@gmail.com"}</p>
               </div>
             </div>
           </div>
@@ -120,18 +120,18 @@ const EmpDetails = ({ employeeData }) => {
             </div>
 
             <div className="div-1 flex flex-row md:flex-col lg:flex-col gap-2" style={{ lineHeight: "1px" }}>
-              <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+              <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                 Employee ID
               </p>
-              <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+              <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                 {employeeData.empID || "EMP001" }
               </p>
             </div>
             <div className="flex flex-row md:flex-col" style={{ lineHeight: "1px" }}>
-              <p className="email text-sm md:text-sm" style={{ margin: 0 }}>
+              <p className="email text-xs md:text-sm" style={{ margin: 0 }}>
                 Email
               </p>
-              <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+              <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                 {employeeData.email ||"paulwalker@gmail.com" }
               </p>
             </div>
@@ -143,19 +143,19 @@ const EmpDetails = ({ employeeData }) => {
         <div className="div3 w-full h-[300px] flex flex-col gap-2 md:gap-4">
           <h5 className="connect-text-Color font-medium">Personal Information</h5>
           <div className="phone" style={{ lineHeight: "1px" }}>
-            <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+            <p className="text-xs md:text-sm" style={{ margin: 0 }}>
               Phone
             </p>
-            <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+            <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
               {employeeData.phone || "9876543210"}
             </p>
           </div>
 
           <div className="phone" style={{ lineHeight: "1px" }}>
-            <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+            <p className="text-xs md:text-sm" style={{ margin: 0 }}>
               Address
             </p>
-            <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+            <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
               {employeeData.fullAddress || "Church Street, Jude Town, Evasteen, 31562"}
             </p>
           </div>
@@ -163,18 +163,18 @@ const EmpDetails = ({ employeeData }) => {
           <div className="hidden md:block">
             <div className="flex flex-row justify-between">
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Gender
                 </p>
-                <p className="font-bold text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.gender || "Male"}
                 </p>
               </div>
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Date Of Birth
                 </p>
-                <p className="font-bold text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                 {employeeData.dob ? formatDate(employeeData.dob) : "10/03/2000"}
 
                 </p>
@@ -184,28 +184,28 @@ const EmpDetails = ({ employeeData }) => {
 
           <div className="flex flex-row justify-between md:hidden">
             <div className="phone" style={{ lineHeight: "1px" }}>
-              <p className="text-sm" style={{ margin: 0 }}>
+              <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                 Date Of Birth
               </p>
-              <p className="font-bold text-sm" style={{ margin: 0 }}>
+              <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
               {employeeData.dob ? formatDate(employeeData.dob) : "10/03/2000"}
               </p>
             </div>
             <div className="phone" style={{ lineHeight: "1px" }}>
-              <p className="text-sm" style={{ margin: 0 }}>
-                Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <p className="text-xs md:text-sm" style={{ margin: 0 }}>
+                Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </p>
-              <p className="font-bold text-sm" style={{ margin: 0 }}>
+              <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                 {employeeData.gender  || "Male"}
               </p>
             </div>
           </div>
 
           <div className="phone" style={{ lineHeight: "1px" }}>
-            <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+            <p className="text-xs md:text-sm" style={{ margin: 0 }}>
               Blood Group
             </p>
-            <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+            <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
               {employeeData.bloodGroup || "A+"}
             </p>
           </div>
@@ -218,38 +218,38 @@ const EmpDetails = ({ employeeData }) => {
           <div className="hidden md:block">
             <div className="flex flex-col gap-2">
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Date Of Joining
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                  
                   {employeeData.dateOfJoining ? formatDate(employeeData.dateOfJoining) : "10/03/2000"}
                 </p>
               </div>
 
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Job Role
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.jobRole || "Sales Manager"}
                 </p>
               </div>
 
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Employment Status
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.employeeStatus || "Full Time"}
                 </p>
               </div>
 
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Job Level
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.jobLevel || "Entry Level"}
                 </p>
               </div>
@@ -259,36 +259,36 @@ const EmpDetails = ({ employeeData }) => {
           <div className="md:hidden flex flex-row justify-between  mb-18">
             <div className="flex flex-col gap-2">
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Date Of Joining
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                 {employeeData.dateOfJoining ? formatDate(employeeData.dateOfJoining) : "10/03/2000"}
                 </p>
               </div>
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Employment Status
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.employeeStatus || "Full Time"}
                 </p>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Job Role
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.jobRole || "Sales Manager"}
                 </p>
               </div>
               <div className="phone" style={{ lineHeight: "1px" }}>
-                <p className="text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="text-xs md:text-sm" style={{ margin: 0 }}>
                   Job Level
                 </p>
-                <p className="font-bold text-sm md:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base" style={{ margin: 0 }}>
                   {employeeData.jobLevel || "Entry Level"}
                 </p>
               </div>

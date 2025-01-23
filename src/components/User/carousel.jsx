@@ -40,7 +40,7 @@ function Clients() {
         newCardsPerSlide = 1; // Single card for small screens
       } else if (window.innerWidth < 746) {
         newCardsPerSlide =1; // Single card for mobile screens
-      } else if (window.innerWidth < 1365) {
+      } else if (window.innerWidth < 1024) {
         newCardsPerSlide =2; // Two cards for medium screens
       } else {
         newCardsPerSlide =3; // Three cards for large screens
@@ -103,7 +103,7 @@ function Clients() {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className="flex transition-transform duration-500"
+        className="flex transition-transform duration-500 med11"
         style={{
           transform: `translateX(-${currentIndex * (100 / totalSlides)}%)`,
           width: `${totalSlides * 100}%`,
@@ -112,7 +112,7 @@ function Clients() {
         {getPartnerSlides().map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className="med slide slide-1 flex justify-center items-center"
+            className="med  slide slide-1 flex justify-center items-center"
             style={{
               flex: `0 0 ${100 / totalSlides}%`,
               display: "flex",
@@ -123,9 +123,9 @@ function Clients() {
             {slide.map((partner, index) => (
               <div
                 key={partner._id || index}
-                className="card-cl flex flex-col flex-shrink items-center justify-center gap-2 p-4 rounded-lg shadow-lg"
+                className="card-cl  flex flex-col flex-shrink items-center justify-center gap-2 p-4 rounded-lg shadow-lg"
                 style={{
-                  marginRight: index === slide.length - 1 ? "" : "20px", // No gap after last card
+                  marginRight: index === slide.length - 1 ? "" : "25px", // No gap after last card
                   width: "100%", // Card width
                   maxWidth: "380px",
                   margin: "0 10px",

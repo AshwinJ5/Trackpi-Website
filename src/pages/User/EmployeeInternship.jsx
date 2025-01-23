@@ -72,11 +72,11 @@ function EmployeeInternship() {
        <div className=" grid grid-cols-1 md:grid-cols-2 md:gap-12 sm:text-lg md:text-xl xl:text-xl xl:leading-7 2xl:leading-7 2xl:text-2xl md:mt-4 2xl:mt-8 ">
                   <div>
                     <h5 className="connect-text-Color font-medium ">Feedback</h5>
-                    <br/>
-                    <ul className="feed list-disc text-justify text-sm sm:text-lg md:text-md xl:text-lg xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  font-medium space-y-2">
+                    
+                    <ul className="mt-3 feed list-disc text-justify text-sm sm:text-sm md:text-base xl:text-base xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  font-medium space-y-2">
                     {employeeData.feedback
                 ? employeeData.feedback.split('\n').map((point, index) => (
-                    <li key={index} className="text-base">{point}</li>
+                    <li key={index} className="text-sm sm:text-sm md:text-base xl:text-base xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  font-medium ">{point}</li>
                   ))
                 : <li>No feedback available for this employee.</li>}
                     </ul>
@@ -133,7 +133,7 @@ function EmployeeInternship() {
                    <div className="text-white text-center">Internship Certificate</div>
                )}</div>
 <div className="w-[326px] md:w-full h-[22px] md:h-[29px] xl:h-[39px] bg-yellow-400 flex items-center justify-start rounded-b-md">
- <p className="text-white px-4 mt-3 text-sm sm:text-lg md:text-xl xl:text-xl xl:leading-7 2xl:leading-10 2xl:text-xl">
+ <p className="text-white px-4 mt-3 font-semibold text-sm sm:text-sm md:text-base xl:text-base xl:leading-7 2xl:leading-10 2xl:text-xl">
    {employeeData.name}
  </p>
 </div>

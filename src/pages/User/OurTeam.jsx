@@ -50,9 +50,9 @@ function OurTeam() {
   return (
     <>
 
-      <section className="flex justify-center items-center  h-full w-full px-4 md:py-8">
+      <section className="flex justify-center items-center  h-full w-full px-4 ">
         <div className="  flex flex-col items-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-[#FF9D00] hiring_heading">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-[#FF9D00] hiring_heading">
             Who We Are?
           </h1>
         </div>
@@ -114,7 +114,7 @@ function OurTeam() {
       </section>
       <section className="smallscreen section3 md:mt-20 flex flex-col items-center  md:gap-10 md:w-full h-full">
         <div className="flex flex-col items-center ">
-          <h1 className="fw-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl text-amber-500  hiring_heading">
+          <h1 className="fw-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl text-[#FFC100] ">
             OUR CLIENTS
           </h1>
           <h5 className="paras text-bold text-black text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl xl-leading-7 2xl:leading-10  ">
@@ -148,7 +148,7 @@ function OurTeam() {
           </div>
           <div className="md:w-1/2">
             <motion.h1
-              className="firsth1 our font-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3"
+              className="firsth1 our font-bold  text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3"
               initial={{ opacity: 0, x:  -50 }}
               animate={inViewSecondSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
@@ -197,7 +197,7 @@ function OurTeam() {
         >
           <div className="flex flex-col w-full md:w-1/2">
             <motion.h1
-              className="firsth1 fw-bold text-yellow-500 text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl"
+              className="firsth1 fw-bold text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl"
               initial={{ opacity: 0, x: -50 }}
               animate={inViewThirdSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
@@ -275,7 +275,7 @@ function OurTeam() {
       <section className="section4 smallscreen  md:mt-10 lg:mt-10 xl:mt-10 2xl:mt-10 md:mb-5  w-full pl-2 pr-2 md:px-6 lg:px-20 xl:px-24 2xl:px-32 md:py-8 mx-auto">
         <Container fluid >
           <Row>
-            <h1 className="fw-bold text-center text-amber-500 text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-2   flex justify-center">
+            <h1 className="fw-bold text-center text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-2   flex justify-center">
               The Ready from A–Z
             </h1>
           </Row>
