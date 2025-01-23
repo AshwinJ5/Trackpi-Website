@@ -279,7 +279,7 @@ function Home() {
         image={img1}
       />
       <section>
-        <div className="text-center lg:pb-8  sm:pb-3 px-2">
+        <div className="text-center lg:pb-12  sm:pb-3 px-2">
           <h1 className="text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  font-bold text-[#FFC100] ">
             {heading.newsHeading}
           </h1>
@@ -447,12 +447,12 @@ function Home() {
             ))}
           </div> */}
 
-          <Marquee speed={50}>
+          <Marquee>
             <div className="flex animate-scroll">
               {clientsLogo.concat(clientsLogo).map((client, index) => (
                 <Col xs={3} md={2} key={index}>
                   <img
-                    className="w-100 h-[50px]   lg:h-[85px] object-contain"
+                    className="w-[85px] h-[50px]  lg:w-full lg:h-[85px] object-contain"
                     src={`${SERVER_URL}${client.companylogo}`}
                     alt={`Client ${index + 1}`}
                   />

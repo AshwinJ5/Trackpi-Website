@@ -32,18 +32,18 @@ function Footer() {
     return (
         <div>
             <FooterSecondary />
-            <footer className="px-[15px] lg:px-20 xl:px-24 2xl:px-32 py-[15px] text-dark pt-2 mx-auto lg:pt-[50px] ">
+            <footer className="px-[15px] sm:px-[45px] md:px-[60px] lg:px-[60px] xl:px-[75px] 2xl:px-[100px] py-[15px] text-dark pt-[10px] mx-auto lg:pt-[20px]  lg:pt-[50px] ">
                 <div className="col my-auto h-max w-full">
-                    <div className=" flex flex-wrap  justify-between items-center gap-[30px]">
-                        <div className="row justify-center xl:w-max md:w-1/2 w-full flex gap-[25px] sm:gap-[32px] md:gap-[38px] lg:gap-[42px] xl:gap-[50px] footerFirstDiv ">
-                            <div className=" xl:!max-w-[423px] grid gap-[25px]">
+                    <div className=" flex flex-wrap  justify-between xl:items-center lg:items-center mt-[0px] items-center gap-[30px]">
+                        <div className="row justify-center xl:w-max lg:w-[35%] md:w-1/2 w-full flex gap-[25px] sm:gap-[32px] md:gap-[38px] lg:gap-[42px] xl:gap-[50px] footerFirstDiv ">
+                            <div className=" xl:!max-w-[423px]  grid gap-[25px]">
                                 <div className="">
                                     <img
                                         src="src/images/trackpi_logo.png"
                                         alt="TrackPi Logo"
-                                        className="img-fluid mx-auto w-[195px] sm:w-[215px] md:w-[235px] lg:w-[252px] xl:w-[270px] 2xl:w-[290px]"
+                                        className="img-fluid mx-auto w-[195px] sm:w-[215px] md:w-[185px] lg:w-[202px] xl:w-[270px] 2xl:w-[290px]"
                                     />
-                                    <p className="text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px] text-justify font-medium footerParagraph">
+                                    <p className="text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[15px] xl:text-[18px] 2xl:text-[20px] text-justify font-medium footerParagraph">
                                         Empowering businesses to succeed through
                                         <a
                                             href="/business-consulting-services"
@@ -62,7 +62,7 @@ function Footer() {
                                     </p>
                                 </div>
                                 <div className="grid gap-[15px] sm:gap-[18px] md:gap-[20px] lg:22px] xl:gap-[25px] follow_us_footer">
-                                    <h5 className=" font-semibold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] ">
+                                    <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px] 2xl:text-[26px]">
                                         Follow Us
                                     </h5>
                                     <div className="flex my-auto gap-[25px] flex-row footer_smedia">
@@ -92,10 +92,10 @@ function Footer() {
                             </div>
                         </div>
                         <div className="w-max mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]">
-                            <h5 className=" font-bold  text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] mb-0">
+                            <h5 className=" font-bold  text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px] mb-0">
                                 Resources
                             </h5>
-                            <ul className="list-unstyled font-medium  text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px] grid gap-[14px] mb-0">
+                            <ul className="list-unstyled font-medium  text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] grid gap-[14px] mb-0">
                                 <li>
                                     <Link to="/about-trackpi" className="text-dark text-decoration-none">
                                         About
@@ -123,11 +123,11 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="sm:w-max w-[140px]  mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px] ">
-                            <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px]  mb-0 text-left">
+                        <div className="xl:w-max lg:w-[20%] sm:w-max w-[140px]  mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px] ">
+                            <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]  mb-0 text-left">
                                 Services
                             </h5>
-                            <ul className="list-unstyled font-medium text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px] grid gap-y-[14px] gap-x-[30px]   mb-0  ">
+                            <ul className="list-unstyled font-medium text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] grid gap-y-[14px] gap-x-[30px]   mb-0  ">
                                 <li>
                                     <a
                                         onClick={() => handleNavigation("/business-consulting-services", "#sales-outsourcing")}
@@ -171,19 +171,19 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="w-full lg:w-[full]  xl:w-max sm:mt-0 mt-[25px] join_us_div">
-                            <div className="xl:grid  lg:gap-[50px] flex sm:justify-around justify-between  joinInput ">
+                        <div className="w-full   lg:w-max sm:mt-0 mt-[25px] join_us_div">
+                            <div className="lg:grid md:flex  lg:gap-[50px] flex justify-between  joinInput ">
                                 <div className="grid gap-2 sm:w-max w-1/2">
-                                    <h5 className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px]">
+                                    <h5 className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
                                         Join With Us
                                     </h5>
                                     <div>
-                                        <div className="sm:flex hidden rounded-lg shadow-sm sm:w-[250px] w-[180px] footerForm footerInput1 ">
+                                        <div className="sm:flex hidden rounded-lg shadow-sm xl:w-[250px] lg:w-[200px] sm:w-[200px] w-[180px] footerForm footerInput1 ">
                                             <input
                                                 placeholder="Your Email Address"
                                                 type="text"
                                                 style={{ border: "1px solid #FFC100 ", outline: "none" }}
-                                                className="px-2 block w-full border-[#FFC100] shadow-sm rounded-s-lg text-[10px] md:text-[12px] lg:text-[14px]"
+                                                className="px-2 block w-full border-[#FFC100] shadow-sm rounded-s-lg text-[10px] md:text-[12px] xl:text-[14px]"
                                             />
                                             <button
                                                 type="button"
@@ -212,17 +212,17 @@ function Footer() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="grid gap-2 sm:w-max w-[140px] text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[16.5px] xl:text-[18px] 2xl:text-[20px]">
-                                    <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px]">
+                                <div className="grid gap-2 sm:w-max w-[140px] text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px]">
+                                    <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
                                         Contact
                                     </h5>
-                                    <div className="d-flex footer_smedia">
-                                        <img src={phoneIcon} alt="" />
-                                        <span className="ms-3 font-medium">+91 80781 79646</span>
+                                    <div className="d-flex ">
+                                        <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px]  lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={phoneIcon} alt="" />
+                                        <span className="ms-[10px] sm:ms-[20px] font-medium">+91 80781 79646</span>
                                     </div>
                                     <div className="d-flex">
-                                        <img src={mailIcon} alt="" />
-                                        <a href="mailto:operations@trackpi.in" target="_blank" className="text-decoration-none ms-3 font-medium text-[#0A0A0A]">operations@trackpi.in</a>
+                                        <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={mailIcon} alt="" />
+                                        <a href="mailto:operations@trackpi.in" target="_blank" className="text-decoration-none ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]">operations@trackpi.in</a>
                                     </div>
                                 </div>
                             </div>

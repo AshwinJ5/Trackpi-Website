@@ -134,7 +134,7 @@ function EmployeeVerification() {
                                 onChange={(e)=>{setVerifyInput(e.target.value)}}
                                 placeholder="Enter Your Employee ID"
                                 className=" p-3  text-base  rounded-md w-full"
-                                style={{border:'2px black solid',outline:"none",letterSpacing:"1.5px"}}
+                                style={{border:'2px black solid',outline:"none"}}
                             />
                         </div>
 
@@ -144,7 +144,7 @@ function EmployeeVerification() {
                                 type="submit"
                                 // onClick={handleSubmit}
                                 disabled={loading} // Disable button when loading
-                                className="mt-3 transform hover:scale-105 bg-gradient-to-r from-[#FFC100] to-[#FF9D00]  py-2 px-6 rounded-md font-semibold lg:text-xl text-base text-white"
+                                className="mt-3 transform  bg-gradient-to-r from-[#FFC100] to-[#FF9D00]  py-[12px] px-8 rounded-md font-semibold lg:text-[16px] text-base text-white"
                             >
                                 {loading ? "Verifying..." : "Verify Employee"}
                             </button>
@@ -158,7 +158,7 @@ function EmployeeVerification() {
         </div>
         </div>
 </section>
-<div className="p-[20px] sm:p-[30px] md:p-[40px] lg:p-[50px] xl:p-[65px]">
+<div className="px-[20px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[65px] pb-[20px] sm:pb-[30px] md:pb-[40px] lg:pb-[50px] xl:pb-[65px]">
             {/* Verification Form Section */}
             <section className=" mb-14 w-100 block md:hidden">
                 <div style={{maxWidth:'90%'}} className="bg-white shadow-lg mx-auto p-4 rounded-lg ">
@@ -177,7 +177,7 @@ function EmployeeVerification() {
                                 onChange={(e)=>{setVerifyInput(e.target.value)}}
                                 className=" p-[.3rem] font-normal  text-[.625rem] rounded-md w-full employInput"
                                 placeholder="Enter Employee ID"
-                                style={{border:'.32px #0A0A0A80 solid',letterSpacing:"1.5px" , outline:".32px #0A0A0A80 solid"}}
+                                style={{border:'.32px #0A0A0A80 solid' , outline:".32px #0A0A0A80 solid"}}
                             />
                         </div>
 
