@@ -14,24 +14,24 @@ const MarketPositioning = () => {
     const cardData = [
         {
             img: maketingImg1,
-            title: "Tailored Strategy",
+            title: "Customized Operators Strategy",
             description:
-                "We design personalized strategies that cater to your market's needs, ensuring impactful messaging.",
+                "Customized Operators Strategy - We create Branding tailored operator strategies that will speak to your audience for conveying a clear message and are suitable on the market",
         },
         {
             img: maketingImg2,
-            title: "Data-Driven Insights",
-            description: "In-depth market research and analytics guide your decision-making effectively.",
+            title: "Market & Competitor Research",
+            description: "Use comprehensive market research and analysis to support conclusions made on how to position the brand in the market",
         },
         {
             img: maketingImg3,
-            title: "Building Brand Loyalty",
-            description: "We focus on fostering customer loyalty and trust through valuable experiences.",
+            title: "Cultivating Customers Loyalty",
+            description: "We aim at achieving the goal of bringing customer-centric experiences to life through closure",
         },
     ];
    
     return (
-        <section ref={refMainHeading} className="bgSection py-[35px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px] 2xl:py-[80px] px-6  lg:px-20 xl:px-24 2xl:px-32 grid gap-[15px] sm:gap-[24px] md:gap-[30px] lg:gap-[40px] xl:gap-[50px]">
+        <section ref={refMainHeading} className="bgSection py-[35px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px] 2xl:py-[80px] px-6  lg:px-20 xl:px-24 2xl:px-32 grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] ">
             <motion.div  initial={{ opacity: 0, y: 5 }}
                 animate={inViewMainHeading ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: .5 }}  className="mx-auto grid max-w-[1048px] gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px]">
@@ -45,8 +45,7 @@ const MarketPositioning = () => {
                     style={{ color: "white" }}
                     className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px]  justify_para max-w-[700px]"
                 >
-                    Our customized market positioning strategies will elevate your brand and carve a unique identity in the
-                    marketplace.
+                    These tailored strategies we offer for market positioning and branding will help your business create its own market identity and build trust to earn a competitive edge in the industry.
                 </div>
             </motion.div>
 

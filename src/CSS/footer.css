@@ -62,6 +62,11 @@
     text-align: center;
   }
 }
+@media (min-width: 1024px) {
+  .footerParagraph{
+    text-align: justify !important;
+  }
+}
 @media (max-width: 480px) {
   .footerParagraph{
     text-align: justify;
@@ -94,7 +99,7 @@
   font-weight: 400;
 }
 
-@media (max-width: 810px) and (min-width: 768px) {
+@media (max-width: 836px) and (min-width: 768px) {
 .footerFirstDiv{
   width: 100%;
   margin-left: auto !important;

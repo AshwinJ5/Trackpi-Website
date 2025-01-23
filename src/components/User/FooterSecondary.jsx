@@ -52,7 +52,7 @@ function FooterSecondary() {
                             
                             <Link to={"/contact-us"}>
                                 <button
-                                    className=" join_footer_btn text-light px-[20px] py-[10px] sm:px-[24px] sm:py-[12px] md:px-[30px] md:py-[15px] lg:px-[40px] lg:py-[20px] xl:px-[40px] xl:py-[15px]  text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] xl:text-[32px] 2xl:text-[36px]"
+                                    className=" join_footer_btn text-light px-[20px] py-[10px] sm:px-[24px] sm:py-[12px] md:px-[30px] md:py-[15px] lg:px-[35px] lg:py-[12px] xl:px-[40px] xl:py-[15px]  text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] xl:text-[32px] "
 
                                 >
                                     Join with us
@@ -79,7 +79,7 @@ function FooterSecondary() {
                                                                     src={`${SERVER_URL}${footerVideo.videofile1}`}
                                                                 ></video>
                                                             </Link>
-                                                            <div className="text-center" ><Link target="_blank" className="text-decoration-none viewMoreFooterVideo pb-[12px] text-[#ffc100] text-[12px] md:text-[20px] sm:text-[16px] lg:text-[24px]" to={platformURLs.youtube}>
+                                                            <div className="text-center" ><Link target="_blank" className="text-decoration-none viewMoreFooterVideo pb-[12px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]" to={platformURLs.youtube}>
                                                                 View More
                                                             </Link></div>
                                     </div>
@@ -96,7 +96,7 @@ function FooterSecondary() {
                                                                     src={`${SERVER_URL}${footerVideo.videofile2}`}
                                                                 ></video>
                                                             </Link>
-                                                            <div className="text-center" ><Link target="_blank" className="text-decoration-none viewMoreFooterVideo pb-[12px] text-[#ffc100] text-[12px] md:text-[20px] sm:text-[16px] lg:text-[24px]" to={platformURLs.insta}>
+                                                            <div className="text-center" ><Link target="_blank" className="text-decoration-none viewMoreFooterVideo pb-[12px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]" to={platformURLs.insta}>
                                                                 View More
                                                             </Link></div>
                                                             </div>
@@ -112,7 +112,7 @@ function FooterSecondary() {
                                                                     src={`${SERVER_URL}${footerVideo.videofile3}`}
                                                                 ></video>
                                                             </Link>
-                                                            <div className="text-center" ><Link target="_blank" className="text-decoration-none viewMoreFooterVideo pb-[12px] text-[#ffc100] text-[12px] md:text-[20px] sm:text-[16px] lg:text-[24px]" to={platformURLs.facebook}>
+                                                            <div className="text-center" ><Link target="_blank" className="text-decoration-none viewMoreFooterVideo pb-[12px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]" to={platformURLs.facebook}>
                                                                 View More
                                                             </Link></div>
                                                             </div>

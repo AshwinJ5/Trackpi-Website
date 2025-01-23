@@ -158,7 +158,7 @@ const handlePhoneChange = (value, country) => {
           className="w-full text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] px-[10px] py-[8px] sm:px-[12px] sm:py-[10px] md:px-[16px] md:py-[14px] lg:px-[18px] lg:py-[16px] border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-left mx-auto flex justify-between items-center  h-[30px] sm:h-[32px] md:h-[35px] lg:h-[37px] lg:h-[40px]"
           onClick={toggleDropdown}>
             <div className={selectedOption? " text-black "  :"selectFormPlaceholder"}>{selectedOption || 'How Did You Hear About Us?'}</div>
-          {selectedOption?null:<img className="h-[10px] sm:h-[12px] md:h-[14px] lg:h-[16px] xl:h-[18px]" src={dropdownImg} alt="" />}
+          <img className="h-[10px] sm:h-[12px] md:h-[14px] lg:h-[16px] xl:h-[18px]" src={dropdownImg} alt="" />
         </button>
 
         {/* Dropdown menu with <ul> */}
@@ -182,8 +182,8 @@ const handlePhoneChange = (value, country) => {
                           <textarea className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] xl:text-[14px] px-[10px] py-[8px] sm:px-[12px] sm:py-[10px] md:px-[16px] md:py-[14px] lg:px-[18px] lg:py-[16px] h-[60] sm:h-[65px] md:h-[70px] lg:h-[75px] xl:h-[80px]" value={newDatas.message}  onChange={(e) =>
                                     setNewDatas({ ...newDatas, message: e.target.value })}  name="" placeholder="Message"></textarea>
                             <div className="max-w-[244px] mx-auto">
-                                <button type="submit" className="bg-gradient-to-r from-[#FFC100] to-[#FF9D00] font-bold text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] text-white rounded-lg px-[15px] md:px-[30px] lg:px-[45px] xl:px-[60px]  
-          py-[8px] md:py-[9px] lg:py-[10px]    font-bold ">
+                                <button type="submit" className="bg-gradient-to-r from-[#FFC100] to-[#FF9D00] font-bold text-[12px] sm:text-[13px] md:text-[14px] lg:text-[16px] xl:text-[16px] text-white rounded-lg px-[15px] md:px-[30px] lg:px-[45px] xl:px-[60px]  
+          py-[8px] md:py-[9px] lg:py-[10px]    font-semibold mt-[10px]">
                                     <span>Submit</span>
                                 </button>
                             </div>
