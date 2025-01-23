@@ -59,11 +59,12 @@ function SalesManagementDetail() {
             style={{ backgroundColor: '#2A2A2A' }}
           >
             {employeeData.businessCard ? (
-                <iframe
+                <img
                   src={`${SERVER_URL}${employeeData.businessCard}#toolbar=0`}
                   className="w-[225px] md:w-[500px] h-[300px] rounded-lg"
-                  style={{ border: 'none' }}
+                  style={{ border: 'none',objectFit: "cover" }}
                   title="Business Card"
+                
                 />
           ) : (
                 <div

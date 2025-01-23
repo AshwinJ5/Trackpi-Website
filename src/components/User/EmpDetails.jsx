@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import {Puff}  from 'react-loader-spinner'
 
 const EmpDetails = ({ employeeData }) => {
+  
    if (!employeeData) {
          return (
            <div className="flex justify-center items-center ">
@@ -61,6 +62,7 @@ const EmpDetails = ({ employeeData }) => {
   
     setSocialMediaLink(newLinks);
   }, [employeeData]);
+ 
 
   return (
     <>
