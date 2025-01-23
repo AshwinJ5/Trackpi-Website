@@ -28,7 +28,6 @@ function Home() {
   const [heading, setHeading] = useState({});
 
   const [cards, setCards] = useState([]);
-  console.log(cards, 'Cards');
   // const clients = [
   //   { id: 1, logo: clientLogo1 },
   //   { id: 2, logo: clientLogo2 },
@@ -216,7 +215,6 @@ function Home() {
     const getNews = async () => {
       try {
         const response = await baseURL.get('api/news/newsdetails');
-        console.log(response.data, 'NewsData');
         setCards(response.data);
       } catch (e) {
         console.error(e);
