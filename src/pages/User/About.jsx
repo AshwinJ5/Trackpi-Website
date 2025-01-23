@@ -8,7 +8,7 @@ function About() {
     return (
         <>
             <PopUp />
-                <HeaderBanner title="About Us" description="Learn more about our journey and what drives us forward."classname='bgTwo' 
+                <HeaderBanner title="About Us" description="Learn more about our journey as the best business consultant in Kerala and what drives us forward."classname='bgTwo' 
                 brochureMain={true} noButton={true}/>
                 <section >
                     <OurTeam />  

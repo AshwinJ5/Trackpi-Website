@@ -134,7 +134,7 @@ function EmployeeVerification() {
                                 onChange={(e)=>{setVerifyInput(e.target.value)}}
                                 placeholder="Enter Your Employee ID"
                                 className=" p-3  text-base  rounded-md w-full"
-                                style={{border:'2px black solid',outline:"none",letterSpacing:"1.5px"}}
+                                style={{border:'2px black solid',outline:"none"}}
                             />
                         </div>
 
@@ -177,7 +177,7 @@ function EmployeeVerification() {
                                 onChange={(e)=>{setVerifyInput(e.target.value)}}
                                 className=" p-[.3rem] font-normal  text-[.625rem] rounded-md w-full employInput"
                                 placeholder="Enter Employee ID"
-                                style={{border:'.32px #0A0A0A80 solid',letterSpacing:"1.5px" , outline:".32px #0A0A0A80 solid"}}
+                                style={{border:'.32px #0A0A0A80 solid' , outline:".32px #0A0A0A80 solid"}}
                             />
                         </div>
 
