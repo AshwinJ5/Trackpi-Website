@@ -22,6 +22,7 @@ import iidm from '../../images/iidm.jpg';
 import luminar from '../../images/luminar.png';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
+import Marquee from "react-fast-marquee";
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
@@ -436,32 +437,16 @@ function Home() {
         </Row>
 
         {/* Client Logos Section */}
-        <div className=" md:mt-4 lg:mt-18 sm:mt-2 items-center bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 ">
-          {/* <div className="flex animate-scroll">
-            {clients.concat(clients).map((client, index) => (
-              <Col xs={3} md={2} key={index}>
-                <img
-                  className="w-[85px] h-[50px]  lg:w-full lg:h-[85px] object-contain"
-                  src={client.logo}
-                  alt={`Client ${index + 1}`}
-                />
-              </Col>
-            ))}
-          </div> */}
-
-            <div className="flex animate-scroll">
-
+        <div className=" h-[50px] sm:h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px]  items-center flex bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 lg:mt-[40px] md:mt-[20px] sm:mt-[30px] mt-[10px]">
+<Marquee>
             {clientsLogo.concat(clientsLogo).map((client, index) => (
-              <Col xs={3} md={2} key={index}>
-                <img
-                  className="w-[85px] h-[50px]  lg:w-full lg:h-[85px] object-contain"
+                <img key={index}
+                  className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
                   src={`${SERVER_URL}${client.companylogo}`}
                   alt={`Client ${index + 1}`}
                 />
-              </Col>
-            ))}
-             
-            </div>
+              ))}             
+           </Marquee>
         </div>
       </section>
 

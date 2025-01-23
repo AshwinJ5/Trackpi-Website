@@ -49,15 +49,30 @@ function App() {
     const [loading, setLoading] = useState(false);
     const location = useLocation();
 
+    // useEffect(() => {
+    //     if (location.pathname === "/") {
+    //         setLoading(true);
+    //         const timeout = setTimeout(() => setLoading(false), 1050);
+    //         return () => clearTimeout(timeout);
+    //     } else {
+    //         setLoading(false);
+    //     }
+    // }, [location.pathname]);
     useEffect(() => {
-        if (location.pathname === "/") {
-            setLoading(true);
-            const timeout = setTimeout(() => setLoading(false), 1050);
-            return () => clearTimeout(timeout);
-        } else {
+    const hasLoaded = sessionStorage.getItem("homeLoaded");
+
+    if (location.pathname === "/" && !hasLoaded) {
+        setLoading(true);
+        const timeout = setTimeout(() => {
             setLoading(false);
-        }
-    }, [location.pathname]);
+            sessionStorage.setItem("homeLoaded", "true"); // Mark as loaded
+        }, 1050);
+
+        return () => clearTimeout(timeout);
+    } else {
+        setLoading(false);
+    }
+}, [location.pathname]);
 
     const showHeaderFooter = [
         "/",

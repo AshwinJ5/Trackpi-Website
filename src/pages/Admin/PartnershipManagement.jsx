@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import editImg from "../../images/editbtn.svg";
 import uploadImg from "../../images/uploadimg.svg";
 import deleteImg from "../../images/deleteimg.svg";
@@ -188,40 +188,57 @@ const PartnershipManagement = () => {
     };
     const editAPartnerDetails = async (e) => {
         e.preventDefault();
-        if (!editPartnershipDatas.companylogo || !editPartnershipDatas.description || !editPartnershipDatas.companyname) {
-            toast.info("Please fill empty Fields");
+    
+        // Validate input fields
+        if (!editPartnershipDatas.description || !editPartnershipDatas.companyname) {
+            toast.info("Please fill empty fields");
             return;
         }
-
+    
         try {
             const formData = new FormData();
             formData.append("companyname", editPartnershipDatas.companyname);
             formData.append("description", editPartnershipDatas.description);
-            formData.append("companylogo", editPartnershipDatas.companylogo);
-
-            const response = await baseURL.patch(`/api/partner/updatePartner/${editPartnershipDatas._id}`, formData, {
-                headers: {
-                    Authorization: `Bearer ${adminToken}`,
-                    "Content-Type": "multipart/form-data",
-                },
-            });
-
+    
+            // Add companylogo to FormData only if it's a file
+            if (editPartnershipDatas.companylogo instanceof File) {
+                formData.append("companylogo", editPartnershipDatas.companylogo);
+            }
+    
+            // Send request with FormData
+            const response = await baseURL.patch(
+                `/api/partner/updatePartner/${editPartnershipDatas._id}`,
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${adminToken}`, // Auth header
+                    },
+                }
+            );
+    
+            // Handle success
             if (response.status === 200) {
-                getAllPartners();
+                getAllPartners(); // Refresh data
                 toast.success("Partnership updated successfully!");
-                setIsEditMode(false);
-                setFileName("Upload Image");
+                setIsEditMode(false); // Exit edit mode
+                setFileName("Upload Image"); // Reset filename
             }
         } catch (error) {
-            console.error("Error updating news:", error);
+            console.error("Error updating partner:", error);
             setFileName("Upload Image");
+    
+            // Error handling
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
             } else {
-                toast.error("An error occurred while updating news.");
+                toast.error("An error occurred while updating the partnership.");
             }
         }
     };
+    
+        const inputRefHeading = useRef(null);
+        const inputRefSubHeading = useRef(null);
+    
 
     return (
         <div className="bg-white w-full">
@@ -233,6 +250,7 @@ const PartnershipManagement = () => {
                         <form onSubmit={editHeading} className="flex items-center gap-[20px]">
                             <input
                             readOnly={!headingEditMode}
+                            ref={inputRefHeading}
                                 type="text"
                                 value={heading.partnershipHeading}
                                 onChange={(e) =>
@@ -243,6 +261,7 @@ const PartnershipManagement = () => {
                                                         onClick={(e) => {
                                                             e.preventDefault();
                                                             setHeadingEditMode(true)
+                                                            inputRefHeading.current.focus()
                                                             
                                                         }}
                                                         >
@@ -273,6 +292,7 @@ const PartnershipManagement = () => {
                         <form onSubmit={editHeading} className="flex items-center gap-[20px]">
                             <input
                                 type="text"
+                                ref={inputRefSubHeading}
                                 readOnly={!subHeadingEditMode}
                                 value={heading.partnershipSubHeading}
                                 onChange={(e) =>
@@ -283,6 +303,7 @@ const PartnershipManagement = () => {
                                                         onClick={(e) => {
                                                             e.preventDefault();
                                                             setSubHeadingEditMode(true)
+                                                            inputRefSubHeading.current.focus()
                                                             
                                                         }}
                                                         >

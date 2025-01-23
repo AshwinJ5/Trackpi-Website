@@ -24,7 +24,7 @@ function KeyBenefitServices() {
     return (
         <section className=" px-6 lg:px-20 xl:px-24 2xl:px-32 grid my-[25px] sm:my-[30px] md:my-[37px] lg:my-[42px] xl:my-[50px] gap-[10px] sm:gap-[18px] md:gap-[25px] lg:gap-[32px] xl:gap-[40px]">
             <div className="w-full px-6 lg:px-20 xl:px-24 2xl:px-32  mx-auto ">
-                <h1 style={{ color: "#FFC100" }} className=" text-[18px] sm:text-[20px] md:text-[24px] lg:text-[30px] xl:text-[37px] 2xl:text-[44px] text-center font-bold ">
+                <h1 style={{ color: "#FFC100" }} className=" text-[18px] sm:text-[20px] md:text-[24px] lg:text-[30px] xl:text-[37px] 2xl:text-5xl text-center font-bold ">
                 Our Training Offer Should Benefit You In These Ways
                 </h1>
             </div>
