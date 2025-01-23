@@ -483,18 +483,31 @@ function Home() {
               animate={{ y: isInView1 ? 5 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              Occasionally, without expert advice in business operations,
-              companies can run into issues such as actions that aren’t really
-              necessary, poor planning, and lost potential. Such issues as
-              maintaining expansion, changing with the trends, and being in
-              perfect competition can sometimes become very hard. The
-              opportunity to become a consultant in a company can reveal
-              compliance issues or risks leading to higher expenses without
-              trusted consultants in the business. At Trackpi, we are aware
-              about these challenges since we are one of the most preferred
-              business consultant in Kerala and handle multiple clients. We have
-              &nbsp;
+              Running a business without expert guidance can lead to unnecessary
+              actions, poor planning, and missed opportunities. Challenges like
+              maintaining growth, adapting to market trends, and staying
+              competitive can quickly become overwhelming. Without trusted
+              business consultants in Kerala, companies may face compliance
+              risks and higher costs, hindering their potential for success. At
+              Trackpi, the leading business consulting firm in Kerala, we
+              specialize in addressing these challenges head-on. Our expert
+              business management consultants provide detailed strategy planning
+              and innovative solutions to help businesses thrive. Ready to
+              unlock your business’s true potential? Don’t wait—
               <a
+                href="/contact-us"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: '#FF9D00',
+                  fontWeight: 'bold',
+                  textDecoration: 'none',
+                }}
+              >
+                contact{' '}
+              </a>{' '}
+              Trackpi today for a brighter, more successful future. &nbsp;
+              {/* <a
                 href="/business-consulting-services"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -520,7 +533,7 @@ function Home() {
               >
                 Contact us{' '}
               </a>{' '}
-              today.
+              today. */}
             </motion.p>
           </div>
 
@@ -575,16 +588,18 @@ function Home() {
               animate={{ y: isInView2 ? 5 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              Every business has latent strengths and great potential to grab
-              opportunities and contribute to growth. Succeeding in unlocking
-              such potential call for innovative ideas, creative strategies.
-              Businesses are not stiff structures — they are living and
-              breathing ecosystems. With a capable business development
-              consultant, you start looking at things differently and get out of
-              the old habits. As Trackpi, we assist companies in Kerala develop
-              future-ready capacities, so that they are more resilient,
-              innovative and successful. Let's help you in considering a
-              different way of doing things.
+              Every business has untapped potential waiting to be unlocked. To
+              truly grow and succeed, companies must embrace innovative ideas
+              and creative strategies. Businesses are dynamic ecosystems,
+              constantly evolving and adapting. With the guidance of a trusted
+              business consultant in Kerala, you can break free from outdated
+              habits and discover new opportunities for growth. At Trackpi, the
+              leading business consulting firm in Kerala, we help businesses
+              build future-ready capabilities. Our expert consultants deliver
+              strategies that empower companies to become more resilient,
+              innovative, and successful in today’s competitive market. It’s
+              time to see your business in a new light. Let Trackpi show you a
+              different way forward.
             </motion.p>
           </div>
         </motion.div>
@@ -609,14 +624,18 @@ function Home() {
               animate={{ y: isInView3 ? 5 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              The 21st century is a fast changing one and adhering to old
-              methods may impede your career progress. It is necessary to adopt
-              new and revolutionary focused methods that fit the market today.
-              At Trackpi, we develop tailor-made business ideas that will enable
-              you to. We will ensure you are proactive – designing sometimes
-              futuristic strategies to ensure your business is forward-looking,
-              and growing. Don’t be stuck in the yesteryear patterns —
-              collaborate with Trackpi and bring your full potential to light.
+              The business landscape is evolving rapidly, and relying on
+              outdated methods can hold your company back. To stay ahead in
+              today’s competitive market, businesses need forward-thinking
+              strategies that align with current trends and future demands. At
+              Trackpi, the No. 1 business consulting firm in Kerala, we
+              specialize in crafting innovative, tailor-made strategies that
+              drive growth and position businesses for long-term success. Our
+              expert consultants ensure your business is proactive and prepared
+              for the challenges of tomorrow, enabling you to outperform the
+              competition. Don’t let old practices hinder your success. Partner
+              with Trackpi and discover the transformative potential of modern,
+              market-driven strategies. .
             </motion.p>
           </div>
           <div className="w-full  flex flex-col justify-center md:justify-end">
@@ -643,11 +662,10 @@ function Home() {
               We're Ready to Help
             </h1>
             <p className="text-center text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-black">
-              Trackpi places a premium on your success. Being one of the best
-              business consultants in Karela, we recommend strategic measures
-              that can enhance the growth of the business, foster efficiency,
-              and allow the business to outperform competition within the
-              industries.
+              Trackpi places a premium on your success. As one of the top
+              business consultants in Kerala, we recommend strategic measures
+              that enhance growth, foster efficiency, and help your business
+              outperform the competition.
             </p>
             <Link to="/our-services">
               <button
