@@ -32,11 +32,11 @@ function KeyBenefitServices() {
                 {features.map((card,index)=>(
                     <motion.div initial={{ opacity: 0, x: -20 }}
                     animate={inViewFirstSection ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: .5 }} className="bg-gradient-to-r from-[#FFD152] via-[#FFC100] to-[#FFD152] sm:w-[calc(50%-20px)] lg:w-[calc(30%)]   text-center rounded md:w-[410px] w-[280px] p-[20px]   sm:p-[22px]   md:p-[25px]  lg:p-[27px] xl:p-[30px]  2xl:p-[33px] grid lg:gap-[20px] md:gap-[15px] gap-[10px]  containerThree" key={index}>
-                        <div className="font-bold text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[30px]">
+                    transition={{ duration: .5 }} className="bg-gradient-to-r from-[#FFD152] via-[#FFC100] to-[#FFD152] sm:w-[calc(50%-20px)] lg:w-[calc(30%)]   text-center rounded md:w-[410px] w-[280px] p-[20px]   sm:p-[22px]   md:p-[25px]  lg:p-[27px] xl:p-[30px]  2xl:p-[33px] grid xl:gap-[20px] lg:gap-[15px] md:gap-[15px] gap-[10px]  containerThree items-center" key={index}>
+                        <div className="font-bold text-[16px] sm:text-[18px] md:text-[22px] lg:text-[24px] xl:text-[26px] 2xl:text-[30px] flex items-end justify-center h-100">
                             {card.name}
                         </div>
-                        <div className="font-medium text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px] text-justify">
+                        <div className="font-medium text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] text-justify">
                             {card.description}
                         </div>
                     </motion.div>
