@@ -67,6 +67,7 @@ function Home() {
   // useEffect(() => {
   //   groupCards(); // Initial grouping
   // }, [cards, cardsPerGroup]);
+
   useEffect(() => {
     setGroupedCards(() => {
       const groups = [];
@@ -124,48 +125,54 @@ function Home() {
   //   groupCards(); // Re-group cards when the data changes
   // }, [cards, cardsPerGroup]);
 
-  // useEffect(() => {
-  //   if (isPaused) return; // Pause interval when hovering
-
-  //   const bulgeInterval = setInterval(() => {
-  //     setBulgingCard(prev => {
-  //       const isLastCardInSlide = prev === cardsPerGroup - 1;
-
-  //       if (isLastCardInSlide) {
-  //         // Move to the next slide after the last card
-  //         setCurrentIndex(prevIndex =>
-  //           prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
-  //         );
-  //         return 0; // Reset to first card of the next slide
-  //       }
-  //       return prev + 1; // Otherwise, continue to the next card
-  //     });
-  //   }, 2000); // Bulge interval (2 seconds)
-
-  //   return () => clearInterval(bulgeInterval);
-  // }, [groupedCards.length, cardsPerGroup, isPaused]);
-
-  const intervalRef = useRef(null);
-
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused) return; // Pause interval when hovering
 
-    intervalRef.current = setInterval(() => {
+    const bulgeInterval = setInterval(() => {
       setBulgingCard(prev => {
         const isLastCardInSlide = prev === cardsPerGroup - 1;
 
         if (isLastCardInSlide) {
+          // Move to the next slide after the last card
           setCurrentIndex(prevIndex =>
             prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
           );
-          return 0;
+          return 0; // Reset to first card of the next slide
         }
-        return prev + 1;
+        return prev + 1; // Otherwise, continue to the next card
       });
-    }, 2000);
+    }, 2000); // Bulge interval (2 seconds)
 
-    return () => clearInterval(intervalRef.current);
-  }, [isPaused, cardsPerGroup]);
+    return () => clearInterval(bulgeInterval);
+  }, [groupedCards.length, cardsPerGroup, isPaused]);
+
+  // const intervalRef = useRef(null);
+
+  // useEffect(() => {
+  //   if (isPaused) return;
+
+  //   intervalRef.current = setInterval(() => {
+  //     setBulgingCard(prev => {
+  //       const isLastCardInSlide = prev === cardsPerGroup - 1;
+
+  //       if (isLastCardInSlide) {
+  //         setCurrentIndex(prevIndex =>
+  //           prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
+  //         );
+  //         return 0;
+  //       }
+  //       return prev + 1;
+  //     });
+  //   }, 2000);
+
+  //   return () => clearInterval(intervalRef.current);
+  // }, [isPaused, cardsPerGroup]);
+
+
+
+
+
+
 
   const handleDotClick = index => {
     setCurrentIndex(index);
@@ -667,7 +674,7 @@ function Home() {
               that enhance growth, foster efficiency, and help your business
               outperform the competition.
             </p>
-            <Link to="/our-services">
+            <Link to="/business-consulting-services">
               <button
                 className=" mt-3 bg-white no-underline text-black font-semibold  rounded-full shadow-lg hover:bg-gray-800 
                  px-8 py-2 md:px-10 md:py-3 lg:py-4   xl:py-12 2xl:px-12   

@@ -23,7 +23,7 @@ const FormNewProject = () => {
     skills: '',
     agreeTerms: 'false',
   };
-  const storedData = localStorage.getItem('formData');
+  const storedData = sessionStorage.getItem('formData');
   const [formData, setFormData] = useState(
     storedData ? JSON.parse(storedData) : initialFormData
   );
@@ -32,9 +32,9 @@ const FormNewProject = () => {
   const [fileName, setFileName] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Save form data to localStorage whenever it changes
+  // Save form data to sessionStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('formData', JSON.stringify(formData));
+    sessionStorage.setItem('formData', JSON.stringify(formData));
   }, [formData]);
 
   // Handle input change
@@ -114,7 +114,7 @@ const FormNewProject = () => {
 
       setFile(null);
       setFileName('');
-      localStorage.removeItem('formData'); // Clear stored data after submission
+      sessionStorage.removeItem('formData'); // Clear stored data after submission
       toast.success('Submitted New Project');
     } catch (error) {
       console.error(error);
@@ -547,11 +547,10 @@ const FormNewProject = () => {
             <label htmlFor="agreeTerms" className="text-sm">
               <Link
                 to="/termsconditions-submit-new-project"
-                className="text-[#212529] items-center text-[14px] no-underline mx-2 cursor-pointor"
+                className="text-[#FF9D00] items-center text-[14px] no-underline mx-2 cursor-pointor"
               >
                 Agreement to Terms & Conditions
               </Link>
-              <span className="text-[12px] learnMore">Learn more</span>
             </label>
           </div>
           <div className="text-center">

@@ -18,7 +18,7 @@ const Chatbox = () => {
   useEffect(() => {
     if (!isChatOpen) return;
 
-    // Immediately display the first message
+    // Reset messages every time the chatbox opens
     setMessages([companyMessages[0]]);
     let index = 1; // Start from the second message
 
