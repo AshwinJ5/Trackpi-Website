@@ -169,7 +169,7 @@
 @media (max-width: 1218px) and (min-width: 1024px){
   .card-cl {
     width: 320px !important; /* Fixed width */
-      height: 290px !important; /* Fixed height */
+      height: 295px !important; /* Fixed height */
       max-width: 100% !important; /* Prevent overflow */
       padding: 20px; /* Inner padding */
       box-sizing: border-box; /* Include padding in dimensions */
@@ -193,7 +193,7 @@
 @media (max-width: 1182px) and (min-width: 1024px){
   .card-cl {
     width: 290px !important; /* Fixed width */
-      height: 260px !important; /* Fixed height */
+      height: 265px !important; /* Fixed height */
       max-width: 100% !important; /* Prevent overflow */
       padding: 20px; /* Inner padding */
       box-sizing: border-box; /* Include padding in dimensions */
@@ -219,7 +219,7 @@
 @media (max-width: 1087px) and (min-width: 1024px){
   .card-cl {
     width: 270px !important; /* Fixed width */
-      height: 240px !important; /* Fixed height */
+      height: 245px !important; /* Fixed height */
       max-width: 100% !important; /* Prevent overflow */
       padding: 20px; /* Inner padding */
       box-sizing: border-box; /* Include padding in dimensions */
@@ -282,6 +282,7 @@
    /* Full width minus 80px margin on both sides */
    
     max-width: 500px !important; /* Ensure no restriction on card width */
+    height: 474px !important;
     width: 100%;
     margin: 0 auto; /* Center cards horizontally */
     padding: 20px; /* Inner padding */
@@ -300,10 +301,7 @@
     margin: 0 auto; /* Center the container */
   }
 
-  /* Optional: Adjust the gap to control spacing between the cards */
-  .clients-carousel > .flex {
-    gap: 20px; /* Space between the cards inside the carousel */
-  }
+
   .logo {
     height: auto;
     max-height: 110px;

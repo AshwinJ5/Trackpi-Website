@@ -947,31 +947,44 @@ const handleCancel = () => {
             }}
           >
            {businessCard ? (
-            typeof businessCard === "string" ? (
-                <a
-                    href={businessCard}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-link text-black"
-                >
-                    View Business Card
-                </a>
-            ) : (
-                <div>
-                    <p>{businessCard.name}</p>
-                    <a
-                        href={URL.createObjectURL(businessCard)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-link text-black"
-                    >
-                        View
-                    </a>
-                </div>
-            )
+      // Check if the file is an image
+      typeof businessCard === "string" ? (
+        businessCard.endsWith(".jpg") || businessCard.endsWith(".jpeg") || businessCard.endsWith(".png") ? (
+          <img
+            src={businessCard}
+            alt="Business Card"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
         ) : (
-            <p>Upload the file</p>
-        )}
+          <a
+            href={businessCard}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-link text-black"
+          >
+            View Business Card
+          </a>
+        )
+      ) : (
+        <div>
+          <p>{businessCard.name}</p>
+          <a
+            href={URL.createObjectURL(businessCard)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-link text-black"
+          >
+            View
+          </a>
+        </div>
+      )
+    ) : (
+      <p>Upload the file</p>
+    )}
             <button
               type="button"
               onClick={() => businessCardInputRef.current.click()}
@@ -989,7 +1002,7 @@ const handleCancel = () => {
            
             ref={businessCardInputRef}
             style={{ display: "none" }}
-            accept=".pdf,.doc,.docx"
+            accept="image/jpeg,image/png,image/jpg" 
             onClick={handleUpload}
             onChange={handleBusinessCardFileChange}
           />
