@@ -26,6 +26,22 @@
   }
 
 }
+@media (max-width: 1713px) and (min-width: 1499px) {
+  .smallscreen{
+      padding-left: 100px !important;
+      padding-right: 100px !important;
+     
+  }
+
+}
+@media (max-width: 2046px) and (min-width: 1971px) {
+  .smallscreen{
+      padding-left: 150px !important;
+      padding-right: 150px !important;
+     
+  }
+
+}
 
 @media (max-width: 640px) {
     .firsth1{
@@ -213,11 +229,107 @@
       align-items: center;
     }
 }
+@media (max-width: 1509px) and (min-width: 1737px) {
+  .card-cl {
+   /* Full width minus 80px margin on both sides */
+   
+    max-width: 400px !important; /* Ensure no restriction on card width */
+    width: 100%;
+    margin: 0 auto; /* Center cards horizontally */
+    padding: 20px; /* Inner padding */
+    height: 384px; /* Maintain the consistent height */
+  }
+
+  .slide-1 {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    margin: 0 auto; /* Center the slide horizontally */
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+  }
+
+  .med11 {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Optional: Adjust the gap to control spacing between the cards */
+  .clients-carousel > .flex {
+    gap: 20px; /* Space between the cards inside the carousel */
+  }
+  .logo {
+    height: auto;
+    max-height: 110px;
+    margin-bottom: 10px;
+    object-fit: contain;
+
+  }
+  .company-name {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    margin-top: 10px 0;
+  }
+  
+  .description {
+    font-size: 1.3rem !important;
+    margin-top: 10px 0;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  
+}
 @media (max-width: 2976px) and (min-width: 1499px) {
   .card-cl {
    /* Full width minus 80px margin on both sides */
-
+   
     max-width: 500px !important; /* Ensure no restriction on card width */
+    width: 100%;
+    margin: 0 auto; /* Center cards horizontally */
+    padding: 20px; /* Inner padding */
+    height: 384px; /* Maintain the consistent height */
+  }
+
+  .slide-1 {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    margin: 0 auto; /* Center the slide horizontally */
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+  }
+
+  .med11 {
+    width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* Optional: Adjust the gap to control spacing between the cards */
+  .clients-carousel > .flex {
+    gap: 20px; /* Space between the cards inside the carousel */
+  }
+  .logo {
+    height: auto;
+    max-height: 110px;
+    margin-bottom: 10px;
+    object-fit: contain;
+
+  }
+  .company-name {
+    font-size: 1.5rem !important;
+    font-weight: bold;
+    margin-top: 10px 0;
+  }
+  
+  .description {
+    font-size: 1.3rem !important;
+    margin-top: 10px 0;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  
+}
+@media (max-width: 2976px) and (min-width: 1958px) {
+  .card-cl {
+   /* Full width minus 80px margin on both sides */
+
+    max-width: 600px !important; /* Ensure no restriction on card width */
     width: 100%;
     margin: 0 auto; /* Center cards horizontally */
     padding: 20px; /* Inner padding */
