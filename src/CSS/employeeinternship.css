@@ -18,32 +18,7 @@
        padding: 80px;
     }
 }
-/* Container for maintaining aspect ratio and responsiveness */
-.responsive-container {
-  width: 100%; /* Full width */
-  max-width: 500px; /* Limit max width for larger screens */
-  aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
-  position: relative; /* Position for the viewer */
-  background-color: #2a2a2a; /* Dark background */
-  display: flex; /* Flexbox for centering */
-  justify-content: center;
-  align-items: center;
-}
-.iframe11{
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 16 / 9;
 
-}
-
-@media (max-width: 1024px){
-  .iframe11{
-    width: 100%;
-    max-width: 500px;
-    aspect-ratio: 16 / 9;
-  
-  }
-}
 
 
 

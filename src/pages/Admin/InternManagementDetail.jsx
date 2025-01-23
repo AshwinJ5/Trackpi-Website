@@ -130,19 +130,20 @@ const InternManagementDetail = () => {
                       >
                       {employeeData.Certificate ? (
                                 <>
-                                          <iframe
+                                          <img
                                             src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
                                             title="Internship Certificate"
                                             className="w-full h-full rounded-lg"
                                             style={{
                                               border: 'none',
                                               overflow: 'auto', // Allow scrolling
+                                              objectFit: "cover",
                                             }}
                                             onContextMenu={(e) => {
                                               e.preventDefault(); // Prevent right-click
                                               alert('Right-click is disabled.');
                                             }}
-                                          ></iframe>
+                                          />
 
                                           {/* Transparent Overlay for Right-click Prevention */}
                                           <div

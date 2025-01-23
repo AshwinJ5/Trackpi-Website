@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import EmpDetails from "../../components/User/EmpDetails";
 import "../../CSS/employeeinternship.css";
 import { SERVER_URL } from "../../Api Services/serverUrl";
@@ -8,7 +8,15 @@ function EmployeeInternship() {
   const location = useLocation();
   const employeeData = location.state?.rowDatas || {};
   // console.log(employeeData);
-  const navigate=useNavigate()
+  const navigate=useNavigate();
+   const [Certificate, setCertificate] = useState(null);
+   useEffect(() => {
+    if (employeeData && employeeData.Certificate) {
+      // Construct the full image URL by concatenating SERVER_URL with the image path
+      const imageUrl = `${SERVER_URL}${employeeData.Certificate}`;
+      setCertificate(imageUrl); // Set the image URL to state
+    }
+  }, [employeeData]);
 
   useEffect(() => {
     if (Object.keys(employeeData).length === 0) {
@@ -88,32 +96,19 @@ function EmployeeInternship() {
          >
          {employeeData.Certificate ? (
                    <>
-                             <iframe
-                               src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
+                             <img
+                               src={Certificate}
                                title="Internship Certificate"
-                               className="w-full h-full iframe11 rounded-lg"
+                               className="w-full h-full  rounded-lg"
                                style={{
                                  border: 'none',
-                                 overflow: 'auto', // Allow scrolling
+                                 overflow: 'hidden', // Allow scrolling
+                                 objectFit:'cover'
                                }}
-                               onContextMenu={(e) => {
-                                 e.preventDefault(); // Prevent right-click
-                                 alert('Right-click is disabled.');
-                               }}
-                             ></iframe>
+                             
+                             />
 
-                             {/* Transparent Overlay for Right-click Prevention */}
-                             <div
-                               className="absolute top-0 left-0 w-full h-full"
-                               style={{
-                                 backgroundColor: 'transparent',
-                                 pointerEvents: 'auto', // Prevent right-click on the overlay, but allow scrolling
-                               }}
-                               onContextMenu={(e) => {
-                                 e.preventDefault(); // Disable right-click on the overlay
-                                 alert('Right-click is disabled.');
-                               }}
-                             ></div>
+                            
 
                            {/* Dynamic Watermark */}
                            <div

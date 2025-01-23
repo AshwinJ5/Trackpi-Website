@@ -11,7 +11,7 @@ import Clients from '../../components/User/carousel';
 import baseURL from '../../Api Services/baseURL';
 function OurTeam() {
   const options = { threshold: 0.1 };
- 
+  const [heading, setHeading] = useState({});
     const [employees, setEmployees] = useState([]);
     const adminToken = localStorage.getItem("adminToken");
     const [loading, setLoading] = useState(true);
@@ -41,6 +41,22 @@ function OurTeam() {
 
     fetchEmployees();
   }, []);
+   useEffect(() => {
+      getAllHeadings();
+    }, []);
+  const getAllHeadings = async () => {
+    try {
+      const response = await baseURL.get(
+        '/api/headingfornewspatnership/getallheading'
+      );
+      if (response.data && response.data.length > 0) {
+        setHeading(response.data[0]);
+      }
+    } catch (error) {
+      console.error('Error fetching haeding data:', error);
+    }
+  };
+
     
   
   const handleInputChange = (e) => {
@@ -52,7 +68,7 @@ function OurTeam() {
 
       <section className="flex justify-center items-center  h-full w-full px-4 ">
         <div className="  flex flex-col items-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl text-[#FF9D00] hiring_heading">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-[#FF9D00] hiring_heading">
             Who We Are?
           </h1>
         </div>
@@ -87,7 +103,7 @@ function OurTeam() {
             />
             </div>
             <motion.p
-              className="firstp text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
+              className="firstp text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
               initial={{ opacity: 0, x: -50 }}
               animate={inViewFirstSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
@@ -115,10 +131,10 @@ function OurTeam() {
       <section className="smallscreen section3 md:mt-20 flex flex-col items-center  md:gap-10 md:w-full h-full">
         <div className="flex flex-col items-center ">
           <h1 className="fw-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl text-[#FFC100] ">
-            OUR CLIENTS
+          {heading.partnershipHeading}
           </h1>
           <h5 className="paras text-bold text-black text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl xl-leading-7 2xl:leading-10  ">
-            We're fortunate to work with the best!
+          {heading.partnershipSubHeading}
           </h5>
         </div>
         <Clients />
@@ -168,7 +184,7 @@ function OurTeam() {
             />
             </div>
             <motion.p
-              className="firstp text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
+              className="firstp text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
               initial={{ opacity: 0, x: -50 }}
               animate={inViewSecondSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
@@ -217,7 +233,7 @@ function OurTeam() {
             />
             </div>
             <motion.p
-              className="firstp text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] xl:leading-7 2xl:leading-10  mt-8 md:mb-2 text-justify"
+              className="firstp text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  mt-8 md:mb-2 text-justify"
               initial={{ opacity: 0, x: -50 }}
               animate={inViewThirdSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
@@ -228,7 +244,7 @@ function OurTeam() {
 
             </motion.p>
             <motion.div
-              className="secondp text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[20px] xl:leading-7 2xl:leading-10  md:mt-8 mb-3 text-justify"
+              className="secondp text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  md:mt-8 mb-3 text-justify"
               initial={{ opacity: 0, x: -50 }}
               animate={inViewThirdSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}

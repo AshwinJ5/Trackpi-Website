@@ -40,9 +40,7 @@ function MemberCard({ employee, onCardClick }) {
           <p className="text-sm  font-semibold text-gray-500 mb-1">
             {employee.desig}
           </p>
-          <span className="read text-sm font-thin text-gray-800 hover:text-yellow-600 cursor-pointer block  md:mb-2">
-            Read more
-          </span>
+         
         </div>
       </div>
     </div>

@@ -41,6 +41,7 @@ function AddEmployee ()  {
 
   // Update form data when employeeData changes
   
+  const [wordCount, setWordCount] = useState(0);
   useEffect(() => {
     if (id && employeeData) {
       setFormData({
@@ -76,6 +77,11 @@ function AddEmployee ()  {
           ...prevData,
           [name]: value, // Dynamically update the input value
         }));
+         // Update word count for selfIntroduction
+    if (name === 'selfIntroduction') {
+      const wordCount = value.trim().split(/\s+/).length;
+      setWordCount(wordCount);
+    }
       };
     
       const handleFileChange = (e) => {
@@ -106,13 +112,14 @@ if (name.length < 3 || name.length > 64) {
 }
  // Validate self-introduction length (in words)
  const selfIntroduction = formData.selfIntroduction.trim();
-const wordCount = selfIntroduction.split(/\s+/).length;
-const charCount = selfIntroduction.length;
-
-if (wordCount < 50 || charCount > 540) {
-  toast.error("Self-introduction must be at least 50 words and no more than 540 characters long.");
-  return;
-}
+ const wordCount = selfIntroduction.split(/\s+/).length;
+ const charCount = selfIntroduction.length;
+ 
+ if (wordCount < 30 || wordCount > 40 || charCount > 540) {
+   toast.error("Self-introduction must be between 30 and 40 words, and no more than 540 characters long.");
+   return;
+ }
+ 
  const email = formData.email.trim();
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 if (!emailPattern.test(email)) {
@@ -375,6 +382,13 @@ if (!emailPattern.test(email)) {
                                                       // value={employeeData.selfIntroduction}
                                               // value={formData.selfIntroduction}
                                             ></textarea>
+                                               <div className="mt-2">
+          <p>
+            Word count: {wordCount} / 40
+            {wordCount < 30 && <span className="text-red-500"> (At least 30 words required)</span>}
+            {wordCount > 40 && <span className="text-red-500"> (Maximum 40 words allowed)</span>}
+          </p>
+        </div>
                               </div>
                     
        

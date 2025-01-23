@@ -959,18 +959,29 @@ category:'intern',
                                                    
                                                   >
                                                     {certificate ? (
-      typeof certificate === "string" ? (
-        <a
-          href={certificate}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-link text-black"
-        >
-          View Certificate
-        </a>
+      typeof certificate === "string" ? (  certificate.endsWith(".jpg") || certificate.endsWith(".jpeg") || certificate.endsWith(".png") ? (
+        <img
+          src={certificate}
+          alt="Internship Certificate"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
       ) : (
-        <div>
-          <p>{certificate.name}</p>
+        <a
+        href={certificate}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn btn-link text-black"
+      >
+        View Certificate
+      </a>
+      )
+    ) : (
+      <div>
+        <p>{certificate.name}</p>
           <a
             href={URL.createObjectURL(certificate)}
             target="_blank"
@@ -979,10 +990,11 @@ category:'intern',
           >
             View
           </a>
-        </div>
-      )
-    ) : (
-      <p>Upload the file</p>
+      </div>
+    )
+  ) : (
+    <p>Upload the file</p>
+      
     )}
                                                     <button
                                                     type="button"
@@ -1000,7 +1012,7 @@ category:'intern',
                                             type="file"
                                             ref={certificateInputRef}
                                             style={{ display: "none" }}
-                                            accept=".pdf,.doc,.docx"
+                                            accept="image/jpeg,image/png,image/jpg"
                                             onChange={handleCertificateFileChange}
                                           />
                                             
