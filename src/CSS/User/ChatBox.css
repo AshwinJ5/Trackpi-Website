@@ -48,7 +48,17 @@
   }
   
   .slide-in-inside {
-    animation: slideInInside 1.5s ease-in-out forwards; /* Slow animation */
+    animation: slideInInside 2.5s ease-in-out forwards; /* Slow animation */
+  }
+  .slide-in-outside
+  {
+    animation: slideInInside 1.5s ease-out backwards; /* Slow animation */
+
+  }
+  .slide-in-between
+  {
+    animation: slideInInside 1.5s ease-in both; /* Slow animation */
+
   }
  
   

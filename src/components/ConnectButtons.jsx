@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import '../CSS/connectButton.css';
 import Whatsapp from '../images/whatsapp.svg';
@@ -10,18 +10,18 @@ import 'react-tooltip/dist/react-tooltip.css';
 import { TbMessageChatbot } from 'react-icons/tb';
 import { IoCallSharp } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
-import ChatBox from "../components/User/ChatGreetings"
+import ChatBox from "../components/User/ChatGreetings";
 
 function ConnectButtons() {
   const [isChatboxOpen, setIsChatboxOpen] = useState(false);
   const chatboxRef = useRef(null);
 
-  // Toggle chatbox
+  // Toggle chatbox visibility
   const toggleChatbox = () => {
     setIsChatboxOpen(!isChatboxOpen);
   };
 
-  // Close chatbox on outside click
+  // Close chatbox when clicking outside
   const handleClickOutside = (event) => {
     if (chatboxRef.current && !chatboxRef.current.contains(event.target)) {
       setIsChatboxOpen(false);
@@ -35,7 +35,7 @@ function ConnectButtons() {
     };
   }, []);
 
-      const navigate = useNavigate();
+  const navigate = useNavigate();
   
   const handleNavigation = (path, hash) => {    
     navigate(path);
@@ -73,12 +73,11 @@ function ConnectButtons() {
           </div>
         </NavLink>
         <div
-  data-tooltip-id="connectus-tooltip"
-  data-tooltip-content="Connect Us"
-  data-tooltip-place="left"
-  onClick={() => handleNavigation("/contact-us", "#connectUsContainer")}  className="button"
->
-
+          data-tooltip-id="connectus-tooltip"
+          data-tooltip-content="Connect Us"
+          data-tooltip-place="left"
+          onClick={() => handleNavigation("/contact-us", "#connectUsContainer")}  className="button"
+        >
           <div className="icons">
             <img src={hand} alt="Connect Us" />
           </div>
@@ -96,10 +95,8 @@ function ConnectButtons() {
         </div>
       </div>
 
-      {/* Chatbox */}
-      {isChatboxOpen && (
-       <ChatBox />
-      )}
+      {/* Passing isChatboxOpen and toggleChatbox to ChatBox */}
+      {isChatboxOpen && <ChatBox isChatOpen={isChatboxOpen} toggleChatbox={toggleChatbox} />}
 
       <Tooltip id="signal-tooltip" />
       <Tooltip id="whatsapp-tooltip" />

@@ -6,6 +6,8 @@ import '../../CSS/User/ChatBox.css'; // Import the CSS file for animations
 
 const Chatbox = () => {
   const [messages, setMessages] = useState([]);
+  console.log(messages,"akku")
+
   const [isChatOpen, setIsChatOpen] = useState(true); // State to track chatbox visibility
   const chatboxRef = useRef(null);
 
@@ -14,19 +16,19 @@ const Chatbox = () => {
     'Contact: +91 80781 79646',
     'Email: operations@trackpi.in',
   ];
-
   useEffect(() => {
     if (!isChatOpen) return;
 
-    // Immediately display the first message
+    // Reset messages every time the chatbox opens
     setMessages([companyMessages[0]]);
     let index = 1; // Start from the second message
 
     const interval = setInterval(() => {
       if (index < companyMessages.length) {
-        setMessages(prevMessages => [...prevMessages, companyMessages[index]]);
+        setMessages([companyMessages[0],companyMessages[1],companyMessages[2]]);
         index++;
-      } else {
+      } 
+      else {
         clearInterval(interval);
       }
     }, 2000); // Delay between each message (2 seconds)
@@ -65,8 +67,8 @@ const Chatbox = () => {
             message && (
               <div
                 key={index}
-                className={`message bg-green-100 p-3 mb-2 rounded-lg shadow-md text-black text-sm ${
-                  index === messages.length - 1 ? 'slide-in-inside' : ''
+                className={`message bg-green-100 p-3 mb-2 rounded-lg shadow-md text-black text-sm  ${
+                  index === messages.length - 1 ? 'slide-in-inside' : 'slide-in-outside'
                 }`}
               >
                 {message.includes('Contact') ? (
