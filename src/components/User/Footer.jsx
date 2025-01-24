@@ -97,27 +97,27 @@ function Footer() {
                             </h5>
                             <ul className="list-unstyled font-medium  text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] grid gap-[14px] mb-0">
                                 <li>
-                                    <Link to="/about-trackpi" className="text-dark text-decoration-none">
+                                    <Link to="/about-trackpi" className="text-dark  footerHoverUnderline">
                                         About
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="https://trackpi.blogspot.com/" target="_blank" className="text-dark text-decoration-none ">
+                                    <Link to="https://trackpi.blogspot.com/" target="_blank" className="text-dark   footerHoverUnderline">
                                         Blogs
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="https://trackpi.org/" target="_blank"  className="text-dark text-decoration-none ">
+                                    <Link to="https://trackpi.org/" target="_blank"  className="text-dark  footerHoverUnderline ">
                                         Careers
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/contact-us" className="text-dark text-decoration-none">
+                                    <Link to="/contact-us" className="text-dark  footerHoverUnderline">
                                         Help Center
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/termsconditions" className="text-dark text-decoration-none">
+                                    <Link to="/termsconditions" className="text-dark  footerHoverUnderline">
                                         Terms & Conditions
                                     </Link>
                                 </li>
@@ -131,7 +131,7 @@ function Footer() {
                                 <li>
                                     <a
                                         onClick={() => handleNavigation("/business-consulting-services", "#sales-outsourcing")}
-                                        className="text-dark text-decoration-none cursor-pointer"
+                                        className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Sales Outsourcing
                                     </a>
@@ -139,7 +139,7 @@ function Footer() {
                                 <li>
                                     <a
                                         onClick={() => handleNavigation("/business-consulting-services", "#market-positioning")}
-                                        className="text-dark text-decoration-none cursor-pointer"
+                                        className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Market Positioning & Branding
                                     </a>
@@ -147,15 +147,15 @@ function Footer() {
                                 <li>
                                     <a
                                         onClick={() => handleNavigation("/business-consulting-services", "#sales-training")}
-                                        className="text-dark text-decoration-none cursor-pointer"
+                                        className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Sales Training Strategies
                                     </a>
                                 </li>
                                 <li>
-                                    <a
+                                    <a 
                                         onClick={() => handleNavigation("/business-consulting-services", "#operations-training")}
-                                        className="text-dark text-decoration-none cursor-pointer"
+                                        className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Operations Training & Strategies
                                     </a>
@@ -163,8 +163,7 @@ function Footer() {
                                 <li>
                                     <a
                                         onClick={() => handleNavigation("/business-consulting-services", "#financial-consulting")}
-                                        href="#"
-                                        className="text-dark text-decoration-none cursor-pointer"
+                                        className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Financial Consulting
                                     </a>
@@ -217,8 +216,8 @@ function Footer() {
                                         Contact
                                     </h5>
                                     <div className="d-flex ">
-                                        <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px]  lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={phoneIcon} alt="" />
-                                        <span className="ms-[10px] sm:ms-[20px] font-medium">+91 80781 79646</span>
+                                        <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={phoneIcon} alt="" />
+                                        <span className="ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]">+91 80781 79646</span>
                                     </div>
                                     <div className="d-flex">
                                         <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={mailIcon} alt="" />

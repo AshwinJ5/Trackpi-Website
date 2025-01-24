@@ -19,7 +19,7 @@ const NewsManagement = () => {
     const [dataDeleted, setDataDeleted] = useState("");
     const [headingEditMode, setHeadingEditMode] = useState(false);
 
-    const[heading,setHeading]=useState({})
+    const [heading, setHeading] = useState({});
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -49,7 +49,7 @@ const NewsManagement = () => {
 
     const getAllHeadings = async () => {
         try {
-            const response = await baseURL.get("/api/headingfornewspatnership/getallheading", );
+            const response = await baseURL.get("/api/headingfornewspatnership/getallheading");
             if (response.data && response.data.length > 0) {
                 setHeading(response.data[0]);
             }
@@ -60,7 +60,7 @@ const NewsManagement = () => {
 
     useEffect(() => {
         getAllNews();
-        getAllHeadings()
+        getAllHeadings();
     }, []);
 
     const editNewsFile = (newsData, tabName, index) => {
@@ -79,8 +79,9 @@ const NewsManagement = () => {
             await baseURL.delete(`/api/news/newsdetails/${deleteId}`, {
                 headers: { Authorization: `Bearer ${adminToken}` },
             });
-            getAllNews(); 
-            setIsModalOpen(false); 
+            toast.success("News details deleted successfully");
+            getAllNews();
+            setIsModalOpen(false);
         } catch (error) {
             console.error("Error deleting news:", error);
         }
@@ -91,34 +92,37 @@ const NewsManagement = () => {
         navigate("?tab=add");
     };
 
-    const editHeading=async (e)=>{
-        e.preventDefault()
+    const editHeading = async (e) => {
+        e.preventDefault();
         try {
             const formDatas = new FormData();
-            formDatas.append("newsHeading",heading.newsHeading);
+            formDatas.append("newsHeading", heading.newsHeading);
 
-            const response = await baseURL.patch('/api/headingfornewspatnership/updateallheading', formDatas, {
+            const response = await baseURL.patch("/api/headingfornewspatnership/updateallheading", formDatas, {
                 headers: {
                     Authorization: `Bearer ${adminToken}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
             });
 
             if (response.status === 200) {
                 toast.success("Heading updated successfully!");
                 getAllHeadings();
-                setHeadingEditMode(false)
+                setHeadingEditMode(false);
             }
         } catch (error) {
-            console.error("Error updating heading:", error);
-            setHeadingEditMode(false)
             if (error.response && error.response.data) {
+                setHeadingEditMode(false);
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else if (error.response.status === 304) {
+                toast.info("No changes detected");
             } else {
+                setHeadingEditMode(false);
                 toast.error("An error occurred while updating heading.");
+                console.error("Error updating heading:", error);
             }
         }
-    }
+    };
 
     return (
         <div className="bg-white w-full">
@@ -129,56 +133,61 @@ const NewsManagement = () => {
                         <label className="block text-[14px] font-semibold">Heading</label>
                         <form onSubmit={editHeading} className="flex items-center gap-[20px]">
                             <input
-                            readOnly={!headingEditMode}
+                                readOnly={!headingEditMode}
                                 type="text"
                                 value={heading.newsHeading}
-                                onChange={(e) =>
-                                    setHeading({ ...heading, newsHeading: e.target.value })}
+                                onChange={(e) => setHeading({ ...heading, newsHeading: e.target.value })}
                                 className="border partnerInput rounded-lg px-[15px] h-[45px] w-3/5 text-[20px] font-bold"
                             />
-                            {!headingEditMode?<button className="bg-[#FF9D00] p-[10px] rounded-[8px]"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setHeadingEditMode(true)
-                                
-                            }}
-                            >
-                                <img src={editImg} alt="Edit" />
-                            </button>:
-                            <div className=" flex justify-start gap-[10px]">
-                            <button
-                                className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
-                                type="submit"
-                            >
-                                Save
-                            </button>
-                            <button
-                                type="button"
-                                className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setHeadingEditMode(false)                                 
-                                }}
-                            >
-                                Cancel
-                            </button>
-                        </div>}
+                            {!headingEditMode ? (
+                                <button
+                                    className="bg-[#FF9D00] p-[10px] rounded-[8px]"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setHeadingEditMode(true);
+                                    }}
+                                >
+                                    <img src={editImg} alt="Edit" />
+                                </button>
+                            ) : (
+                                <div className=" flex justify-start gap-[10px]">
+                                    <button
+                                        className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
+                                        type="submit"
+                                    >
+                                        Save
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setHeadingEditMode(false);
+                                        }}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            )}
                         </form>
                     </div>
 
                     <div className="grid partnerContainer border rounded-[20px] gap-[40px] p-[30px]">
                         <div className="flex justify-center gap-[70px] py-1">
-                            <button
-                                className={`px-[30px] py-[10px] rounded-[10px] font-bold newsBtnActive`}
-                            >
+                            <button className={`px-[30px] py-[10px] rounded-[10px] font-bold newsBtnActive`}>
                                 {activeTab === "add" ? "Add News" : "Edit News"}
                             </button>
                         </div>
                         <div id="editNewsContent">
                             {activeTab === "add" ? (
-                                <AddNews newsData={allNewsData} getAllNews={getAllNews}  />
+                                <AddNews newsData={allNewsData} getAllNews={getAllNews} />
                             ) : (
-                                <EditNews editOnclickForBack={backToAddTab} newsData={newDatas} index={idOfCard}  getAllNews={getAllNews}/>
+                                <EditNews
+                                    editOnclickForBack={backToAddTab}
+                                    newsData={newDatas}
+                                    index={idOfCard}
+                                    getAllNews={getAllNews}
+                                />
                             )}
                         </div>
                     </div>
@@ -195,7 +204,11 @@ const NewsManagement = () => {
                                             onClick={() => editNewsFile({ news }, "edit", index)}
                                             className="bg-[#FF9D00] w-[60px] h-[56px] rounded-bl-[6px] rounded-tr-[90%]"
                                         >
-                                            <img src={editImg} alt="Edit" className="h-[24px] w-[24px] relative top-[18px] left-[14px]" />
+                                            <img
+                                                src={editImg}
+                                                alt="Edit"
+                                                className="h-[24px] w-[24px] relative top-[18px] left-[14px]"
+                                            />
                                         </div>
                                         <div
                                             onClick={() => {
@@ -205,10 +218,18 @@ const NewsManagement = () => {
                                             }}
                                             className="bg-[#FF9D00] w-[60px] h-[56px] rounded-br-[6px] rounded-tl-[90%]"
                                         >
-                                            <img src={deleteImg} alt="Delete" className="h-[24px] w-[24px] relative top-[18px] left-[21px]" />
+                                            <img
+                                                src={deleteImg}
+                                                alt="Delete"
+                                                className="h-[24px] w-[24px] relative top-[18px] left-[21px]"
+                                            />
                                         </div>
                                     </div>
-                                    <img src={`${SERVER_URL}${news.newsFile}`} className="w-full h-full rounded-[6px]" alt={`News ${index + 1}`} />
+                                    <img
+                                        src={`${SERVER_URL}${news.newsFile}`}
+                                        className="w-full h-full rounded-[6px]"
+                                        alt={`News ${index + 1}`}
+                                    />
                                 </div>
                             </div>
                         ))

@@ -41,7 +41,7 @@ const FooterManagement = () => {
         getAllFooterDatas();
     }, []);
     // console.log(footerVideoDetails);
-    const editFooterDetailMainHeading=async(e)=>{
+    const editFooterDetailMainHeading = async (e) => {
         e.preventDefault();
         try {
             const formData = new FormData();
@@ -50,26 +50,28 @@ const FooterManagement = () => {
             const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
                 headers: {
                     Authorization: `Bearer ${adminToken}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
             });
 
             if (response.status === 200) {
                 getAllFooterDatas();
                 toast.success("Footer Heading updated successfully!");
-                setVideoHeading1EditMode(false)
+                setVideoHeading1EditMode(false);
             }
         } catch (error) {
-            console.error("Error in updating footer heading:", error);
             // setFileName("Upload Image");
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else if (error.response.status === 304) {
+                toast.info("No changes detected");
             } else {
                 toast.error("An error occurred while updating footer heading.");
+                console.error("Error in updating footer heading:", error);
             }
         }
-    }
-    const editFooterDetailSubHeading=async(e)=>{
+    };
+    const editFooterDetailSubHeading = async (e) => {
         e.preventDefault();
         try {
             const formData = new FormData();
@@ -78,41 +80,52 @@ const FooterManagement = () => {
             const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
                 headers: {
                     Authorization: `Bearer ${adminToken}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
             });
 
             if (response.status === 200) {
                 getAllFooterDatas();
                 toast.success("Footerbanner Heading updated successfully!");
-                setImageHeadingEditMode(false)
+                setImageHeadingEditMode(false);
             }
         } catch (error) {
-            console.error("Error in updating footerbanner heading:", error);
             // setFileName("Upload Image");
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else if (error.response.status === 304) {
+                toast.info("No changes detected");
             } else {
                 toast.error("An error occurred while updating footerbanner heading.");
+                console.error("Error in updating footerbanner heading:", error);
             }
         }
-    }
+    };
 
     const editFooterDetails = async (e) => {
         e.preventDefault();
+
         if (!videoEditMode1 && !videoEditMode2 && !videoEditMode3) {
             toast.error("Please select any footer field to be updated");
             return;
         }
+
         try {
             const formData = new FormData();
-            formData.append("videofile1", footerVideoDetails.videofile1);
-            formData.append("videourl1", footerVideoDetails.videourl1);
-            formData.append("videofile2", footerVideoDetails.videofile2);
-            formData.append("videourl2", footerVideoDetails.videourl2);
-            formData.append("videofile3", footerVideoDetails.videofile3);
-            formData.append("videourl3", footerVideoDetails.videourl3);
-            // formData.append("videoheading", footerVideoDetails.videoheading);
+
+            // Dynamically append fields based on edit modes
+            if (videoEditMode1) {
+                formData.append("videofile1", footerVideoDetails.videofile1);
+                formData.append("videourl1", footerVideoDetails.videourl1);
+            }
+            if (videoEditMode2) {
+                formData.append("videofile2", footerVideoDetails.videofile2);
+                formData.append("videourl2", footerVideoDetails.videourl2);
+            }
+            if (videoEditMode3) {
+                formData.append("videofile3", footerVideoDetails.videofile3);
+                formData.append("videourl3", footerVideoDetails.videourl3);
+            }
 
             const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
                 headers: {
@@ -121,9 +134,13 @@ const FooterManagement = () => {
                 },
             });
 
+            console.log("Response status:", response.status);
+
             if (response.status === 200) {
                 getAllFooterDatas();
                 toast.success("Footer Details updated successfully!");
+
+                // Reset states
                 setVideoEditMode1(false);
                 setVideoEditMode2(false);
                 setVideoEditMode3(false);
@@ -132,15 +149,24 @@ const FooterManagement = () => {
                 setFileNameVideo3("Upload Video");
             }
         } catch (error) {
-            console.error("Error in updating footer details:", error);
-            // setFileName("Upload Image");
+            
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else if (error.response.status === 304) {
+                toast.info("No changes detected");
+                setVideoEditMode1(false);
+                setVideoEditMode2(false);
+                setVideoEditMode3(false);
+                setFileNameVideo1("Upload Video");
+                setFileNameVideo2("Upload Video");
+                setFileNameVideo3("Upload Video");
             } else {
                 toast.error("An error occurred while updating footer details.");
+                console.error("Error in updating footer details:", error);
             }
         }
     };
+
     const editFooterBannerDetails = async (e) => {
         e.preventDefault();
         if (!imageEditMode && !imageHeadingEditMode) {
@@ -150,7 +176,6 @@ const FooterManagement = () => {
         try {
             const formData = new FormData();
             formData.append("imagefile", footerVideoDetails.imagefile);
-            // formData.append("imageheading", footerVideoDetails.imageheading);
 
             const response = await baseURL.patch(`/api/footer/updatefooterdetails`, formData, {
                 headers: {
@@ -163,16 +188,18 @@ const FooterManagement = () => {
                 getAllFooterDatas();
                 toast.success("Footer Details updated successfully!");
                 setImageEditMode(false);
-                setImageHeadingEditMode(false);
                 setFileNameImage("Upload Image");
             }
         } catch (error) {
-            console.error("Error in updating footer details:", error);
             // setFileName("Upload Image");
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            }else if (error.response.status === 304) {
+                toast.info("No changes detected");
+                // setImageEditMode(false);
             } else {
                 toast.error("An error occurred while updating footer details.");
+                console.error("Error in updating footer details:", error);
             }
         }
     };
@@ -264,9 +291,8 @@ const FooterManagement = () => {
                             <label className="block text-[14px] font-semibold">Heading</label>
                             <div className="flex items-center gap-[20px]">
                                 <input
-                                 ref={inputRefHeading}
+                                    ref={inputRefHeading}
                                     readOnly={!videoHeading1EditMode}
-
                                     value={footerVideoDetails.videoheading}
                                     onChange={(e) =>
                                         setFooterVideoDetails({ ...footerVideoDetails, videoheading: e.target.value })
@@ -320,7 +346,7 @@ const FooterManagement = () => {
                                 <div className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 1</div>
                                     <input
-                                    ref={inputRefVideo1}
+                                        ref={inputRefVideo1}
                                         readOnly={!videoEditMode1}
                                         className="px-[20px] py-[15px] footerBanner outline-none rounded-[10px] w-100 border"
                                         type="text"
@@ -368,8 +394,7 @@ const FooterManagement = () => {
                                         onClick={(e) => {
                                             e.preventDefault();
                                             videoEditMode1 ? setVideoEditMode1(false) : setVideoEditMode1(true);
-                                            inputRefVideo1.current.focus()
-
+                                            inputRefVideo1.current.focus();
                                         }}
                                         className="bg-[#FF9D00] min-h-[44px] min-w-[44px] p-[10px] rounded-[8px]"
                                     >
@@ -429,7 +454,7 @@ const FooterManagement = () => {
                                         onClick={(e) => {
                                             e.preventDefault();
                                             videoEditMode2 ? setVideoEditMode2(false) : setVideoEditMode2(true);
-                                            inputRefVideo2.current.focus()
+                                            inputRefVideo2.current.focus();
                                         }}
                                         className="bg-[#FF9D00] min-h-[44px] min-w-[44px] p-[10px] rounded-[8px]"
                                     >
@@ -441,7 +466,7 @@ const FooterManagement = () => {
                                 <form className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 3</div>
                                     <input
-                                    ref={inputRefVideo3}
+                                        ref={inputRefVideo3}
                                         readOnly={!videoEditMode3}
                                         className="px-[20px] py-[15px] footerBanner outline-none rounded-[10px] w-100 border"
                                         type="text"
@@ -489,7 +514,7 @@ const FooterManagement = () => {
                                         onClick={(e) => {
                                             e.preventDefault();
                                             videoEditMode3 ? setVideoEditMode3(false) : setVideoEditMode3(true);
-                                            inputRefVideo3.current.focus()
+                                            inputRefVideo3.current.focus();
                                         }}
                                         className="bg-[#FF9D00] min-h-[44px] min-w-[44px] p-[10px] rounded-[8px]"
                                     >
@@ -562,7 +587,7 @@ const FooterManagement = () => {
                             <label className="block text-[14px] font-semibold">Banner Heading</label>
                             <div className="flex items-center gap-[20px]">
                                 <input
-                                ref={inputRefHeading2}
+                                    ref={inputRefHeading2}
                                     readOnly={!imageHeadingEditMode}
                                     value={footerVideoDetails.imageheading}
                                     onChange={(e) =>
@@ -587,7 +612,7 @@ const FooterManagement = () => {
                                     <div className=" flex justify-start gap-[10px]">
                                         <button
                                             className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
-                                            onClick={editFooterDetailSubHeading }
+                                            onClick={editFooterDetailSubHeading}
                                         >
                                             Save
                                         </button>
@@ -640,7 +665,7 @@ const FooterManagement = () => {
                                 </label>
                             </div>
                             <div>
-                                <button
+                                {!imageEditMode?<button
                                     type="submit"
                                     className="bg-[#FF9D00] p-[10px] rounded-[8px]"
                                     onClick={(e) => {
@@ -649,10 +674,26 @@ const FooterManagement = () => {
                                     }}
                                 >
                                     <img src={editImg} alt="" />
+                                </button>:
+                                <div className=" flex justify-center gap-[30px]">
+                                <button
+                                    type="submit"
+                                    className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white"
+                                    onClick={editFooterBannerDetails}
+                                >
+                                    Submit
                                 </button>
+                                <button
+                                    type="button"
+                                    className="p-[10px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                    onClick={cancelBannerUpdate}
+                                >
+                                    Cancel
+                                </button>
+                            </div>}
                             </div>
                         </div>
-                        <div className=" flex justify-center gap-[30px]">
+                        {/* <div className=" flex justify-center gap-[30px]">
                             <button
                                 type="submit"
                                 className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white"
@@ -667,7 +708,7 @@ const FooterManagement = () => {
                             >
                                 Cancel
                             </button>
-                        </div>
+                        </div> */}
                     </form>
                     <div>
                         <img

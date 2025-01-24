@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import uploadImg from "../images/uploadimg.svg";
 import baseURL from "../Api Services/baseURL";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-function EditNews({ newsData, editOnclickForBack, index ,getAllNews}) {
+function EditNews({ newsData, editOnclickForBack, index, getAllNews }) {
     const [fileName, setFileName] = useState("Upload Image");
     const adminToken = localStorage.getItem("adminToken");
 
@@ -57,15 +57,17 @@ function EditNews({ newsData, editOnclickForBack, index ,getAllNews}) {
 
             if (response.status === 200) {
                 toast.success("News updated successfully!");
-                editOnclickForBack(); 
-                getAllNews()
+                editOnclickForBack();
+                getAllNews();
             }
         } catch (error) {
-            console.error("Error updating news:", error);
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            } else if (error.response.status === 304) {
+                toast.info("No changes detected");
             } else {
                 toast.error("An error occurred while updating news.");
+                console.error("Error updating news:", error);
             }
         }
     };
@@ -91,12 +93,7 @@ function EditNews({ newsData, editOnclickForBack, index ,getAllNews}) {
                 </div>
 
                 <div className="relative w-[250px] h-[42px] mx-auto">
-                    <input
-                        type="file"
-                        id="fileInput"
-                        className="hidden"
-                        onChange={handleFileChange}
-                    />
+                    <input type="file" id="fileInput" className="hidden" onChange={handleFileChange} />
                     <label
                         htmlFor="fileInput"
                         className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] rounded-[10px] h-[42px] text-[#FF9D00] cursor-pointer"
@@ -108,10 +105,7 @@ function EditNews({ newsData, editOnclickForBack, index ,getAllNews}) {
             </div>
 
             <div className="flex justify-center gap-[30px]">
-                <button
-                    type="submit"
-                    className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white"
-                >
+                <button type="submit" className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white">
                     Save
                 </button>
                 <button
