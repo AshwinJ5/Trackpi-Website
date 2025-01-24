@@ -92,7 +92,7 @@ function OurTeam() {
             >
               We are Trackpi
             </motion.h1>
-            <div className='flex justify-center'>
+            <div className='flex justify-center px-10 '>
             <motion.img
               src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64ecb80f6f19b2addac4e0f1_image_WeAreTheReady1-p-800.webp"
               alt="Team Image"
@@ -171,7 +171,7 @@ function OurTeam() {
             >
               Our people
             </motion.h1>
-            <div className='md:hidden flex justify-center '>
+            <div className='md:hidden flex justify-center px-10  '>
             
             <motion.img
 
@@ -218,7 +218,7 @@ function OurTeam() {
             >
               Join Us – The Largest Freelancers Community in Kerala
             </motion.h1>
-            <div className='flex justify-center'>
+            <div className='flex justify-center px-10 '>
             <motion.img
               src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64495b2e1589c13e25e8db88_image_OurTeamForeground%402x-p-1080.webp"
 

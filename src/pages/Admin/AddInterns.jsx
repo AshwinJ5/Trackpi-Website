@@ -6,7 +6,8 @@ import { useNavigate, useParams ,useLocation} from "react-router-dom";
 import { RiImageAddLine } from "react-icons/ri";
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from "../../Api Services/serverUrl";
-
+import PhoneInput from 'react-phone-input-2';
+import { color } from "framer-motion";
 
 function AddInterns() {
   const adminToken = localStorage.getItem('adminToken'); 
@@ -15,7 +16,10 @@ function AddInterns() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const tab = queryParams.get('tab') || 'Intern';
+  
   const { employeeData } = location.state || { employeeData: {} }
+    // Store initial employee data for comparison
+    const [initialData] = useState(employeeData);
   const [formData, setFormData] = useState({
     name: employeeData.name || "",
     empID: employeeData.empID ||  "",
@@ -125,18 +129,58 @@ const handleFeedbackChange = (e) => {
     feedback: value.split('\n'), // Split the feedback by new lines into an array
   }));
 };
+const isDataChanged = () => {
+  // Check if feedback arrays are different
+  if (formData.feedback.length !== initialData.feedback.length) return true;
+  for (let i = 0; i < formData.feedback.length; i++) {
+    if (formData.feedback[i] !== initialData.feedback[i]) return true;
+  }
 
+  // Check for changes in other form fields
+  const formKeys = Object.keys(formData);
+  for (let key of formKeys) {
+    if (key === "feedback") continue; // Skip feedback field already checked
+    if (formData[key] !== initialData[key]) {
+      return true; // Return true if there's any change
+    }
+  }
 
+  // Compare file inputs (profileImage and certificate)
+  if (profileImage && profileImage.name !== initialProfileImage?.name) {
+    return true; // Profile image changed
+  }
+
+  if (certificate && certificate.name !== initialCertificate?.name) {
+    return true; // Certificate changed
+  }
+
+  return false;
+};
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+ 
+    if (!isDataChanged()) {
+      toast.info('No Changes Committed');
+      return;
+    }
+
+ 
     const empID = formData.empID;
       // Validate empID format
   
   const empIDPattern = /^TPEID\d{6}$/; // Regular expression to match 'TPE1D' followed by 6 digits
   if (!empIDPattern.test(empID)) {
-    toast.error("Employee ID must start with 'TPE1D' followed by 6 digits (e.g., TPE1D123456).");
+    toast.error("Employee ID must start with 'TPEID' followed by 6 digits (e.g., TPEID123456).");
     return; // Prevent form submission
   }
+     // Validate phone number format
+          if (!formData.phone || formData.phone.length < 10 || formData.phone.length > 15) {
+            toast.error(
+              "Phone number must include a valid country code and be between 10 and 15 digits long."
+            );
+            return;
+          }
     try {
       const feedbackString = formData.feedback.join('\n');
       const formDataToSend = new FormData();
@@ -224,6 +268,7 @@ category:'intern',
   platform3:'',
   platform4:'',
       });
+      setFormData({ /* Reset to initial data */ });
       setProfileImage(null);
       setCertificate(null);
       fileInputRef.current.value = "";
@@ -379,22 +424,23 @@ category:'intern',
 
     {/* Personal Information Section */}
     <div className="flex justify-between ">
-          <div className=" flex flex-col  p-8 w-[310px]">
+          <div className=" flex flex-col  p-8 w-[310px] ">
           <h4 className="mb-4 text-[22px]">Personal Information</h4>
           <div className="mb-3">
-            <label className="form-label text-[15px] font-md text-[15px]" htmlFor="phone">
+            <label className="form-label text-[15px] font-md " htmlFor="phone">
               Phone Number
             </label>
-            <input
-              type="tel"
+            <PhoneInput
+            
+              country={"in"}
               id="phone"
               name="phone"
-              className="form-control plac"
+              className="custom-phone-input plac "
               placeholder="Phone Number"
               value={formData.phone ||'' } 
-              onChange={handleInputChange}
+              onChange={(value) => setFormData({ ...formData, phone: value })}
               // value={formData.phoneNumber}
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
+             
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
@@ -407,7 +453,7 @@ category:'intern',
               }}
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 ">
             <label className="form-label text-[15px]" htmlFor="address">
               Full Address
             </label>

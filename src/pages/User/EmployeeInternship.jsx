@@ -71,7 +71,7 @@ function EmployeeInternship() {
         };
       }, []);
     };
-    // useScreenshotPrevention();
+    useScreenshotPrevention();
 
   return (
     <div className="pad mt-20 w-full py-6 md:py-10 md:px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto "

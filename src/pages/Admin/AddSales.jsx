@@ -5,6 +5,7 @@ import { useNavigate, useParams,useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RiImageAddLine } from "react-icons/ri";
 import { SERVER_URL } from "../../Api Services/serverUrl";
+import PhoneInput from 'react-phone-input-2';
 import baseURL from '../../Api Services/baseURL';
 function AddSales() {
 const location = useLocation();
@@ -133,7 +134,7 @@ const handleBusinessCardFileChange = (e) => {
     const empID = formData.empID;
      const empIDPattern = /^TPEID\d{6}$/; // Regular expression to match 'TPE1D' followed by 6 digits
       if (!empIDPattern.test(empID)) {
-        toast.error("Employee ID must start with 'TPE1D' followed by 6 digits (e.g., TPE1D123456).");
+        toast.error("Employee ID must start with 'TPEID' followed by 6 digits (e.g., TPEID123456).");
         return; // Prevent form submission
       }
       // Validate name length
@@ -143,12 +144,12 @@ if (name.length < 3 || name.length > 64) {
   return; // Prevent form submission
 }
         // Validate phone number format
-  const phone = formData.phone;
-  const phonePattern = /^\+(\d{1,3})\s?\d{7,12}$/; // Regular expression for valid phone number with country code
-  if (!phonePattern.test(phone)) {
-    toast.error("Phone number must include a valid country code (e.g., +91 9876543210) and be 7 to 12 digits long.");
-    return; // Prevent form submission
-  }
+        if (!formData.phone || formData.phone.length < 10 || formData.phone.length > 15) {
+          toast.error(
+            "Phone number must include a valid country code and be between 10 and 15 digits long."
+          );
+          return;
+        }
     // Validate address length
     const address = formData.fullAddress;
     if (address.length < 6) {
@@ -395,16 +396,15 @@ const handleCancel = () => {
             <label className="form-label text-[15px] font-md text-[15px]" htmlFor="phone">
               Phone Number
             </label>
-            <input
-              type="tel"
+            <PhoneInput
+             country={"in"}
               id="phone"
               name="phone"
-              className="form-control plac"
+              className="custom-phone-input plac "
               placeholder="Phone Number"
               value={formData.phone ||'' } 
-              onChange={handleInputChange}
+              onChange={(value) => setFormData({ ...formData, phone: value })}
               // value={formData.phoneNumber}
-              style={{fontSize: '12px' ,border:'1px solid whie',boxShadow:'-2px 2px 4px 0px rgba(10, 10, 10, 0.04),2px 1px 4px 0px rgba(10, 10, 10, 0.04),0px -2px 4px 0px rgba(10, 10, 10, 0.02)'}}
               onFocus={ e => {
                 
                 e.target.style.borderColor = 'white';
