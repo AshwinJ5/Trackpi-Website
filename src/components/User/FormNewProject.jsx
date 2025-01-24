@@ -86,43 +86,49 @@ const FormNewProject = () => {
     console.log('Clicked Submit');
     e.preventDefault();
     setLoading(true);
-
+  
     const formDataToSend = new FormData();
     Object.keys(formData).forEach(key => {
       formDataToSend.append(key, formData[key]);
     });
-
+  
     if (file) {
       formDataToSend.append('projectFile', file);
     }
-
+  
     try {
-      const response = await BaseURL.post(
-        'api/projects/submit',
-        formDataToSend,
-        {
-          headers: { 'Content-Type': 'multipart/form-data' },
-        }
-      );
-
+      const response = await BaseURL.post('api/projects/submit', formDataToSend, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+  
       console.log(response.data, 'Response Data');
-
+  
       setFormData({
         ...initialFormData,
-        agreeTerms: false, // Replace `yourCheckboxField` with your actual checkbox state key
+        agreeTerms: false, // Reset checkbox field
       });
-
+  
       setFile(null);
       setFileName('');
       sessionStorage.removeItem('formData'); // Clear stored data after submission
-      toast.success('Submitted New Project');
+  
+      toast.success('Project submitted successfully!');
     } catch (error) {
-      console.error(error);
-      toast.error(error);
+      console.error('Error response:', error);
+  
+      // Check if there is a response from the server
+      if (error.response) {
+        const errorMessage = error.response.data.error || 'Something went wrong';
+  
+        toast.error(errorMessage); // Show toast with backend error message
+      } else {
+        toast.error('Network error or server is down');
+      }
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <>
@@ -556,7 +562,7 @@ const FormNewProject = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="mt-4 transform hover:scale-105 hover:bg-blue-700 bg-gradient-to-r from-[#FFC100] to-[#FF9D00] px-16 py-2 rounded-md font-bold text-white"
+              className="mt-4 transform hover:scale-105 hover:bg-blue-700 bg-gradient-to-r from-[#FFC100] to-[#FF9D00] px-16 py-2 rounded-md font-700 text-white"
             >
               Submit
             </button>

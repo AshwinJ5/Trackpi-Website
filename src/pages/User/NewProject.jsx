@@ -9,7 +9,7 @@ const NewProject = () => {
     <div>
       <HeaderBanner
         title="Submit New Project Here"
-        description="Trackpi is your business's growth partner, turning insights into action. With tailored strategies and expert guidance, we help you navigate challenges, streamline operations, and unlock new opportunities for success."
+        description="Welcome to Trackpi's Project Submission page. We’re excited to collaborate with you and help bring your ideas to life. Please submit your project details below, and our team will get started on providing tailored solutions to drive your business forward"
         classname="bgSix"
         noButton={true}
         image={img1}

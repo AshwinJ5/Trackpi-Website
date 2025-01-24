@@ -173,42 +173,57 @@ function AdminManagement() {
       !editModalData.password ||
       !editModalData.adminType
     ) {
-      alert('All fields are required!');
+      toast.error('All fields are required!');
       return;
     }
+  
+    // Extract adminId from editModalData or admins
+    const adminId = editModalData._id || admins[editIndex]._id;
+    
+    // Find the existing admin data from the state
+    const originalAdmin = admins[editIndex];
+    console.log(originalAdmin,"originalAdmin")
 
+  
+    // Check if any changes were made
+    const isChanged = 
+      editModalData.username !== originalAdmin.username ||
+      editModalData.email !== originalAdmin.email ||
+      editModalData.password !== originalAdmin.password ||
+      editModalData.adminType !== originalAdmin.adminType;
+      console.log(isChanged,"ischanged")
+  
+    if (!isChanged) {
+      toast.info('No changes detected. Update not required.');
+      return; // Stop execution if no changes are made
+    }
+  
     try {
-      // Extract adminId from editModalData or admins
-      const adminId = editModalData._id || admins[editIndex]._id;
-
-      // Log the adminId for debugging
-      console.log('Admin ID:', adminId);
-
       const updatedAdmin = {
-        ...(editModalData.username && { username: editModalData.username }),
-        ...(editModalData.email && { email: editModalData.email }),
-        ...(editModalData.password && { password: editModalData.password }),
-        ...(editModalData.adminType && { adminType: editModalData.adminType }),
+        username: editModalData.username,
+        email: editModalData.email,
+        password: editModalData.password,
+        adminType: editModalData.adminType,
       };
-
+  
       console.log('Updated Admin Data:', updatedAdmin); // Log the data being sent to the API
-
+  
       const response = await baseURL.patch(`/admin/${adminId}`, updatedAdmin, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
         },
       });
-
+  
       if (response.status === 200) {
-        console.log('Update Successful:', response.data); // Log the successful response
-
-        // Update the rows state with the updated data
+        console.log('Update Successful:', response.data);
+  
+        // Update the state with the new admin data
         const updatedRows = [...admins];
-        updatedRows[editIndex] = response.data.admin; // Ensure the response contains 'admin'
+        updatedRows[editIndex] = response.data.admin; 
         setRefresh(response.data);
         setAdmins(updatedRows);
         toast.success('Admin Details Updated Successfully!!!');
-
+  
         // Close the modal
         handleClose();
       }
@@ -219,6 +234,7 @@ function AdminManagement() {
       }
     }
   };
+  
 
   const handleCopy = (text, username) => {
     navigator.clipboard
@@ -472,6 +488,7 @@ function AdminManagement() {
                           <FaRegEdit
                             size={15}
                             onClick={() => handleEditClick(rowIndex)}
+                            className='cursor-pointer'
                           />
                         </div>
                       </td>
@@ -514,10 +531,10 @@ function AdminManagement() {
                             }`}
                             style={{
                               border: row.isActive ? '1px solid black' : 'none',
-                              display: 'flex',
-                              justifyContent: row.isActive
-                                ? 'flex-end'
-                                : 'center',
+                              // display: 'flex',
+                              // justifyContent: row.isActive
+                              //   ? 'flex-end'
+                              //   : 'center',
                             }}
                           >
                             Deactivate
@@ -595,6 +612,7 @@ function AdminManagement() {
                     </label>
                     <input
                       type="password"
+                      autoComplete="new-password" 
                       id="password"
                       className="form-control form-control-lg border-gray-500 my-2 border-2 shadow-md"
                       placeholder="Password"

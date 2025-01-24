@@ -291,10 +291,15 @@ const formatTime = (dateString) => {
                               {/* Extract time */}
                             </td>
                             <td
-                              className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px]"
+                              className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 items-center gap-2 min-w-[150px]"
                               onClick={() => handleViewDetails(form)}
+                              
                             >
-                              <div className="flex justify-center gap-2">
+                              <div className="flex justify-center gap-2" style={{
+                                wordWrap: 'break-word',
+                                overflowWrap: 'break-word',
+                                boxSizing: 'border-box',
+                              }}>
                                 View Details <FiExternalLink size={20} />
                               </div>
                             </td>

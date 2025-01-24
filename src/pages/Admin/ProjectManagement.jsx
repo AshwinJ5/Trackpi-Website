@@ -282,7 +282,7 @@ function ProjectManagement() {
                               {formatTime(project.createdAt)}{' '}
                             </td>
                             <td
-                              className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 flex justify-center items-center gap-2 min-w-[150px]"
+                              className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3  items-center gap-2 min-w-[150px]"
                               onClick={() => handleViewDetails(project)}
                               style={{
                                 wordWrap: 'break-word',

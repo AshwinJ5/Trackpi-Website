@@ -167,12 +167,6 @@ function Home() {
   //   return () => clearInterval(intervalRef.current);
   // }, [isPaused, cardsPerGroup]);
 
-
-
-
-
-
-
   const handleDotClick = index => {
     setCurrentIndex(index);
     setBulgingCard(0); // Reset bulging card on dot click
@@ -440,15 +434,16 @@ function Home() {
 
         {/* Client Logos Section */}
         <div className=" h-[50px] sm:h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px]  items-center flex bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 lg:mt-[40px] md:mt-[20px] sm:mt-[30px] mt-[10px]">
-<Marquee>
+          <Marquee>
             {clientsLogo.concat(clientsLogo).map((client, index) => (
-                <img key={index}
-                  className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
-                  src={`${SERVER_URL}${client.companylogo}`}
-                  alt={`Client ${index + 1}`}
-                />
-              ))}             
-           </Marquee>
+              <img
+                key={index}
+                className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
+                src={`${SERVER_URL}${client.companylogo}`}
+                alt={`Client ${index + 1}`}
+              />
+            ))}
+          </Marquee>
         </div>
       </section>
 
