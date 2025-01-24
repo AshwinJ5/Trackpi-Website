@@ -30,7 +30,7 @@ function Connect() {
     <>
       <HeaderBanner
         title="Connect Us"
-        description="Reach out to us for any inquiries or support — we are here to help."
+        description="Ready to take your business to the next level? Contact Trackpi today for expert solutions in risk management, financial consulting, and more. Let’s work together to achieve your business goals"
         brochure
         classname="bgFive"
         noButton={true}

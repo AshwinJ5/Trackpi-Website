@@ -128,13 +128,15 @@ const PartnershipManagement = () => {
                 setSubHeadingEditMode(false)
             }
         } catch (error) {
-            console.error("Error updating heading:", error);
-            setHeadingEditMode(false)
-            setSubHeadingEditMode(false)
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
+            }else if(error.response.status===304){
+                toast.info("No changes detected");
             } else {
                 toast.error("An error occurred while updating heading.");
+                console.error("Error updating heading:", error);
+                setHeadingEditMode(false)
+                setSubHeadingEditMode(false)
             }
         }
     }
@@ -180,6 +182,7 @@ const PartnershipManagement = () => {
             await baseURL.delete(`/api/partner/deletepartner/${deleteId}`, {
                 headers: { Authorization: `Bearer ${adminToken}` },
             });
+            toast.success('Partnershipdetails deleted successfully')
             getAllPartners();
             setIsModalOpen(false);
         } catch (error) {
@@ -224,14 +227,17 @@ const PartnershipManagement = () => {
                 setFileName("Upload Image"); // Reset filename
             }
         } catch (error) {
-            console.error("Error updating partner:", error);
             setFileName("Upload Image");
-    
+            
             // Error handling
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
-            } else {
+            } else if(error.response.status===304){
+                toast.info("No changes detected");
+            }else {
+                console.error("Error updating partner:", error);
                 toast.error("An error occurred while updating the partnership.");
+                
             }
         }
     };

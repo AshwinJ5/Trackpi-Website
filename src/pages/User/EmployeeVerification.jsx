@@ -117,8 +117,7 @@ function EmployeeVerification() {
 
             </h1>
             <p className="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[14.4px] sm:leading-[18px] md:leading-[22px] lg:leading-[26px] xl:leading-[28px] 2xl:leading-[31.2px] text-white block md:hidden headerBannerPara">
-            Verify employee credentials and details securely
-            and efficiently.            </p>
+            Welcome to Trackpi's Employee Verification page. We are committed to maintaining the highest standards of integrity and trust. This page allows you to verify the employment status of our team members, ensuring transparency and reliability in all our business dealings</p>
             <form onSubmit={handleSubmitVerify} className=" w-100 mt-[3vh] lg:mt-[4vh] xl:mt-[5vh] 2xl:mt-[7vh]  hidden md:block">
                         {/* Employee ID */}
                         <div style={{fontWeight:"600", width:"90%"}} className="mb-4 mx-auto lg:text-xl text-lg g-5">
