@@ -39,18 +39,18 @@ function DeletePopUp({onClose, dataDeleted,datas ,functions}) {
         <p className="text-[#0A0A0A] text-[18px] font-semibold mb-6">
           Are you sure you want to delete  {dataDeleted}?
         </p>
-        <div className="flex gap-[30px] justify-center items-center">
-          <button
-            onClick={handleClose}
-            className="text-[18px] font-bold text-white bg-[#FF9D00] flex items-center justify-center h-[42px] w-[200px] rounded-[10px]"
-          >
-            Cancel
-          </button>
+        <div className="flex gap-[30px] justify-center items-center ">
           <button
             onClick={() => functions()}
             className="text-[18px] font-bold text-white bg-[#FF9D00] flex items-center justify-center h-[42px] w-[200px] rounded-[10px]"
           >
             Delete
+          </button>
+          <button
+            onClick={handleClose}
+            className="text-[18px] font-bold text-white bg-[#FF9D00] flex items-center justify-center h-[42px] w-[200px] rounded-[10px]"
+          >
+            Cancel
           </button>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { FiExternalLink } from 'react-icons/fi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import {Puff}  from 'react-loader-spinner'
-
+import { toast } from "react-toastify";
 import baseURL from '../../Api Services/baseURL';
 import DeleteModal from './DeleteModal';
 
@@ -54,9 +54,11 @@ const TableEmployee = () => {
       }); // Assuming `id` is the unique identifier
       setEmployees(employees.filter((employee) => employee._id !== deleteId));
 
-      setIsModalOpen(false)
+      setIsModalOpen(false);
+      toast.success("Deleted successfully!");
     } catch (error) {
       console.error('Error deleting employee:', error);
+       toast.error("Failed to delete the record. Please try again.");
     }
   };
 

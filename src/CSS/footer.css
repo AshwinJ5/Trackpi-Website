@@ -150,3 +150,14 @@
 .viewMoreFooterVideo{
   border-bottom: 1px #FFC100 solid;
 }
+
+
+.footerHoverUnderline {
+  text-decoration: none;
+}
+
+
+.footerHoverUnderline:hover {
+  text-decoration: underline;
+  text-decoration-color: #FF8800;
+}
