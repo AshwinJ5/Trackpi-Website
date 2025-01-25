@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import deleteImg from '../../images/deletePopupimg.svg'
+import "../../CSS/employeedet.css";
 
 function DeletePopUp({onClose, dataDeleted,datas ,functions}) {
 
@@ -40,18 +41,19 @@ function DeletePopUp({onClose, dataDeleted,datas ,functions}) {
           Are you sure you want to delete  {dataDeleted}?
         </p>
         <div className="flex gap-[30px] justify-center items-center">
-          <button
-            onClick={handleClose}
-            className="text-[18px] font-bold text-white bg-[#FF9D00] flex items-center justify-center h-[42px] w-[200px] rounded-[10px]"
-          >
-            Cancel
-          </button>
-          <button
+        <button
             onClick={() => functions()}
             className="text-[18px] font-bold text-white bg-[#FF9D00] flex items-center justify-center h-[42px] w-[200px] rounded-[10px]"
           >
             Delete
           </button>
+          <button
+            onClick={handleClose}
+            className="text-[18px] font-bold  text-[#FF9D00] bg-transparent fonclr flex items-center justify-center h-[42px] w-[200px] rounded-[10px]"
+          >
+            Cancel
+          </button>
+        
         </div>
       </div>
     </div>

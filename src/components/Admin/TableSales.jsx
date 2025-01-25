@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import baseURL from '../../Api Services/baseURL';
 import {Puff}  from 'react-loader-spinner'
 import DeleteModal from './DeleteModal';
+import { toast } from "react-toastify";
 const TableSales = () => {
   const navigate = useNavigate();
   const adminToken = localStorage.getItem("adminToken");
@@ -48,10 +49,12 @@ const TableSales = () => {
           Authorization: `Bearer ${adminToken}`,
       },}); // Assuming `id` is the unique identifier
       setEmployees(employees.filter((employee) => employee._id !== deleteId));
-      setIsModalOpen(false)
+      setIsModalOpen(false);
+      toast.success("Deleted successfully!");
+      
     } catch (error) {
       console.error('Error deleting employee:', error);
-      alert('Failed to delete the record. Please try again.');
+      toast.error("Failed to delete the record. Please try again.");
     }
   };
  

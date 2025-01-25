@@ -98,7 +98,7 @@ function Clients() {
 
   return (
     <section
-      className="clients-carousel w-full"
+      className="clients-carousel w-full "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -112,7 +112,7 @@ function Clients() {
         {getPartnerSlides().map((slide, slideIndex) => (
           <div
             key={slideIndex}
-            className="med  slide slide-1 flex justify-center items-center"
+            className="med  slide slide-1 flex justify-center items-center p-6 md:p-1"
             style={{
               flex: `0 0 ${100 / totalSlides}%`,
               display: "flex",
@@ -123,7 +123,7 @@ function Clients() {
             {slide.map((partner, index) => (
               <div
                 key={partner._id || index}
-                className="card-cl  flex flex-col flex-shrink items-center justify-center gap-2 p-4 rounded-lg shadow-lg"
+                className="card-cl flex flex-col  flex-shrink items-center justify-center gap-2 p-4 rounded-lg shadow-lg"
                 style={{
                   marginRight: index === slide.length - 1 ? "" : "25px", // No gap after last card
                   width: "100%", // Card width
@@ -144,7 +144,7 @@ function Clients() {
         ))}
       </div>
 
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4  ">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}

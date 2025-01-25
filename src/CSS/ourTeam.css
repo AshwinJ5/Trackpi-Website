@@ -483,22 +483,23 @@
   @media (max-width: 410px) {
     .card-cl {
       max-width: 90%;
-      height: 240px ;
+   
+      height: 230px ;
       padding: 10px; /* Adjust padding */
       gap: 6px;
       margin: 0 auto;
     }
     .logo {
-      max-height: 70px; /* Adjust logo height */
+      max-height: 63px; /* Adjust logo height */
     }
   
     .company-name {
-      font-size: 0.9rem; /* Smaller font size */
+      font-size: 0.8rem; /* Smaller font size */
     }
   
     .description {
-      font-size: 0.8rem; /* Smaller font size */
-      line-height: 1.3; /* Adjust line spacing */
+      font-size: 0.7rem; /* Smaller font size */
+      line-height: 1.4; /* Adjust line spacing */
     }
     .clients-carousel > .flex {
       justify-content: center;
@@ -510,6 +511,14 @@
       margin: 0 auto;
     }
   }
+  @media (max-width: 426px) {
+   .med11{
+    /* padding: 30px; */
+   }
+
+   
+  }
+  
   @media (max-width: 310px) {
     .card-cl{
       min-height: 250px;
@@ -518,13 +527,13 @@
   }
   @media (max-width: 248px) {
     .card-cl{
-      min-height: 320px;
+      min-height: 420px;
       
     }
   }
   @media (max-width: 161px) {
     .card-cl{
-      min-height: 480px;
+      min-height: 450px;
       
     }
   }

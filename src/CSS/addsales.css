@@ -6,3 +6,12 @@
     font-size: 12px; /* Adjust the size to your preference */
   }
   
+  .custom-phone-input input {
+    width: 250px !important; /* Target the input field */
+    font-size: 12px;
+    border: 1px solid white;
+    box-shadow: -2px 2px 4px 0px rgba(10, 10, 10, 0.04), 
+                2px 1px 4px 0px rgba(10, 10, 10, 0.04), 
+                0px -2px 4px 0px rgba(10, 10, 10, 0.02);
+  }
+  
