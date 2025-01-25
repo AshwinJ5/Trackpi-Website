@@ -11,8 +11,8 @@ function ProjectManagementDetail() {
 
   const location = useLocation();
   const mockData = location.state;
- 
-  const formatDate = (dateString) => {
+
+  const formatDate = dateString => {
     const date = new Date(dateString);
     const formattedDate = new Intl.DateTimeFormat('en-GB', {
       day: '2-digit',
@@ -20,7 +20,7 @@ function ProjectManagementDetail() {
       year: 'numeric',
       hour: '2-digit',
       minute: '2-digit',
-      hour12: true
+      hour12: true,
     }).format(date);
 
     return formattedDate;
@@ -37,7 +37,9 @@ function ProjectManagementDetail() {
         <div className="flex justify-between">
           <div className="text-[24px] font-bold">Project Management</div>
           <div className="flex items-center gap-4">
-          <div className="text-[16px] font-bold">{formatDate(mockData.createdAt)}</div>
+            <div className="text-[16px] font-bold">
+              {formatDate(mockData.createdAt)}
+            </div>
 
             <Link
               className="text-decoration-none"
@@ -79,7 +81,9 @@ function ProjectManagementDetail() {
           </div>
           <div className="grid gap-[15px] min-w-[300px] projectDetailsBorderDiv 2xl:grow ">
             <div className="text-[18px]">Institute Name</div>
-            <div className="text-[20px] font-bold">{mockData.institute_company}</div>
+            <div className="text-[20px] font-bold">
+              {mockData.institute_company}
+            </div>
           </div>
         </div>
         <div className="flex gap-[40px] justify-between ">
@@ -90,7 +94,17 @@ function ProjectManagementDetail() {
                 {mockData.projectName}
               </div>
             </div>
-            <div className="projectDetailsBorderDiv min-h-[180px]">
+            <div
+              className="projectDetailsBorderDiv min-h-[180px] break-words whitespace-normal max-w-full"
+              style={{
+                wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                boxSizing: 'border-box',
+                wordBreak: 'break-word',
+                maxWidth: '100%',
+                overflow: 'auto',
+              }}
+            >
               <div className="text-[18px]">
                 What Problem Does Your Idea Solve?
               </div>
@@ -98,6 +112,7 @@ function ProjectManagementDetail() {
                 {mockData.problemSolved}
               </div>
             </div>
+
             <div className="projectDetailsBorderDiv min-h-[180px]">
               <div className="text-[18px]">
                 Who would benefit from this idea?
@@ -108,13 +123,33 @@ function ProjectManagementDetail() {
             </div>
           </div>
           <div className="grid gap-[15px] w-100">
-            <div className="projectDetailsBorderDiv min-h-[110px]">
+            <div
+              className="projectDetailsBorderDiv min-h-[110px] break-words whitespace-normal max-w-full"
+              style={{
+                wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                boxSizing: 'border-box',
+                wordBreak: 'break-word',
+                maxWidth: '100%',
+                overflow: 'auto',
+              }}
+            >
               <div className="text-[18px]">
                 Do You Have Any Business or Technical Skills?
               </div>
               <div className="text-[20px] font-bold">{mockData.skills}</div>
             </div>
-            <div className="projectDetailsBorderDiv min-h-[180px]">
+            <div
+              className="projectDetailsBorderDiv min-h-[180px] break-words whitespace-normal max-w-full"
+              style={{
+                wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                boxSizing: 'border-box',
+                wordBreak: 'break-word',
+                maxWidth: '100%',
+                overflow: 'auto',
+              }}
+            >
               <div className="text-[18px]">
                 Why Do You Think This Idea Will Succeed?
               </div>
@@ -122,7 +157,17 @@ function ProjectManagementDetail() {
                 {mockData.successReason}
               </div>
             </div>
-            <div className="projectDetailsBorderDiv min-h-[180px]">
+            <div
+              className="projectDetailsBorderDiv min-h-[180px] break-words whitespace-normal max-w-full"
+              style={{
+                wordWrap: 'break-word',
+                overflowWrap: 'break-word',
+                boxSizing: 'border-box',
+                wordBreak: 'break-word',
+                maxWidth: '100%',
+                overflow: 'auto',
+              }}
+            >
               <div className="text-[18px]">Summarize your project ideas.</div>
               <div className="text-[20px] font-bold">{mockData.summary}</div>
             </div>
