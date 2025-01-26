@@ -13,8 +13,16 @@
         border-radius: 10px;
     }
     .place{
-        border-radius: 20px !important;
+        border-radius: 10px !important;
         border-color: 0px solid gray !important;
+      
+    }
+    .mobdiv{
+      height: 40px !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
     }
     
     .card1{
