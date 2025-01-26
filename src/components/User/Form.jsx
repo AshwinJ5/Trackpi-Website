@@ -78,7 +78,7 @@ function Details() {
             }
         } 
   return (
-    <div className=" w-full mx-auto md:px-4">
+    <div className=" w-full mx-auto px-10 py-8 md:px-4">
       <Form onSubmit={addNewForm} className="flex flex-col  max-w-[712px] mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-4xl mx-auto text-sm sm:text-lg md:text-lg xl:text-lg xl-leading-7 2xl:leading-10 2xl:text-2xl">
         <div className="mb-3  flex justify-center  items-center">
           <Form.Control
@@ -108,17 +108,19 @@ function Details() {
             type="text"
             id="fullname"
             placeholder="Full Name"
-            className="bg-white  place text-black placeholder-black p-3 "
+            className="bg-white mobdiv  place text-black placeholder-black p-3 "
             value={newDatas.fullName} 
             onChange={(e) =>
               setNewDatas({ ...newDatas, fullName: e.target.value })}
           />
         </div>
 
-        <div className="mb-3 flex justify-center connectPhoneInput items-center">
+        <div className="mb-3 flex justify-center connectPhoneInput items-center ">
         <PhoneInput 
         value={newDatas.phone}
         country={"in"}
+       
+       containerClass="phone-input-container"
         enableSearch={true}
         onChange={(value, country) => handlePhoneChange(value, country)}
       />
@@ -181,7 +183,7 @@ function Details() {
             type="text"
             id="email"
             placeholder="Email-ID"
-            className="bg-white   text-black placeholder-black p-3 place"
+            className="bg-white   text-black placeholder-black p-3 mobdiv place"
             value={newDatas.email} 
             onChange={(e) =>
               setNewDatas({ ...newDatas, email: e.target.value })}
@@ -213,7 +215,7 @@ function Details() {
             type="text"
             id="location"
             placeholder="Where Are You Located?"
-            className="bg-white text-black placeholder-black p-3 place"
+            className="bg-white text-black placeholder-black p-3 place mobdiv"
             value={newDatas.location} 
             onChange={(e) =>
               setNewDatas({ ...newDatas, location: e.target.value })}
@@ -226,7 +228,7 @@ function Details() {
             value={newDatas.info_from} 
             onChange={(e) =>
               setNewDatas({ ...newDatas, info_from: e.target.value })}
-            className="bg-white   placeholder-black p-3 place"
+            className="bg-white   placeholder-black p-3 place mobdiv"
             
             style={{
               
@@ -267,7 +269,7 @@ function Details() {
             <option value="Others">Other</option>
           </Form.Select>
         </div>
-
+        
         <div className="mb-3 flex justify-center items-center ">
           <Form.Control
 
@@ -298,7 +300,7 @@ function Details() {
 
 
             
-            className="bg-white   text-black placeholder-black p-3 place"
+            className="bg-white   text-black placeholder-black p-3 place "
 
         
 

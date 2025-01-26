@@ -8,6 +8,8 @@ function Clients() {
   const [isHovered, setIsHovered] = useState(false);
   const [cardsPerSlide, setCardsPerSlide] = useState(3);
   const [partners, setPartners] = useState([]);
+    const [touchStartX, setTouchStartX] = useState(0); // Starting X position of the touch
+  const [touchEndX, setTouchEndX] = useState(0); // Ending X position of the touch
   const adminToken = localStorage.getItem("adminToken");
 
   useEffect(() => {
@@ -70,10 +72,33 @@ function Clients() {
 
     return () => clearInterval(interval);
   }, [isHovered, totalSlides]);
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX - touchEndX > 50) {
+      // Swiped left
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    }
+
+    if (touchEndX - touchStartX > 50) {
+      // Swiped right
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? totalSlides - 1 : prevIndex - 1
+      );
+    }
+  };
+
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
+  
 
   // Helper function to handle pairs of cards in slides
   const getPartnerSlides = () => {
@@ -101,6 +126,9 @@ function Clients() {
       className="clients-carousel w-full "
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
       <div
         className="flex transition-transform duration-500 med11"
