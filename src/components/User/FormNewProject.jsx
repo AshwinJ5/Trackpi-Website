@@ -3,9 +3,11 @@ import Form from 'react-bootstrap/Form';
 import { GoUpload } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import BaseURL from '../../Api Services/baseURL';
-import PhoneInput from 'react-phone-input-2';
+import formInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { toast } from 'react-toastify';
+import '../../CSS/User/FormProjectStyles.css';
+import PhoneInput from 'react-phone-input-2';
 
 const FormNewProject = () => {
   const initialFormData = {
@@ -86,40 +88,45 @@ const FormNewProject = () => {
     console.log('Clicked Submit');
     e.preventDefault();
     setLoading(true);
-  
+
     const formDataToSend = new FormData();
     Object.keys(formData).forEach(key => {
       formDataToSend.append(key, formData[key]);
     });
-  
+
     if (file) {
       formDataToSend.append('projectFile', file);
     }
-  
+
     try {
-      const response = await BaseURL.post('api/projects/submit', formDataToSend, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
-  
+      const response = await BaseURL.post(
+        'api/projects/submit',
+        formDataToSend,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
+
       console.log(response.data, 'Response Data');
-  
+
       setFormData({
         ...initialFormData,
         agreeTerms: false, // Reset checkbox field
       });
-  
+
       setFile(null);
       setFileName('');
       sessionStorage.removeItem('formData'); // Clear stored data after submission
-  
+
       toast.success('Project submitted successfully!');
     } catch (error) {
       console.error('Error response:', error);
-  
+
       // Check if there is a response from the server
       if (error.response) {
-        const errorMessage = error.response.data.error || 'Something went wrong';
-  
+        const errorMessage =
+          error.response.data.error || 'Something went wrong';
+
         toast.error(errorMessage); // Show toast with backend error message
       } else {
         toast.error('Network error or server is down');
@@ -128,7 +135,6 @@ const FormNewProject = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <>
@@ -137,112 +143,61 @@ const FormNewProject = () => {
           onSubmit={handleSubmit}
           className="flex flex-col  max-w-[712px] mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-4xl mx-auto text-sm sm:text-lg md:text-lg xl:text-lg xl-leading-7 2xl:leading-10 2xl:text-2xl"
         >
-          <div className="mb-4 PhoneInput">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               type="text"
               id="fullName"
               placeholder="Full Name"
-              className="rounded-lg placeholder-black p-3 place"
+              className="form-control place"
               value={formData.fullName}
               onChange={handleChange}
               required
             />
           </div>
 
-          {/* <div className="mb-4">
-            <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
-              onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
-              }}
-              onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
-              }}
-              type="tel"
-              id="contactNumber"
-              placeholder="Contact Number"
-              // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              value={formData.contactNumber}
-              onChange={handleChange}
-              className="border-black text-black placeholder-black p-3 place"
-              required
-            />
-          </div> */}
-          <div className="mb-4  ">
+          <div className=" formInput">
             <PhoneInput
               value={formData.contactNumber}
               country={'in'}
               enableSearch={true}
               onChange={(value, country) => handlePhoneChange(value, country)}
-              inputClass="w-100 PhoneInput"
-              inputStyle={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
+              inputClass="w-100 "
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
             />
           </div>
 
-          <div className="mb-4">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
-              onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
-              }}
-              onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
-              }}
               type="email"
               id="emailAddress"
               placeholder="Email Address"
               value={formData.emailAddress}
               onChange={handleChange}
-              className="  border-black text-black placeholder-[#0A0A0A] p-3 place"
+              className="form-control place"
+              onFocus={e => {
+                e.target.classList.add('focus');
+              }}
+              onBlur={e => {
+                e.target.classList.remove('focus');
+              }}
               required
             />
           </div>
-
-          <div className="mb-4">
-            <div className="flex px-2 justify-between mr-0 lg:mr-96">
+          <div className="radioMob mb-2.5">
+            <div className="user-type-container">
               {['Student', 'Fresher', 'Working'].map(option => (
-                <label key={option} className="flex items-center space-x-2">
+                <label key={option} className="user-type-label">
                   <input
                     type="radio"
                     name="userType"
@@ -250,31 +205,23 @@ const FormNewProject = () => {
                     checked={formData.userType === option}
                     onChange={handleRadioChange}
                     required
+                    className="user-type-radio"
                   />
-                  <span className="text-sm text-[#0A0A0A]">{option}</span>
+                  <span className="user-type-text">{option}</span>
                 </label>
               ))}
             </div>
           </div>
 
-          <div className="mb-4">
+          <div className=" formInput">
             <Form.Select
               id="qualification"
-              className=" p-3  placeholder-black place"
-              style={{
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                borderRadius: '11.55px',
-                color: 'rgba(0, 0, 0, 0.985)',
-                height: '53.4px',
-              }}
+              className="form-control place"
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               value={formData.qualification}
               onChange={handleChange}
@@ -291,25 +238,16 @@ const FormNewProject = () => {
             </Form.Select>
           </div>
 
-          <div className="mb-4 overflow-x-auto">
+          <div className=" formInput overflow-x-auto">
             <Form.Control
               id="institute_company"
-              className=" p-3 max-w-full  placeholder-black place"
               placeholder="Institute/Company Name"
-              style={{
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                borderRadius: '11.55px',
-                color: 'rgba(0, 0, 0, 0.985)',
-                height: '53.4px',
-              }}
+              className="form-control place"
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               value={formData.institute_company}
               onChange={handleChange}
@@ -326,184 +264,89 @@ const FormNewProject = () => {
             </Form.Control>
           </div>
 
-          <div className="mb-4">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
+              className="form-control place"
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               type="text"
               id="projectName"
               placeholder="Project/Idea Name"
               value={formData.projectName}
               onChange={handleChange}
-              className="  border-black text-black placeholder-black p-3 place"
             />
           </div>
 
-          <div className="mb-4">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
+              className="form-control place"
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               type="text"
               id="problemSolved"
               value={formData.problemSolved}
               onChange={handleChange}
               placeholder="What problem does your Idea Solve?"
-              className="  border-black text-black placeholder-black p-3 place"
             />
           </div>
 
-          <div className="mb-4">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
+              className="form-control place"
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               type="text"
               id="beneficiaries"
               value={formData.beneficiaries}
               onChange={handleChange}
               placeholder="Who would benefit from this idea?"
-              className="  border-black text-black placeholder-black p-3 place"
             />
           </div>
 
-          <div className="mb-4">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
+              className="form-control place"
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               type="text"
               id="successReason"
               value={formData.successReason}
               onChange={handleChange}
               placeholder="Why do you think this idea will succeed?"
-              className="  border-black text-black placeholder-black p-3 place"
             />
           </div>
-          {/* Text Fields */}
-          {/* {[
-            'project_idea/Idea Name',
-            'What Problem Does Your Idea Solve?',
-            'Who would benefit from this idea?',
-            'Why Do You Think This Idea Will Succeed?',
-            'Do You Have Any Business or Technical Skills?',
-          ].map(field => (
-            <div key={field} className="mb-4">
-              <Form.Control
-                type="text"
-                id={field}
-                placeholder={field.replace('_', ' ')}
-                value={formData[field]}
-                onChange={handleChange}
-                className="  border-black text-black placeholder-black p-3 place"
-                style={{
-                  borderRadius: '11.55px',
-                  border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                  height: '53.4px',
-                }}
-                onFocus={e => {
-                  e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                  e.target.style.boxShadow =
-                    '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
-                }}
-                onBlur={e => {
-                  e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                  e.target.style.boxShadow = 'none';
-                }}
-              />
-            </div>
-          ))} */}
 
-          {/* <div className="mb-4">
+          <div className=" formInput">
             <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '53.4px',
-              }}
+              className="form-control place"
+              style={{ height: '150px' }}
               onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
+                e.target.classList.add('focus');
               }}
               onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
-              }}
-              type="text"
-              id="message"
-              placeholder="Do you have any business or teachnical skills?"
-              className="  border-black text-black placeholder-black p-3 place"
-            />
-          </div> */}
-
-          <div className="mb-4">
-            <Form.Control
-              style={{
-                borderRadius: '11.55px',
-                border: '0.2px solid rgba(10, 10, 10, 0.82)',
-                height: '150px',
-              }}
-              onFocus={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow =
-                  '0 0 0 0.2rem rgba(131, 133, 134, 0.25)';
-              }}
-              onBlur={e => {
-                e.target.style.borderColor = 'rgba(10, 10, 10, 0.82)';
-                e.target.style.boxShadow = 'none';
+                e.target.classList.remove('focus');
               }}
               as="textarea"
               id="summary"
               value={formData.summary}
               onChange={handleChange}
               placeholder="Summarize your project Ideas"
-              className="  border-red text-black placeholder-black p-3 place"
             />
           </div>
 
@@ -516,7 +359,7 @@ const FormNewProject = () => {
             />
             <label
               htmlFor="fileInput"
-              className="flex items-center justify-center text-[#FF9D00] rounded-lg px-2 py-3 cursor-pointer xl:text-lg custom-file-label"
+              className="flex items-center justify-center text-[#FF9D00] rounded-lg px-3 py-3 cursor-pointer xl:text-lg custom-file-label"
               style={{ border: '1px solid #FF9D00' }}
             >
               {fileName ? (
@@ -553,7 +396,7 @@ const FormNewProject = () => {
             <label htmlFor="agreeTerms" className="text-sm">
               <Link
                 to="/termsconditions-submit-new-project"
-                className="text-[#FF9D00] items-center text-[14px] no-underline mx-2 cursor-pointor"
+                className="text-[#FF9D00] font-bold items-center text-[14px] no-underline mx-2 cursor-pointer "
               >
                 Agreement to Terms & Conditions
               </Link>
