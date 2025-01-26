@@ -26,7 +26,7 @@ function OurServices() {
                 <HeaderBanner
                     title="Working Together"
                     description="We help organizations navigate and thrive in the face of complexity."
-                    classname="bgThree"
+                    classname="bgThree"  class123={'headerbannerCenterContentOther'}
                 />
 
                 {/* Content Sections */}
@@ -83,7 +83,7 @@ function OurServices() {
                 <section>
                   <KeyBenefitServices/>
                 </section>
-                <section id="market-positioning" className=" w-full">
+                <section id="market-positioning" className=" w-full marketPositioning">
                     <MarketPositioning />
                 </section>
 
@@ -127,7 +127,7 @@ function OurServices() {
                     />
                 </section>
                 {/* Asset Management */}
-                <section id="it-services" className="my-5 w-full">
+                <section id="it-services" className="lg:mb-[50px] md:mb-[40px]  md:mb-[30px] mb-[20px] w-full">
                     <ServicesSub
                         heading="IT Services"
                         classname="bg_common"

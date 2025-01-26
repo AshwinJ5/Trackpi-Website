@@ -34,16 +34,16 @@ function Footer() {
             <FooterSecondary />
             <footer className="px-[15px] sm:px-[45px] md:px-[60px] lg:px-[60px] xl:px-[75px] 2xl:px-[100px] py-[15px] text-dark pt-[10px] mx-auto lg:pt-[20px]  lg:pt-[50px] ">
                 <div className="col my-auto h-max w-full">
-                    <div className=" flex flex-wrap  justify-between xl:items-center lg:items-center mt-[0px] items-center gap-[30px]">
+                    <div className=" flex flex-wrap  justify-between xl:items-center lg:items-center mt-[0px] items-start gap-[30px] footerMainDiv">
                         <div className="row justify-center xl:w-max lg:w-[35%] md:w-1/2 w-full flex gap-[25px] sm:gap-[32px] md:gap-[38px] lg:gap-[42px] xl:gap-[50px] footerFirstDiv ">
                             <div className=" xl:!max-w-[423px]  grid gap-[25px]">
                                 <div className="">
                                     <img
-                                        src="src/images/trackpi_logo.png"
+                                        src="src/images/trackpil.png"
                                         alt="TrackPi Logo"
-                                        className="img-fluid mx-auto w-[195px] sm:w-[215px] md:w-[185px] lg:w-[202px] xl:w-[270px] 2xl:w-[290px]"
+                                        className="img-fluid mx-auto w-[195px] sm:w-[215px] md:w-[185px] lg:w-[202px] xl:w-[270px] 2xl:w-[290px] !h-[87px] object-cover"
                                     />
-                                    <p className="text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[15px] xl:text-[18px] 2xl:text-[20px] text-justify font-medium footerParagraph">
+                                    <div className="text-[12px] sm:text-[13.5px] md:text-[15px] lg:text-[15px] xl:text-[18px] 2xl:text-[20px] text-justify font-medium footerParagraph">
                                         Empowering businesses to succeed through
                                         <a
                                             href="/business-consulting-services"
@@ -59,7 +59,7 @@ function Footer() {
                                             expert guidance
                                         </a>
                                         &nbsp; and personalized solutions. Unlocking potential and achieving success.
-                                    </p>
+                                    </div>
                                 </div>
                                 <div className="grid gap-[15px] sm:gap-[18px] md:gap-[20px] lg:22px] xl:gap-[25px] follow_us_footer">
                                     <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px] 2xl:text-[26px]">
@@ -123,7 +123,7 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="xl:w-max lg:w-[20%] sm:w-max w-[140px]  mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px] ">
+                        <div className="xl:w-max lg:w-[20%] sm:w-max w-[180px] mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]  footerServices">
                             <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]  mb-0 text-left">
                                 Services
                             </h5>
@@ -170,7 +170,7 @@ function Footer() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="w-full   lg:w-max sm:mt-0 mt-[25px] join_us_div">
+                        <div className="w-full   lg:w-max sm:mt-0  join_us_div">
                             <div className="lg:grid md:flex  lg:gap-[50px] flex justify-between  joinInput ">
                                 <div className="grid gap-2 sm:w-max w-1/2">
                                     <h5 className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
@@ -229,7 +229,7 @@ function Footer() {
                     </div>
                 </div>
             </footer>
-            <hr className="mb-0 " />
+            <hr className="m-0 " />
             <Row className=" ">
                 <Col className="text-center font-medium text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] !my-[5px] !sm:my-[7px] !md:my-[10px] !lg:my-[12px] !xl:my-[15px]">
                     © {currentYear} TrackPi Private Limited. All rights reserved.

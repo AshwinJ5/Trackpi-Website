@@ -2,8 +2,8 @@
 .bg_common{
     background-color: #FFC100;
   }
-  .bgSection {
-    background: url('../images/bgservices.svg') no-repeat ;
+  .bgSections {
+    background: url('../images/bgservises2.svg') no-repeat ;
     background-size: cover; 
     width: 100%;
     height: 100%; 

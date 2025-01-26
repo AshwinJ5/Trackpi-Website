@@ -12,7 +12,7 @@ const NewProject = () => {
         description="Welcome to Trackpi's Project Submission page. We’re excited to collaborate with you and help bring your ideas to life. Please submit your project details below, and our team will get started on providing tailored solutions to drive your business forward"
         classname="bgSix"
         noButton={true}
-        image={img1}
+        image={img1} class123={'headerbannerCenterContentOther'}
       />
       <section className=" w-full px-2 sm:px-4 lg:px-20 xl:px-24 2xl:px-32 py-8 mx-auto ">
         <Container className="flex flex-col ">

@@ -9,7 +9,7 @@ function About() {
         <>
             <PopUp />
                 <HeaderBanner title="About Us" description="Learn more about our journey as the best business consultant in Kerala and what drives us forward."classname='bgTwo' 
-                brochureMain={true} noButton={true}/>
+                brochureMain={true} noButton={true} class123={'headerbannerCenterContentOther'}/>
                 <section >
                     <OurTeam />  
                 </section>

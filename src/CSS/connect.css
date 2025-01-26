@@ -114,3 +114,9 @@
     width: 100%;
   }
 }
+  @media (max-width: 350px) {
+
+  .KeyBenefitFirstDiv1 .containerThree{
+    width: 100%;
+  }
+}
