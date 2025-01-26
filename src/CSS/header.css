@@ -154,5 +154,19 @@
 @media (max-width: 992px) {
     #navlink {
         margin: auto;
+        font-size: 12px;
+        padding: 4px;
     }
+    #navlink::before {
+        width: 100%;
+    }
+     .dropdown-menu .dropdown-item , .dropdown-menu .dropdown-toggle{
+        margin: auto;
+        font-size: 12px !important;
+        padding: 2px !important;
+    }
+    .navbar .nav-item {
+        margin:0;
+    }
+
 }

@@ -108,14 +108,32 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .sidebar nav {
+    width: 28px;
+    height: 196px;
+  }
+  .sidebar nav li {
+    height: 28px; /* Adjust height to match the smaller icons */
+  }
+  .sidebar nav li a i {
+    font-size: 14px;  /* Adjusted icon size to make it smaller */
+    margin-right: 14px;  /* Space between icon and text */
+    height: 20px;  /* Set the icon height */
+    padding-top: 5px;
+  }
+}
 @media screen and (max-width: 768px) {
-  .sidebar ul li a span {
-    font-weight: bold;
-    letter-spacing: 1px;
+  .sidebar nav {
+    width: 25px;
+    height: 175px;
+  }
+  .sidebar nav li {
+    height: 25px; /* Adjust height to match the smaller icons */
   }
   .sidebar nav li a i {
     left: 7px;
-    font-size: 15px;
+    font-size: 12px;
     top: 10px;
   }
   .sidebar ul li:hover a span {

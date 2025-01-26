@@ -251,6 +251,7 @@ function Home() {
         title="The Best Business Consulting Firm in Kerala"
         titleTwo="Your Strategic Growth Partner"
         titleThree="People's Interest, Our Interest"
+        class123="headerbannerCenterContent"
         description={
           <>
             Trackpi your{' '}

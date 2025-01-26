@@ -110,7 +110,7 @@ function EmployeeVerification() {
 
         <div className="flex justify-center items-center h-100">
           <div
-            className={`flex flex-col w-max text-center items-center z-2 headerContent`}
+            className={`flex flex-col w-max text-center items-center z-2 headerContent  headerbannerCenterContentOther`}
           >
             <h1 className="text-yellow-400 font-bold text-[20px] sm:text-[26px] md:text-[36px] lg:text-[48px] xl:text-[56px] 2xl:text-[62px] headerBannerHeading">
             Employee Verification

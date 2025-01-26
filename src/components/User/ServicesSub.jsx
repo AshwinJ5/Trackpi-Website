@@ -18,7 +18,7 @@ function ServicesSub({
     img3,
     isPointWise,
 }) {
-    const options = { threshold: 0.1};
+    const options = { threshold: 0.1 };
 
     const [refMainHeading, inViewMainHeading] = useInView(options);
     const [refFirstSection, inViewFirstSection] = useInView(options);
@@ -68,21 +68,34 @@ function ServicesSub({
                         </h1>
                         <div className="block md:hidden w-full md:w-1/2 px-3 md:px-0 m-auto">
                             <img
-                                    className="object-cover w-full h-full  md:aspect-[6/5] aspect-[17/9]  rounded-lg md:shadow-lg shadow-sm"
-                                    src={img1}
+                                className="object-cover w-full h-full  md:aspect-[6/5] aspect-[17/9]  rounded-lg md:shadow-lg shadow-sm"
+                                src={img1}
                                 alt={title1}
                             />
                         </div>
                         <div className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[30px] xl:leading-[34px] 2xl:leading-10">
                             {isPointWise ? (
-                                <ul className=" mt-4">
+                                <div className=" mt-4">
                                     {description1
                                         .split(". ")
                                         .filter((sentence) => sentence.trim() !== "")
-                                        .map((sentence, index) => (
-                                            <li className="mb-2 list-disc" key={index}>{sentence.endsWith(".") ? sentence : sentence + "."}</li>
-                                        ))}
-                                </ul>
+                                        .map((sentence, index) => {
+                                            const parts = sentence.split(":");
+                                            const boldText = parts[0].trim();
+                                            const remainingText = parts.length > 1 ? "" + parts.slice(1).join(": ") : "";
+
+                                            return (
+                                                <div className="mb-2" key={index}>
+                                                    {boldText.endsWith(".") ? (
+                                                        <strong>{boldText}</strong>
+                                                    ) : (
+                                                        <span className="font-semibold">{boldText}: </span>
+                                                    )}
+                                                    {remainingText}
+                                                </div>
+                                            );
+                                        })}
+                                </div>
                             ) : (
                                 <div className="text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] leading-[16px] sm:leading-[20px] md:leading-[24px] lg:leading-[30px] xl:leading-[34px] 2xl:leading-10">
                                     {description1}
@@ -133,7 +146,7 @@ function ServicesSub({
                                 {title2}
                             </h1>
                             <div className="block md:hidden w-full md:w-1/2 px-3 md:px-0 m-auto">
-                            <img
+                                <img
                                     className="object-cover w-full h-full  md:aspect-[6/5] aspect-[17/9]  rounded-lg md:shadow-lg shadow-sm"
                                     src={img2}
                                     alt={title2}
@@ -161,7 +174,7 @@ function ServicesSub({
                                 {title3}
                             </h1>
                             <div className="block md:hidden w-full md:w-1/2 px-3 md:px-0 m-auto">
-                            <img
+                                <img
                                     className="object-cover w-full h-full  md:aspect-[6/5] aspect-[17/9]  rounded-lg md:shadow-lg shadow-sm"
                                     src={img3}
                                     alt={title3}

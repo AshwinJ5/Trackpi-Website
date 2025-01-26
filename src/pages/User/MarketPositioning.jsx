@@ -31,7 +31,7 @@ const MarketPositioning = () => {
     ];
    
     return (
-        <section ref={refMainHeading} className="bgSection py-[35px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px] 2xl:py-[80px] px-6  lg:px-20 xl:px-24 2xl:px-32 grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] ">
+        <section ref={refMainHeading} className="bgSections py-[35px] sm:py-[40px] md:py-[50px] lg:py-[60px] xl:py-[70px] 2xl:py-[80px] px-6  lg:px-20 xl:px-24 2xl:px-32 grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] ">
             <motion.div  initial={{ opacity: 0, y: 5 }}
                 animate={inViewMainHeading ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: .5 }}  className="mx-auto grid max-w-[1048px] gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px] ">

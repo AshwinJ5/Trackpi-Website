@@ -8,6 +8,13 @@
         margin: auto;
     }
 }
+@media (max-width: 767px) {
+    .title_heading {
+        text-align: center;
+        width: 100%;
+        margin: auto;
+    }
+}
 .justify_para {
     text-align: justify;
     margin: 0 auto;

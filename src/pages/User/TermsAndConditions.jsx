@@ -25,11 +25,11 @@ function TermsAndConditions() {
                     </div>
                     <div className=" grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]">
                         <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[30px] font-bold ">  Use of the Website</div>
-                        <div className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[24px]  xl:px-[30px] lg:px-[22px]  sm:px-[15px] px-[0] grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px]  text-justify">
+                        <ul className="list-disc  text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[24px]  grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px]  pl-5 mb-0 text-justify">
                            <li className="">Eligibility: You must be at least 18 years old or have obtained parental/guardian consent to use this Website. </li>
                            <li className="">Prohibited Activities: You agree not to engage in unlawful activities, disrupt the functionality of the Website, or misuse it for any unauthorized purposes. </li>
                            <li className="">Account Registration: For certain services, you may need to create an account. You are responsible for maintaining        the confidentiality of your credentials and all activities under your account.</li>
-                        </div>
+                        </ul>
                     </div>
                     <div className=" grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]">
                         <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[30px] font-bold "> Services Provided</div>
@@ -63,11 +63,11 @@ function TermsAndConditions() {
                     </div>
                     <div className=" grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]">
                         <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[30px] font-bold "> Payment Terms</div>
-                        <div className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[24px] grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px]   text-justify">
+                        <ul className="list-disc   text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[24px] grid gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px]  pl-5 mb-0  text-justify ">
                            <li className=""> Payments for services must be made in accordance with the terms outlined in your agreement.</li>
                            <li className="">Trackpi does not provide any refunds unless the services delivered do not align with what was explicitly promoted.</li>
                            <li className=""> Late payments may incur additional charges. </li>
-                        </div>
+                        </ul>
                     </div>
                     <div className=" grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]">
                         <div className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] xl:text-[30px] font-bold ">Termination </div>
