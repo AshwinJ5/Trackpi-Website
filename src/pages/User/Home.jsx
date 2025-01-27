@@ -20,6 +20,7 @@ import iidm from '../../images/iidm.jpg';
 import luminar from '../../images/luminar.png';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
+import { useSwipeable } from 'react-swipeable';
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
@@ -27,7 +28,6 @@ function Home() {
   const isInView3 = useInView({ selector: '.section3' });
   const [heading, setHeading] = useState({});
 
-  const [cards, setCards] = useState([]);
   // const clients = [
   //   { id: 1, logo: clientLogo1 },
   //   { id: 2, logo: clientLogo2 },
@@ -44,10 +44,12 @@ function Home() {
   //   { id: 13, logo: clientLogo1 },
   //   { id: 14, logo: clientLogo2 },
   // ];
+  const [cards, setCards] = useState([]);
   const [clientsLogo, setClientsLogo] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bulgingCard, setBulgingCard] = useState(0);
   const [groupedCards, setGroupedCards] = useState([]);
+  console.log(groupedCards, 'groupedCards');
   const [cardsPerGroup, setCardsPerGroup] = useState(
     window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 3 : 4
   );
@@ -203,19 +205,25 @@ function Home() {
   };
 
   const dotsToRender =
-    window.innerWidth < 640 ? groupedCards.slice(0, 4) : groupedCards;
+    window.innerWidth < 640 ? groupedCards.slice(0, 6) : groupedCards;
 
   useEffect(() => {
     const getNews = async () => {
       try {
         const response = await baseURL.get('api/news/newsdetails');
-        setCards(response.data);
+        console.log(response.data); // Check if all cards have `updatedAt`
+        const sortedCards = response.data
+          .filter(card => card.updatedAt) // Exclude cards without `updatedAt`
+          .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)) // Sort descending
+          .slice(0, 12); // Take the latest 12 items
+        setCards(sortedCards);
       } catch (e) {
         console.error(e);
       }
     };
     getNews();
   }, []);
+
   useEffect(() => {
     const getClients = async () => {
       try {
@@ -244,6 +252,22 @@ function Home() {
       console.error('Error fetching haeding data:', error);
     }
   };
+
+  const handleSwipe = direction => {
+    if (direction === 'LEFT' && currentIndex < groupedCards.length - 1) {
+      setCurrentIndex(currentIndex + 1); // Move to the next slide
+    } else if (direction === 'RIGHT' && currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1); // Move to the previous slide
+    }
+  };
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleSwipe('LEFT'),
+    onSwipedRight: () => handleSwipe('RIGHT'),
+    preventScrollOnSwipe: true,
+    trackMouse: true, // Allows swipe handling on desktop with a mouse
+  });
+
   return (
     <>
       <PopUp />
@@ -287,7 +311,10 @@ function Home() {
         <div className="relative bg-gradient-to-r from-[#FFC100] to-[#FF9D00]">
           {/* <div className="relative bg-cyan-600"> */}
           {/* Carousel */}
-          <div className="overflow-x-auto md:overflow-hidden touch-pan-x carousel-container">
+          <div
+            {...swipeHandlers}
+            className="overflow-x-auto md:overflow-hidden touch-pan-x carousel-container"
+          >
             <Carousel
               interval={null} // Disable auto-scroll as we control it manually
               indicators={false}
@@ -387,27 +414,47 @@ function Home() {
         </div>
 
         <div className="flex justify-between items-center">
-          <div className=" mt-4 sm:mx-0 md:mx-4 lg:mx-16 px-4 invisible">
+          <div className=" mt-4 sm:mx-0 md:mx-4 lg:mx-16  invisible">
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer" // Security reason when using target="_blank"
             >
-              <button className="bg-[#0A0A0A] text-white py-1 px-3 rounded-lg hover:bg-amber-400 transition duration-300 text-[14px] 2xl:text-[20px] font-trebuchet font-medium">
+              <button className="bg-[#0A0A0A] text-white   rounded-lg hover:bg-amber-400 transition duration-300 text-[12px] sm:text-[14px] md:text-[14px] lg:text-[16px] 2xl:text-[20px] font-trebuchet font-medium">
                 View More
               </button>
             </a>
           </div>{' '}
-          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-2 dotsMob">
+          {/* For Desktop (dots) */}
+          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2 hidden md:block dotsMob">
             {dotsToRender.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300  ${
                   currentIndex === index ? 'bg-yellow-500 w-4' : 'bg-gray-400'
                 }`}
               />
             ))}
+          </div>
+          {/* For Mobile (numbers) */}
+          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2 block md:hidden dotsMob">
+            {groupedCards.length > 0 && (
+              <div className="text-lg font-semibold text-gray-700">
+                {groupedCards[currentIndex].map((_, index) => {
+                  // Find the global index of the card that bulges
+                  const globalIndex = currentIndex * cardsPerGroup + index + 1;
+
+                  return (
+                    <span key={index}>
+                      {bulgingCard === index
+                        ? `${globalIndex}/${cards.length}`
+                        : ''}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
           </div>
           <div className=" mt-4 sm:mx-2 md:mx-4 lg:mx-16 px-2">
             <a
@@ -415,7 +462,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer" // Security reason when using target="_blank"
             >
-              <button className="bg-[#0A0A0A] text-white py-1 px-3 rounded-lg hover:bg-amber-400 transition duration-300 text-[14px] 2xl:text-[20px] font-trebuchet font-medium">
+              <button className="bg-[#0A0A0A] text-white py-0.5 px-2 sm:py-0.5 sm:px-2 md:py-1 md px-2.5 lg:py-1 lg:px-3  rounded-lg hover:bg-amber-400 transition duration-300 text-[12px] sm:text-[12px] md:text-[14px] lg:text-[16px] 2xl:text-[20px] font-trebuchet font-medium">
                 View More
               </button>
             </a>
@@ -437,12 +484,12 @@ function Home() {
         <div className=" h-[50px] sm:h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px]  items-center flex bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 lg:mt-[40px] md:mt-[20px] sm:mt-[30px] mt-[10px]">
           <Marquee autoFill>
             {clientsLogo.concat(clientsLogo).map((client, index) => (
-                <img
-                  key={index}
-                  className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
-                  src={`${SERVER_URL}${client.companylogo}`}
-                  alt={`Client ${index + 1}`}
-                />
+              <img
+                key={index}
+                className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
+                src={`${SERVER_URL}${client.companylogo}`}
+                alt={`Client ${index + 1}`}
+              />
             ))}
           </Marquee>
         </div>
@@ -590,7 +637,7 @@ function Home() {
         </motion.div>
       </section>
       <section className="relative z-20"></section>
-      <section className=" mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32  mx-auto w-full h-full section3">
+      <section className=" mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32  mx-auto w-full h-full section33">
         <motion.div
           className="flex flex-col-reverse lg:flex-row gap-[1rem] sm:gap-4 md:gap-8 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
           animate={{ y: isInView3 ? 10 : 0 }}
@@ -641,7 +688,7 @@ function Home() {
       </section>
 
       <div className="shadow-bottom">
-        <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 flex justify-center px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto  2xl:pt-28 xl:pt-24 md:pt-20 pt-8 lg:pb-16  md:pb-12 pb-8 h-full w-full relative sm:mt-12 lg:mt-20  bg-[#FFC100] bgSection">
+        <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 flex justify-center px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto  2xl:pt-28 xl:pt-24 md:pt-20 pt-8 lg:pb-16  md:pb-12 pb-8 h-full w-full relative sm:mt-12 lg:mt-20  bg-[#FFC100] bgSections">
           <div className="flex flex-col gap-2 justify-center items-center text-center">
             <h1 className="text-black font-bold  xl:leading-tight   text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl ">
               We're Ready to Help
