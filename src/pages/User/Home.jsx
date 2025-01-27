@@ -49,7 +49,7 @@ function Home() {
   const [bulgingCard, setBulgingCard] = useState(0);
   const [groupedCards, setGroupedCards] = useState([]);
   const [cardsPerGroup, setCardsPerGroup] = useState(
-    window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 3 : 4
+    window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 3 : 4
   );
   const [isPaused, setIsPaused] = useState(false);
 
@@ -83,7 +83,7 @@ function Home() {
       let newCardsPerGroup = 4; // Default to 4 cards for large screens
 
       if (window.innerWidth < 640) {
-        newCardsPerGroup = 1; // Only 1 card for small screens
+        newCardsPerGroup = 2; // Only 1 card for small screens
       } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
         newCardsPerGroup = 3; // 2 cards for medium screens
       }
@@ -423,8 +423,8 @@ function Home() {
         </div>
       </section>
 
-      <section className="w-full h-full mt-12 xl:mt-20 2xl:mt-24">
-        <Row className="mt-5 text-center">
+      <section className="w-full h-full mt-6 xl:mt-20 2xl:mt-24">
+        <Row className="mt-3 text-center">
           <h1 className="text-[#FFC100] font-extrabold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">
             {heading.partnershipHeading}
           </h1>
@@ -437,18 +437,18 @@ function Home() {
         <div className=" h-[50px] sm:h-[60px] md:h-[80px] lg:h-[100px] xl:h-[120px]  items-center flex bg-gradient-to-r from-[#FF9D00] via-[#FFC100] to-[#FF9D00] py-3 lg:mt-[40px] md:mt-[20px] sm:mt-[30px] mt-[10px]">
           <Marquee autoFill>
             {clientsLogo.concat(clientsLogo).map((client, index) => (
-              <img
-                key={index}
-                className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
-                src={`${SERVER_URL}${client.companylogo}`}
-                alt={`Client ${index + 1}`}
-              />
+                <img
+                  key={index}
+                  className="w-auto h-[34px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[80px] object-contain  sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
+                  src={`${SERVER_URL}${client.companylogo}`}
+                  alt={`Client ${index + 1}`}
+                />
             ))}
           </Marquee>
         </div>
       </section>
 
-      <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-24 2xl:mt-28 w-full px-6 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto section1">
+      <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-24 2xl:mt-28 w-full px-6 sm:px-3 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto section1">
         <motion.div
           className="flex flex-col-reverse lg:flex-row gap-[1rem] sm:gap-4 md:gap-8 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
           animate={{ y: isInView1 ? 10 : 0 }}
@@ -531,7 +531,7 @@ function Home() {
               <motion.img
                 src={home1}
                 alt="Strategic Procurement"
-                className="shadow-lg rounded-[15px] md:rounded-[10px] w-full  h-[200px] sm:h-[350px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
+                className="shadow-lg rounded-[15px] md:rounded-[10px] w-full  h-[180px] sm:h-[250px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView1 ? 1.02 : 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
               />
@@ -554,7 +554,7 @@ function Home() {
               <motion.img
                 src={home1}
                 alt="Strategic Procurement"
-                className="shadow-lg rounded-lg w-full h-[200px] sm:h-[350px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
+                className="shadow-lg rounded-lg w-full h-[180px] sm:h-[350px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView2 ? 1.02 : 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
               />
@@ -562,7 +562,7 @@ function Home() {
           </div>
           <div className="w-full">
             <motion.h1
-              className="font-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  pb-3  hidden lg:block"
+              className="font-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  pb-3  hidden lg:block "
               animate={{ y: isInView2 ? 10 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
@@ -631,7 +631,7 @@ function Home() {
               <motion.img
                 src={home2}
                 alt="Strategic Procurement"
-                className="shadow-lg  rounded-[15px] md:rounded-[10px] w-full h-[200px] sm:h-[350px] md:h-[390px] lg:h-[390px] 2xl:h-[600px] object-cover"
+                className="shadow-lg  rounded-[15px] md:rounded-[10px] w-full h-[180px] sm:h-[250px] md:h-[390px] lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView3 ? 1.02 : 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
               />
@@ -641,9 +641,9 @@ function Home() {
       </section>
 
       <div className="shadow-bottom">
-        <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 flex justify-center px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto  2xl:pt-28 xl:pt-24 md:pt-20 pt-8 lg:pb-16  md:pb-12 pb-8 h-full w-full relative sm:mt-12 lg:mt-20 mb-12 bg-[#FFC100] bgSection">
+        <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 flex justify-center px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto  2xl:pt-28 xl:pt-24 md:pt-20 pt-8 lg:pb-16  md:pb-12 pb-8 h-full w-full relative sm:mt-12 lg:mt-20  bg-[#FFC100] bgSection">
           <div className="flex flex-col gap-2 justify-center items-center text-center">
-            <h1 className="text-black font-bold  xl:leading-tight  pb-2  text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl ">
+            <h1 className="text-black font-bold  xl:leading-tight   text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl ">
               We're Ready to Help
             </h1>
             <p className="text-center text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-black">
@@ -654,10 +654,10 @@ function Home() {
             </p>
             <Link to="/business-consulting-services">
               <button
-                className=" mt-3 bg-white no-underline text-black font-semibold  rounded-full shadow-lg hover:bg-gray-800 
+                className=" bg-white no-underline text-black font-semibold  rounded-full shadow-lg hover:bg-gray-800 
                  px-8 py-2 md:px-10 md:py-3 lg:py-4   xl:py-12 2xl:px-12   
-                  text-sm  md:text-lg  lg:text-xl  xl:text-xl  2xl:text-2xl 
-                   transition duration-300"
+                  text-[12px]  md:text-lg  lg:text-xl  xl:text-xl  2xl:text-2xl 
+                   transition duration-300 serviceHomeBtn"
               >
                 Our Services
               </button>
