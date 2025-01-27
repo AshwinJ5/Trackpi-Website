@@ -228,7 +228,7 @@ function Details() {
             value={newDatas.info_from} 
             onChange={(e) =>
               setNewDatas({ ...newDatas, info_from: e.target.value })}
-            className="bg-white   placeholder-black p-3 place mobdiv"
+            className="bg-white   placeholder-black place mobdiv"
             
             style={{
               
