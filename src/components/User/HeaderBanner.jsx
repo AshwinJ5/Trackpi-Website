@@ -30,7 +30,7 @@ function HeaderBanner({
         const nextIndex = (currentIndex + 1) % titleArray.length;
         return titleArray[nextIndex];
       });
-    }, 1000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [title, titleTwo, titleThree]);

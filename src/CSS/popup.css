@@ -112,7 +112,9 @@
 
   @media (max-width: 768px) {
     .connectPhoneInput .react-tel-input input {
-        border-radius: 20px !important;
+        border-radius: 10px !important;
+        height: 40px !important;
+
     }
     }
     /* .connectPhoneInput .flag-dropdown , .connectPhoneInput .open{
