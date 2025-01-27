@@ -34,7 +34,7 @@ function Footer() {
             <FooterSecondary />
             <footer className="px-[15px] sm:px-[45px] md:px-[60px] lg:px-[60px] xl:px-[75px] 2xl:px-[100px] py-[15px] text-dark pt-[10px] mx-auto lg:pt-[20px]  lg:pt-[50px] ">
                 <div className="col my-auto h-max w-full">
-                    <div className=" flex flex-wrap  justify-between xl:items-center lg:items-center mt-[0px] items-start gap-[30px] footerMainDiv">
+                    <div className=" flex flex-wrap  justify-between xl:items-center lg:items-start mt-[0px] items-start gap-[30px] footerMainDiv">
                         <div className="row justify-center xl:w-max lg:w-[35%] md:w-1/2 w-full flex gap-[25px] sm:gap-[32px] md:gap-[38px] lg:gap-[42px] xl:gap-[50px] footerFirstDiv ">
                             <div className=" xl:!max-w-[423px]  grid gap-[25px]">
                                 <div className="">
@@ -65,7 +65,7 @@ function Footer() {
                                     <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px] 2xl:text-[26px]">
                                         Follow Us
                                     </h5>
-                                    <div className="flex my-auto gap-[25px] flex-row footer_smedia">
+                                    <div className="flex my-auto justify-between lg:gap-[25px] sm:gap-[25px] gap-[10px] flex-row footer_smedia">
                                         <Link onClick={() => window.open('https://www.facebook.com/profile.php?id=61565947096778', '_blank')}>
                                             <img src={fbIcon} alt="" />
                                         </Link>

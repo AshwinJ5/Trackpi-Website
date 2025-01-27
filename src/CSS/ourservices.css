@@ -5,7 +5,7 @@
   .bgSections {
     background: url('../images/bgservises2.svg') no-repeat ;
     background-size: cover; 
-    width: 100%;
+    width: 100vw;
     height: 100%; 
   }
   
