@@ -11,7 +11,7 @@ function AdminLogin() {
   const navigate = useNavigate();
   const adminToken = localStorage.getItem('adminToken'); // Get the token from localStorage
 
-  // 🛑 Prevent logged-in users from accessing login page
+  // Prevent logged-in users from accessing login page
   useEffect(() => {
     if (adminToken) {
       navigate('/admin/dashboard', { replace: true }); // Redirect to dashboard
@@ -35,7 +35,7 @@ function AdminLogin() {
 
       toast.success('Successfully Logged In!');
 
-      // 🔥 Prevent the login page from staying in history (so back button won't return here)
+      //  Prevent the login page from staying in history (so back button won't return here)
       setTimeout(() => {
         navigate('/admin/admin-management', { replace: true });
         window.history.pushState(null, "", window.location.href);
