@@ -7,7 +7,7 @@
 .bg_common {
   background-color: #ffc100;
 }
-.bgSection {
+.bgSections {
   background: url('../images/services.jpg') no-repeat;
   background-size: cover;
   width: 100%;
@@ -17,7 +17,7 @@ margin-bottom: 2rem;
 
   
 }
-.bgSection h1
+.bgSections h1
 {
   padding-bottom: 1rem;
 }
@@ -90,15 +90,15 @@ margin-bottom: 2rem;
   border-radius: 5.47px;
   padding: 6px 10px 6px 10px;
 }
-.bgSection
+.bgSections
 {
   margin-bottom: 1rem;
 }
-  .bgSection h1
+  .bgSections h1
 {
   padding-bottom: 0rem;
 }
-  .section1,.section3
+  .section1,.section33
   {
     padding: 0rem 1rem 0rem 1rem;
   }
@@ -130,9 +130,10 @@ height: 180px;
     display: flex;
     justify-content: center;
   }
-  .dotsMob
+  .dotsMob button
   {
-    visibility: hidden;
+    width: 0.4rem;
+    height: 0.4rem;
   }
 }
 

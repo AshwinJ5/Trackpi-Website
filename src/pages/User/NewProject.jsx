@@ -14,11 +14,11 @@ const NewProject = () => {
         noButton={true}
         image={img1} class123={'headerbannerCenterContentOther'}
       />
-      <section className=" w-full px-2 sm:px-4 lg:px-20 xl:px-24 2xl:px-32 py-8 mx-auto ">
+      <section className=" w-full px-2 sm:px-4 lg:px-20 xl:px-24 2xl:px-32 pb-8 mx-auto ">
         <Container className="flex flex-col ">
           <div className="w-full rounded ">
             <div>
-              <h1 className="text-center mb-8  font-bold text-[#FFC100] text-[30px] md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">
+              <h1 className="text-center mb-4  font-bold text-[#FFC100] text-[22px] md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">
                 Enter the Details
               </h1>
             </div>

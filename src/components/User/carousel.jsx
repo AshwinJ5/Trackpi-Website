@@ -172,7 +172,7 @@ function Clients() {
         ))}
       </div>
 
-      <div className="flex justify-center mt-4  ">
+      <div className="flex justify-center CardsDots ">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button
             key={index}
