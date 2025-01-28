@@ -48,8 +48,8 @@ import "../../CSS/teamListMember.css";
     return (
         <div className="md:mt-10 lg:mt-10 xl:mt-10 2xl:mt-10 w-full   ">
             <div >
-                <div className=" max-w-full mx-auto px-0  md:px-10 md:px-10 lg:px-16 xl:px-20 2xl:px-24 ">
-                   <div className="relative w-screen ">
+                <div className=" max-w-full mx-auto px-0  md:px-10  lg:px-16 xl:px-20 2xl:px-24 ">
+                   <div className="relative w-screen md:w-auto md:gap-8 ">
                         <div 
                             ref={scrollRef}
                             className="flex overflow-x-auto  space-x-0  scroll-snap-x scroll-snap-mandatory  md:grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:gap-8">

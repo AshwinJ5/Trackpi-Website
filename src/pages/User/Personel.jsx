@@ -48,9 +48,10 @@ function Personel({ show, onHide,employee  }) {
       <Modal.Header className="modhead backcolor px-1 py-1 text-center text-black" >
         <Modal.Title className="personnelfirst" >
           <h2>{employee.name}</h2>
-          <p className="text-2xl font-normal">{employee.desig}</p>
+          <p className="md:text-xl lg:text-xl xl:text-2xl font-normal desig">{employee.desig}</p>
           <button
             onClick={onHide}
+            className="buttcross"
             style={{
               position: "absolute",
               top: "10px",
@@ -71,7 +72,7 @@ function Personel({ show, onHide,employee  }) {
                 <img
                   src={profileImage}
                   alt={employee.title || "Employee"}
-                  className="rounded-md w-52 h-52 personnelimg object-cover"
+                  className="rounded-xl w-54 h-52 personnelimg object-cover"
                   />
               )}
         
@@ -81,7 +82,7 @@ function Personel({ show, onHide,employee  }) {
          
           <div className="  px-8 flex flex-col justify-center items-center ">
             
-            <p className="mt-4 font-medium text-justify"><br/><br/><br/>
+            <p className="mt-4 font-normal text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[20px] xl:text-[20px] 2xl:text-[20px] xs:leading-2 sm:leading-4 lg:leading-5 xl:leading-5 2xl:leading-5"><br/><br/><br/>
             <span className="font-bold underline decoration-gray-300">SELF INTRODUCTION</span>
             &nbsp;
             {employee.selfIntroduction}</p>

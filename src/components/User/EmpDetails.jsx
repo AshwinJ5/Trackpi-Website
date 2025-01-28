@@ -73,24 +73,24 @@ const EmpDetails = ({ employeeData }) => {
           src={profileImage}
           style={{
             borderRadius: "30px",
-            width: "180px",  // Set the fixed width
+            width: "150px",  // Set the fixed width
             height: "130px", // Set the fixed height
             objectFit: "cover"  // Ensure the image maintains aspect ratio and doesn't stretch
             
           }}
             alt="employee image"
-            height={200}
-            width={180}
+            height={180}
+            width={200}
             className="empimg"
             
           />   )}
           <div className="hidden md:block w-full">
             <div className="flex flex-row justify-between items-center text-2xl xl:text-xl ">
               <div className=" flex flex-col flex-wrap justify-start">
-                <p className="font-bold text-xl  break-words">{employeeData.name || "Paul Walker"} </p>
+                <p className="font-bold text-2xl  break-words">{employeeData.name || "Paul Walker"} </p>
                 <button
                   style={{ backgroundColor: "#019304", color: "white" }}
-                  className="act rounded-pill w-[100px] px-3 py-1 flex flex-row justify-center items-center md:gap-1 text-xs md:text-sm"
+                  className="act rounded-pill w-[60px]  py-1 flex flex-row justify-center items-center md:gap-1  text-xs md:text-xs"
                 >
                   <GoDotFill size={8} />
                   Active
@@ -114,7 +114,7 @@ const EmpDetails = ({ employeeData }) => {
               </p>
               <button
                 style={{ backgroundColor: "#019304", color: "white", margin: "0px" }}
-                className="active rounded-pill w-[100px] px-3 py-1 sm:py-0 sm:px-0 flex flex-row justify-center items-center md:gap-1 text-xs sm:text-xs md:text-sm"
+                className="active rounded-pill w-[60px]  py-1 sm:py-0 sm:px-0 flex flex-row justify-center items-center md:gap-1 text-xs sm:text-xs md:text-sm"
               >
                 <GoDotFill size={8} />
                 Active
@@ -183,8 +183,8 @@ const EmpDetails = ({ employeeData }) => {
               </div>
             </div>
           </div>
-
-          <div className="flex flex-row justify-between md:hidden">
+{/* mobilescreen */}
+          <div className="flex flex-row gap-40  md:hidden">
             <div className="phone" style={{ lineHeight: "1px" }}>
               <p className="text-xs md:text-sm lg:text-base" style={{ margin: 0 }}>
                 Date Of Birth
@@ -195,7 +195,7 @@ const EmpDetails = ({ employeeData }) => {
             </div>
             <div className="phone" style={{ lineHeight: "1px" }}>
               <p className="text-xs md:text-sm lg:text-base" style={{ margin: 0 }}>
-                Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Gender
               </p>
               <p className="font-bold text-sm md:text-base lg:text-lg" style={{ margin: 0 }}>
                 {employeeData.gender  || "Male"}
@@ -257,8 +257,8 @@ const EmpDetails = ({ employeeData }) => {
               </div>
             </div>
           </div>
-
-          <div className="md:hidden flex flex-row justify-between  mb-18">
+{/* mob */}
+          <div className="md:hidden flex flex-row gap-40  mb-18">
             <div className="flex flex-col gap-2">
               <div className="phone" style={{ lineHeight: "1px" }}>
                 <p className="text-xs md:text-sm lg:text-base" style={{ margin: 0 }}>
@@ -282,7 +282,7 @@ const EmpDetails = ({ employeeData }) => {
                 <p className="text-xs md:text-sm lg:text-base" style={{ margin: 0 }}>
                   Job Role
                 </p>
-                <p className="font-bold text-sm md:text-base lg:text-lg" style={{ margin: 0 }}>
+                <p className="font-bold text-sm md:text-base lg:text-lg break-words" style={{ margin: 0 }}>
                   {employeeData.jobRole || "Sales Manager"}
                 </p>
               </div>

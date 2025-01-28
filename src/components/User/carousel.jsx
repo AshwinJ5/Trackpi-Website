@@ -131,7 +131,7 @@ function Clients() {
       onTouchEnd={handleTouchEnd}
     >
       <div
-        className="flex transition-transform duration-500 med11"
+        className="flex  transition-transform duration-500 med11"
         style={{
           transform: `translateX(-${currentIndex * (100 / totalSlides)}%)`,
           width: `${totalSlides * 100}%`,
@@ -151,7 +151,7 @@ function Clients() {
             {slide.map((partner, index) => (
               <div
                 key={partner._id || index}
-                className="card-cl flex flex-col  flex-shrink items-center justify-center gap-2 p-4 rounded-lg shadow-lg"
+                className="card-cl flex flex-col  flex-shrink items-center justify-center gap-2 p-4 rounded-lg "
                 style={{
                   marginRight: index === slide.length - 1 ? "" : "25px", // No gap after last card
                   width: "100%", // Card width

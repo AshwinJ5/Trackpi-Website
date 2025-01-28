@@ -9,8 +9,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     box-shadow: 0 8px 15px rgba(255, 179, 0, 0), 0 4px 6px rgba(255, 179, 0, 1);
   }
 .backcolor{
@@ -22,7 +22,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     height: 200px;
-    width: 270px;
+    width: 280px;
     z-index: 1;
   }
   .modhead{
@@ -63,7 +63,7 @@
     
     .personnelfirst{
         height: 130px;
-        padding: 10px;
+        padding: 20px;
        
     }
     .personnelimg {
@@ -78,7 +78,8 @@
     }
   
     .personnelfirst p {
-      font-size: 16px; /* Adjust designation font size */
+      font-size: 15px; /* Adjust designation font size */
+      line-height: 14px !important;
     }
   
     .personnelfirst button {
@@ -117,4 +118,13 @@
      padding-bottom: 5px;
     }
   }
+  @media (max-width: 640px) {
+    .buttcross{
+      
+      font-size: 23px !important;
+    }
+    .desig{
+      font-size: 15px !important;
+    }
   
+  }

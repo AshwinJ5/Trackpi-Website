@@ -81,7 +81,7 @@ function EmployeeInternship() {
                   <div>
                     <h5 className="connect-text-Color font-medium ">Feedback</h5>
                     
-                    <ul className="mt-3 feed list-disc text-justify text-sm sm:text-sm md:text-base xl:text-base xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  font-medium space-y-2">
+                    <ul className="mt-3 feed list-disc text-justify text-sm sm:text-sm md:text-base xl:text-base xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  pl-5  font-medium space-y-2">
                     {employeeData.feedback
                 ? employeeData.feedback.split('\n').map((point, index) => (
                     <li key={index} className="text-sm sm:text-sm md:text-base xl:text-base xl:leading-7 2xl:leading-9 2xl:text-xl leading-7  font-medium ">{point}</li>
