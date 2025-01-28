@@ -45,7 +45,7 @@
   transition: all 0.25s ease-in-out;
 }
 /* Default Tooltip Styles */
-.react-tooltip {
+.wrapper .react-tooltip {
   color: black !important;
   font-size: 12px;
   padding: 8px;
@@ -69,46 +69,6 @@
   background-color: #419129;
 }
 
-
-
-/* Chatbox Styles */
-.chatbox {
-  position: fixed;
-  bottom: 30px;
-  right: 95px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  padding: 16px;
-  z-index: 1000;
-}
-
-
-
-.chatbox::before {
-  content: '';
-  position: absolute;
-  bottom: 5px; /* Adjust the position of the tail */
-  left: 96%; /* Adjust this to move the tail horizontally */
-  width: 20px;
-  height: 20px;
-  background-color: white; /* Same as the chatbox background */
-  transform: rotate(45deg); /* Rotate to make it look like a triangle */
-  z-index: -1; /* Place the tail behind the chatbox */
-}
-
-.chatbox h4 {
-  margin: 0 0 10px;
-  font-size: 16px;
-  color: #333;
-}
-
-.chatbox p {
-  margin: 0 0 8px;
-  font-size: 14px;
-  color: #555;
-}
 
 
 .button:hover {
@@ -135,7 +95,7 @@
     height: 27px;
   }
 }
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .wrapper .button .icons  {
       height: 24px;
       width: 24px;
@@ -148,23 +108,41 @@
     width: 24px;
     height: 24px;
   }
-}
+  
+} */
 @media screen and (max-width: 768px) {
+  .wrapper{
+    right: 5px;
+    gap: 5px;
+    bottom: 35%;
+
+  }
   .wrapper .button .icons  {
-      height: 20px;
-      width: 20px;
+      height: 18.5px;
+      width: 18.5px;
   }
   .wrapper .button  {
-      height: 30px;
-      width: 30px;
+      height: 40px;
+      width: 40px;
   }
   .wrapper .icons img {
-    width: 20px;
-    height: 20px;
+    width: 18.5px;
+    height: 18.5px;
+  }
+  #signal-tooltip {
+    display:none;
+  }
+  
+  #whatsapp-tooltip {
+    display:none;
+  }
+  
+  #connectus-tooltip {
+    display:none;
+  }
+  
+  #bot-tooltip {
+    display:none;
   }
 }
-@media (max-width: 640px) {
-.wrapper{
-  display: none;
-}
-}
+

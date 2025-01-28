@@ -32,7 +32,7 @@ function Footer() {
     return (
         <div>
             <FooterSecondary />
-            <footer className="px-[15px] sm:px-[45px] md:px-[60px] lg:px-[60px] xl:px-[75px] 2xl:px-[100px] py-[15px] text-dark pt-[10px] mx-auto lg:pt-[20px]  lg:pt-[50px] ">
+            <footer className="px-[15px] sm:px-[45px] md:px-[60px] lg:px-[60px] xl:px-[75px] 2xl:px-[100px] lg:py-[30px] sm:py-[25px] py-[15px] text-dark pt-[10px] mx-auto lg:pt-[20px]  lg:pt-[50px] ">
                 <div className="col my-auto h-max w-full">
                     <div className=" flex flex-wrap  justify-between xl:items-center lg:items-start mt-[0px] items-start gap-[30px] footerMainDiv">
                         <div className="row justify-center xl:w-max lg:w-[35%] md:w-1/2 w-full flex gap-[25px] sm:gap-[32px] md:gap-[38px] lg:gap-[42px] xl:gap-[50px] footerFirstDiv ">
@@ -91,7 +91,7 @@ function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-max mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]">
+                        <div className="w-max mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px] footerResources">
                             <h5 className=" font-bold  text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px] mb-0">
                                 Resources
                             </h5>
@@ -172,10 +172,10 @@ function Footer() {
                         </div>
                         <div className="w-full   lg:w-max sm:mt-0  join_us_div">
                             <div className="lg:grid md:flex  lg:gap-[50px] flex justify-between  joinInput ">
-                                <div className="grid gap-2 sm:w-max w-1/2">
-                                    <h5 className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
+                                <div className="grid  sm:w-max w-1/2 join_div_left">
+                                    <div className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px] joinWithUs ">
                                         Join With Us
-                                    </h5>
+                                    </div>
                                     <div>
                                         <div className="sm:flex hidden rounded-lg shadow-sm xl:w-[250px] lg:w-[200px] sm:w-[200px] w-[180px] footerForm footerInput1 ">
                                             <input
@@ -211,10 +211,10 @@ function Footer() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="grid gap-2 sm:w-max w-[140px] text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px]">
-                                    <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
+                                <div className="grid gap-2 sm:w-max w-[140px] text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] join_div_right">
+                                    <div className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
                                         Contact
-                                    </h5>
+                                    </div>
                                     <div className="d-flex ">
                                         <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={phoneIcon} alt="" />
                                         <span className="ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]">+91 80781 79646</span>

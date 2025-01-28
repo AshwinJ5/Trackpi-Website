@@ -124,6 +124,33 @@
     width: 140px;
   }
 }
+@media (max-width: 1024px) and (min-width: 837px) {
+  .footerFirstDiv .footerParagraph{
+    text-align: justify;
+  }
+  .footerResources, .footerServices{
+    margin-top: 30px;
+  }
+  .join_div_left, .join_div_right{
+    width: 50% !important;
+  }
+  .joinWithUs{
+    height: 6px;
+  }
+}
+@media (max-width: 660px) and (min-width: 640px) {
+  .join_div_left, .join_div_right{
+    width: 50vw !important;
+  }
+  .joinInput{
+    width: 50%;
+    display: flex !important;
+  }
+  .join_us_div{
+    width: 100vw !important;
+
+  }
+}
 @media (max-width: 836px) and (min-width: 768px) {
 .footerFirstDiv{
   width: 100%;
