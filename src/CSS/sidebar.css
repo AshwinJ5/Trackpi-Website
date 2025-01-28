@@ -123,29 +123,7 @@
     padding-top: 5px;
   }
 }
-@media screen and (max-width: 768px) {
-  .sidebar nav {
-    width: 25px;
-    height: 175px;
-  }
-  .sidebar nav li {
-    height: 25px; /* Adjust height to match the smaller icons */
-  }
-  .sidebar nav li a i {
-    left: 7px;
-    font-size: 12px;
-    top: 10px;
-  }
-  .sidebar ul li:hover a span {
-    display: none;
-  }
-}
 .sidebar.hidden {
   visibility: hidden;
   opacity: 0;
-}
-@media (max-width: 768px) {
-  .sidebar{
-    display: none;
-  }
 }

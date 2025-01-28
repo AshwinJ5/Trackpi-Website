@@ -88,7 +88,7 @@ function Header() {
                             >
                                 <NavDropdown.Item
                                     onClick={() => handleNavigation("/business-consulting-services", "#sales-outsourcing")}
-                                    className="me-1 dropdown-sales"
+                                    className="me-1 dropdown-sales "
                                 >
                                     Sales Outsourcing
                                 </NavDropdown.Item>

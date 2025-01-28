@@ -37,6 +37,7 @@ function HeaderBanner({
 
   return (
     <>
+    <div className='w-screen topBg'></div>
 
 <section className={`${classname}`}>
         {noButton?null:<div className={`headerbuttons flex sm:justify-end  items-center space-x-0 sm:space-x-5 relative px-[15px] sm:px-[22.5px] lg:px-[30px] ${!brochure ? 'justify-end' : 'justify-between'} `}>
@@ -59,11 +60,11 @@ function HeaderBanner({
           <div
             className={`flex flex-col w-100 text-center items-center z-2 headerContent gap-[10px] sm:gap-[10px] md:gap-[20px] xl:gap-[30px] `}
           >
-            <div className="text-yellow-400 font-bold text-[20px] sm:text-[24px] md:text-[36px] lg:text-[48px] xl:text-[56px] 2xl:text-[62px] headerBannerHeading w-100">
+            <div className="text-yellow-400 font-bold text-[20px] sm:text-[24px] md:text-[36px] lg:text-[48px] xl:text-[56px] 2xl:text-[62px] headerBannerHeading w-100 px-[10px]">
             {titleTwo ? currentTitle : title}
             </div>
 
-            <div className="text-[12px] sm:text-[14px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[14.4px] sm:leading-[14px] md:leading-[22px] lg:leading-[26px] xl:leading-[28px] 2xl:leading-[31.2px]  text-white justify_banner headerBannerPara max-w-[90%]  sm:max-w-[70%] xl:max-w-[60%] 2xl:w-[60%]">
+            <div className="text-[12px] sm:text-[14px] md:text-[20px] lg:text-[22px] xl:text-[24px] 2xl:text-[26px] leading-[14.4px] sm:leading-[14px] md:leading-[22px] lg:leading-[26px] xl:leading-[28px] 2xl:leading-[31.2px]  text-white justify_banner headerBannerPara max-w-[calc(85%-30px)]  sm:max-w-[70%] xl:max-w-[60%] 2xl:w-[60%]">
               {description}
             </div>
 

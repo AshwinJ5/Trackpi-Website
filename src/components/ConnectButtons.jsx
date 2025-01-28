@@ -65,7 +65,7 @@ function ConnectButtons() {
           data-tooltip-id="whatsapp-tooltip"
           data-tooltip-content="Whatsapp"
           data-tooltip-place="left"
-          to="https://wa.me/+918078179646/ "  
+          to="https://wa.me/+918078179646/ " target='_blank'  
           className="button"
         >
           <div className="icons">

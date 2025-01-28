@@ -57,17 +57,17 @@ const Chatbox = () => {
     >
       {/* Chatbot Icon */}
       <div className="absolute -top-6 bg-white rounded-full p-2 shadow-md">
-        <TbMessageChatbot color="#419129" className="w-12 h-12" />
+        <TbMessageChatbot color="#419129" className="md:w-12 md:h-12 w-[40px] h-[40px] " />
       </div>
 
       {/* Chatbox Content */}
-      <div className="mt-8 w-full px-4 overflow-y-auto max-h-96">
+      <div className="md:mt-8 mt-[20px] w-full md:px-[24px] px-[5px] overflow-y-auto max-h-96 chatboxContent">
         {messages.map(
           (message, index) =>
             message && (
               <div
                 key={index}
-                className={`message bg-green-100 p-3 mb-2 rounded-lg shadow-md text-black text-sm  ${
+                className={`message bg-green-100 md:p-3 p-[10px] mb-2 rounded-lg shadow-md text-black md:text-sm text-[10px]  ${
                   index === messages.length - 1 ? 'slide-in-inside' : 'slide-in-outside'
                 }`}
               >
