@@ -443,10 +443,15 @@ function Home() {
                   const globalIndex = currentIndex * cardsPerGroup + index + 1;
 
                   return (
-                    <span key={index} className='text-[12px]'>
-                      {bulgingCard === index
-                        ? `${globalIndex}/${cards.length}`
-                        : ''}
+                    <span key={index} className="text-[12px]">
+                      {bulgingCard === index ? (
+                        <>
+                          <span className="text-[#FFC100]">{globalIndex}</span>
+                          /{cards.length}
+                        </>
+                      ) : (
+                        ''
+                      )}
                     </span>
                   );
                 })}
