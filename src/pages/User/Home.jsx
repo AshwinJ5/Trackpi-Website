@@ -1,6 +1,6 @@
 // Created by Shalu
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import {  Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useInView } from '../../components/User/UseInView';
 import { Link } from 'react-router-dom';
