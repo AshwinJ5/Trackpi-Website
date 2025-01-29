@@ -26,7 +26,7 @@ function Footer() {
             if (section) {
                 section.scrollIntoView({ behavior: "smooth" });
             }
-        }, 100);
+        }, 300);
     };
 
     return (
@@ -171,9 +171,9 @@ function Footer() {
                             </ul>
                         </div>
                         <div className="w-full   lg:w-max sm:mt-0  join_us_div">
-                            <div className="lg:grid md:flex  lg:gap-[50px] flex justify-between  joinInput ">
+                            <div className="lg:grid md:flex  lg:gap-[50px] flex justify-between  joinInput">
                                 <div className="grid  sm:w-max w-1/2 join_div_left">
-                                    <div className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px] joinWithUs ">
+                                    <div className="font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px] joinWithUs  mb-[5px]">
                                         Join With Us
                                     </div>
                                     <div>

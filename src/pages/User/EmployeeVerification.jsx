@@ -8,6 +8,7 @@ import Brochure from "../../components/User/Brochure";
 import "../../CSS/employverification.css";
 import baseURL from "../../Api Services/baseURL";
 import HeaderBanner from "../../components/User/HeaderBanner";
+import ConnectButtons from "../../components/ConnectButtons";
 
 function EmployeeVerification() {
     const [captchaVerified, setCaptchaVerified] = useState(false);
@@ -199,6 +200,7 @@ function EmployeeVerification() {
                     </Modal>
                 </section>
             </div>
+            <ConnectButtons/>
         </div>
     );
 }

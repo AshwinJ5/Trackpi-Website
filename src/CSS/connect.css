@@ -1,3 +1,77 @@
+.connectusForm .mobdiv{
+  height: 60px;
+ padding:0 20px;
+ font-size: 22px;
+ color: #0a0a0a !important;
+}
+.connectusForm .selectConnect{
+  height: 60px;
+ padding:0 20px;
+ font-size: 20px;
+ color: rgba(10, 10, 10, 0.8) ;
+}
+.connectusForm .mobdiv::placeholder{
+  height: 60px;
+ font-size: 20px;
+ color: rgba(10, 10, 10, 0.8);
+}
+.connectusForm .selectConnectFont{
+  font-size: 22px;
+  height: 60px;
+  padding:0 20px;
+  color: #0a0a0a !important;
+
+}
+
+@media (max-width: 1024px) {
+  .connectusForm .selectConnectFont{
+    font-size: 17px;
+    height: 50px ;
+    padding:0 15px;
+  }
+  .connectusForm .selectConnect{
+    height: 50px ;
+   padding:0 15px;
+   font-size: 15px;
+  }
+  .connectusForm .mobdiv::placeholder{
+    font-size: 15px !important;
+  }
+  .connectusForm .mobdiv{
+    height: 50px;
+   padding:0 15px !;
+   border-radius: 10px !important;
+   font-size: 17px !important;
+  }
+}
+@media (max-width: 640px) {
+  .connectusForm .selectConnectFont{
+    font-size: 12px !important;
+    padding:0 10px !important ;
+    height: 40px !important;
+
+  }
+  .connectusForm .selectConnect{
+    height: 40px !important;
+   padding:0 10px!important;
+   font-size: 10px!important;
+  }
+  .connectusForm .mobdiv::placeholder{
+    font-size: 10px !important;
+  }
+  .connectusForm .mobdiv{
+    height: 40px !important;
+   padding:0 10px ;
+   border-radius: 10px !important;
+   font-size: 12px !important;
+  }
+  .connectusForm {
+    font-size: 10px!important;
+  }
+  .connectusForm .mobdiv::placeholder{
+    font-size: 10px!important;
+  }
+}
 @media (max-width: 768px) {
     .contact{
         color:  #FF9D00;
@@ -17,14 +91,6 @@
         border-color: 0px solid gray !important;
       
     }
-    .mobdiv{
-      height: 40px !important;
-      padding-top: 8px !important;
-      padding-bottom: 8px !important;
-      padding-left: 10px !important;
-      padding-right: 10px !important;
-    }
-    
     .card1{
         height: 140px !important;
         width: 300px;

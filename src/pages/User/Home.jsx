@@ -7,17 +7,11 @@ import { Link } from 'react-router-dom';
 import home1 from '../../images/home1.png';
 import home2 from '../../images/home2.png';
 import ConnectButtons from '../../components/ConnectButtons';
-import logo from '../../images/trackpi_logo.png';
 import { Carousel } from 'react-bootstrap';
-import clientLogo1 from '../../images/growthfactor.png';
-import clientLogo2 from '../../images/trademax.png';
 import HeaderBanner from '../../components/User/HeaderBanner';
 import '../../CSS/User/Home.css';
-import img1 from '../../images/team.png';
 import PopUp from '../../components/User/PopUp';
 import Marquee from 'react-fast-marquee';
-import iidm from '../../images/iidm.jpg';
-import luminar from '../../images/luminar.png';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
 import { useSwipeable } from 'react-swipeable';
@@ -300,7 +294,6 @@ function Home() {
         brochure
         learn
         classname="bgOne"
-        image={img1}
       />
       <section>
         <div className="text-center lg:pb-12  sm:pb-3 px-2">

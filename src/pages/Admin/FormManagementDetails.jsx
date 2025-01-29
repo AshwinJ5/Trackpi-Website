@@ -62,13 +62,13 @@ function FormManagementDetails() {
           </div>
         </div>
         <div className="flex flex-wrap justify-center items-center w-100 gap-[50px]">
-          <div className="projectDetailsBorderDiv w-50">
+          <div className="projectDetailsBorderDiv w-50 grid gap-[15px] ">
             <div className="text-[18px]">How Did You Hear About Us?</div>
             <div className="text-[20px] font-bold">{mockData.info_from}</div>
           </div>
           <div className="projectDetailsBorderDiv min-h-[300px] w-75">
-            <div className="text-[18px]">Message</div>
-            <div className="text-[20px] font-bold">{mockData.message}</div>
+            <div className="text-[18px] pb-[15px]">Message</div>
+            <texta className="text-[20px] font-bold">{mockData.message}</texta>
           </div>
         </div>
       </div>
