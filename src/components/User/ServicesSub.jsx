@@ -37,7 +37,7 @@ function ServicesSub({
                 className="mx-auto grid max-w-[1048px] gap-[15px] sm:gap-[20px] md:gap-[25px] lg:gap-[30px]"
             >
                 <div
-                    style={{ textShadow: "2px 4px  4px #0A0A0A33", color: classname ? "white" : "#FF9D00" }}
+                    style={{ textShadow: "2px 4px  4px #0A0A0A33", color: classname ? "#0A0A0A" : "#FF9D00" }}
                     className="text-center text-[20px] sm:text-[24px] md:text-[30px] lg:text-[40px] xl:text-[44px] 2xl:text-[60px] font-bold"
                 >
                     {heading}
