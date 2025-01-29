@@ -35,7 +35,7 @@ function Header() {
             if (section) {
                 section.scrollIntoView({ behavior: "smooth" });
             }
-        }, 100);
+        }, 300);
     };
 
     const isActive = (path) => location.pathname === path;

@@ -44,7 +44,7 @@ function ConnectButtons() {
         if (section) {
             section.scrollIntoView({ behavior: "smooth" });
         }
-    }, 100);
+    }, 300);
 };
 
   return (
