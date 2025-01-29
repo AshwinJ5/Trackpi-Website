@@ -60,15 +60,15 @@ function Connect() {
       <section id='connectUsContainer' className="sectionn w-full  md:px-6 lg:px-20 xl:px-24 2xl:px-32 py-8 mx-auto">
         <Container fluid className="text-center ">
           <Row className="mt-2 md:mt-5">
-            <h1 className="ready mb-3   text-2xl md:text-4xl lg:text-5xl xl:text-[mainHeading] 2xl:text-6xl   font-bold connect-text-Color ">
+            <h1 className="ready mb-[10px] sm:mb-[13px] md:mb-[17px] lg:mb-[20px]      text-[18px]  sm:text-[30px] lg:text-[40px] xl:text-[50px]    font-bold connect-text-Color ">
               You’re ready to <br /> take the next step
             </h1>
 
-            <p className=" mb-5  text-xs md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 xl:leading-10 font-medium">
+            <div className="  text-[12px]  sm:text-lg lg:text-xl xl:text-xl 2xl:text-2xl  font-medium">
               We’re all wrestling with complexity. Every company, work function,
               and team now faces a tall order: to be more adaptive, strategic,
               effective, human, and equitable amidst growing uncertainty.
-            </p>
+            </div>
           </Row>
         </Container>
         <Container className="flex flex-col items-center">

@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import { GoUpload } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import BaseURL from '../../Api Services/baseURL';
-import formInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { toast } from 'react-toastify';
 import '../../CSS/User/FormProjectStyles.css';
@@ -23,7 +22,7 @@ const FormNewProject = () => {
     successReason: '',
     summary: '',
     skills: '',
-    agreeTerms: 'false',
+    agreeTerms: '',
   };
   const storedData = sessionStorage.getItem('formData');
   const [formData, setFormData] = useState(
@@ -40,11 +39,12 @@ const FormNewProject = () => {
   }, [formData]);
 
   // Handle input change
+
   const handleChange = e => {
-    const { id, value, type, checked } = e.target;
+    const { id, type, checked, value } = e.target;
     setFormData(prevData => ({
       ...prevData,
-      [id]: type === 'checkbox' ? checked : value, // ✅ Handle checkboxes correctly
+      [id]: type === 'checkbox' ? checked : value,
     }));
   };
 
@@ -138,12 +138,12 @@ const FormNewProject = () => {
 
   return (
     <>
-      <div className=" bg-white md:px-12 lg:px-0 py-3 ">
+      <div className="bg-white md:px-12 lg:px-0 py-3 ">
         <Form
           onSubmit={handleSubmit}
           className="flex flex-col  max-w-[712px] mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-4xl mx-auto text-sm sm:text-lg md:text-lg xl:text-lg xl-leading-7 2xl:leading-10 2xl:text-2xl"
         >
-          <div className=" formInput">
+          <div className="formInput">
             <Form.Control
               onFocus={e => {
                 e.target.classList.add('focus');
@@ -154,14 +154,14 @@ const FormNewProject = () => {
               type="text"
               id="fullName"
               placeholder="Full Name"
-              className="form-control place"
+              className="form-control place "
               value={formData.fullName}
               onChange={handleChange}
               required
             />
           </div>
 
-          <div className=" formInput">
+          <div className="formInput">
             <PhoneInput
               value={formData.contactNumber}
               country={'in'}
@@ -177,7 +177,7 @@ const FormNewProject = () => {
             />
           </div>
 
-          <div className=" formInput">
+          <div className="formInput">
             <Form.Control
               type="email"
               id="emailAddress"
@@ -207,13 +207,15 @@ const FormNewProject = () => {
                     required
                     className="user-type-radio"
                   />
-                  <span className="user-type-text">{option}</span>
+                  <span className="user-type-text md:text-[15px]">
+                    {option}
+                  </span>
                 </label>
               ))}
             </div>
           </div>
 
-          <div className=" formInput">
+          <div className="formInput">
             <Form.Select
               id="qualification"
               className="form-control place"
@@ -227,7 +229,7 @@ const FormNewProject = () => {
               onChange={handleChange}
               required
             >
-              <option value="" defaultValue disabled>
+              <option value="" disabled>
                 Qualification{' '}
               </option>
               <option value="MCA">MCA</option>
@@ -238,7 +240,7 @@ const FormNewProject = () => {
             </Form.Select>
           </div>
 
-          <div className=" formInput overflow-x-auto">
+          <div className="formInput overflow-x-auto">
             <Form.Control
               id="institute_company"
               placeholder="Institute/Company Name"
@@ -264,7 +266,7 @@ const FormNewProject = () => {
             </Form.Control>
           </div>
 
-          <div className=" formInput">
+          <div className="formInput">
             <Form.Control
               className="form-control place"
               onFocus={e => {
@@ -374,7 +376,7 @@ const FormNewProject = () => {
                 </>
               ) : (
                 <>
-                  <p className="mb-0 font-semibold">
+                  <p className="mb-0 font-semibold text-[14px]">
                     Upload Supporting Documents or Files
                   </p>
                   <GoUpload className="inline-block mx-1.5" />

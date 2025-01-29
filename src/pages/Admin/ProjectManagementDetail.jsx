@@ -88,7 +88,7 @@ function ProjectManagementDetail() {
         </div>
         <div className="flex gap-[40px] justify-between ">
           <div className="grid gap-[15px] w-100">
-            <div className="projectDetailsBorderDiv min-h-[110px]">
+            <div className="projectDetailsBorderDiv min-h-[110px] grid gap-[15px]">
               <div className="text-[18px]">Project/Idea Name</div>
               <div className="text-[20px] font-bold">
                 {mockData.projectName}
@@ -105,7 +105,7 @@ function ProjectManagementDetail() {
                 overflow: 'auto',
               }}
             >
-              <div className="text-[18px]">
+              <div className="text-[18px] pb-[15px] ">
                 What Problem Does Your Idea Solve?
               </div>
               <div className="text-[20px] font-bold">
@@ -114,7 +114,7 @@ function ProjectManagementDetail() {
             </div>
 
             <div className="projectDetailsBorderDiv min-h-[180px]">
-              <div className="text-[18px]">
+              <div className="text-[18px] pb-[15px]">
                 Who would benefit from this idea?
               </div>
               <div className="text-[20px] font-bold">
@@ -134,7 +134,7 @@ function ProjectManagementDetail() {
                 overflow: 'auto',
               }}
             >
-              <div className="text-[18px]">
+              <div className="text-[18px] pb-[15px]">
                 Do You Have Any Business or Technical Skills?
               </div>
               <div className="text-[20px] font-bold">{mockData.skills}</div>
@@ -150,7 +150,7 @@ function ProjectManagementDetail() {
                 overflow: 'auto',
               }}
             >
-              <div className="text-[18px]">
+              <div className="text-[18px] pb-[15px]">
                 Why Do You Think This Idea Will Succeed?
               </div>
               <div className="text-[20px] font-bold">
@@ -168,7 +168,7 @@ function ProjectManagementDetail() {
                 overflow: 'auto',
               }}
             >
-              <div className="text-[18px]">Summarize your project ideas.</div>
+              <div className="text-[18px] pb-[15px]">Summarize your project ideas.</div>
               <div className="text-[20px] font-bold">{mockData.summary}</div>
             </div>
           </div>

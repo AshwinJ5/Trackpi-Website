@@ -64,7 +64,7 @@ function OurTeam() {
     <>
       <section className="flex justify-center items-center  h-full w-full px-4 ">
         <div className="  flex flex-col items-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-[#FF9D00] hiring_heading">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl text-[#FF9D00] font-bold hiring_heading">
             Who We Are?
           </h1>
         </div>
@@ -279,7 +279,9 @@ function OurTeam() {
         <Container fluid>
           <Row>
             <h1 className="fw-bold text-center text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-2   flex justify-center ">
+
               The Trackpi from A–Z
+
             </h1>
           </Row>
           {loading ? (
