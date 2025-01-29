@@ -43,7 +43,6 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bulgingCard, setBulgingCard] = useState(0);
   const [groupedCards, setGroupedCards] = useState([]);
-  console.log(groupedCards, 'groupedCards');
   const [cardsPerGroup, setCardsPerGroup] = useState(
     window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 3 : 4
   );
@@ -205,7 +204,6 @@ function Home() {
     const getNews = async () => {
       try {
         const response = await baseURL.get('api/news/newsdetails');
-        console.log(response.data); // Check if all cards have `updatedAt`
         const sortedCards = response.data
           .filter(card => card.updatedAt) // Exclude cards without `updatedAt`
           .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)) // Sort descending
@@ -222,7 +220,6 @@ function Home() {
     const getClients = async () => {
       try {
         const response = await baseURL.get('api/partner/getpartner');
-        console.log(response.data, 'clientsData');
         setClientsLogo(response.data); // Set the fetched data in clientsLogo state
       } catch (e) {
         console.error(e);
@@ -439,10 +436,15 @@ function Home() {
                   const globalIndex = currentIndex * cardsPerGroup + index + 1;
 
                   return (
-                    <span key={index}>
-                      {bulgingCard === index
-                        ? `${globalIndex}/${cards.length}`
-                        : ''}
+                    <span key={index} className="text-[12px]">
+                      {bulgingCard === index ? (
+                        <>
+                          <span className="text-[#FFC100]">{globalIndex}</span>
+                          /{cards.length}
+                        </>
+                      ) : (
+                        ''
+                      )}
                     </span>
                   );
                 })}
