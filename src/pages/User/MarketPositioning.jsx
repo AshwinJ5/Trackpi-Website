@@ -36,13 +36,13 @@ const MarketPositioning = () => {
                 animate={inViewMainHeading ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: .5 }}  className="mx-auto grid max-w-[1048px] gap-[10px] sm:gap-[15px] md:gap-[20px] lg:gap-[25px] xl:gap-[30px] ">
                 <div
-                    style={{ textShadow: "2px 4px  4px #0A0A0A33", color: "white" }}
+                    style={{ textShadow: "2px 4px  4px #0A0A0A33", color: "#0A0A0A" }}
                     className="text-center text-[20px] sm:text-[24px] md:text-[30px] lg:text-[40px] xl:text-[44px] 2xl:text-[60px] font-bold"
                 >
                     Market Positioning & Branding
                 </div>
                 <div
-                    style={{ color: "white" }}
+                    style={{ color: "#0A0A0A" }}
                     className="font-semibold text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[25px]  justify_para max-w-[700px]"
                 >
                     These tailored strategies we offer for market positioning and branding will help your business create its own market identity and build trust to earn a competitive edge in the industry.
