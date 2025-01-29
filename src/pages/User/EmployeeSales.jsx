@@ -27,7 +27,7 @@ const businessCardURL = `${SERVER_URL}${employeeData.businessCard}`;
        <EmpDetails employeeData={employeeData}/>
            <div className="  text-center flex justify-center mt-19 md:mt-19 2xl:mt-8 ">
                 <div
-                  className="w-[225px] md:w-[500px] h-[300px] rounded-lg flex justify-center items-center"
+                  className="w-[225px] sm:w-[225px] md:w-[300px] lg:[500px]  h-[121px] sm:h-[121px] md:h-[170px] lg:[300px] rounded-lg flex justify-center items-center"
                   style={{ backgroundColor: '#2A2A2A' }}
                 >    {employeeData.businessCard ? (
                   <img

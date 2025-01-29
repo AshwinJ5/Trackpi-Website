@@ -279,7 +279,9 @@ function OurTeam() {
         <Container fluid>
           <Row>
             <h1 className="fw-bold text-center text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-2   flex justify-center ">
-              The TrackPi from A–Z
+
+              The Trackpi from A–Z
+
             </h1>
           </Row>
           {loading ? (

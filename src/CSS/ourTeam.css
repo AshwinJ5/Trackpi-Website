@@ -87,7 +87,7 @@
 
     /* Center the entire row of cards */
     transform: translateX(0); /* Ensure no shift occurs */
-    gap: 10px; /* Space between slides */
+    /* gap: 10px; Space between slides */
   }
 
   .slide-1 {
@@ -127,7 +127,7 @@
   .clients-carousel > .flex {
     justify-content: center;
     transform: translateX(0); /* Ensure proper alignment */
-    gap: 20px; /* Space between slides */
+    /* gap: 20px; Space between slides */
   }
 }
 @media (max-width: 1308px) and (min-width: 1206px) {
@@ -220,6 +220,12 @@
     align-items: center;
   }
 }
+@media (max-width: 753px) and (min-width: 651px) {
+  .CardsDots{
+    padding-bottom: 30px;
+  }
+
+}
 @media (max-width: 1509px) and (min-width: 1737px) {
   .card-cl {
     /* Full width minus 80px margin on both sides */
@@ -235,7 +241,7 @@
     width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
     margin: 0 auto; /* Center the slide horizontally */
     justify-content: center;
-    gap: 20px; /* Space between cards */
+    /* gap: 20px; Space between cards */
   }
 
   .med11 {
@@ -243,10 +249,10 @@
     margin: 0 auto; /* Center the container */
   }
 
-  /* Optional: Adjust the gap to control spacing between the cards */
+  /* Optional: Adjust the gap to control spacing between the cards
   .clients-carousel > .flex {
-    gap: 20px; /* Space between the cards inside the carousel */
-  }
+    gap: 20px; 
+ } */
   .logo {
     height: auto;
     max-height: 110px;
@@ -282,7 +288,7 @@
     width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
     margin: 0 auto; /* Center the slide horizontally */
     justify-content: center;
-    gap: 20px; /* Space between cards */
+    /* gap: 20px; Space between cards */
   }
 
   .med11 {
@@ -324,7 +330,7 @@
     width: calc(100% - 160px); /* Full width minus 80px margin on both sides */
     margin: 0 auto; /* Center the slide horizontally */
     justify-content: center;
-    gap: 20px; /* Space between cards */
+    /* gap: 20px; Space between cards */
   }
 
   .med11 {
@@ -332,10 +338,7 @@
     margin: 0 auto; /* Center the container */
   }
 
-  /* Optional: Adjust the gap to control spacing between the cards */
-  .clients-carousel > .flex {
-    gap: 20px; /* Space between the cards inside the carousel */
-  }
+  
   .logo {
     height: auto;
     max-height: 110px;
@@ -386,7 +389,7 @@
 
 .card-cl:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(255, 100, 0, 0.7);
+  box-shadow: 0 10px 30px rgba(255, 102, 0, 0.033);
 }
 
 .logo {
@@ -488,11 +491,7 @@
     margin: 0 auto;
   }
 }
-@media (max-width: 426px) {
-  .med11 {
-    /* padding: 30px; */
-  }
-}
+
 
 @media (max-width: 310px) {
   .card-cl {

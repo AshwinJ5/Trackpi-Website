@@ -19,7 +19,7 @@ function MemberCard({ employee, onCardClick }) {
   return (
     <div className=" p-1 md:p-4">
       <div
-        className="w-[210px] md:w-full bg-white shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+        className="w-[200px] md:w-full bg-white shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer"
         onClick={onCardClick} // Trigger the modal opening
       >
         <div className="relative overflow-hidden">
