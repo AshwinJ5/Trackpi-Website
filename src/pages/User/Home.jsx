@@ -1,6 +1,6 @@
 // Created by Shalu
 import React, { useState, useEffect, useRef } from 'react';
-import {  Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useInView } from '../../components/User/UseInView';
 import { Link } from 'react-router-dom';
@@ -269,7 +269,7 @@ function Home() {
         class123="headerbannerCenterContent"
         description={
           <>
-            Trackpi your{' '}
+            Trackpi, your{' '}
             <a
               href="/about-trackpi"
               target="_blank"
@@ -281,11 +281,11 @@ function Home() {
               }}
             >
               trusted business consulting firm
-            </a>{' '}
-            helps you turn insights into actions. Our team will design
-            strategies and assists you with decision making and other challenges
-            you may face resulting in streamlining your processes and increasing
-            your chances of success with us.
+            </a>
+            , helps you turn insights into actions. Our team will design
+            strategies and assist you with decision-making and other challenges
+            you may face, resulting in streamlining your processes and
+            increasing your chances of success with us.
           </>
         }
         brochure
@@ -439,8 +439,8 @@ function Home() {
                     <span key={index} className="text-[12px]">
                       {bulgingCard === index ? (
                         <>
-                          <span className="text-[#FFC100]">{globalIndex}</span>
-                          /{cards.length}
+                          <span className="text-[#FFC100]">{globalIndex}</span>/
+                          {cards.length}
                         </>
                       ) : (
                         ''
@@ -515,12 +515,13 @@ function Home() {
               maintaining growth, adapting to market trends, and staying
               competitive can quickly become overwhelming. Without trusted
               business consultants in Kerala, companies may face compliance
-              risks and higher costs, hindering their potential for success. At
-              Trackpi, the leading business consulting firm in Kerala, we
+              risks and higher costs, hindering their potential for success.
+              <br />
+              At Trackpi, the leading business consulting firm in Kerala, we
               specialize in addressing these challenges head-on. Our expert
               business management consultants provide detailed strategy planning
-              and innovative solutions to help businesses thrive. Ready to
-              unlock your business’s true potential? Don’t wait—
+              and innovative solutions to help businesses thrive. <br />
+              Ready to unlock your business’s true potential? Don’t wait—
               <a
                 href="/contact-us"
                 target="_blank"
@@ -533,7 +534,7 @@ function Home() {
               >
                 contact{' '}
               </a>{' '}
-              Trackpi today for a brighter, more successful future. &nbsp;
+              Trackpi today for a brighter, more successful future.
               {/* <a
                 href="/business-consulting-services"
                 target="_blank"
@@ -615,18 +616,19 @@ function Home() {
               animate={{ y: isInView2 ? 5 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              Every business has untapped potential waiting to be unlocked. To
+              Every business has secret strengths just waiting to shine. To
               truly grow and succeed, companies must embrace innovative ideas
-              and creative strategies. Businesses are dynamic ecosystems,
-              constantly evolving and adapting. With the guidance of a trusted
-              business consultant in Kerala, you can break free from outdated
-              habits and discover new opportunities for growth. At Trackpi, the
-              leading business consulting firm in Kerala, we help businesses
-              build future-ready capabilities. Our expert consultants deliver
-              strategies that empower companies to become more resilient,
-              innovative, and successful in today’s competitive market. It’s
-              time to see your business in a new light. Let Trackpi show you a
-              different way forward.
+              and creative strategies. Businesses are always changing and
+              growing, finding new ways to improve and succeed. With the
+              guidance of a trusted business consultant in Kerala, you can break
+              free from outdated habits and discover new opportunities for
+              growth. <br />
+              At Trackpi, the leading business consulting firm in Kerala, we
+              help businesses build future-ready capabilities. Our expert
+              consultants deliver strategies that empower companies to become
+              more resilient, innovative, and successful in today’s competitive
+              market. <br /> It’s time to see your business in a new light. Let
+              Trackpi show you a different way forward.
             </motion.p>
           </div>
         </motion.div>
@@ -662,7 +664,7 @@ function Home() {
               for the challenges of tomorrow, enabling you to outperform the
               competition. Don’t let old practices hinder your success. Partner
               with Trackpi and discover the transformative potential of modern,
-              market-driven strategies. .
+              market-driven strategies.
             </motion.p>
           </div>
           <div className="w-full  flex flex-col justify-center md:justify-end">
