@@ -104,14 +104,11 @@ function OurTeam() {
               animate={inViewFirstSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              Trackpi is one of the best business consultants in Kerala,
-              assisting clients in fulfilling their objectives. Based in Kochi,
-              our team is highly experienced in developing strategies that
-              promote growth and development. With our expert commercial
-              development consulting services, we help businesses thrive in a
-              competitive environment. As one of the leading business
-              consultants in Kerala, we confidently position ourselves as the
-              most qualified firm to excel in this field.
+              Trackpi is one of the best business consultants in Kerala, assisting clients in fulfilling their objectives.
+               Based in Kochi, our team is highly experienced in developing strategies that promote growth and development.
+                With our expert commercial development consulting services, we help businesses thrive in a competitive environment.
+                 As one of the leading business consultants in Kerala, we confidently position ourselves as the most qualified firm to excel in this field.
+
             </motion.p>
           </div>
           <div className="md:w-1/2 flex md:justify-end hidden md:block">
@@ -183,13 +180,11 @@ function OurTeam() {
               animate={inViewSecondSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              The Trackpi team is dedicated to ensuring the success of your
-              business. Each team member brings extensive experience and a range
-              of skills tailored to meet your business needs. We work
-              collaboratively to achieve excellent results for your company,
-              helping you reach your goals and expand your operations. Our
-              commitment to excellence ensures that we make significant strides
-              towards your business’s success.
+              The Trackpi team is dedicated to ensuring the success of your business. 
+              Each team member brings extensive experience and a range of skills tailored to meet your business needs. 
+              We work collaboratively to achieve excellent results for your company, helping you reach your goals and expand your operations.
+               Our commitment to excellence ensures that we make significant strides towards your business’s success.
+
             </motion.p>
           </div>
         </motion.div>
@@ -230,11 +225,10 @@ function OurTeam() {
               animate={inViewThirdSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              Trackpi is excited to offer you an opportunity to join us, even
-              without prior experience. If you're looking to earn additional
-              income, look no further-Trackpi provides the perfect platform to
-              get started. All you need is passion and skills to embark on your
-              journey.
+             Trackpi is excited to offer you an opportunity to join us, even without prior experience. 
+             If you're looking to earn additional income, look no further—Trackpi provides the perfect platform to get started. 
+             All you need is passion and skills to embark on your journey.
+
             </motion.p>
             <motion.div
               className="secondp text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  md:mt-8 mb-3 text-justify"
@@ -242,13 +236,10 @@ function OurTeam() {
               animate={inViewThirdSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              Trackpi welcomes freelancers at various stages of life-students,
-              working professionals, and even senior citizens seeking
-              self-enhancement and accomplishment. Work from home and
-              potentially earn more while being part of a thriving freelance
-              community. Join us today to take advantage of opportunities that
-              foster your growth and development while contributing to a diverse
-              and dynamic community.
+     Trackpi welcomes freelancers at various stages of life—students, working professionals, 
+     and even senior citizens seeking self-enhancement and accomplishment.
+      Work from home and potentially earn more while being part of a thriving freelance community.
+       Join us today to take advantage of opportunities that foster your growth and development while contributing to a diverse and dynamic community.
               <br />
               <div className="flex justify-center md:justify-start">
                 <Button
