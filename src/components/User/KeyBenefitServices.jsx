@@ -10,15 +10,15 @@ function KeyBenefitServices() {
     const features = [
         {
             name: "Increased Output",
-            description: "Encourage your team to have efficient and effective processes in place so that they can do more in less time",
+            description: "Encourage your team to have efficient and effective processes in place so that they can do more in less time.",
         },
         {
-            name: "Strengthened Team Work",
-            description: " Encourage operational success by improving teamwork and communication and ensuring everyone is working towards the same goal",
+            name: "Strengthened Teamwork",
+            description: " Encourage operational success by improving teamwork and communication and ensuring everyone is working towards the same goal.",
         },
         {
             name: "Profitable Growth",
-            description: "Develop methods that can be expanded while still remaining effective and profitable for the organization in the long run",
+            description: "Develop methods that can be expanded while still remaining effective and profitable for the organization in the long run.",
         },
     ];
     return (

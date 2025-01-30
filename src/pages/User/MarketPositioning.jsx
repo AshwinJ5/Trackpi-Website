@@ -16,17 +16,17 @@ const MarketPositioning = () => {
             img: maketingImg1,
             title: "Customized Operators Strategy",
             description:
-                "Customized Operators Strategy - We create Branding tailored operator strategies that will speak to your audience for conveying a clear message and are suitable on the market",
+                "We create branding tailored operator strategies that will speak to your audience for conveying a clear message and are suitable on the market.",
         },
         {
             img: maketingImg2,
             title: "Market & Competitor Research",
-            description: "Use comprehensive market research and analysis to support conclusions made on how to position the brand in the market",
+            description: "Use comprehensive market research and analysis to support conclusions made on how to position the brand in the market.",
         },
         {
             img: maketingImg3,
             title: "Cultivating Customers Loyalty",
-            description: "We aim at achieving the goal of bringing customer-centric experiences to life through closure",
+            description: "We aim at achieving the goal of bringing customer-centric experiences to life through closure.",
         },
     ];
    
