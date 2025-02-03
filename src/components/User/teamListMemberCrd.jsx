@@ -41,8 +41,8 @@ import "../../CSS/teamListMember.css";
   };
 
 
-     // Slice employees array to limit to 6 employees 
-  const displayedEmployees = employees?.slice(0, 6);
+  //    // Slice employees array to limit to 6 employees 
+  // const displayedEmployees = employees?.slice(0, 6);
 
 
     return (
@@ -52,8 +52,8 @@ import "../../CSS/teamListMember.css";
                    <div className="relative w-screen md:w-auto md:gap-8 ">
                         <div 
                             ref={scrollRef}
-                            className="flex overflow-x-auto  space-x-0  scroll-snap-x scroll-snap-mandatory  md:grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:gap-8">
-                           {displayedEmployees?.map((employee, index) => (
+                            className="flex overflow-x-auto  space-x-0  scroll-snap-x scroll-snap-mandatory  md:grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:gap-8  md:justify-center lg:justify-center">
+                           {employees?.map((employee, index) => (
     <div key={employee._id || index}  className="min-w-[full] md:min-w-0 flex-shrink-0 scroll-snap-align-start" >
         <MemberCard employee={employee} onCardClick={() => handleCardClick(employee)} />
     </div>
@@ -61,6 +61,7 @@ import "../../CSS/teamListMember.css";
                                  
                                 
                         </div>
+                         
                          {/* Scroll Buttons (Only for Mobile Screens) */}
                         <div className="md:hidden flex justify-between items-center mt-4">
                         <button

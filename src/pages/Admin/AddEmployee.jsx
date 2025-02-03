@@ -18,6 +18,7 @@ function AddEmployee ()  {
   const [profileImage, setProfileImage] = useState(null);
   const adminToken = localStorage.getItem('adminToken');  
   const [refresh, setRefresh] = useState('');
+  const [imageError, setImageError] = useState("");
   const fileInputRef = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -85,25 +86,64 @@ function AddEmployee ()  {
       };
     
       const handleFileChange = (e) => {
-        if (e.target.files && e.target.files[0]) {
-          setProfileImage(e.target.files[0]);
+        const file = e.target.files[0];
+        if (!file) return;
+    
+        const validExtensions = ["image/jpeg", "image/png", "image/gif"];
+        if (!validExtensions.includes(file.type)) {
+          setImageError("Invalid file type. Upload JPEG, PNG, or GIF.");
+          return;
         }
-      };
-      const validateImage = (file) => {
-        if (file) {
-          const validExtensions = ["image/jpeg", "image/png", "image/gif"];
-          if (!validExtensions.includes(file.type)) {
-            toast.error("Please upload a valid image (JPEG, PNG, GIF)");
-            return false;
+    
+        if (file.size > 5 * 1024 * 1024) { // 5MB limit
+          setImageError("File size must be less than 5MB.");
+          return;
+        }
+    
+        const img = new Image();
+        img.src = URL.createObjectURL(file);
+        img.onload = () => {
+          if (img.width !== 400 || img.height !== 286) {
+            setImageError("Image dimensions must be 400x286 pixels.");
+          } else {
+            setImageError("");
+            setProfileImage(file);
           }
-          return true;
-        }
-        return true;
+        };
+        
       };
-     
+       // Validate the image
+  const validateImage = (image) => {
+    const validExtensions = ["image/jpeg", "image/png", "image/gif"];
+    if (!validExtensions.includes(image.type)) {
+      toast.error("Invalid file type. Upload JPEG, PNG, or GIF.");
+      return false;
+    }
+
+    if (image.size > 5 * 1024 * 1024) { // 5MB limit
+      toast.error("File size must be less than 5MB.");
+      return false;
+    }
+
+    const img = new Image();
+    img.src = URL.createObjectURL(image);
+    img.onload = () => {
+      if (img.width !== 400 || img.height !== 286) {
+        toast.error("Image dimensions must be 400x286 pixels.");
+        return false;
+      }
+    };
+
+    return true; // If all checks pass, return true
+  };
+
       const handleSubmit = async (e) => {
         e.preventDefault();
         const empID = formData.empID;
+        if (imageError) {
+          toast.error(imageError);
+          return;
+        }
         // Validate name length
 const name = formData.name.trim();
 if (name.length < 3 || name.length > 64) {
@@ -281,6 +321,7 @@ if (!emailPattern.test(email)) {
                           accept="image/*"
                           onChange={handleFileChange}
                         />
+                         {imageError && <p style={{ color: "red", fontSize: "9px" }}>{imageError}</p>}
                       </div>
                       <div className="mt-5 flex-grow-1 row justify-evenly">
                         <div className="col-md-3">
