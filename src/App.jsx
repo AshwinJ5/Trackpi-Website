@@ -33,6 +33,7 @@ import AddSales from'./pages/AddSales';
 import AddEmployee from'./pages/AddEmployee';
 import AddInterns from'./pages/AddInterns';
 import EmployeeManagementDetail from'./pages/EmployeeManagementDetail';
+import JobFairReg from './pages/JobFair/JobFairReg';
 
 
 
@@ -103,6 +104,10 @@ function App() {
           {showHeaderFooterSocialMedia && <Footer />}
           </>
       )}
+
+      <Routes>
+        <Route path='/jobfair' element={<JobFairReg />} />
+      </Routes>
     </>
   );
 }
