@@ -2,6 +2,7 @@ import React from "react";
 import HeaderBanner from "../../components/User/HeaderBanner";
 import { Container, Row } from "react-bootstrap";
 import FormNewProject from "../../components/User/FormNewProject";
+import ConnectButtons from "../../components/ConnectButtons";
 
 const NewProject = () => {
     return (
@@ -25,6 +26,7 @@ const NewProject = () => {
                     </div>
                 </Container>
             </section>{" "}
+            <ConnectButtons/>
         </div>
     );
 };

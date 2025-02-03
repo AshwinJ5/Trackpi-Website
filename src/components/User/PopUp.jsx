@@ -52,7 +52,7 @@ function PopUp() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShow(true);
-        }, 30000);
+        }, 20000);
         return () => clearTimeout(timer);
     }, []);
 // console.log(newDatas);
@@ -198,25 +198,25 @@ const handlePhoneChange = (value, country) => {
                     <div className="w-full   mx-auto">
                         <div className="flex justify-around  flex-row popupIcons">
                             <Link target="_blank" to={"https://www.facebook.com/profile.php?id=61565947096778"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={fbIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={fbIcon} alt="" />
                             </Link>
                             <Link target="_blank" to={"https://www.youtube.com/@trackpi"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={youtubeIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={youtubeIcon} alt="" />
                             </Link>
                             <Link target="_blank" to={"https://www.instagram.com/trackpi_official?igsh=YmwyaHpzYXBueWJz"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={instagramIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={instagramIcon} alt="" />
                             </Link>
                             <Link target="_blank" to={"https://medium.com/@trackpi"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={mediumIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={mediumIcon} alt="" />
                             </Link>
                             <Link target="_blank" to={"https://www.linkedin.com/company/trackpi-private-limited/?viewAsMember=true"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={linkedinIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={linkedinIcon} alt="" />
                             </Link>
                             <Link target="_blank" to={"https://www.quora.com/profile/Trackpi-Private-Limited"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={quoraIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={quoraIcon} alt="" />
                             </Link>
                             <Link target="_blank" to={"https://trackpi.blogspot.com/"}>
-                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px]" src={bloggerIcon} alt="" />
+                                <img className="h-[20px] sm:h-[24px] md:h-[28px] lg:h-[32px] xl:h-[35px] w-[20px] sm:w-[24px] md:w-[28px] lg:w-[32px] xl:w-[35px]" src={bloggerIcon} alt="" />
                             </Link>
                         </div>
                     </div>
