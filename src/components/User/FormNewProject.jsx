@@ -7,6 +7,7 @@ import 'react-phone-input-2/lib/style.css';
 import { toast } from 'react-toastify';
 import '../../CSS/User/FormProjectStyles.css';
 import PhoneInput from 'react-phone-input-2';
+import ConnectUsPopup from './ConnectUsPopup';
 
 const FormNewProject = () => {
   const initialFormData = {
@@ -28,6 +29,8 @@ const FormNewProject = () => {
   const [formData, setFormData] = useState(
     storedData ? JSON.parse(storedData) : initialFormData
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+    
   console.log(formData, 'formDataa');
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -118,7 +121,7 @@ const FormNewProject = () => {
       setFileName('');
       sessionStorage.removeItem('formData'); // Clear stored data after submission
 
-      toast.success('Project submitted successfully!');
+      setIsModalOpen(true)
     } catch (error) {
       console.error('Error response:', error);
 
@@ -414,6 +417,7 @@ const FormNewProject = () => {
           </div>
         </Form>
       </div>
+      {isModalOpen?<ConnectUsPopup project={true}  onClose={() => setIsModalOpen(false)}/>:null}
     </>
   );
 };

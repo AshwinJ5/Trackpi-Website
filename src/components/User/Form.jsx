@@ -5,6 +5,7 @@ import baseURL from '../../Api Services/baseURL';
 import { toast } from 'react-toastify';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import ConnectUsPopup from './ConnectUsPopup';
 
 function Details() {
   const [newDatas, setNewDatas] = useState({
@@ -15,7 +16,7 @@ function Details() {
     info_from: '',
     message: '',
   });
-  // console.log(newDatas);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [selectClass, setSelectClass] = useState('selectConnect');
 
@@ -63,7 +64,7 @@ function Details() {
       });
 
       if (response.status === 201) {
-        toast.success(' Datas submitted successfully!');
+        setIsModalOpen(true);
         setNewDatas({
           fullName: '',
           phone: '91',
@@ -312,7 +313,8 @@ function Details() {
           </div>
         </div>
       </Form>
-    </div>
+      {isModalOpen?<ConnectUsPopup  onClose={() => setIsModalOpen(false)}/>:null}
+          </div>
   );
 }
 

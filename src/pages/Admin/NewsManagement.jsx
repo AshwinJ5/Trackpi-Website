@@ -19,7 +19,7 @@ const NewsManagement = () => {
     const [dataDeleted, setDataDeleted] = useState("");
     const [headingEditMode, setHeadingEditMode] = useState(false);
 
-    const [heading, setHeading] = useState({});
+    const [heading, setHeading] = useState({ newsHeading: "" });
 
     const navigate = useNavigate();
     const location = useLocation();

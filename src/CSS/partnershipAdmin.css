@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .partnerInput , .partnerContainer , .footerBanner{
     box-shadow: -2px 2px 4px 0 #0A0A0A26, 2px 1px 4px 0 #0A0A0A26;
 }
@@ -14,7 +18,6 @@
 /* news management */
 .newsBtn{
     border: 2px #0A0A0A solid;
-    width: max-content;
     color: #0A0A0A;
 
 }
@@ -35,4 +38,76 @@
     border-radius: 10px;
     font-size: 18px;
     font-weight: 700;
+}
+
+
+
+
+.k2d-thin {
+    font-family: "K2D", serif;
+  }
+  
+  .montserrat {
+    font-family: "Montserrat", serif;
+  }
+  
+  
+  .connectusModalMain .connectusModal{
+    background: url('../images/popupbg.svg') no-repeat !important;
+    background-position: right !important;
+    background-size: contain !important;
+  }
+  @media (max-width: 640px) {
+    .connectusModalMain .connectusModal{
+        background: none !important;
+      }
+  }
+  @media (max-width: 393px) {
+.connectusModalMain .connectusModal{
+    gap:30px;
+}
+  .connectusModalMain .connectPopupDivOuter{
+    width: 85%;
+  }
+  .connectusModalMain .connectPopupDivOuter .headingOne{
+    font-size: 16px;
+  }
+  .connectusModalMain .connectPopupDivOuter .headingTwo{
+    font-size: 14px;
+    gap: 30px;
+    line-height: 19.2px;
+  }
+  .connectusModalMain .connectPopupDivOuter .headingThree{
+    font-size: 10px;
+  }
+  .connectusModalMain .connectPopupDivOuter .sectionOne{
+    font-size: 10px;
+  }
+}
+  @media (max-width: 640px) {
+    .connectusModalMain .connectPopupDivOuter .headingThree{
+    text-align: justify;
+    text-align-last: center;
+    }
+  }
+  @media (max-width: 363px) {
+.connectusModalMain .connectusModal{
+    gap:25px;
+}
+  .connectusModalMain .connectPopupDivOuter{
+    width: 85%;
+  }
+  .connectusModalMain .connectPopupDivOuter .headingOne{
+    font-size: 15px;
+  }
+  .connectusModalMain .connectPopupDivOuter .headingTwo{
+    font-size: 12px;
+    gap: 25px;
+  }
+  .connectusModalMain .connectPopupDivOuter .headingThree{
+    font-size: 9px;
+  }
+  .connectusModalMain .connectPopupDivOuter .sectionOne{
+    font-size: 10px;
+  }
 }
