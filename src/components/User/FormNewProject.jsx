@@ -398,12 +398,13 @@ const FormNewProject = () => {
               className="form-checkbox border-gray-300"
               required
             />
-            <label htmlFor="agreeTerms" className="text-sm">
+            <label htmlFor="agreeTerms" className="text-sm mx-2">
+              <span className="text-[#0A0A0A]">Agreement to</span>
               <Link
                 to="/termsconditions-submit-new-project"
-                className="text-[#FF9D00] font-bold items-center text-[14px] no-underline mx-2 cursor-pointer "
-              >
-                Agreement to Terms & Conditions
+                className="text-[#FF9D00] font-bold items-center text-[14px] mx-2 cursor-pointer underline decoration-yellow-400 decoration-2 underline-offset-4"
+                >
+                Terms & Conditions
               </Link>
             </label>
           </div>
