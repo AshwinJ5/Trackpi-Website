@@ -21,34 +21,20 @@ const PartnershipManagement = () => {
     const [fileName, setFileName] = useState("Upload Image");
         const [headingEditMode, setHeadingEditMode] = useState(false);
         const [subHeadingEditMode, setSubHeadingEditMode] = useState(false);
-            const[heading,setHeading]=useState({})
+        const [heading, setHeading] = useState({ partnershipHeading: "" ,partnershipSubHeading:""});
         
-    
-    // console.log(editPartnershipDatas);
-
     // modal
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [dataDeleted, setDataDeleted] = useState("");
 
-    // const handleFileChange1 = (event) => {
-    //     const file1 = event.target.files[0];
-    //     if (file1) {
-    //         setFileName1(file1.name);
-    //     }
-    // };
-    // const handleRemoveFile1 = () => {
-    //     setFileName1(null);
-    //     document.getElementById("fileInput1").value = "";
-    // };
-
     const uploadImageAdd = (e) => {
         const file = e.target.files[0];
         if (file) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)&& file.size < 5 * 1024 * 1024) {
                 setPatnershipDatas({ ...patnershipDatas, companylogo: file });
                 setFileName(file.name);
             } else {
-                toast.info("Please upload a file in JPG, JPEG, or PNG format.");
+                toast.info("Upload a JPG, JPEG, or PNG file under 5 MB.");
                 setPatnershipDatas({ ...patnershipDatas, companylogo: null });
                 setFileName("Upload Image");
             }
@@ -58,11 +44,11 @@ const PartnershipManagement = () => {
     const uploadImageEdit = (e) => {
         const file = e.target.files[0];
         if (file) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)&& file.size < 5 * 1024 * 1024) {
                 setEditPartnershipDatas({ ...editPartnershipDatas, companylogo: file });
                 setFileName(file.name);
             } else {
-                toast.info("Please upload a file in JPG, JPEG, or PNG format.");
+                toast.info("Upload a JPG, JPEG, or PNG file under 5 MB.");
                 setEditPartnershipDatas({});
                 setFileName("Upload Image");
             }
@@ -357,6 +343,7 @@ const PartnershipManagement = () => {
                                             />
                                         </div>
                                         <div className="relative">
+                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please upload an image of aspect ratio between 1:1 and 2:1 (eg: 600px * 600px or 1200px * 600px) with transparent background</div>
                                             <input
                                                 type="file"
                                                 id="fileInput1"
@@ -440,6 +427,7 @@ const PartnershipManagement = () => {
                                             />
                                         </div>
                                         <div className="relative">
+                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please upload an image of aspect ratio between 1:1 and 2:1 (eg: 600px * 600px or 1200px * 600px) with transparent background</div>
                                             <input
                                                 type="file"
                                                 id="fileInput1"

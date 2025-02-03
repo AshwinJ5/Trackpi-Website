@@ -207,11 +207,11 @@ const FooterManagement = () => {
     const uploadVideoAdd1 = (e) => {
         const file1 = e.target.files[0];
         if (file1) {
-            if (["video/mp4", "video/avi"].includes(file1.type)) {
+            if (["video/mp4", "video/avi"].includes(file1.type)&& file1.size < 10 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile1: file1 });
                 setFileNameVideo1(file1.name);
             } else {
-                toast.info("Please upload a file in AVI, MP4 format.");
+                toast.info("Upload a AVI or MP4 file under 10 MB.");
                 setFooterVideoDetails({ ...footerVideoDetails, videofile1: null });
                 setFileNameVideo1("Upload Video");
             }
@@ -221,11 +221,11 @@ const FooterManagement = () => {
     const uploadVideoAdd2 = (e) => {
         const file2 = e.target.files[0];
         if (file2) {
-            if (["video/mp4", "video/avi"].includes(file2.type)) {
+            if (["video/mp4", "video/avi"].includes(file2.type)&& file2.size < 10 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile2: file2 });
                 setFileNameVideo2(file2.name);
             } else {
-                toast.info("Please upload a file in AVI, MP4 format.");
+                toast.info("Upload a AVI or MP4 file under 10 MB.");
                 setFooterVideoDetails({ ...footerVideoDetails, videofile2: null });
                 setFileNameVideo2("Upload Video");
             }
@@ -236,11 +236,11 @@ const FooterManagement = () => {
         console.log(file3.type);
 
         if (file3) {
-            if (["video/mp4", "video/avi"].includes(file3.type)) {
+            if (["video/mp4", "video/avi"].includes(file3.type)&& file3.size < 10 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile3: file3 });
                 setFileNameVideo3(file3.name);
             } else {
-                toast.info("Please upload a file in AVI, MP4 format.");
+                toast.info("Upload a AVI or MP4 file under 10 MB.");
                 setFooterVideoDetails({ ...footerVideoDetails, videofile3: null });
                 setFileNameVideo3("Upload Video");
             }
@@ -249,11 +249,11 @@ const FooterManagement = () => {
     const uploadImageAdd = (e) => {
         const file4 = e.target.files[0];
         if (file4) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file4.type)) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file4.type)&& file4.size < 5 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, imagefile: file4 });
                 setFileNameImage(file4.name);
             } else {
-                toast.info("Please upload a file in JPG, JPEG, or PNG format.");
+                toast.info("Upload a JPG, JPEG, or PNG file under 5 MB.");
                 setFooterVideoDetails({ ...footerVideoDetails, imagefile: null });
                 setFileNameImage("Upload Image");
             }
@@ -631,8 +631,9 @@ const FooterManagement = () => {
                                 )}
                             </div>
                         </div>
-                        <div className="flex gap-[30px] items-center justify-start">
+                        <div className="flex gap-[30px] items-end justify-start">
                             <div className="relative w-[250px] ">
+                            <div className="text-[12px] font-semibold text-red-400 mb-2">*Please upload an image of aspect ratio 3.1:1  (eg: 1240px * 400px)</div>                    
                                 <input
                                     type="file"
                                     id="fileInput"

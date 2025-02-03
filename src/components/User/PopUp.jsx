@@ -15,6 +15,7 @@ import baseURL from "../../Api Services/baseURL";
 import { toast } from "react-toastify";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import ConnectUsPopup from "./ConnectUsPopup";
 
 function PopUp() {
     const [show, setShow] = useState(false);
@@ -29,6 +30,7 @@ function PopUp() {
         message:""
     })
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const options = [
@@ -83,7 +85,7 @@ const handlePhoneChange = (value, country) => {
             });            
 
             if (response.status === 201) {
-                toast.success(" Datas submitted successfully!");
+                setIsModalOpen(true);
                 setNewDatas({
                     fullName:"",
                     phone:"91",
@@ -220,6 +222,8 @@ const handlePhoneChange = (value, country) => {
                     </div>
                 </div>
             </Modal>
+            {isModalOpen?<ConnectUsPopup  onClose={() => setIsModalOpen(false)}/>:null}
+
         </div>
     );
 }

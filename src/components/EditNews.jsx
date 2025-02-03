@@ -25,11 +25,11 @@ function EditNews({ newsData, editOnclickForBack, index, getAllNews }) {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type) && file.size < 5 * 1024 * 1024) {
                 setEditNewsData({ ...editNewsData, newsFile: file });
                 setFileName(file.name);
             } else {
-                toast.info("Please upload a file in JPG, JPEG, or PNG format.");
+                toast.info("Upload a JPG, JPEG, or PNG file under 5 MB.")
                 setFileName("Upload Image");
                 setEditNewsData({ ...editNewsData, newsFile: "" });
             }
@@ -75,8 +75,8 @@ function EditNews({ newsData, editOnclickForBack, index, getAllNews }) {
     return (
         <form className="grid gap-[40px]" onSubmit={editNewsDataDetails}>
             <div className="flex justify-between items-end">
-                <div className="px-[20px] w-[103px] h-[42px] text-[18px] font-bold rounded-[10px] mx-auto newsBtn flex items-center">
-                    News {index + 1}
+                <div className=" w-[103px] h-[42px] text-[18px] font-bold rounded-[10px] mx-auto newsBtn flex items-center">
+                    <span className="mx-auto">News {index + 1}</span> 
                 </div>
 
                 <div className="w-[500px]">
@@ -92,8 +92,9 @@ function EditNews({ newsData, editOnclickForBack, index, getAllNews }) {
                     </div>
                 </div>
 
-                <div className="relative w-[250px] h-[42px] mx-auto">
-                    <input type="file" id="fileInput" className="hidden" onChange={handleFileChange} />
+                <div className="relative w-[250px] h-max mx-auto">
+                <div className="text-[12px] font-semibold text-red-400 mb-2">*Please upload an image of aspect ratio 1:1  (eg: 1075px * 1075px)</div>                    
+                <input type="file" id="fileInput" className="hidden" onChange={handleFileChange} />
                     <label
                         htmlFor="fileInput"
                         className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] rounded-[10px] h-[42px] text-[#FF9D00] cursor-pointer"

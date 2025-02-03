@@ -1,7 +1,6 @@
 import React from "react";
 import MarketPositioning from "./MarketPositioning";
 import PopUp from "../../components/User/PopUp";
-import ConnectButtons from "../../components/ConnectButtons";
 import HeaderBanner from "../../components/User/HeaderBanner";
 import ServicesSub from "../../components/User/ServicesSub";
 import financeImg1 from "../../images/fin1.png";
@@ -139,7 +138,6 @@ function OurServices() {
                     />
                 </section>
             </div>
-            <ConnectButtons />
         </div>
     );
 }

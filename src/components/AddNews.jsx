@@ -15,11 +15,11 @@ function AddNews({ newsData, getAllNews }) {
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         if (file) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)&& file.size < 5 * 1024 * 1024) {
                 setNewsDatas({ ...newsDatas, newsFile: file });
                 setFileName(file.name);
             } else {
-                toast.info("Please upload a file in JPG, JPEG, or PNG format.");
+                toast.info("Upload a JPG, JPEG, or PNG file under 5 MB.");
                 setNewsDatas({ ...newsDatas, newsFile: null });
                 setFileName("Upload Image");
             }
@@ -64,8 +64,8 @@ function AddNews({ newsData, getAllNews }) {
     return (
         <form className="grid gap-[40px]">
             <div className="flex justify-between items-end w-100">
-                <div className="px-[20px] w-[103px] h-[42px] text-[18px] font-bold rounded-[10px] mx-auto newsBtn flex items-center">
-                    <span>News {newsData.length + 1}</span>
+                <div className=" w-[103px] h-[42px] text-[18px] font-bold rounded-[10px] mx-auto newsBtn flex items-center">
+                <span className="mx-auto">News {newsData.length + 1}</span> 
                 </div>
                 <div className="w-[500px]">
                     <div className="grid gap-[10px]">
@@ -79,8 +79,8 @@ function AddNews({ newsData, getAllNews }) {
                         />
                     </div>
                 </div>
-
-                <div className="relative w-[250px] h-[42px] mx-auto">
+                <div className="relative w-[250px] h-max mx-auto">
+                    <div className="text-[12px] font-semibold text-red-400 mb-2">*Please upload an image of aspect ratio 1:1  (eg: 1075px * 1075px)</div>
                     <input
                         type="file"
                         id="fileInput"
