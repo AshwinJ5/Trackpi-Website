@@ -5,7 +5,7 @@
   position: fixed;
   bottom: 50px;
   right: 10px;
-  gap: 5px; 
+  gap: 5px;
   z-index: 3;
 }
 
@@ -24,16 +24,16 @@
 }
 
 .wrapper .button:nth-child(1) {
-  background: linear-gradient(to right, #FFDF41,#FF8800); 
+  background: linear-gradient(to right, #ffdf41, #ff8800);
 }
-.wrapper .button:nth-child(2){
-  background: #25D366;
+.wrapper .button:nth-child(2) {
+  background: #25d366;
 }
-.wrapper .button:nth-child(3){
-  background: #337FFF; 
+.wrapper .button:nth-child(3) {
+  background: #337fff;
 }
 .wrapper .button:nth-child(4) {
-  background: #419129; 
+  background: #419129;
 }
 
 .wrapper .button .icons {
@@ -45,7 +45,7 @@
   transition: all 0.25s ease-in-out;
 }
 /* Default Tooltip Styles */
-.react-tooltip {
+.wrapper .react-tooltip {
   color: black !important;
   font-size: 12px;
   padding: 8px;
@@ -54,15 +54,15 @@
 }
 
 #signal-tooltip {
-  background-color: #FFDF41; 
+  background-color: #ffdf41;
 }
 
 #whatsapp-tooltip {
-  background-color: #25D366; 
+  background-color: #25d366;
 }
 
 #connectus-tooltip {
-  background-color: #337FFF; 
+  background-color: #337fff;
 }
 
 #bot-tooltip {
@@ -70,18 +70,79 @@
 }
 
 
-@media screen and (max-width: 768px) {
-    .wrapper .button .icons  {
-        height: 20px;
-        width: 20px;
-    }
-    .wrapper .button  {
-        height: 30px;
-        width: 30px;
-    }
+
+.button:hover {
+  transform: scale(1.1);
 }
-@media (max-width: 640px) {
-  .wrapper{
-    display: none;
+
+/* Icon Image */
+.icons img {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper .button .icons  {
+      height: 27px;
+      width: 27px;
+  }
+  .wrapper .button  {
+      height: 45px;
+      width: 45px;
+  }
+  .wrapper .icons img {
+    width: 27px;
+    height: 27px;
   }
 }
+/* @media screen and (max-width: 1024px) {
+  .wrapper .button .icons  {
+      height: 24px;
+      width: 24px;
+  }
+  .wrapper .button  {
+      height: 38px;
+      width: 38px;
+  }
+  .wrapper .icons img {
+    width: 24px;
+    height: 24px;
+  }
+  
+} */
+@media screen and (max-width: 768px) {
+  .wrapper{
+    right: 5px;
+    gap: 5px;
+    bottom: 15px;
+
+  }
+  .wrapper .button .icons  {
+      height: 18.5px;
+      width: 18.5px;
+  }
+  .wrapper .button  {
+      height: 40px;
+      width: 40px;
+  }
+  .wrapper .icons img {
+    width: 18.5px;
+    height: 18.5px;
+  }
+  #signal-tooltip {
+    display:none;
+  }
+  
+  #whatsapp-tooltip {
+    display:none;
+  }
+  
+  #connectus-tooltip {
+    display:none;
+  }
+  
+  #bot-tooltip {
+    display:none;
+  }
+}
+

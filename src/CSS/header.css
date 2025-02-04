@@ -1,11 +1,9 @@
-
-
 /* Navbar base styles */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background:black;
+    background: rgba(0, 0, 0, 0.8);
     /* background: #595252; #feee9e; */
     color: white;
     padding: 15px 20px;
@@ -13,147 +11,183 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: transform 2s ease, opacity 2s ease;
-  }
-  .navbar img{
+}
+.navbar img {
     width: 112px;
-  }
-  @media (max-width: 640px) {
-  .navbar img{
-    width: 40px;
-  }
 }
-  @media (max-width: 992px) {
-  .navbar img{
-    width: 60px;
-  }
+@media (max-width: 640px) {
+    .navbar img {
+        width: 40px;
+    }
 }
-  @media (max-width: 1280px) {
-  .navbar img{
-    width: 80px;
-  }
+@media (max-width: 992px) {
+    .navbar img {
+        width: 60px;
+    }
 }
-  
-  
-  /* Hidden state */
-  .navbar.hidden {
+@media (max-width: 1280px) {
+    .navbar img {
+        width: 80px;
+    }
+    .navbar{
+        height: 70px;
+    }
+    .topBg::before{
+        position: relative;
+       }
+     .topBg{
+         height: 71px;
+         background-color: rgba(10, 10, 10,.8);
+         position: absolute;
+         top: 0;
+       }
+     
+}
+
+/* Hidden state */
+.navbar.hidden {
     transform: translateY(-100%);
     opacity: 0;
-  }
-  
-  /* Visible state */
-  .navbar.visible {
+}
+
+/* Visible state */
+.navbar.visible {
     transform: translateY(0);
     opacity: 1;
-  }
-  
-  .custom-dropdown .dropdown-menu {
-    background-color: white;
+}
+.navbar .dropdown-menu, .custom-dropdown .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.8)!important;
+    border: none;
     box-shadow: none;
     margin: 0;
-  }
-  
-  .custom-dropdown .dropdown-item {
+}
+@media (max-width: 992px) {
+    .navbar .dropdown-menu, .custom-dropdown .dropdown-menu{
+        background-color: rgb(255, 255, 255, .5) !important;
+        color: white;
+    }
+    .navbar-nav{
+        background-color: rgba(10, 10, 10, 0.8);
+    }
+}
+.custom-dropdown .dropdown-item {
     font-weight: 600;
-    color: #000;
-  }
-  
-  .custom-dropdown .dropdown-item:hover {
-    background-color: #FFC100;
-  }
-  
-  
-  
-  #navlink + .dropdown-menu .dropdown-toggle:first-of-type,#navlink + .dropdown-menu .dropdown-item  {
-    color: black; 
+    color: #0a0a0a;
+}
+
+.custom-dropdown .dropdown-item:hover {
+    background-color: #ffc100;
+}
+
+#navlink + .dropdown-menu .dropdown-toggle:first-of-type,
+#navlink + .dropdown-menu .dropdown-item {
+    color: #0a0a0a;
     font-weight: 500;
-  }
-  #navlink + .dropdown-menu .dropdown-toggle:first-of-type,
-  #navlink + .dropdown-menu .dropdown-item {
-    color: black;
+}
+#navlink + .dropdown-menu .dropdown-toggle:first-of-type,
+#navlink + .dropdown-menu .dropdown-item {
+    color: #0a0a0a;
     font-weight: 600;
-  
+
     text-align: center;
-  }
-  
-  #navlink + .dropdown-menu .dropdown-toggle:first-of-type:hover,#navlink + .dropdown-menu .dropdown-item:hover  {
-    background-color: #FFC107; 
-    color: #000;
-  }
-  
-  
-  /* Navbar animation  */
-  #navlink {
+}
+
+#navlink + .dropdown-menu .dropdown-toggle:first-of-type:hover,
+#navlink + .dropdown-menu .dropdown-item:hover {
+    background-color: #ffc107;
+    color: #0a0a0a;
+}
+
+/* Navbar animation  */
+#navlink {
     position: relative;
     text-decoration: none;
     transition: transform 0.3s ease, font-size 0.3s ease;
     color: white;
     width: max-content;
     padding: auto;
-    margin: 4px  ;
-  }
-    
-  #navlink:hover {
-    color: #FFC100;
-  }
-  
-  #navlink::before {
-    content: '';
+    margin: 4px;
+}
+
+#navlink:hover {
+    color: #ffc100;
+}
+
+#navlink::before {
+    content: "";
     position: absolute;
     display: block;
-    width: 100%;
+    width: calc(100% - 15px);
+    margin: auto;
     height: 2px;
     bottom: 0;
-    left: 0;
+
     background-color: #f5cf10;
     transform: scaleX(0);
     transition: transform 0.5s ease;
-  }
-  
-  /* Ensure underline appears when hovering */
-  #navlink:hover::before {
+}
+
+/* Ensure underline appears when hovering */
+#navlink:hover::before {
     transform: scaleX(1);
-  }
-  
-  #navlink.active, .dropdown.active {
-    color: #FFC100;
-    font-weight: bold; 
-  }
-  
-  
-  #navlink.active::before, .dropdown.active::before {
-    transform: scaleX(1); 
-  }
-  
-  .dropdown-menu .nav-link {
-    color: inherit; 
+}
+
+#navlink.active,
+.dropdown.active {
+    color: #ffc100;
+    font-weight: bold;
+}
+
+#navlink.active::before,
+.dropdown.active::before {
+    transform: scaleX(1);
+}
+
+.dropdown-menu .nav-link {
+    color: inherit;
     transition: color 0.3s ease, font-size 0.3s ease;
-  }
-  
-  .dropdown-menu .nav-link:hover {
-    color: #FFC100; /* Hover color for dropdown items */
-  }
-  
-  .dropdown-menu .nav-link.active {
-    color: #FFC100;
+}
+
+.dropdown-menu .nav-link:hover {
+    color: #ffc100; /* Hover color for dropdown items */
+}
+
+.dropdown-menu .nav-link.active {
+    color: #ffc100;
     font-weight: bold; /* Optional */
-  }
-  #navlink:hover::before {
+}
+#navlink:hover::before {
     transform: scaleX(1);
-  }
-  
-  #navlink.active, .dropdown.active, .active #navlink {
-    color: #FFC100  ; 
-    font-weight: bold; 
-  }
-  
-  #navlink.active::before, .dropdown.active::before, .active #navlink::before{
-    transform: scaleX(1); 
-  
-  }
-  @media (max-width: 992px) {
-    #navlink{
-      margin: auto;
+}
+
+#navlink.active,
+.dropdown.active,
+.active #navlink {
+    color: #ffc100;
+    font-weight: bold;
+}
+
+#navlink.active::before,
+.dropdown.active::before,
+.active #navlink::before {
+    transform: scaleX(1);
+}
+@media (max-width: 992px) {
+    #navlink {
+        margin: auto;
+        font-size: 12px;
+        padding: 4px;
     }
-    
-  }
-  
+    #navlink::before {
+        width: 100%;
+    }
+     .dropdown-menu .dropdown-item , .dropdown-menu .dropdown-toggle{
+        margin: auto;
+        font-size: 12px !important;
+        padding: 2px !important;
+    }
+    .navbar .nav-item {
+        margin:0;
+    }
+
+}

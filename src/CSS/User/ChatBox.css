@@ -1,0 +1,126 @@
+@keyframes slideInInside {
+    from {
+      transform: translateX(100%); /* Start from the right edge of the chatbox */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0); /* Slide into place inside the box */
+      opacity: 1;
+    }
+  }
+
+  .chatbox {
+    position: fixed;
+    bottom: 60px;
+    right: 75px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 16px;
+    z-index: 1000;
+  }
+  
+  
+  
+  .chatbox::before {
+    content: '';
+    position: absolute;
+    bottom: 5px; /* Adjust the position of the tail */
+    left: 95.5%; /* Adjust this to move the tail horizontally */
+    width: 20px;
+    height: 20px;
+    background-color: white; /* Same as the chatbox background */
+    transform: rotate(45deg); /* Rotate to make it look like a triangle */
+    z-index: -1; /* Place the tail behind the chatbox */
+  }
+  
+  .chatbox h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .chatbox p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .slide-in-inside {
+    animation: slideInInside 2.5s ease-in-out forwards; /* Slow animation */
+  }
+  .slide-in-outside
+  {
+    animation: slideInInside 1.5s ease-out backwards; /* Slow animation */
+
+  }
+  .slide-in-between
+  {
+    animation: slideInInside 1.5s ease-in both; /* Slow animation */
+
+  }
+ 
+  @media screen and (max-width: 1024px) {
+    .chatbox {
+      width: 280px;
+      right: 75px;
+      height: 230px;
+      padding: 5px;
+
+    }  
+    .chatbox .chatboxContent .message{
+      height: 40px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+    }
+    .chatbox .chatboxContent .message svg{
+      height: 20px;
+      width: 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .chatbox {
+      bottom: 20px; 
+      width: 240px;
+      right: 65px;
+      height: 200px;
+      padding: 10px;
+
+    }
+    .chatbox::before {
+      left: 93.5%; /* Adjust this to move the tail horizontally */
+    }
+    .chatbox .chatboxContent .message{
+      height: 35px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+    }
+    .chatbox .chatboxContent .message svg{
+      height: 18px;
+      width: 18px;
+    }
+  }
+ 
+  @media screen and (max-width: 576px) {
+    .chatbox {
+      max-width: 200px;
+      right: 65px;
+      max-height: 180px;
+    }
+    .chatboxContent{
+      width: 100%;
+    }
+    .chatbox .chatboxContent .message{
+      height: 30px;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .chatbox .chatboxContent .message svg{
+      height: 16px;
+      width: 16px;
+    }
+  }

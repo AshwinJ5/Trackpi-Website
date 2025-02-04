@@ -1,0 +1,93 @@
+
+  
+
+@media (max-width: 640px) {
+
+  .empimg{
+    height: 100px !important;
+    width: 100px !important;
+    margin-left: 10px;
+    border-radius: 200px !important;
+  }
+  /* .div-frame{
+   
+  
+  } */
+  .horizontal{
+    display: none;
+  }
+  /* .newdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  } */
+  .email{
+    display: none;
+  }
+  .act{
+   
+   height: 30px;
+   
+   
+  }
+    /* Employee details section */
+    .custom-height {
+      
+      height: auto ;
+    }
+    .vertical-line {
+      display: none; /* Hide the vertical line on mobile screens */
+    }
+    .custom-height2{
+      height: auto;
+    }
+    /* .div1{
+     
+     background-color: aqua;
+    } */
+     /* .div-emp{
+      display: flex;
+      flex-direction: row;
+      gap: 145px; 
+     } */
+  
+     .div22{
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 9px !important;
+      margin-top: 20px;
+      
+    }
+    .div-1{
+      margin-top: 5px;
+     }
+     
+    /* .div2{
+      
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 6px !important;
+      
+    } */
+   
+    .div3{
+      
+      height: auto;
+    }
+    .div4{
+      
+      padding-top: 20px;
+      height: auto;
+    }
+    /* .gender{
+      display: flex;
+      flex-direction: row;
+      gap: 190px;
+    } */
+    
+
+}
+.fonclr{
+  border: 1px solid #ffc100 !important;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { getAllSalesEmployee, deleteSalesEmployee } from "../Api Services/salesManagemntApi";
+// import { getAllSalesEmployee, deleteSalesEmployee } from "../Api Services/salesManagemntApi";
 
 function SalesManagement() {
   const [employees, setEmployees] = useState([]);

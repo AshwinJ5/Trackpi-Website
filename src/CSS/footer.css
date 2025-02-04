@@ -1,17 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 .gradient-button {
     background: linear-gradient(90deg, #ffc107, #ff8c00);
     border: none;
     font-weight: bold;
 
   }
-  footer{
-    font-family: "Urbanist", sans-serif;
-  }
-
-  
   .border-warning {
     border-color: #ffc107 !important;
     box-shadow: none;
@@ -30,25 +22,19 @@
   @media (max-width: 640px) {
     .footerForm button{
       border-radius: 10px  ;
-     padding: 7.5px 15px !important;
+     padding: 7.5px 25px !important;
      font-size: 10px;
      margin-top: 10px;
      margin: auto;
+     width: 79px;
+     height: 30px;
     }
     .footerForm input{
       border-radius: 10px;
       height: 30px;
       font-size: 10px;
     }
-    .footerForm input::placeholder{
-      color: #0A0A0A80;
-    }
   }
-
-
-.slogen{
-    font-family: "Urbanist", sans-serif;
-}
 /* footer social medias */
 #fb-footer,#medium-footer,#insta-footer,#blogger-footer,#youtube-footer,#quora-footer,#linkedin-footer{
   background-color: #FFC100;
@@ -58,7 +44,7 @@
   height:30px;
   width: 30px;
 }
-@media (max-width: 640px) {
+@media (max-width: 1280px) {
   .footer_smedia img{
     height:24px;
     width: 24px;
@@ -68,5 +54,178 @@
   .footer_smedia img{
     height:27px;
     width: 27px;
+  }
+}
+@media (max-width: 1024px) {
+  .footer_smedia img{
+    height:27px;
+    width: 27px;
+  }
+}
+@media (max-width: 768px) {
+  .footer_smedia img{
+    height:24px;
+    width: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .footer_smedia img{
+    height:20px;
+    width: 20px;
+  }
+}
+.footerParagraph{
+  text-align: justify;
+}
+@media (max-width: 1280px) {
+  .footerParagraph{
+    text-align: center;
+  }
+}
+@media (min-width: 1024px) {
+  .footerParagraph{
+    text-align: justify !important;
+  }
+}
+@media (max-width: 480px) {
+  .footerParagraph{
+    text-align: justify;
+    text-align-last: center;
+  }
+}
+.follow_us_footer , .follow_us_footer h5{
+  margin: 0;
+}
+@media (max-width: 836px) {
+  .follow_us_footer , .follow_us_footer h5{
+    margin: auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+.follow_us_footer, .follow_us_footer h5 {
+  margin: 0;
+}
+}
+.join_footer_btn {
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(black, black), linear-gradient(90deg, #FFDF41, #FF8800);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+@media (max-width: 344px) and (min-width: 304px) {
+  .footerServices{
+    width: 140px;
+  }
+}
+@media (max-width: 1024px) and (min-width: 837px) {
+  .footerFirstDiv .footerParagraph{
+    text-align: justify;
+  }
+  .footerResources, .footerServices{
+    margin-top: 30px;
+  }
+  .join_div_left, .join_div_right{
+    width: 50% !important;
+  }
+  .joinWithUs{
+    height: 10px;
+  }
+}
+@media (max-width: 660px) and (min-width: 640px) {
+  .join_div_left, .join_div_right{
+    width: 50vw !important;
+  }
+  .joinInput{
+    width: 50%;
+    display: flex !important;
+  }
+  .join_us_div{
+    width: 100vw !important;
+
+  }
+}
+@media (max-width: 836px) and (min-width: 768px) {
+.footerFirstDiv{
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  }
+}
+@media (max-width: 768px)  {
+.footerFirstDiv{
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  }
+}
+.divOneTwo{
+  display: flex;
+  flex-wrap: nowrap;
+}
+@media (max-width: 1024px)  {
+  .divOneTwo{
+  display: flex;
+  flex-wrap: wrap;
+}
+.divOneTwo video{
+  max-width: 280px;
+  width: auto;
+}
+}
+@media (max-width: 768px)  {
+  .divOneTwo{
+  display: flex;
+  flex-wrap: wrap;
+}
+.divOneTwo video{
+  max-width: 240px;
+  width: auto;
+}
+}
+@media (max-width: 640px)  {
+  .divOneTwo{
+  display: flex;
+  flex-wrap: wrap;
+}
+.divOneTwo video{
+  max-width: 230px;
+  width: auto;
+}
+}
+.viewMoreFooterVideo{
+  border-bottom: 1px #FFC100 solid;
+}
+
+
+.footerHoverUnderline {
+  text-decoration: none;
+}
+
+
+.footerHoverUnderline:hover {
+  text-decoration: underline;
+  text-decoration-color: #FF8800;
+}
+@media (max-width: 836px) and (min-width: 640px) {
+  .footerInput1{
+display: flex;
+margin-bottom: 20px;
+  }
+  .footerInput2{
+    display: none;
+  }
+  .joinInput{
+    display: grid;
+    width: max-content;
+  }
+  .join_us_div{
+    width: max-content;
   }
 }
