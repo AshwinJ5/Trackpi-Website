@@ -12,7 +12,7 @@ function DeletePopUp({onClose, dataDeleted,datas ,functions}) {
 
   const handleClose = () => {
     setIsAnimating(false); 
-    setTimeout(onClose, 300); 
+    setTimeout(onClose, 100); 
   };
 
 

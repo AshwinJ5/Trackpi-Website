@@ -127,3 +127,13 @@
   visibility: hidden;
   opacity: 0;
 }
+
+@media screen and (max-width: 640px) {
+  .sidebar ul li a span {
+    display: none;
+  }
+  .sidebar  li:hover a span {
+    display: none;
+  }
+
+}
