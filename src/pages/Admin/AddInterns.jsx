@@ -16,7 +16,8 @@ function AddInterns() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const tab = queryParams.get('tab') || 'Intern';
-  
+   const [imageError, setImageError] = useState("");
+   const [certificateError, setCertificateError] = useState("");
   const { employeeData } = location.state || { employeeData: {} }
     // Store initial employee data for comparison
     const [initialData] = useState(employeeData);
@@ -111,14 +112,62 @@ useEffect(() => {
       
     };
 
-  const handleFileChange = (e) => {
-    setProfileImage(e.target.files[0]);
-  };
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+  
+      const validExtensions = ["image/jpeg", "image/png", "image/gif"];
+      if (!validExtensions.includes(file.type)) {
+        setImageError("Invalid file type. Upload JPEG, PNG, or GIF.");
+        return;
+      }
+  
+      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+        setImageError("File size must be less than 5MB.");
+        return;
+      }
+  
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        if (img.width !== 400 || img.height !== 286) {
+          setImageError("Image dimensions must be 400x286 pixels.");
+        } else {
+          setImageError("");
+          setProfileImage(file);
+        }
+      };
+    };
+
 
   const handleCertificateFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      setCertificate(e.target.files[0]); // Update state with the new file
+    const file = e.target.files[0];
+    if (!file) return;
+  
+    const validExtensions = ["image/jpeg", "image/png", "image/jpg"];
+    if (!validExtensions.includes(file.type)) {
+      setCertificateError("Invalid file type. Only JPEG, PNG, and JPG are allowed.");
+      return;
     }
+  
+    if (file.size > 15 * 1024 * 1024) { // 15MB limit
+      setCertificateError("File size must be less than 15MB.");
+      return;
+    }
+  
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+    img.onload = () => {
+      if (img.width !== 500 || img.height !== 300) {
+        setCertificateError("Internship Certificate image must be exactly 500x300 pixels.");
+      } else {
+        setCertificateError("");
+        setCertificateError(file);
+        toast.success("Internship Certificate uploaded successfully!");
+      }
+    };
+  
+    
   };
   
 // Function to handle adding a new feedback point
@@ -167,6 +216,10 @@ const isDataChanged = () => {
 
  
     const empID = formData.empID;
+       if (imageError) {
+              toast.error(imageError);
+              return;
+            }
       // Validate empID format
   
   const empIDPattern = /^TPEID\d{6}$/; // Regular expression to match 'TPE1D' followed by 6 digits
@@ -345,6 +398,8 @@ category:'intern',
               accept="image/*"
               onChange={handleFileChange}
             />
+             {imageError && <p style={{ color: "red", fontSize: "9px" }}>{imageError}</p>}
+
           </div>
           <div className="mt-5 flex-grow-1 row justify-evenly ">
             <div className="col-md-3  ">
@@ -1061,6 +1116,8 @@ category:'intern',
                                             accept="image/jpeg,image/png,image/jpg"
                                             onChange={handleCertificateFileChange}
                                           />
+                                    {certificateError && <p style={{ color: "red", fontSize: "9px",textAlign:"center" }}>{certificateError}</p>}
+
                                             
     
                                </div>

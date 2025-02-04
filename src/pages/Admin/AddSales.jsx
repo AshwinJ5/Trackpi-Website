@@ -16,7 +16,8 @@ const tab = queryParams.get('tab') || 'Sales';
   const { employeeData } = location.state || { employeeData: {} }
   const { id } = useParams();  // For editing, we'll get the intern ID from URL params
   const navigate = useNavigate();
-
+ const [imageError, setImageError] = useState("");
+ const [businessCardError, setBusinessCardError] = useState("");
   const [formData, setFormData] = useState({
      name: employeeData.name || "",
      empID: employeeData.empID ||  "",
@@ -106,17 +107,63 @@ const handleInputChange = (e) => {
 };
 
 const handleFileChange = (e) => {
-  if (e.target.files && e.target.files[0]) {
-    setProfileImage(e.target.files[0]);
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const validExtensions = ["image/jpeg", "image/png", "image/gif","image/jpg"];
+  if (!validExtensions.includes(file.type)) {
+    setImageError("Invalid file type. Upload JPEG, PNG, or GIF.");
+    return;
   }
+
+  if (file.size > 5 * 1024 * 1024) { // 5MB limit
+    setImageError("File size must be less than 5MB.");
+    return;
+  }
+
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+  img.onload = () => {
+    if (img.width !== 400 || img.height !== 286) {
+      setImageError("Image dimensions must be 400x286 pixels.");
+    } else {
+      setImageError("");
+      setProfileImage(file);
+    }
+  };
 };
 
 
-const handleBusinessCardFileChange = (e) => {
-  if (e.target.files && e.target.files[0]) {
-      setBusinessCard(e.target.files[0]); // If a new file is selected, update state with the file
+
+ // Business Card Upload Validation
+ const handleBusinessCardFileChange = (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const validExtensions = ["image/jpeg", "image/png", "image/jpg"];
+  if (!validExtensions.includes(file.type)) {
+    setBusinessCardError("Invalid file type. Only JPEG, PNG, and JPG are allowed.");
+    return;
   }
+
+  if (file.size > 15 * 1024 * 1024) { // 15MB limit
+    setBusinessCardError("File size must be less than 15MB.");
+    return;
+  }
+
+  const img = new Image();
+  img.src = URL.createObjectURL(file);
+  img.onload = () => {
+    if (img.width !== 500 || img.height !== 300) {
+      setBusinessCardError("Business card image must be exactly 500x300 pixels.");
+    } else {
+      setBusinessCardError("");
+      setBusinessCard(file);
+      toast.success("Business card uploaded successfully!");
+    }
+  };
 };
+
 
   const handleUpload = () => {
     if (profileImage || businessCard) {
@@ -132,6 +179,10 @@ const handleBusinessCardFileChange = (e) => {
     e.preventDefault();
     
     const empID = formData.empID;
+       if (imageError) {
+              toast.error(imageError);
+              return;
+            }
      const empIDPattern = /^TPEID\d{6}$/; // Regular expression to match 'TPE1D' followed by 6 digits
       if (!empIDPattern.test(empID)) {
         toast.error("Employee ID must start with 'TPEID' followed by 6 digits (e.g., TPEID123456).");
@@ -310,6 +361,8 @@ const handleCancel = () => {
               accept="image/*"
               onChange={handleFileChange}
             />
+             {imageError && <p style={{ color: "red", fontSize: "9px" }}>{imageError}</p>}
+
           </div>
           {/* Personal Information */}
           <div className="mt-5 flex-grow-1 row justify-evenly items-center ">
@@ -1006,6 +1059,8 @@ const handleCancel = () => {
             onClick={handleUpload}
             onChange={handleBusinessCardFileChange}
           />
+          {businessCardError && <p style={{ color: "red", fontSize: "9px",textAlign:"center" }}>{businessCardError}</p>}
+
         </div>
 
 
