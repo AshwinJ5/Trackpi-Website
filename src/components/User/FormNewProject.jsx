@@ -8,7 +8,8 @@ import { toast } from 'react-toastify';
 import '../../CSS/User/FormProjectStyles.css';
 import PhoneInput from 'react-phone-input-2';
 import ConnectUsPopup from './ConnectUsPopup';
-import {  useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { isValidNumber } from 'libphonenumber-js';
 
 const FormNewProject = () => {
   const initialFormData = {
@@ -32,11 +33,13 @@ const FormNewProject = () => {
     storedData ? JSON.parse(storedData) : initialFormData
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
-    
+
   console.log(formData, 'formDataa');
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
   const [loading, setLoading] = useState(false);
+  const [countryCode, setCountryCode] = useState("IN");
+  const [phone, setPhone] = useState("");
 
   // Save form data to sessionStorage whenever it changes
   useEffect(() => {
@@ -85,8 +88,11 @@ const FormNewProject = () => {
       country.dialCode.length
     )}`;
     setFormData({ ...formData, contactNumber: formattedPhone });
+    setCountryCode(country.countryCode.toUpperCase());
+    setPhone(`${country.dialCode}${value.slice(country.dialCode.length)}`);
     // console.log(formattedPhone);
   };
+
 
   // Handle form submission
   const handleSubmit = async e => {
@@ -102,7 +108,10 @@ const FormNewProject = () => {
     if (file) {
       formDataToSend.append('projectFile', file);
     }
-
+    if (!isValidNumber(`+${phone}`, countryCode)) {
+      toast.error("Please enter a valid phone number!");
+      return;
+  }
     try {
       const response = await BaseURL.post(
         'api/projects/submit',
@@ -123,7 +132,7 @@ const FormNewProject = () => {
       setFileName('');
       sessionStorage.removeItem('formData'); // Clear stored data after submission
 
-      setIsModalOpen(true)
+      setIsModalOpen(true);
     } catch (error) {
       console.error('Error response:', error);
 
@@ -354,6 +363,7 @@ const FormNewProject = () => {
               value={formData.summary}
               onChange={handleChange}
               placeholder="Summarize your project Ideas"
+              required
             />
           </div>
 
@@ -405,7 +415,7 @@ const FormNewProject = () => {
               <Link
                 to="/termsconditions-submit-new-project"
                 className="text-[#FF9D00] font-bold items-center text-[14px] mx-2 cursor-pointer underline decoration-yellow-400 decoration-2 underline-offset-4"
-                >
+              >
                 Terms & Conditions
               </Link>
             </label>
@@ -420,7 +430,15 @@ const FormNewProject = () => {
           </div>
         </Form>
       </div>
-      {isModalOpen?<ConnectUsPopup project={true}  onClose={() =>{ setIsModalOpen(false);navigate('/')}}/>:null}
+      {isModalOpen ? (
+        <ConnectUsPopup
+          project={true}
+          onClose={() => {
+            setIsModalOpen(false);
+            navigate('/');
+          }}
+        />
+      ) : null}
     </>
   );
 };

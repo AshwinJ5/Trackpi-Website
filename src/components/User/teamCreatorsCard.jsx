@@ -1,17 +1,29 @@
-import React from 'react'
+import React from 'react';
 
-const teamCreatorsCard = ({ name, role, image }) => {
+const CreatorCard = ({ name, role, image }) => {
   return (
-    <div className="flex flex-col items-center bg-pink-100 shadow-lg rounded-lg p-6 w-[250px]">
-    <img 
-      src={image} 
-      alt={name} 
-      className="w-[120px] h-[120px] rounded-lg object-cover "
-    />
-    <h4 className="text-lg font-semibold mt-3 text-center">{name}</h4>
-    <p className="text-gray-600 text-center">{role}</p>
-  </div>
-  )
-}
+    <div
+      className="bg-[#FFECEC]  rounded-lg w-[400px] text-center overflow-hidden"
+      style={{
+        boxShadow: '2px 2px 4px 0px #0A0A0A33', // Applying the specified shadow
+      }}
+    >
+      {/* Image with background */}
+      <div className="bg-[#E3E5E8] flex justify-center pt-1 ">
+        <img
+          src={image}
+          alt={name}
+          className="w-[398px] h-[288px] rounded-lg object-contain"
+        />
+      </div>
 
-export default teamCreatorsCard
+      {/* Name & Role */}
+      <div className="bg-white p-2 text-start">
+        <h4 className="text-lg font-semibold mb-1">{name}</h4>
+        <p className="text-gray-600 text-sm mb-0">{role}</p>
+      </div>
+    </div>
+  );
+};
+
+export default CreatorCard;
