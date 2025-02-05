@@ -68,7 +68,7 @@ function App() {
       const timeout = setTimeout(() => {
         setLoading(false);
         sessionStorage.setItem('homeLoaded', 'true'); // Mark as loaded
-      }, 1050);
+      }, 2050);
 
       return () => clearTimeout(timeout);
     } else {
@@ -270,4 +270,4 @@ const styles = {
   },
 };
 
-export default App;
+export default App;

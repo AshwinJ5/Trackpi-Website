@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import ConnectUsPopup from "./ConnectUsPopup";
+import { isValidNumber } from "libphonenumber-js";
 
 function PopUp() {
     const [show, setShow] = useState(false);
@@ -29,7 +30,8 @@ function PopUp() {
         info_from:"",
         message:""
     })
-
+    const [countryCode, setCountryCode] = useState("IN");
+    const [phone, setPhone] = useState("");   
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
@@ -64,11 +66,21 @@ const handlePhoneChange = (value, country) => {
     }
     const formattedPhone = `+${country.dialCode} ${value.slice(country.dialCode.length)}`;
     setNewDatas({...newDatas,phone:formattedPhone});
+    setCountryCode(country.countryCode.toUpperCase());
+    setPhone(`${country.dialCode}${value.slice(country.dialCode.length)}`);
     // console.log(formattedPhone); 
   };
 
     const addNewForm=async (e)=>{
         e.preventDefault()
+        if (!newDatas.fullName||!newDatas.info_from||!newDatas.message||!newDatas.email||!newDatas.location) {
+            toast.info("All fields required");
+            return;
+        }
+        if (!isValidNumber(`+${phone}`, countryCode)) {
+            toast.error("Please enter a valid phone number!");
+            return;
+        }
         try {
             const formData = new FormData();
             formData.append("fullName", newDatas.fullName);
@@ -94,6 +106,7 @@ const handlePhoneChange = (value, country) => {
                     info_from:"",
                     message:""
                 })
+                setPhone("");
                 setSelectedOption("")
                 setTimeout(()=>{
                     handleClose()

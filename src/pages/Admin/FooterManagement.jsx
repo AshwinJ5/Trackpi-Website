@@ -342,6 +342,7 @@ const FooterManagement = () => {
                             </div>
                         </div>
                         <div className="grid py-[20px] gap-[30px] ">
+                        <div className="text-[12px] font-semibold text-red-400 pb-0">* Please upload a video of aspect ratio 9:16 (eg: 1080px * 1920px)</div>
                             <div className="flex  gap-[40px] items-center w-100">
                                 <div className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 1</div>

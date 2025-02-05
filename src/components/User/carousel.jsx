@@ -159,11 +159,14 @@ function Clients() {
                   margin: "0 10px",
                 }}
               >
+                <div className="bg-[#FFFFFF63]  w-[70%] 2xl:w-[60%] aspect-[2/.9] flex items-center">
+
                 <img
                   src={`${SERVER_URL}${partner.companylogo}`}
                   alt={partner.companyname}
-                  className="logo"
+                  className="logo m-auto "
                 />
+                </div>
                 <h3 className="company-name">{partner.companyname}</h3>
                 <p className="description text-justify">{partner.description}</p>
               </div>
