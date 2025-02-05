@@ -9,43 +9,55 @@ body {
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
-    overflow-y: scroll;
-}
-.back{
-    margin-right: 50px;
+    overflow-y: auto;
 }
 
+/* Form Container */
+.form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(201, 199, 199, 0.9);
+    border-radius: 10px;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .back {
-        background-position: center;
-        background-size: contain;
+    .form-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    h3 {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        text-align: center;
+    }
+
+    input,
+    select {
+        font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .back {
-        background-position: center;
-        background-size: cover;
-        padding: 10px;
+    .form-container {
+        padding: 12px;
+        max-width: 95%;
+    }
+
+    h3 {
+        font-size: clamp(1.3rem, 4vw, 1.7rem);
+    }
+
+    /* Stack fields on top of each other */
+    .row .col-12 {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
 
-
-.fr {
-    background: transparent;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-form {
-    justify-content: center;
-    width: 90%; 
-    max-width: 1000px;  
-    background: rgba(248, 248, 248, 0.9); 
-    border-radius: 10px;
-    padding: 20px;
-  }
-  
+/* Form Inputs */
 .form-control {
     background: rgba(243, 238, 238, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.5);
@@ -56,28 +68,21 @@ form {
     color: rgba(0, 0, 0, 0.6);
 }
 
-
-.fm {
-    background: rgba(198, 198, 198, 0.8); 
-    backdrop-filter: blur(10px);
-    border-radius: 10px; 
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  @media (max-width: 768px) {
-    .fm {
-      background: rgba(255, 255, 255, 0.9); 
-    }
-  }
-
+/* Button Styling */
 button {
     border-radius: 8px;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
+    padding: 10px;
 }
 
 button:hover {
     background: orange;
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    button {
+        width: 100%;
+    }
 }
