@@ -269,7 +269,7 @@ function Home() {
         class123="headerbannerCenterContent"
         description={
           <>
-            Trackpi, your{' '}
+            Trackpi, your
             <a
               href="/about-trackpi"
               target="_blank"
@@ -301,58 +301,59 @@ function Home() {
         <div className="relative bg-gradient-to-r from-[#FFC100] to-[#FF9D00]">
           {/* <div className="relative bg-cyan-600"> */}
           {/* Carousel */}
-          <div
-            {...swipeHandlers}
-            className="overflow-x-auto md:overflow-hidden touch-pan-x carousel-container"
-          >
-            <Carousel
-              interval={null} // Disable auto-scroll as we control it manually
-              indicators={false}
-              controls={false}
-              activeIndex={currentIndex}
-              onSelect={() => {}}
+          {groupedCards.length > 0 ? (
+            <div
+              {...swipeHandlers}
+              className="overflow-x-auto md:overflow-hidden touch-pan-x carousel-container"
             >
-              {groupedCards.map((group, slideIndex) => (
-                <Carousel.Item key={slideIndex}>
-                  <div
-                    className={`grid carousel-grid ${
-                      cardsPerGroup === 1
-                        ? 'grid-cols-1'
-                        : 'grid-cols-1 md:grid-cols-4'
-                    } place-content-center gap-10   lg:px-20 `}
-                  >
-                    {group.map((card, cardIndex) => (
-                      <div
-                        key={cardIndex}
-                        className={`carousel-card flex-shrink-0 w-full rounded-lg  text-center transform transition-transform duration-500 cursor-pointer ${
-                          cardIndex === bulgingCard
-                            ? 'scale-105 sm:scale-125 md:scale-110 lg:scale-110 xl:scale-110 2xl:scale-105'
-                            : 'scale-95 2xl:scale-90'
-                        }`}
-                        onMouseEnter={() => handleMouseEnter(cardIndex)}
-                        onMouseLeave={handleMouseLeave}
-                        onTouchStart={() => handleTouchStart(cardIndex)}
-                      >
-                        {/* Inner wrapper for scaling contents */}
+              <Carousel
+                interval={null} // Disable auto-scroll as we control it manually
+                indicators={false}
+                controls={false}
+                activeIndex={currentIndex}
+                onSelect={() => {}}
+              >
+                {groupedCards.map((group, slideIndex) => (
+                  <Carousel.Item key={slideIndex}>
+                    <div
+                      className={`grid carousel-grid ${
+                        cardsPerGroup === 1
+                          ? 'grid-cols-1'
+                          : 'grid-cols-1 md:grid-cols-4'
+                      } place-content-center gap-10   lg:px-20 `}
+                    >
+                      {group.map((card, cardIndex) => (
                         <div
-                          className={`transform transition-transform  duration-500 imgDiv ${
+                          key={cardIndex}
+                          className={`carousel-card flex-shrink-0 w-full rounded-lg  text-center transform transition-transform duration-500 cursor-pointer ${
                             cardIndex === bulgingCard
-                              ? 'md:scale-105'
-                              : 'scale-100'
+                              ? 'scale-105 sm:scale-125 md:scale-110 lg:scale-110 xl:scale-110 2xl:scale-105'
+                              : 'scale-95 2xl:scale-90'
                           }`}
+                          onMouseEnter={() => handleMouseEnter(cardIndex)}
+                          onMouseLeave={handleMouseLeave}
+                          onTouchStart={() => handleTouchStart(cardIndex)}
                         >
-                          <a
-                            href={card.newsLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          {/* Inner wrapper for scaling contents */}
+                          <div
+                            className={`transform transition-transform  duration-500 imgDiv ${
+                              cardIndex === bulgingCard
+                                ? 'md:scale-105'
+                                : 'scale-100'
+                            }`}
                           >
-                            <img
-                              src={`${SERVER_URL}${card.newsFile}`}
-                              alt={`News ${card.id}`}
-                              className="w-full h-full rounded-lg"
-                            />
-                          </a>
-                          {/* 
+                            <a
+                              href={card.newsLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <img
+                                src={`${SERVER_URL}${card.newsFile}`}
+                                alt={`News ${card.id}`}
+                                className="w-full h-full rounded-lg"
+                              />
+                            </a>
+                            {/* 
                           <img
                             src={card.logo}
                             alt="Card_logo"
@@ -380,14 +381,17 @@ function Home() {
                           >
                             {card.description}
                           </p> */}
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          </div>
+                      ))}
+                    </div>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </div>
+          ) : (
+            <p className="text-gray-500 text-center mx-6">No News available</p>
+          )}
 
           {/* Slide Dots */}
           {/* <div className="absolute top-[110%] md:left-1/2 left-1/2 transform -translate-x-1/2 md:flex justify-center items-center space-x-2">
@@ -416,7 +420,7 @@ function Home() {
             </a>
           </div>{' '}
           {/* For Desktop (dots) */}
-          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2 hidden md:block dotsMob">
+          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2  dotsMob">
             {dotsToRender.map((_, index) => (
               <button
                 key={index}
@@ -428,7 +432,7 @@ function Home() {
             ))}
           </div>
           {/* For Mobile (numbers) */}
-          <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2 block md:hidden dotsMob">
+          {/* <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2 block md:hidden dotsMob">
             {groupedCards.length > 0 && (
               <div className="text-lg font-semibold text-gray-700">
                 {groupedCards[currentIndex].map((_, index) => {
@@ -450,7 +454,7 @@ function Home() {
                 })}
               </div>
             )}
-          </div>
+          </div> */}
           <div className=" mt-4 sm:mx-2 md:mx-4 lg:mx-16 px-2">
             <a
               href="https://www.instagram.com/trackpi_official"
@@ -478,10 +482,24 @@ function Home() {
         {/* Client Logos Section */}
         <div className=" h-[50px] sm:h-[60px] md:h-[80px] lg:h-[120px] xl:h-[120px]  items-center flex bg-gradient-to-r from-[#FFC100] to-[#FF9D00] py-3 lg:mt-[40px] md:mt-[20px] sm:mt-[30px] mt-[10px]">
           <Marquee autoFill>
-            {clientsLogo.length > 0 ? (clientsLogo.map((images,index)=>(
-              <div key={index} className="w-[80px] bg-[#FFFFFF63] sm:w-[110px] md:w-[140px] lg:w-[180px]  h-[34px] sm:h-[40px] md:h-[50px] lg:h-[80px] sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]" >
-            <img className=' h-full  mx-auto' src={`${SERVER_URL}${images.companylogo}`} alt={`Client ${index+1}`} />
-            </div>))):(<p className="text-gray-500 text-center mx-6">No clients available</p>)}
+            {clientsLogo.length > 0 ? (
+              clientsLogo.map((images, index) => (
+                <div
+                  key={index}
+                  className="w-[80px] bg-[#FFFFFF63] sm:w-[110px] md:w-[140px] lg:w-[180px]  h-[34px] sm:h-[40px] md:h-[50px] lg:h-[80px] sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
+                >
+                  <img
+                    className=" h-full  mx-auto"
+                    src={`${SERVER_URL}${images.companylogo}`}
+                    alt={`Client ${index + 1}`}
+                  />
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-500 text-center mx-6">
+                No clients available
+              </p>
+            )}
           </Marquee>
         </div>
       </section>
@@ -652,14 +670,15 @@ function Home() {
               The business landscape is evolving rapidly, and relying on
               outdated methods can hold your company back. To stay ahead in
               today’s competitive market, businesses need forward-thinking
-              strategies that align with current trends and future demands. At
-              Trackpi, the No. 1 business consulting firm in Kerala, we
-              specialize in crafting innovative, tailor-made strategies that
+              strategies that align with current trends and future demands.
+              <br /> At Trackpi, the No. 1 business consulting firm in Kerala,
+              we specialize in crafting innovative, tailor-made strategies that
               drive growth and position businesses for long-term success. Our
               expert consultants ensure your business is proactive and prepared
               for the challenges of tomorrow, enabling you to outperform the
-              competition. Don’t let old practices hinder your success. Partner
-              with Trackpi and discover the transformative potential of modern,
+              competition.
+              <br /> Don’t let old practices hinder your success. Partner with
+              Trackpi and discover the transformative potential of modern,
               market-driven strategies.
             </motion.p>
           </div>
