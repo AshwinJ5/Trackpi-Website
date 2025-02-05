@@ -1,0 +1,83 @@
+body {
+    background-image: url('../../images/JobfairBg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.back{
+    margin-right: 50px;
+}
+
+@media (max-width: 768px) {
+    .back {
+        background-position: center;
+        background-size: contain;
+    }
+}
+
+@media (max-width: 480px) {
+    .back {
+        background-position: center;
+        background-size: cover;
+        padding: 10px;
+    }
+}
+
+
+.fr {
+    background: transparent;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form {
+    justify-content: center;
+    width: 90%; 
+    max-width: 1000px;  
+    background: rgba(248, 248, 248, 0.9); 
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+.form-control {
+    background: rgba(243, 238, 238, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #000;
+}
+
+.form-control::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+
+.fm {
+    background: rgba(198, 198, 198, 0.8); 
+    backdrop-filter: blur(10px);
+    border-radius: 10px; 
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .fm {
+      background: rgba(255, 255, 255, 0.9); 
+    }
+  }
+
+button {
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: orange;
+    transform: scale(1.05);
+}
