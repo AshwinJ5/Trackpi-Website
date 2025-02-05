@@ -54,7 +54,7 @@ function ConnectButtons() {
           data-tooltip-id="signal-tooltip"
           data-tooltip-content="News Updates"
           data-tooltip-place="left"
-          to=""
+          to="https://www.instagram.com/trackpi_official" target='_blank'
           className="button"
         >
           <div className="icons">

@@ -49,12 +49,12 @@ import "../../CSS/teamListMember.css";
         <div className="md:mt-10 lg:mt-10 xl:mt-10 2xl:mt-10 w-full   ">
             <div >
                 <div className=" max-w-full mx-auto px-0  md:px-10  lg:px-16 xl:px-20 2xl:px-24 ">
-                   <div className="relative w-screen md:w-auto md:gap-8 ">
+                   <div className="relative w-screen sm:w-full md:gap-8 ">
                         <div 
                             ref={scrollRef}
-                            className="flex overflow-x-auto  space-x-0  scroll-snap-x scroll-snap-mandatory  md:grid md:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:gap-8  md:justify-center lg:justify-center">
+                            className="flex overflow-x-auto pe-10 sm:pe-0 space-x-0  scroll-snap-x scroll-snap-mandatory   sm:flex-wrap  sm:gap-[20px] xl:gap-[55px]  sm:justify-center">
                            {employees?.map((employee, index) => (
-    <div key={employee._id || index}  className="min-w-[full] md:min-w-0 flex-shrink-0 scroll-snap-align-start" >
+    <div key={employee._id || index}  className="w-[60%] sm:w-[calc(50%-10px)] md:w-[calc(33%-11px)] xl:w-[calc(33%-33px)]  flex-shrink-0 scroll-snap-align-start my-[5px]" >
         <MemberCard employee={employee} onCardClick={() => handleCardClick(employee)} />
     </div>
 ))}
@@ -63,7 +63,7 @@ import "../../CSS/teamListMember.css";
                         </div>
                          
                          {/* Scroll Buttons (Only for Mobile Screens) */}
-                        <div className="md:hidden flex justify-between items-center mt-4">
+                        <div className="sm:hidden flex justify-between items-center">
                         <button
                             onClick={scrollLeft}
                             className=" text-[#FF9D00] px-4 py-2 rounded-lg"
