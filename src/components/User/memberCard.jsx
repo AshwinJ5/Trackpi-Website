@@ -17,9 +17,9 @@ function MemberCard({ employee, onCardClick }) {
       }
     }, [employee]);
   return (
-    <div className=" p-1 md:p-4">
       <div
-        className="w-[200px] md:w-full bg-white shadow-lg transform transition-transform duration-300 hover:scale-105 cursor-pointer"
+        className="me-[10px] sm:me-0
+        bg-white shadow-sm transform transition-transform duration-300 hover:scale-105 cursor-pointer"
         onClick={onCardClick} // Trigger the modal opening
       >
         <div className="relative overflow-hidden">
@@ -34,16 +34,15 @@ function MemberCard({ employee, onCardClick }) {
           
         </div>
         <div className="p-2 md:p-6">
-          <span className="text-lg font-bold text-gray-800 hover:text-gray-600 cursor-pointer block md:mb-2">
+          <span className="text-[16px] sm:text-lg font-bold text-gray-800 hover:text-gray-600 cursor-pointer block md:mb-2">
             {employee.name}
           </span>
-          <p className="text-sm  font-semibold text-gray-500 mb-1">
+          <p className="text-[10px] sm:text-sm   text-gray-500 mb-1">
             {employee.desig}
           </p>
          
         </div>
       </div>
-    </div>
   );
 }
 

@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 import '../../CSS/User/FormProjectStyles.css';
 import PhoneInput from 'react-phone-input-2';
 import ConnectUsPopup from './ConnectUsPopup';
+import {  useNavigate } from 'react-router-dom';
 
 const FormNewProject = () => {
   const initialFormData = {
@@ -25,6 +26,7 @@ const FormNewProject = () => {
     skills: '',
     agreeTerms: '',
   };
+  const navigate = useNavigate();
   const storedData = sessionStorage.getItem('formData');
   const [formData, setFormData] = useState(
     storedData ? JSON.parse(storedData) : initialFormData
@@ -418,7 +420,7 @@ const FormNewProject = () => {
           </div>
         </Form>
       </div>
-      {isModalOpen?<ConnectUsPopup project={true}  onClose={() => setIsModalOpen(false)}/>:null}
+      {isModalOpen?<ConnectUsPopup project={true}  onClose={() =>{ setIsModalOpen(false);navigate('/')}}/>:null}
     </>
   );
 };

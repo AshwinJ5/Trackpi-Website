@@ -109,14 +109,14 @@ function EmployeeVerification() {
             <div className="px-[20px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[65px] pb-[20px] sm:pb-[30px] md:pb-[40px] lg:pb-[50px] xl:pb-[65px]">
                 {/* Verification Form Section */}
                 <section className=" mb-14 w-100 ">
-                    <div className="lg:w-[75%] sm:w-[80%] w-[89%] bg-white shadow-lg mx-auto p-4 rounded-lg ">
-                        <div className="font-bold text-[18px] sm:text-[20px] md:text-[24px] lg:text-[32px] xl:text-[50px] 2xl:text-[60px] text-[#FFC100] text-center">
+                    <div className="lg:w-[75%] sm:w-[80%] w-[89%] bg-white shadow-lg mx-auto p-4 rounded-lg gap-[15px] md:gap-[30px]  xl:gap-[50px] grid">
+                        <div className="font-bold text-[18px] sm:text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] 2xl:text-[60px] text-[#FFC100] text-center">
                             Employee Verification
                         </div>
-                        <form onSubmit={handleSubmitVerify}>
-                            <div style={{ fontWeight: "600" }} className="mb-4 g-5">
+                        <form onSubmit={handleSubmitVerify} className="grid gap-[15px] md:gap-[30px]  xl:gap-[50px]">
+                            <div style={{ fontWeight: "600" }} >
                                 <label
-                                    className="block my-2 text-[14px] sm:text-[18px] md:text-[21px] lg:text-[25px] xl:text-[30px] 2xl:text-[35px] text-dark"
+                                    className="block mb-2 text-[14px] sm:text-[18px] md:text-[21px] lg:text-[25px] xl:text-[30px]  text-dark"
                                     htmlFor="employeeId"
                                 >
                                     Employee ID
