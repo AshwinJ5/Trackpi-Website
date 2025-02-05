@@ -48,6 +48,8 @@ import JobFairReg from "./pages/User/jobs";
 import Creators from "./pages/User/Creators";
 
 
+import JobFairReg from './pages/JobFair/JobFairReg';
+
 function App() {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -141,6 +143,7 @@ function App() {
                   <Route path="/personnel" element={<Personel />} />
                   <Route path="/project-submission" element={<NewProject />} />
                   <Route path="/employeesales" element={<EmployeeSales />} />
+                  <Route path='/jobfair' element={<JobFairReg />} />
                   <Route
                     path="/employeeinternship"
                     element={<EmployeeInternship />}
