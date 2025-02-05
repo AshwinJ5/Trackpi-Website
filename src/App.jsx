@@ -44,8 +44,8 @@ import FormManagementDetails from './pages/Admin/FormManagementDetails';
 import TermsAndConditions from './pages/User/TermsAndConditions';
 import TermsAndConditionForNewProject from './pages/User/TermsAndConditionForNewProject';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoutes';
-import Creators from "./pages/User/Creators";
-import JobFairReg from './pages/JobFair/JobFairReg';
+import Creators from './pages/User/Creators';
+// import JobFairReg from './pages/JobFair/JobFairReg';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -87,8 +87,8 @@ function App() {
     '/employeeinternship',
     '/termsconditions',
     '/termsconditions-submit-new-project',
-    '/job-fair',
-    '/creators'
+    '/jobfair',
+    '/creators',
   ].includes(location.pathname);
   const isNotFoundRoute = location.pathname === '/not-found';
   const isAdminRoute =
@@ -139,7 +139,7 @@ function App() {
                   <Route path="/personnel" element={<Personel />} />
                   <Route path="/project-submission" element={<NewProject />} />
                   <Route path="/employeesales" element={<EmployeeSales />} />
-                  <Route path='/jobfair' element={<JobFairReg />} />
+                  {/* <Route path="/jobfair" element={<JobFairReg />} /> */}
                   <Route
                     path="/employeeinternship"
                     element={<EmployeeInternship />}
@@ -152,98 +152,7 @@ function App() {
                     path="/termsconditions-submit-new-project"
                     element={<TermsAndConditionForNewProject />}
                   />
-                  <Route path='/creators' element={<Creators/>}/>
-
-
-                  {/* Admin Routes */}
-                  <Route path="/admin/admin-login" element={<AdminLogin />} />
-                  <Route element={<PrivateRoute />}>
-                    <Route path="/admin/dashboard" element={<Dashboard />} />
-                    <Route
-                      path="/admin/admin-management"
-                      element={<AdminManagement />}
-                    />
-                    <Route
-                      path="/admin/form-management"
-                      element={<FormManagement />}
-                    />
-                    <Route
-                      path="/admin/form-details/:formId"
-                      element={<FormManagementDetails />}
-                    />
-                    <Route
-                      path="/admin/partnership-management"
-                      element={<PartnershipManagement />}
-                    />
-                    <Route
-                      path="/admin/news-management"
-                      element={<NewsManagement />}
-                    />
-                    <Route
-                      path="/admin/project-management"
-                      element={<ProjectManagement />}
-                    />
-                    <Route
-                      path="/admin/project-details/:projectId"
-                      element={<ProjectManagementDetail />}
-                    />
-                    <Route
-                      path="/admin/employee-management"
-                      element={<EmployeeManagement />}
-                    />
-                    <Route
-                      path="/admin/employeeManagement-addEmployee/:id"
-                      element={<AddEmployee />}
-                    />
-
-                    <Route
-                      path="/admin/employeeManagement-addEmployee/:id"
-                      element={<AddEmployee />}
-                    />
-                    <Route
-                      path="/admin/employeeManagement-addEmployee/"
-                      element={<AddEmployee />}
-                    />
-                    <Route
-                      path="/admin/employeeManagement-detail"
-                      element={<EmployeeManagementDetail />}
-                    />
-                    <Route
-                      path="/admin/sales-management"
-                      element={<SalesManagement />}
-                    />
-                    <Route
-                      path="/admin/salesManagement-add/:id"
-                      element={<AddSales />}
-                    />
-                    <Route
-                      path="/admin/salesManagement-add/"
-                      element={<AddSales />}
-                    />
-                    <Route
-                      path="/admin/salesManagement-detail"
-                      element={<SalesManagementDetail />}
-                    />
-                    <Route
-                      path="/admin/intern-management-add/:id"
-                      element={<AddInterns />}
-                    />
-                    <Route
-                      path="/admin/intern-management-add/"
-                      element={<AddInterns />}
-                    />
-
-                    <Route
-                      path="/admin/intern-management-detail"
-                      element={<InternManagementDetail />}
-                    />
-                    <Route
-                      path="/admin/footer-management"
-                      element={<FooterManagement />}
-                    />
-                  </Route>
-
-
+                  <Route path="/creators" element={<Creators />} />
 
                   {/* Admin Routes */}
                   <Route path="/admin/admin-login" element={<AdminLogin />} />
@@ -333,6 +242,93 @@ function App() {
                     />
                   </Route>
 
+                  {/* Admin Routes */}
+                  <Route path="/admin/admin-login" element={<AdminLogin />} />
+                  <Route element={<PrivateRoute />}>
+                    <Route path="/admin/dashboard" element={<Dashboard />} />
+                    <Route
+                      path="/admin/admin-management"
+                      element={<AdminManagement />}
+                    />
+                    <Route
+                      path="/admin/form-management"
+                      element={<FormManagement />}
+                    />
+                    <Route
+                      path="/admin/form-details/:formId"
+                      element={<FormManagementDetails />}
+                    />
+                    <Route
+                      path="/admin/partnership-management"
+                      element={<PartnershipManagement />}
+                    />
+                    <Route
+                      path="/admin/news-management"
+                      element={<NewsManagement />}
+                    />
+                    <Route
+                      path="/admin/project-management"
+                      element={<ProjectManagement />}
+                    />
+                    <Route
+                      path="/admin/project-details/:projectId"
+                      element={<ProjectManagementDetail />}
+                    />
+                    <Route
+                      path="/admin/employee-management"
+                      element={<EmployeeManagement />}
+                    />
+                    <Route
+                      path="/admin/employeeManagement-addEmployee/:id"
+                      element={<AddEmployee />}
+                    />
+
+                    <Route
+                      path="/admin/employeeManagement-addEmployee/:id"
+                      element={<AddEmployee />}
+                    />
+                    <Route
+                      path="/admin/employeeManagement-addEmployee/"
+                      element={<AddEmployee />}
+                    />
+                    <Route
+                      path="/admin/employeeManagement-detail"
+                      element={<EmployeeManagementDetail />}
+                    />
+                    <Route
+                      path="/admin/sales-management"
+                      element={<SalesManagement />}
+                    />
+                    <Route
+                      path="/admin/salesManagement-add/:id"
+                      element={<AddSales />}
+                    />
+                    <Route
+                      path="/admin/salesManagement-add/"
+                      element={<AddSales />}
+                    />
+                    <Route
+                      path="/admin/salesManagement-detail"
+                      element={<SalesManagementDetail />}
+                    />
+                    <Route
+                      path="/admin/intern-management-add/:id"
+                      element={<AddInterns />}
+                    />
+                    <Route
+                      path="/admin/intern-management-add/"
+                      element={<AddInterns />}
+                    />
+
+                    <Route
+                      path="/admin/intern-management-detail"
+                      element={<InternManagementDetail />}
+                    />
+                    <Route
+                      path="/admin/footer-management"
+                      element={<FooterManagement />}
+                    />
+                  </Route>
 
                   {/* 404 Not Found */}
                   <Route
@@ -362,4 +358,3 @@ const styles = {
 };
 
 export default App;
-
