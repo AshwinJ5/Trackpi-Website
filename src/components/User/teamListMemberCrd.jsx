@@ -63,7 +63,7 @@ import "../../CSS/teamListMember.css";
                         </div>
                          
                          {/* Scroll Buttons (Only for Mobile Screens) */}
-                        <div className="sm:hidden flex justify-between items-center">
+                        <div className="sm:hidden flex justify-between items-center w-[calc(100vw-40px)]">
                         <button
                             onClick={scrollLeft}
                             className=" text-[#FF9D00] px-4 py-2 rounded-lg"
