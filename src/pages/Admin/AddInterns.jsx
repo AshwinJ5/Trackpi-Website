@@ -161,8 +161,8 @@ function AddInterns() {
     img.src = URL.createObjectURL(file);
     img.onload = () => {
       if (img.width !== 500 || img.height !== 300) {
-        setCertificateError(
-          'Internship Certificate image must be exactly 500x300 pixels.'
+        toast.error(
+          '*Internship Certificate image must be exactly 500x300 pixels.'
         );
       } else {
         setCertificateError('');
@@ -414,7 +414,7 @@ function AddInterns() {
               onChange={handleFileChange}
             />
             <p style={{ color: 'red', fontSize: '9px' }}>
-              Image dimensions must be 400x286 pixels.
+              *Image dimensions must be 400x286 pixels.
             </p>
             {/* {imageError && <p style={{ color: "red", fontSize: "9px" }}>{imageError}</p>} */}
           </div>
@@ -1237,7 +1237,8 @@ function AddInterns() {
               onChange={handleCertificateFileChange}
             />
             <p style={{ color: 'red', fontSize: '9px' }}>
-            Internship Certificate image must be exactly 500x300 pixels.            </p>
+              *Internship Certificate image must be exactly 500x300 pixels.{' '}
+            </p>
             {/* {certificateError && (
               <p style={{ color: 'red', fontSize: '9px', textAlign: 'center' }}>
                 {certificateError}

@@ -112,8 +112,8 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/contact-us" className="text-dark  footerHoverUnderline">
-                                        Help Center
+                                    <Link to="/creators" className="text-dark  footerHoverUnderline">
+                                       Creators
                                     </Link>
                                 </li>
                                 <li>

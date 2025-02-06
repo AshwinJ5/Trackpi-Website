@@ -15,6 +15,7 @@ import Marquee from 'react-fast-marquee';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
 import { useSwipeable } from 'react-swipeable';
+import revised from "../../images/revised.jpg"
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
@@ -609,7 +610,7 @@ function Home() {
             </h1>
             <div className="px-10 lg:px-0 ">
               <motion.img
-                src={home1}
+                src={revised}
                 alt="Strategic Procurement"
                 className="shadow-lg rounded-lg w-full h-[180px] sm:h-[350px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView2 ? 1.02 : 1 }}
