@@ -15,7 +15,7 @@ import Marquee from 'react-fast-marquee';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
 import { useSwipeable } from 'react-swipeable';
-import revised from "../../images/revised.jpg"
+import revised from '../../images/revised.jpg';
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
@@ -505,7 +505,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-24 2xl:mt-28 w-full px-6 sm:px-3 md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto section1">
+      <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-24 2xl:mt-28 w-full px-6  md:px-10 lg:px-20 xl:px-24 2xl:px-32 mx-auto section1">
         <motion.div
           className="flex flex-col-reverse lg:flex-row gap-[1rem] sm:gap-4 md:gap-8 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
           animate={{ y: isInView1 ? 10 : 0 }}
@@ -589,7 +589,7 @@ function Home() {
               <motion.img
                 src={home1}
                 alt="Strategic Procurement"
-                className="shadow-lg rounded-[15px] md:rounded-[10px] w-full  h-[180px] sm:h-[250px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
+                className="shadow-lg rounded-[15px] md:rounded-[10px] w-full  h-[180px] sm:h-[300px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView1 ? 1.02 : 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
               />
@@ -612,7 +612,7 @@ function Home() {
               <motion.img
                 src={revised}
                 alt="Strategic Procurement"
-                className="shadow-lg rounded-lg w-full h-[180px] sm:h-[350px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
+                className="shadow-lg rounded-lg w-full h-[180px] sm:h-[300px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView2 ? 1.02 : 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
               />
@@ -691,7 +691,7 @@ function Home() {
               <motion.img
                 src={home2}
                 alt="Strategic Procurement"
-                className="shadow-lg  rounded-[15px] md:rounded-[10px] w-full h-[180px] sm:h-[250px] md:h-[390px] lg:h-[390px] 2xl:h-[600px] object-cover"
+                className="shadow-lg  rounded-[15px] md:rounded-[10px] w-full h-[180px] sm:h-[300px] md:h-[390px] lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView3 ? 1.02 : 1 }}
                 transition={{ duration: 0.8, ease: 'easeInOut' }}
               />
