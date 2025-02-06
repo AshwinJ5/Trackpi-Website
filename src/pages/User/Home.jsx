@@ -20,7 +20,7 @@ import revised from '../../images/revised.jpg';
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
   const isInView2 = useInView({ selector: '.section2' });
-  const isInView3 = useInView({ selector: '.section3' });
+  const isInView3 = useInView({ selector: '.section33' });
   const [heading, setHeading] = useState({});
 
   // const clients = [
