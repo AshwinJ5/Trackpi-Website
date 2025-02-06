@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Row, Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import HeaderSection from "../../components/JobFair/Header";
 import "../../CSS/JobFair/jobfairreg.css";
 
@@ -14,7 +14,6 @@ function JobFairReg() {
     city: "",
     companySize: "",
   });
-
 
   const fetchLocationDetails = async (pin) => {
     if (pin.length !== 6) return;
@@ -37,7 +36,6 @@ function JobFairReg() {
     }
   };
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value.trim() }));
@@ -50,10 +48,10 @@ function JobFairReg() {
   return (
     <>
       <HeaderSection />
-      <div className="mt-4 back mx-5">
-        <form className="p-4 mx-4 shadow-lg fm">
+      <div className="container mt-4 my-5">
+        <form className="form-container shadow-lg">
           <h3 className="text-center mb-4 fw-bold">Company Information</h3>
-          <div className="fr">
+          <div>
             <div className="mb-3">
               <label>
                 Company Name <span className="text-danger">*</span>
@@ -98,7 +96,7 @@ function JobFairReg() {
 
             <label>Company Location</label>
             <Row className="g-2">
-              <Col md={6} lg={3}>
+              <Col xs={12} md={6} lg={3}>
                 <input
                   type="text"
                   name="pincode"
@@ -108,13 +106,13 @@ function JobFairReg() {
                   onChange={handleChange}
                 />
               </Col>
-              <Col md={6} lg={3}>
+              <Col xs={12} md={6} lg={3}>
                 <input type="text" name="country" className="form-control" placeholder="Country" value={formData.country} readOnly />
               </Col>
-              <Col md={6} lg={3}>
+              <Col xs={12} md={6} lg={3}>
                 <input type="text" name="state" placeholder="State" className="form-control" value={formData.state} readOnly />
               </Col>
-              <Col md={6} lg={3}>
+              <Col xs={12} md={6} lg={3}>
                 <input type="text" name="city" placeholder="City" className="form-control" value={formData.city} readOnly />
               </Col>
             </Row>
@@ -134,7 +132,7 @@ function JobFairReg() {
               </select>
             </div>
             <div className="d-flex justify-content-center">
-              <button className="btn btn-warning w-50 fw-bold w-md-50">
+              <button className="btn btn-warning w-100 w-md-50 fw-bold">
                 Next
               </button>
             </div>
