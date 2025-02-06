@@ -19,8 +19,8 @@ const CreatorCard = ({ name, role, image }) => {
 
       {/* Name & Role */}
       <div className="bg-white p-2 text-start">
-        <h4 className=" text-[12px] md:text-[16px] lg:text-[20px] xl:text-[22px] font-semibold mb-1">{name}</h4>
-        <p className="  text-[10px] md:text-[14px]  lg:text-[18px]  xl:text-[20px] text-gray-600  mb-0">{role}</p>
+        <h4 className=" text-[12px] sm:text-[16px] md:text-[16px] lg:text-[20px] xl:text-[22px] font-semibold mb-1">{name}</h4>
+        <p className="  text-[10px] sm:text-[14px] md:text-[14px]  lg:text-[18px]  xl:text-[20px] text-gray-600  mb-0">{role}</p>
       </div>
     </div>
   );
