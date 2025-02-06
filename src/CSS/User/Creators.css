@@ -12,11 +12,11 @@
 }
 @media (max-width: 1024px) {
   .cardDiv {
-    width: 280px;
+    width: 250px;
   }
   .creatorImg img {
-    width: 250px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
   }
 }
 @media (max-width: 640px) {
