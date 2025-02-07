@@ -8,7 +8,7 @@ const NewProject = () => {
     return (
         <div>
             <HeaderBanner
-                title="Submit New Project Here"
+                title="Submit Your Business Idea, Let's Make It Happen!"
                 description="Welcome to Trackpi's Project Submission page. We’re excited to collaborate with you and help bring your ideas to life. Please submit your project details below, and our team will get started on providing tailored solutions to drive your business forward"
                 classname="bgSix"
                 noButton={true}
@@ -26,7 +26,7 @@ const NewProject = () => {
                     </div>
                 </Container>
             </section>{" "}
-            <ConnectButtons/>
+            <ConnectButtons />
         </div>
     );
 };
