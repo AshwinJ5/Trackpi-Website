@@ -159,7 +159,7 @@ function Clients() {
                   margin: "0 10px",
                 }}
               >
-                <div className="bg-[#FFFFFF63]  w-[70%] 2xl:w-[60%] aspect-[2/.9] flex items-center">
+                <div className="bg-[#FFFFFF63]  w-[60%] 2xl:w-[60%] lg:aspect-[2/.9] aspect-[2/.7] flex items-center">
 
                 <img
                   src={`${SERVER_URL}${partner.companylogo}`}
@@ -168,7 +168,11 @@ function Clients() {
                 />
                 </div>
                 <h3 className="company-name">{partner.companyname}</h3>
-                <p className="description text-justify">{partner.description}</p>
+                <p className="description text-justify">
+  {partner.description.length > 150
+    ? `${partner.description.substring(0, 150)}...`
+    : partner.description}
+</p>
               </div>
             ))}
           </div>
