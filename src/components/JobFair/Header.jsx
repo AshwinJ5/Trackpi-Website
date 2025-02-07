@@ -10,10 +10,10 @@ function HeaderSection() {
             <Row className='mt-5 align-items-center text-center text-md-start'>
                 <Col lg={6} >
                     <h5 className='fw-bold'>Join TRACKPI'S Online</h5>
-                    <h1 className='fw-bold display-1'>
+                    <h1 className='fw-bold display-1 t1'>
                         JOB <span className="highlight">FAIR</span>
                     </h1>
-                    <h2 className='fw-bold'>Start Your Registration Process</h2>
+                    <h2 className='fw-bold t2'>Start Your Registration Process</h2>
                     <p className="description">
                         Sign up for an exclusive online job fair to recruit top
                         professionals that can advance your company's goals.

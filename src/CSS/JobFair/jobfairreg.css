@@ -1,13 +1,10 @@
-body {
+.cnt {
     background-image: url('../../images/JobfairBg.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -29,7 +26,7 @@ body {
         max-width: 90%;
     }
 
-    h3 {
+    .title {
         font-size: clamp(1.5rem, 3vw, 2rem);
         text-align: center;
     }
@@ -46,7 +43,7 @@ body {
         max-width: 95%;
     }
 
-    h3 {
+    .title {
         font-size: clamp(1.3rem, 4vw, 1.7rem);
     }
 
@@ -69,20 +66,20 @@ body {
 }
 
 /* Button Styling */
-button {
+.bt {
     border-radius: 8px;
     font-weight: bold;
     transition: all 0.3s ease-in-out;
     padding: 10px;
 }
 
-button:hover {
+.bt:hover {
     background: orange;
     transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
-    button {
+    .bt {
         width: 100%;
     }
 }

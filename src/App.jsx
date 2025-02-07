@@ -45,7 +45,7 @@ import TermsAndConditions from './pages/User/TermsAndConditions';
 import TermsAndConditionForNewProject from './pages/User/TermsAndConditionForNewProject';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoutes';
 import Creators from './pages/User/Creators';
-// import JobFairReg from './pages/User/jobs';
+import Jobs from './pages/User/jobs';
 
 
 function App() {
@@ -88,7 +88,6 @@ function App() {
     '/employeeinternship',
     '/termsconditions',
     '/termsconditions-submit-new-project',
-    '/job-fair',
     '/creators',
   ].includes(location.pathname);
   const isNotFoundRoute = location.pathname === '/not-found';
@@ -141,7 +140,6 @@ function App() {
                   <Route path="/project-submission" element={<NewProject />} />
                   <Route path="/employeesales" element={<EmployeeSales />} />
 
-                  {/* <Route path="/jobfair" element={<JobFairReg />} /> */}
 
                   <Route
                     path="/employeeinternship"
@@ -334,7 +332,7 @@ function App() {
                       element={<FooterManagement />}
                     />
                   </Route>
-                  <Route path='job-fair' element={<JobFairReg />}/>
+                  <Route path='job-fair' element={<Jobs />}/>
 
                   {/* 404 Not Found */}
                   <Route

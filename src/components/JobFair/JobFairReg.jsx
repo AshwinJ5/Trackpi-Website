@@ -53,10 +53,12 @@ function JobFairReg() {
 
   return (
     <>
-        <HeaderSection />
-        <Container className="mt-4 my-5">
+    <div className="cnt">
+
+         <HeaderSection />
+        <Container className="mt-4 my-5 ">
           <Form className="form-container shadow-lg p-4" onSubmit={handleSubmit}>
-            <h3 className="text-center mb-4 fw-bold">Company Information</h3>
+            <h3 className="text-center mb-4 fw-bold title">Company Information</h3>
 
             <Form.Group className="mb-3">
               <Form.Label>
@@ -138,12 +140,14 @@ function JobFairReg() {
             
 
             <div className="d-flex justify-content-center">
-              <Button type="submit" variant="warning" className="mt-4 w-100 w-md-50 fw-bold">
+              <Button type="submit" variant="warning" className="mt-4 w-100 w-md-50 fw-bold bt">
                 Next
               </Button>
             </div>
           </Form>
         </Container>
+        </div>
+   
     </>
   );
 }
