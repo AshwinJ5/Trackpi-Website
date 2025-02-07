@@ -45,7 +45,7 @@ import TermsAndConditions from './pages/User/TermsAndConditions';
 import TermsAndConditionForNewProject from './pages/User/TermsAndConditionForNewProject';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoutes';
 import Creators from './pages/User/Creators';
-// import JobFairReg from './pages/JobFair/JobFairReg';
+// import JobFairReg from './pages/User/jobs';
 
 
 function App() {
@@ -88,7 +88,7 @@ function App() {
     '/employeeinternship',
     '/termsconditions',
     '/termsconditions-submit-new-project',
-    '/jobfair',
+    '/job-fair',
     '/creators',
   ].includes(location.pathname);
   const isNotFoundRoute = location.pathname === '/not-found';
