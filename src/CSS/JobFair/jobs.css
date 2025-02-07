@@ -1,25 +1,133 @@
-
-.popup-box {
-    background-image: url('../../images/popup.png');
- background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    border-radius: 8px;
-
+/* Custom Popup Overlay */
+.custom-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Make sure the popup is on top of other content */
 }
-.custom-modal .modal-dialog {
-    max-width: 800px; 
+
+/* Custom Popup Box */
+.custom-popup-box {
+  background-image: url('../../images/popup.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 30px;
+  border-radius: 8px;
+  width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  max-width: 100%; /* Make sure the box doesn't exceed screen width */
+  box-sizing: border-box; /* Ensure padding doesn't overflow */
+}
+
+/* Popup Button */
+.custom-popup-box .btn-warning {
+  background-color: #f5a623;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.custom-popup-box .btn-warning:hover {
+  background-color: #f38c00;
+  transform: scale(1.05);
+}
+
+/* Modal List Styling */
+.custom-popup-box ol {
+  list-style-type: decimal; /* Makes the list ordered (numbered) */
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%; /* Ensure list takes full width */
+  padding: 0;
+  margin: 10px 0;
+}
+
+.custom-popup-box ol li {
+  display: flex;
+  align-items: flex-end; /* Align the text at the bottom of each list item */
+  margin: 10px 0;
+  font-size: 1rem; /* Adjust font size */
+  text-align: left;
+  width: 100%;
+}
+
+/* Footer Text Styling */
+.modal-footer-text {
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .custom-popup-box {
+    width: 80%; /* Reduce width slightly on tablets */
+    padding: 20px;
   }
-  
-  .custom-modal .modal-footer {
-    display: flex;
-    justify-content: center;
+
+  .custom-popup-box h2 {
+    font-size: 1.5rem; /* Slightly smaller title on tablets */
   }
-  
 
+  .custom-popup-box .btn-warning {
+    padding: 10px 25px; /* Adjust button size */
+  }
+}
 
+@media (max-width: 768px) {
+  .custom-popup-box {
+    width: 90%; /* Make the popup take 90% of screen width on smaller devices */
+    padding: 15px;
+  }
 
+  .custom-popup-box h2 {
+    font-size: 1.3rem; /* Smaller title on mobile devices */
+  }
 
+  .custom-popup-box ol li {
+    font-size: 0.9rem; /* Adjust list font size */
+  }
+
+  .custom-popup-box .btn-warning {
+    padding: 10px 20px; /* Adjust button size for mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-popup-box {
+    width: 95%; /* Make popup even smaller on very small screens */
+    padding: 10px;
+  }
+
+  .custom-popup-box h2 {
+    font-size: 1.2rem; /* Even smaller title */
+  }
+
+  .custom-popup-box ol li {
+    font-size: 0.8rem; /* Adjust list item font size */
+  }
+
+  .custom-popup-box .btn-warning {
+    padding: 10px 15px; /* Smaller button on very small screens */
+  }
+}

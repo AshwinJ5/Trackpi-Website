@@ -1,85 +1,109 @@
+/* JobFairReg Container */
 .cnt {
     background-image: url('../../images/JobfairBg.png');
     background-position: center;
-    background-size: cover;
+    background-size: cover; /* Ensures the background image covers the full page */
     background-repeat: no-repeat;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures the background stretches to fill the entire viewport */
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centers the form vertically */
     overflow-x: hidden;
     overflow-y: auto;
-}
-
-/* Form Container */
-.form-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
-    background: rgba(212, 206, 206, 0.9);
+    box-sizing: border-box;
+  }
+  
+  /* Form Container */
+  .form-container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(223, 219, 219, 0.24); /* Semi-transparent background for readability */
     border-radius: 10px;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .form-container {
-        padding: 15px;
-        max-width: 90%;
-    }
-
-    .form-title {
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        text-align: center;
-    }
-
-    .custom-input,
-    .custom-select {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    form-container {
-        padding: 12px;
-        max-width: 95%;
-    }
-
-    .form-title {
-        font-size: clamp(1.3rem, 4vw, 1.7rem);
-    }
-
-    /* Stack fields on top of each other */
-    .row .col-12 {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
-/* Form Inputs */
-.form-control {
-    background: rgba(243, 238, 238, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Form Title */
+  .form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Input & Select Fields */
+  .custom-Input,
+  .custom-Select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background: rgba(255, 251, 251, 0.963);
     color: #000;
-}
-
-.form-control::placeholder {
+    font-size: 1rem;
+  }
+  
+  .custom-Input::placeholder {
     color: rgba(0, 0, 0, 0.6);
-}
-
-/* Button Styling */
-.bt {
+  }
+  
+  /* Location Grid */
+  .location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  /* Button */
+  .bt {
+    width: 100%;
+    padding: 12px;
     border-radius: 8px;
     font-weight: bold;
+    background: #f5a623;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
     transition: all 0.3s ease-in-out;
-    padding: 10px;
-}
-
-.bt:hover {
+  }
+  
+  .bt:hover {
     background: orange;
     transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-    .bt {
-        width: 100%;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .cnt {
+      padding: 15px;
     }
-}
+  
+    .form-container {
+      padding: 15px;
+    }
+  
+    .form-title {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .cnt {
+      padding: 10px;
+    }
+  
+    .form-container {
+      padding: 10px;
+    }
+  
+    .form-title {
+      font-size: 1.4rem;
+    }
+  }
+  
