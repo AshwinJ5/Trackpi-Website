@@ -1,0 +1,25 @@
+
+.popup-box {
+    background-image: url('../../images/popup.png');
+ background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 8px;
+
+}
+.custom-modal .modal-dialog {
+    max-width: 800px; 
+  }
+  
+  .custom-modal .modal-footer {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+
+
+
