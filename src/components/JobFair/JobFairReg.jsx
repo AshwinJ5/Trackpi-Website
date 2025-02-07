@@ -67,6 +67,7 @@ function JobFairReg() {
               <Form.Control
                 type="text"
                 name="companyName"
+                  className="custom-input"
                 placeholder="Enter your company name"
                 value={formData.companyName}
                 onChange={handleChange}
@@ -94,6 +95,7 @@ function JobFairReg() {
               <Form.Control
                 type="text"
                 name="website"
+                  className="custom-input"
                 placeholder="www.yourcompany.com"
                 value={formData.website}
                 onChange={handleChange}
@@ -121,13 +123,15 @@ function JobFairReg() {
                 <Form.Control
                   type="text"
                   name="pincode"
+                    className="custom-input"
                   placeholder="Zip Code"
                   value={formData.pincode}
                   onChange={handleChange}
                 />
               </Col>
               <Col xs={12} md={6} lg={3}>
-                <Form.Control type="text" name="country" placeholder="Country" value={formData.country} readOnly />
+                <Form.Control
+                  className="custom-input" type="text" name="country" placeholder="Country" value={formData.country} readOnly />
               </Col>
               <Col xs={12} md={6} lg={3}>
                 <Form.Control type="text" name="state" placeholder="State" value={formData.state} readOnly />

@@ -88,7 +88,6 @@ function App() {
     '/employeeinternship',
     '/termsconditions',
     '/termsconditions-submit-new-project',
-    '/jobfair',
     '/creators',
   ].includes(location.pathname);
   const isNotFoundRoute = location.pathname === '/not-found';
