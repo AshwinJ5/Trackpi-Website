@@ -13,16 +13,12 @@
   width: 100%;
   height: 100%;
   background-color: #ffc100;
-margin-bottom: 2rem;
-
-  
+  margin-bottom: 2rem;
 }
-.bgSections h1
-{
+.bgSections h1 {
   padding-bottom: 1rem;
 }
-.serviceHomeBtn
-{
+.serviceHomeBtn {
   margin-top: 1rem;
   padding: 10px 30px 10px 30px;
 }
@@ -39,11 +35,9 @@ margin-bottom: 2rem;
   grid-template-columns: repeat(4, 1fr); /* Default: 4 cards per row */
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
-
 }
 
 .carousel-card {
- 
   width: 100%; /* Use most of the screen width */
   margin: 15px auto 15px; /* Center the card and add spacing below */
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
@@ -81,31 +75,32 @@ margin-bottom: 2rem;
     text-align: center;
     font-size: 14px;
   }
+  .imgMob {
+    padding: 0px 20px 0px 20px;
+  }
+  imgMob img {
+    height: 180px;
+  }
 }
 
 @media (max-width: 640px) {
-  .serviceHomeBtn
-{
-  margin-top: 0rem;
-  border-radius: 5.47px;
-  padding: 6px 10px 6px 10px;
-}
-.bgSections
-{
-  margin-bottom: 1rem;
-}
-  .bgSections h1
-{
-  padding-bottom: 0rem;
-}
-  .section1,.section33
-  {
+  .serviceHomeBtn {
+    margin-top: 0rem;
+    border-radius: 5.47px;
+    padding: 6px 10px 6px 10px;
+  }
+  .bgSections {
+    margin-bottom: 1rem;
+  }
+  .bgSections h1 {
+    padding-bottom: 0rem;
+  }
+  .section1,
+  .section33 {
     padding: 0rem 1rem 0rem 1rem;
   }
-  .section2
-  {
+  .section2 {
     padding: 3rem 1rem 1rem 1rem;
-
   }
   .carousel-grid {
     grid-template-columns: repeat(2, 1fr); /* 1 card per row for mobile */
@@ -124,14 +119,13 @@ margin-bottom: 2rem;
     padding: 0px 10px 0px 10px;
   }
   imgMob img {
-height: 180px;
+    height: 180px;
   }
-   .imgDiv {
+  .imgDiv {
     display: flex;
     justify-content: center;
   }
-  .dotsMob button
-  {
+  .dotsMob button {
     width: 0.4rem;
     height: 0.4rem;
   }

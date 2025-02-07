@@ -44,9 +44,8 @@ import FormManagementDetails from './pages/Admin/FormManagementDetails';
 import TermsAndConditions from './pages/User/TermsAndConditions';
 import TermsAndConditionForNewProject from './pages/User/TermsAndConditionForNewProject';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoutes';
-import JobFairReg from "./pages/User/jobs";
-import Creators from "./pages/User/Creators";
-
+import Creators from './pages/User/Creators';
+// import JobFairReg from './pages/JobFair/JobFairReg';
 
 
 function App() {
@@ -89,8 +88,8 @@ function App() {
     '/employeeinternship',
     '/termsconditions',
     '/termsconditions-submit-new-project',
-    '/creators'
-
+    '/jobfair',
+    '/creators',
   ].includes(location.pathname);
   const isNotFoundRoute = location.pathname === '/not-found';
   const isAdminRoute =
@@ -141,6 +140,9 @@ function App() {
                   <Route path="/personnel" element={<Personel />} />
                   <Route path="/project-submission" element={<NewProject />} />
                   <Route path="/employeesales" element={<EmployeeSales />} />
+
+                  {/* <Route path="/jobfair" element={<JobFairReg />} /> */}
+
                   <Route
                     path="/employeeinternship"
                     element={<EmployeeInternship />}
@@ -154,7 +156,7 @@ function App() {
                     element={<TermsAndConditionForNewProject />}
                   />
 
-                  <Route path='/creators' element={<Creators/>}/>
+                  <Route path="/creators" element={<Creators />} />
 
 
                   {/* Admin Routes */}
@@ -244,8 +246,6 @@ function App() {
                       element={<FooterManagement />}
                     />
                   </Route>
-
-
 
                   {/* Admin Routes */}
                   <Route path="/admin/admin-login" element={<AdminLogin />} />
@@ -336,7 +336,6 @@ function App() {
                   </Route>
                   <Route path='job-fair' element={<JobFairReg />}/>
 
-
                   {/* 404 Not Found */}
                   <Route
                     path="/not-found"
@@ -365,4 +364,3 @@ const styles = {
 };
 
 export default App;
-

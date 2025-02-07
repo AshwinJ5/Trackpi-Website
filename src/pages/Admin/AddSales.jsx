@@ -378,7 +378,7 @@ function AddSales() {
               onChange={handleFileChange}
             />
             <p style={{ color: 'red', fontSize: '9px' }}>
-              Image dimensions must be 400x286 pixels.
+              *Image dimensions must be 400x286 pixels.
             </p>
           </div>
           {/* Personal Information */}
@@ -1177,8 +1177,8 @@ function AddSales() {
             onChange={handleBusinessCardFileChange}
           />
           <p style={{ color: 'red', fontSize: '9px', textAlign: 'center' }}>
-          Business card image must be exactly 500x300 pixels.
-            </p>
+            *Business card image must be exactly 500x300 pixels.
+          </p>
           {/* {businessCardError && (
             <p style={{ color: 'red', fontSize: '9px', textAlign: 'center' }}>
               {businessCardError}

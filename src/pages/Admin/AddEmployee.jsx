@@ -271,67 +271,64 @@ function AddEmployee() {
     <div className="container mx-auto mt-0 my-5 px-5  pb-5 bg-white ">
       <form className="row g-4" onSubmit={handleSubmit}>
         <div className=" px-5 d-flex align-items-center   mb-3 ">
-        <div className="me-4 pt-10">
-  <h2 className="mb-4 text-[22px]">
-    {id ? 'Edit Employee Details' : 'Add Employee Details'}
-  </h2>
-  <div
-    className="d-flex justify-content-center align-items-center border border-secondary rounded-2xl"
-    style={{
-      width: '150px',
-      height: '120px',
-      position: 'relative',
-    }}
-  >
-    {profileImage ? (
-      <img
-        src={
-          profileImage instanceof File
-            ? URL.createObjectURL(profileImage) // If it's a file, generate a local preview
-            : profileImage // Otherwise, use the URL directly
-        }
-        alt="Uploaded"
-        style={{
-          width: '150px',
-          height: '120px',
-          borderRadius: '12%',
-          objectFit: 'cover',
-        }}
-      />
-    ) : (
-      <span>No image available</span> // Placeholder for no image
-    )}
+          <div className="me-4 pt-10">
+            <h2 className="mb-4 text-[22px]">
+              {id ? 'Edit Employee Details' : 'Add Employee Details'}
+            </h2>
+            <div
+              className="d-flex justify-content-center align-items-center border border-secondary rounded-2xl"
+              style={{
+                width: '150px',
+                height: '120px',
+                position: 'relative',
+              }}
+            >
+              {profileImage ? (
+                <img
+                  src={
+                    profileImage instanceof File
+                      ? URL.createObjectURL(profileImage) // If it's a file, generate a local preview
+                      : profileImage // Otherwise, use the URL directly
+                  }
+                  alt="Uploaded"
+                  style={{
+                    width: '150px',
+                    height: '120px',
+                    borderRadius: '12%',
+                    objectFit: 'cover',
+                  }}
+                />
+              ) : (
+                <span>No image available</span> // Placeholder for no image
+              )}
 
-    <div
-      className="position-absolute bottom-2 end-2 bg-warning rounded-circle d-flex justify-content-center align-items-center"
-      style={{ width: '25px', height: '25px' }}
-    >
-      <button
-        type="button"
-        onClick={() => fileInputRef.current.click()}
-        className="btn btn-sm p-0 text-white"
-        style={{ background: 'none', border: 'none' }}
-      >
-        <RiImageAddLine />
-      </button>
-    </div>
-  </div>
-  <input
-    type="file"
-    ref={fileInputRef}
-    style={{ display: 'none' }}
-    accept="image/*"
-    onChange={handleFileChange}
-  />
-  
-  {/* Always display this message below the image */}
-  <p style={{ color: 'red', fontSize: '9px' }}>
-    Image dimensions must be 400x286 pixels.
-  </p>
-  
+              <div
+                className="position-absolute bottom-2 end-2 bg-warning rounded-circle d-flex justify-content-center align-items-center"
+                style={{ width: '25px', height: '25px' }}
+              >
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current.click()}
+                  className="btn btn-sm p-0 text-white"
+                  style={{ background: 'none', border: 'none' }}
+                >
+                  <RiImageAddLine />
+                </button>
+              </div>
+            </div>
+            <input
+              type="file"
+              ref={fileInputRef}
+              style={{ display: 'none' }}
+              accept="image/*"
+              onChange={handleFileChange}
+            />
 
-</div>
-
+            {/* Always display this message below the image */}
+            <p style={{ color: 'red', fontSize: '9px' }}>
+              *Image dimensions must be 400x286 pixels.
+            </p>
+          </div>
 
           <div className="mt-5 flex-grow-1 row justify-evenly">
             <div className="col-md-3">
