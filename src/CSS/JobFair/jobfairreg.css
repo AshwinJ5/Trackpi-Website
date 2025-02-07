@@ -26,24 +26,24 @@
         max-width: 90%;
     }
 
-    .title {
+    .form-title {
         font-size: clamp(1.5rem, 3vw, 2rem);
         text-align: center;
     }
 
-    input,
-    select {
+    .custom-input,
+    .custom-select {
         font-size: 14px;
     }
 }
 
 @media (max-width: 480px) {
-    .form-container {
+    form-container {
         padding: 12px;
         max-width: 95%;
     }
 
-    .title {
+    .form-title {
         font-size: clamp(1.3rem, 4vw, 1.7rem);
     }
 
