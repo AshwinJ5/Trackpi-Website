@@ -98,6 +98,21 @@ function JobFairReg() {
               />
             </Form.Group>
 
+            <Form.Group className="mb-3 mt-3">
+              <Form.Label>
+                Company Size <span className="text-danger">*</span>
+              </Form.Label>
+              <Form.Select name="companySize" value={formData.companySize} onChange={handleChange}>
+                <option value="">Select Company Size</option>
+                <option>1-10 employees</option>
+                <option>11-50 employees</option>
+                <option>101-500 employees</option>
+                <option>1,001-5,000 employees</option>
+                <option>5,001-10,000 employees</option>
+                <option>10,000+ employees</option>
+              </Form.Select>
+            </Form.Group>
+
             <Form.Label>Company Location</Form.Label>
             <Row className="g-2">
               <Col xs={12} md={6} lg={3}>
@@ -120,23 +135,10 @@ function JobFairReg() {
               </Col>
             </Row>
 
-            <Form.Group className="mb-3 mt-3">
-              <Form.Label>
-                Company Size <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Select name="companySize" value={formData.companySize} onChange={handleChange}>
-                <option value="">Select Company Size</option>
-                <option>1-10 employees</option>
-                <option>11-50 employees</option>
-                <option>101-500 employees</option>
-                <option>1,001-5,000 employees</option>
-                <option>5,001-10,000 employees</option>
-                <option>10,000+ employees</option>
-              </Form.Select>
-            </Form.Group>
+            
 
             <div className="d-flex justify-content-center">
-              <Button type="submit" variant="warning" className="w-100 w-md-50 fw-bold">
+              <Button type="submit" variant="warning" className="mt-4 w-100 w-md-50 fw-bold">
                 Next
               </Button>
             </div>

@@ -36,6 +36,7 @@ function Jobs({ onClose }) {
 
           <ul className="modal-list ms-3">
             <li>✅ This form can be filled out only by a senior decision-maker.</li>
+            <li>(CEO, CMO, CTO, CLO, CFO, CPO, COO, CHRO  )</li>
             <li>✅ Only your corporate email is accepted. Public domains (e.g., @gmail.com) will not be accepted.</li>
             <li>✅ Proofread and check for accuracy before submission.</li>
             <li>✅ All complimentary gifts can be claimed without being shy!</li>
@@ -46,7 +47,7 @@ function Jobs({ onClose }) {
           </p>
         <Modal.Footer className="d-flex justify-content-center">
           <Button variant="warning" className="fw-bold px-4" onClick={handleClose}>
-            Close
+            Proceed
           </Button>
         </Modal.Footer>
         </Modal.Body>
