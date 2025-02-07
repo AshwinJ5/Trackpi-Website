@@ -48,7 +48,6 @@ import JobFairReg from "./pages/User/jobs";
 import Creators from "./pages/User/Creators";
 
 
-import JobFairReg from './pages/JobFair/JobFairReg';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -90,7 +89,6 @@ function App() {
     '/employeeinternship',
     '/termsconditions',
     '/termsconditions-submit-new-project',
-    '/job-fair',
     '/creators'
 
   ].includes(location.pathname);
@@ -143,7 +141,6 @@ function App() {
                   <Route path="/personnel" element={<Personel />} />
                   <Route path="/project-submission" element={<NewProject />} />
                   <Route path="/employeesales" element={<EmployeeSales />} />
-                  <Route path='/jobfair' element={<JobFairReg />} />
                   <Route
                     path="/employeeinternship"
                     element={<EmployeeInternship />}
@@ -157,7 +154,6 @@ function App() {
                     element={<TermsAndConditionForNewProject />}
                   />
 
-                  <Route path='/job-fair' element={<JobFairReg/>}/>
                   <Route path='/creators' element={<Creators/>}/>
 
 
@@ -338,6 +334,7 @@ function App() {
                       element={<FooterManagement />}
                     />
                   </Route>
+                  <Route path='job-fair' element={<JobFairReg />}/>
 
 
                   {/* 404 Not Found */}

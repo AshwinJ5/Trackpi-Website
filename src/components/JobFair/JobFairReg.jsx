@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Row, Col } from "react-bootstrap";
-import HeaderSection from "../../components/JobFair/Header";
+import { Form, Row, Col, Button, Container } from "react-bootstrap";
+import HeaderSection from "./Header";
 import "../../CSS/JobFair/jobfairreg.css";
 
 function JobFairReg() {
@@ -45,33 +45,38 @@ function JobFairReg() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted", formData);
+    // Add form submission logic here
+  };
+
   return (
     <>
-      <HeaderSection />
-      <div className="container mt-4 my-5">
-        <form className="form-container shadow-lg">
-          <h3 className="text-center mb-4 fw-bold">Company Information</h3>
-          <div>
-            <div className="mb-3">
-              <label>
+        <HeaderSection />
+        <Container className="mt-4 my-5">
+          <Form className="form-container shadow-lg p-4" onSubmit={handleSubmit}>
+            <h3 className="text-center mb-4 fw-bold">Company Information</h3>
+
+            <Form.Group className="mb-3">
+              <Form.Label>
                 Company Name <span className="text-danger">*</span>
-              </label>
-              <input
+              </Form.Label>
+              <Form.Control
                 type="text"
                 name="companyName"
-                className="form-control"
                 placeholder="Enter your company name"
                 value={formData.companyName}
                 onChange={handleChange}
                 required
               />
-            </div>
+            </Form.Group>
 
-            <div className="mb-3">
-              <label>
+            <Form.Group className="mb-3">
+              <Form.Label>
                 Industry/Domain Name <span className="text-danger">*</span>
-              </label>
-              <select name="industry" value={formData.industry} onChange={handleChange} className="form-select">
+              </Form.Label>
+              <Form.Select name="industry" value={formData.industry} onChange={handleChange}>
                 <option value="">Select Industry</option>
                 <option>Healthcare & Pharmaceuticals</option>
                 <option>Information Technology (IT) & Services</option>
@@ -79,49 +84,47 @@ function JobFairReg() {
                 <option>Education & E-Learning</option>
                 <option>Manufacturing & Engineering</option>
                 <option>Retail & E-commerce</option>
-              </select>
-            </div>
+              </Form.Select>
+            </Form.Group>
 
-            <div className="mb-3">
-              <label>Company Website</label>
-              <input
+            <Form.Group className="mb-3">
+              <Form.Label>Company Website</Form.Label>
+              <Form.Control
                 type="text"
                 name="website"
-                className="form-control"
                 placeholder="www.yourcompany.com"
                 value={formData.website}
                 onChange={handleChange}
               />
-            </div>
+            </Form.Group>
 
-            <label>Company Location</label>
+            <Form.Label>Company Location</Form.Label>
             <Row className="g-2">
               <Col xs={12} md={6} lg={3}>
-                <input
+                <Form.Control
                   type="text"
                   name="pincode"
-                  className="form-control"
                   placeholder="Zip Code"
                   value={formData.pincode}
                   onChange={handleChange}
                 />
               </Col>
               <Col xs={12} md={6} lg={3}>
-                <input type="text" name="country" className="form-control" placeholder="Country" value={formData.country} readOnly />
+                <Form.Control type="text" name="country" placeholder="Country" value={formData.country} readOnly />
               </Col>
               <Col xs={12} md={6} lg={3}>
-                <input type="text" name="state" placeholder="State" className="form-control" value={formData.state} readOnly />
+                <Form.Control type="text" name="state" placeholder="State" value={formData.state} readOnly />
               </Col>
               <Col xs={12} md={6} lg={3}>
-                <input type="text" name="city" placeholder="City" className="form-control" value={formData.city} readOnly />
+                <Form.Control type="text" name="city" placeholder="City" value={formData.city} readOnly />
               </Col>
             </Row>
 
-            <div className="mb-3 mt-3">
-              <label>
+            <Form.Group className="mb-3 mt-3">
+              <Form.Label>
                 Company Size <span className="text-danger">*</span>
-              </label>
-              <select name="companySize" className="form-select" value={formData.companySize} onChange={handleChange}>
+              </Form.Label>
+              <Form.Select name="companySize" value={formData.companySize} onChange={handleChange}>
                 <option value="">Select Company Size</option>
                 <option>1-10 employees</option>
                 <option>11-50 employees</option>
@@ -129,16 +132,16 @@ function JobFairReg() {
                 <option>1,001-5,000 employees</option>
                 <option>5,001-10,000 employees</option>
                 <option>10,000+ employees</option>
-              </select>
-            </div>
+              </Form.Select>
+            </Form.Group>
+
             <div className="d-flex justify-content-center">
-              <button className="btn btn-warning w-100 w-md-50 fw-bold">
+              <Button type="submit" variant="warning" className="w-100 w-md-50 fw-bold">
                 Next
-              </button>
+              </Button>
             </div>
-          </div>
-        </form>
-      </div>
+          </Form>
+        </Container>
     </>
   );
 }
