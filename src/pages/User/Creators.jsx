@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import CreatorCard from '../../components/User/teamCreatorsCard';
 import creator1 from '../../images/creator1.png';
 import creator2 from '../../images/creator2.png';
 import '../../CSS/User/Creators.css';
+import baseURL from '../../Api Services/baseURL';
+import ashwin from "../../images/aswinImg.png"
 // Sample data
 const designers = [
   { name: 'Alifen Sunny', role: 'UI/UX Designer', image: creator1 },
@@ -11,11 +13,29 @@ const designers = [
 
 const developers = [
   { name: 'Shalu V', role: 'React Developer', image: creator2 },
-  { name: 'Aswin Joseph', role: 'React Developer', image: creator1 },
+  { name: 'Aswin Joseph', role: 'React Developer', image: ashwin },
   { name: 'Nidha Fathima', role: 'React Developer', image: creator2 },
 ];
 
+
+
 const Creators = () => {
+  const [images, setImages] = useState([]);
+  console.log(images, 'image_response');
+
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const response = await baseURL.get('/api/images/getImages');
+        setImages(response.data.images);
+
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    fetchImage();
+  }, []);
   return (
     <div className="w-full xl:mt-[150px] mt-[90px] mb-20 flex flex-col items-center">
       <h2 className=" text-[22px] md:text-[28px] lg:text-[62px] font-bold text-center text-[#FF9D00] mb-0 ">

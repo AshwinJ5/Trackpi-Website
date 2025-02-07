@@ -379,6 +379,8 @@ const PartnershipManagement = () => {
                                     </div>
                                     <div className="flex flex-col w-2/3 gap-[10px]">
                                         <div className="text-[14px] font-semibold">Description</div>
+                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please try to give description less than in 150 letters.</div>
+
                                         <textarea
                                             value={patnershipDatas.description}
                                             onChange={(e) =>
@@ -463,6 +465,7 @@ const PartnershipManagement = () => {
                                     </div>
                                     <div className="flex flex-col w-2/3 gap-[10px]">
                                         <div className="text-[14px] font-semibold">Description</div>
+                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please try to give description less than in 150 letters.</div>
                                         <textarea
                                             value={editPartnershipDatas.description}
                                             onChange={(e) =>
