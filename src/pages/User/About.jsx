@@ -8,13 +8,18 @@ function About() {
     return (
         <>
             <PopUp />
-                <HeaderBanner title="About Us" description="
-Learn more about our journey as the best business consultant in Kerala and what drives us forward.
-"classname='bgTwo' 
-                brochureMain={true} noButton={true} class123={'headerbannerCenterContentOther'}/>
-                <section >
-                    <OurTeam />  
-                </section>
+            <HeaderBanner
+                title="About Us"
+                description="Trackpi is one of the top business consultants in Kerala, helping businesses grow with expert advice. Our team in Kochi works to help companies succeed. We also offer freelancing opportunities for people to earn and grow in Kerala’s largest freelance community.
+"
+                classname="bgTwo"
+                brochureMain={true}
+                noButton={true}
+                class123={"headerbannerCenterContentOther"}
+            />
+            <section>
+                <OurTeam />
+            </section>
             <section className="mb-5"></section>
             <ConnectButtons />
         </>
