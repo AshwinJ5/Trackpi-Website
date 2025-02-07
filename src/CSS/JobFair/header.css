@@ -30,11 +30,11 @@
         text-align: center; /* Center align text on small screens */
     }
 
-    h1 {
+    .t1 {
         font-size: clamp(2rem, 5vw, 3rem) !important; /* Adjust heading size */
     }
 
-    h2 {
+    .t2 {
         font-size: clamp(1.2rem, 3vw, 1.5rem);
     }
 
