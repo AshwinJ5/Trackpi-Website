@@ -458,7 +458,7 @@ function Home() {
           </div> */}
           <div className=" mt-4 sm:mx-2 md:mx-4 lg:mx-16 px-2">
             <a
-              href="https://www.instagram.com/trackpi_official"
+              href="https://www.instagram.com/business_flash_news?igsh=eng2anQ4bjNmY3l4"
               target="_blank"
               rel="noopener noreferrer" // Security reason when using target="_blank"
             >
