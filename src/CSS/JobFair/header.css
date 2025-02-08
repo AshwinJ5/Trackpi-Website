@@ -1,50 +1,80 @@
-/* Highlight Text */
+.header-section {
+    margin-top: 20px;
+}
+
+/* Title styles */
+.t2 {
+    font-size: 74px;
+    font-weight: 900;
+}
+
+.t3 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Description text */
+.description {
+    text-align: justify;
+    font-size: 16px;
+}
+
+/* Highlight color */
 .highlight {
     color: orange;
 }
 
-/* Justify Description Text */
-.description {
-    text-align: justify;
-    font-size: clamp(14px, 2vw, 16px);
-}
-
-/* Responsive Logo */
+/* Logo styling */
 .logo-img {
-    width: clamp(180px, 50%, 250px);
+    width: 200px;
     max-width: 100%;
+    
 }
 
-/* Responsive text alignment */
-.text-content {
-    text-align: center;
+/* Contact info styling */
+.contact-info p {
+    font-size: 16px;
 }
 
-/* Reduce spacing and center elements on small screens */
-@media (max-width: 768px) {
-    .logo-img {
-        width: 180px; /* Smaller logo on mobile */
-    }
-
-    .text-content {
-        text-align: center; /* Center align text on small screens */
-    }
-
-    .t1 {
-        font-size: clamp(2rem, 5vw, 3rem) !important; /* Adjust heading size */
-    }
-
+/* Responsive styles */
+@media (max-width: 992px) {
     .t2 {
-        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        font-size: 48px;
     }
+    .t3 {
+        font-size: 20px;
+    }
+}
 
+@media (max-width: 768px) {
+    .t2 {
+        font-size: 40px;
+    }
+    .t3 {
+        font-size: 18px;
+    }
     .description {
-        font-size: 14px; /* Reduce font size for better readability */
+        font-size: 14px;
     }
+    .logo-img {
+        width: 150px;
+    }
+}
 
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 576px) {
+    .t2 {
+        font-size: 32px;
         text-align: center;
+    }
+    .t3 {
+        font-size: 16px;
+        text-align: center;
+    }
+    .description {
+        font-size: 14px;
+        text-align: center;
+    }
+    .logo-img {
+        width: 140px;
     }
 }

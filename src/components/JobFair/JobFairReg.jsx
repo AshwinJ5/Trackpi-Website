@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Form, Row, Col, Button, Container } from "react-bootstrap";
 import HeaderSection from "./Header";
 import "../../CSS/JobFair/jobfairreg.css";
 
@@ -52,107 +51,84 @@ function JobFairReg() {
   };
 
   return (
-    <>
     <div className="cnt">
+      <HeaderSection />
+      <div className="form-container mt-4">
+        <form onSubmit={handleSubmit}>
+          <h3 className="form-title">Company Information</h3>
 
-         <HeaderSection />
-        <Container className="mt-4 my-5 ">
-          <Form className="form-container shadow-lg p-4" onSubmit={handleSubmit}>
-            <h3 className="text-center mb-4 fw-bold title">Company Information</h3>
+          <div className="form-group">
+            <label>Company Name <span className="text-danger">*</span></label>
+            <input
+              type="text"
+              name="companyName"
+              className="custom-Input"
+              placeholder="Enter your company name"
+              value={formData.companyName}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-            <Form.Group className="mb-3">
-              <Form.Label>
-                Company Name <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Control
-                type="text"
-                name="companyName"
-                  className="custom-input"
-                placeholder="Enter your company name"
-                value={formData.companyName}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+          <div className="form-group">
+            <label>Industry/Domain Name <span className="text-danger">*</span></label>
+            <select name="industry" className="custom-Select" value={formData.industry} onChange={handleChange}>
+              <option value="">Select Industry</option>
+              <option>Healthcare & Pharmaceuticals</option>
+              <option>Information Technology (IT) & Services</option>
+              <option>Financial Services</option>
+              <option>Education & E-Learning</option>
+              <option>Manufacturing & Engineering</option>
+              <option>Retail & E-commerce</option>
+            </select>
+          </div>
 
-            <Form.Group className="mb-3">
-              <Form.Label>
-                Industry/Domain Name <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Select name="industry" value={formData.industry} onChange={handleChange}>
-                <option value="">Select Industry</option>
-                <option>Healthcare & Pharmaceuticals</option>
-                <option>Information Technology (IT) & Services</option>
-                <option>Financial Services</option>
-                <option>Education & E-Learning</option>
-                <option>Manufacturing & Engineering</option>
-                <option>Retail & E-commerce</option>
-              </Form.Select>
-            </Form.Group>
+          <div className="form-group">
+            <label>Company Website</label>
+            <input
+              type="text"
+              name="website"
+              className="custom-Input"
+              placeholder="www.yourcompany.com"
+              value={formData.website}
+              onChange={handleChange}
+            />
+          </div>
 
-            <Form.Group className="mb-3">
-              <Form.Label>Company Website</Form.Label>
-              <Form.Control
-                type="text"
-                name="website"
-                  className="custom-input"
-                placeholder="www.yourcompany.com"
-                value={formData.website}
-                onChange={handleChange}
-              />
-            </Form.Group>
+          <div className="form-group">
+            <label>Company Size <span className="text-danger">*</span></label>
+            <select name="companySize" className="custom-Select" value={formData.companySize} onChange={handleChange}>
+              <option value="">Select Company Size</option>
+              <option>1-10 employees</option>
+              <option>11-50 employees</option>
+              <option>101-500 employees</option>
+              <option>1,001-5,000 employees</option>
+              <option>5,001-10,000 employees</option>
+              <option>10,000+ employees</option>
+            </select>
+          </div>
 
-            <Form.Group className="mb-3 mt-3">
-              <Form.Label>
-                Company Size <span className="text-danger">*</span>
-              </Form.Label>
-              <Form.Select name="companySize" value={formData.companySize} onChange={handleChange}>
-                <option value="">Select Company Size</option>
-                <option>1-10 employees</option>
-                <option>11-50 employees</option>
-                <option>101-500 employees</option>
-                <option>1,001-5,000 employees</option>
-                <option>5,001-10,000 employees</option>
-                <option>10,000+ employees</option>
-              </Form.Select>
-            </Form.Group>
+          <label>Company Location</label>
+          <div className="location-grid">
+            <input
+              type="text"
+              name="pincode"
+              className="custom-Input"
+              placeholder="Zip Code"
+              value={formData.pincode}
+              onChange={handleChange}
+            />
+            <input type="text" name="country" className="custom-Input" placeholder="Country" value={formData.country} readOnly />
+            <input type="text" name="state" className="custom-Input" placeholder="State" value={formData.state} readOnly />
+            <input type="text" name="city" className="custom-Input" placeholder="City" value={formData.city} readOnly />
+          </div>
 
-            <Form.Label>Company Location</Form.Label>
-            <Row className="g-2">
-              <Col xs={12} md={6} lg={3}>
-                <Form.Control
-                  type="text"
-                  name="pincode"
-                    className="custom-input"
-                  placeholder="Zip Code"
-                  value={formData.pincode}
-                  onChange={handleChange}
-                />
-              </Col>
-              <Col xs={12} md={6} lg={3}>
-                <Form.Control
-                  className="custom-input" type="text" name="country" placeholder="Country" value={formData.country} readOnly />
-              </Col>
-              <Col xs={12} md={6} lg={3}>
-                <Form.Control type="text" name="state" placeholder="State" value={formData.state} readOnly />
-              </Col>
-              <Col xs={12} md={6} lg={3}>
-                <Form.Control type="text" name="city" placeholder="City" value={formData.city} readOnly />
-              </Col>
-            </Row>
-
-            
-
-            <div className="d-flex justify-content-center">
-              <Button type="submit" variant="warning" className="mt-4 w-100 w-md-50 fw-bold bt">
-                Next
-              </Button>
-            </div>
-          </Form>
-        </Container>
-        </div>
-   
-    </>
+          <div className="button-container mt-3">
+            <button type="submit" className="bt">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 

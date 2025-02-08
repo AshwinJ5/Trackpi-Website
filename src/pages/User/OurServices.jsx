@@ -15,7 +15,7 @@ import strategyImg3 from "../../images/strategy3.png";
 import hiringImg1 from "../../images/sale.jpg";
 import KeyBenefitServices from "../../components/User/KeyBenefitServices";
 import ConnectButtons from "../../components/ConnectButtons";
-import '../../CSS/ourservices.css'
+import "../../CSS/ourservices.css";
 
 function OurServices() {
     return (
@@ -25,8 +25,9 @@ function OurServices() {
                 {/* Hero Section */}
                 <HeaderBanner
                     title="Working Together"
-                    description="We help organizations navigate and thrive in the face of complexity."
-                    classname="bgThree"  class123={'headerbannerCenterContentOther'}
+                    description="Trackpi is a trusted business consultant in Kerala, offering expert services in sales outsourcing, branding and marketing, sales training, hiring & retention, risk management, financial advice, asset management, and IT solutions. With years of experience and a commitment to delivering results, we help businesses strengthen operations and achieve sustainable growth."
+                    classname="bgThree"
+                    class123={"headerbannerCenterContentOther"}
                 />
 
                 {/* Content Sections */}
@@ -64,13 +65,14 @@ function OurServices() {
                         description2="Get exposure to a team of professionals who have seen it all and done it. All of those real-life interactions should integrate into the performance of trained sales teams. As trusted consultants in Kerala, we offer sales champions in training—and no one wins them easily, to our business clientele. In-depth training involves the best techniques imaginable along with novel strategies that should guarantee results that are out of this world."
                         img2={strategyImg2}
                         title3="Measurable Outcomes"
-                        description3="Achieve target success rates in training using our outcomes-centered strategy across CTCR Institutes’ services. We focus on defining goals and improving KPIs such as conversion rates and customer satisfaction levels. As experienced management consultants in Kerala, we invest your money saved on sales training to ensure you obtain growth in revenues and profits."
+                        description3="Achieve target success rates in training with our outcomes-focused strategy across various business services. We specialize in defining clear goals and enhancing key performance indicators (KPIs) such as conversion rates and customer satisfaction. As experienced management consultants in Kerala, we help you optimize sales training costs, ensuring increased revenue and profitability."
                         img3={strategyImg3}
                     />
                 </section>
                 <section id="operations-training" className="w-full">
-                <ServicesSub
-                        heading="Operations Training & Strategies" subHeading='Leverage our custom-designed tactics to efficiently enhance your operations. Every process has room for improvement, and every member of the team has the potential to flourish while adapting to ever-evolving surroundings, which is why we execute extensive training sessions. Our focus on continuous enhancement guarantees that your business is proactively prepared to succeed in a highly competitive business environment.'
+                    <ServicesSub
+                        heading="Operations Training & Strategies"
+                        subHeading="Leverage our custom-designed tactics to efficiently enhance your operations. Every process has room for improvement, and every member of the team has the potential to flourish while adapting to ever-evolving surroundings, which is why we execute extensive training sessions. Our focus on continuous enhancement guarantees that your business is proactively prepared to succeed in a highly competitive business environment."
                         classname=""
                         title1="Why Employ Our Services?"
                         description1="Enhance Efficiency: Unclutter and automate your business processes to increase efficiency and cut costs. Improve Leadership: Provide managers with effective tools that they can use to accomplish operational success. Ensure Change: Promote change and ensure that significant organizational changes go smoothly. Customize Your Solutions: Applications to grant you solutions that solely match your operational problems.
@@ -80,7 +82,7 @@ function OurServices() {
                     />
                 </section>
                 <section>
-                  <KeyBenefitServices/>
+                    <KeyBenefitServices />
                 </section>
                 <section id="market-positioning" className=" w-full marketPositioning">
                     <MarketPositioning />
@@ -139,7 +141,7 @@ function OurServices() {
                     />
                 </section>
             </div>
-            <ConnectButtons/>
+            <ConnectButtons />
         </div>
     );
 }
