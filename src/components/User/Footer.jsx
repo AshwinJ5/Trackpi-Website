@@ -50,10 +50,10 @@ function Footer() {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             style={{
-                                                color: '#FF9D00',
-                                                fontWeight: 'bold',
-                                                textDecoration:'none'
-                                              }}
+                                                color: "#FF9D00",
+                                                fontWeight: "bold",
+                                                textDecoration: "none",
+                                            }}
                                         >
                                             {" "}
                                             expert guidance
@@ -66,25 +66,53 @@ function Footer() {
                                         Follow Us
                                     </h5>
                                     <div className="flex my-auto justify-between lg:gap-[25px] sm:gap-[25px] gap-[10px] flex-row footer_smedia">
-                                        <Link onClick={() => window.open('https://www.facebook.com/profile.php?id=61565947096778', '_blank')}>
+                                        <Link
+                                            onClick={() =>
+                                                window.open(
+                                                    "https://www.facebook.com/profile.php?id=61565947096778",
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
                                             <img src={fbIcon} alt="" />
                                         </Link>
-                                        <Link onClick={() => window.open('https://www.youtube.com/@trackpi', '_blank')}>
+                                        <Link onClick={() => window.open("https://www.youtube.com/@trackpi", "_blank")}>
                                             <img src={youtubeIcon} alt="" />
                                         </Link>
-                                        <Link onClick={() => window.open('https://www.instagram.com/trackpi_official?igsh=YmwyaHpzYXBueWJz', '_blank')}>
+                                        <Link
+                                            onClick={() =>
+                                                window.open(
+                                                    "https://www.instagram.com/trackpi_official?igsh=YmwyaHpzYXBueWJz",
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
                                             <img src={instagramIcon} alt="" />
                                         </Link>
-                                        <Link onClick={() => window.open('https://medium.com/@trackpi', '_blank')}>
+                                        <Link onClick={() => window.open("https://medium.com/@trackpi", "_blank")}>
                                             <img src={mediumIcon} alt="" />
                                         </Link>
-                                        <Link onClick={() => window.open('https://www.linkedin.com/company/trackpi-private-limited/?viewAsMember=true', '_blank')}>
+                                        <Link
+                                            onClick={() =>
+                                                window.open(
+                                                    "https://www.linkedin.com/company/trackpi-private-limited/?viewAsMember=true",
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
                                             <img src={linkedinIcon} alt="" />
                                         </Link>
-                                        <Link onClick={() => window.open('https://www.quora.com/profile/Trackpi-Private-Limited', '_blank')}>
+                                        <Link
+                                            onClick={() =>
+                                                window.open(
+                                                    "https://www.quora.com/profile/Trackpi-Private-Limited",
+                                                    "_blank"
+                                                )
+                                            }
+                                        >
                                             <img src={quoraIcon} alt="" />
                                         </Link>
-                                        <Link onClick={() => window.open('https://trackpi.blogspot.com/', '_blank')}>
+                                        <Link onClick={() => window.open("https://trackpi.blogspot.com/", "_blank")}>
                                             <img src={bloggerIcon} alt="" />
                                         </Link>
                                     </div>
@@ -102,18 +130,26 @@ function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="https://trackpi.blogspot.com/" target="_blank" className="text-dark   footerHoverUnderline">
+                                    <Link
+                                        to="https://trackpi.blogspot.com/"
+                                        target="_blank"
+                                        className="text-dark   footerHoverUnderline"
+                                    >
                                         Blogs
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="https://trackpi.org/" target="_blank"  className="text-dark  footerHoverUnderline ">
+                                    <Link
+                                        to="https://trackpi.org/"
+                                        target="_blank"
+                                        className="text-dark  footerHoverUnderline "
+                                    >
                                         Careers
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="/creators" className="text-dark  footerHoverUnderline">
-                                       Creators
+                                        Creators
                                     </Link>
                                 </li>
                                 <li>
@@ -130,7 +166,9 @@ function Footer() {
                             <ul className="list-unstyled font-medium text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] grid gap-y-[14px] gap-x-[30px]   mb-0  ">
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/business-consulting-services", "#sales-outsourcing")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#sales-outsourcing")
+                                        }
                                         className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Sales Outsourcing
@@ -138,7 +176,9 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/business-consulting-services", "#market-positioning")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#market-positioning")
+                                        }
                                         className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Market Positioning & Branding
@@ -153,8 +193,10 @@ function Footer() {
                                     </a>
                                 </li>
                                 <li>
-                                    <a 
-                                        onClick={() => handleNavigation("/business-consulting-services", "#operations-training")}
+                                    <a
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#operations-training")
+                                        }
                                         className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Operations Training & Strategies
@@ -162,7 +204,9 @@ function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        onClick={() => handleNavigation("/business-consulting-services", "#financial-consulting")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#financial-consulting")
+                                        }
                                         className="text-dark  cursor-pointer footerHoverUnderline"
                                     >
                                         Financial Consulting
@@ -216,12 +260,28 @@ function Footer() {
                                         Contact
                                     </div>
                                     <div className="d-flex ">
-                                        <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={phoneIcon} alt="" />
-                                        <span className="ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]">+91 80781 79646</span>
+                                        <img
+                                            className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]"
+                                            src={phoneIcon}
+                                            alt=""
+                                        />
+                                        <span className="ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]">
+                                            +91 80781 79646
+                                        </span>
                                     </div>
                                     <div className="d-flex">
-                                        <img className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]" src={mailIcon} alt="" />
-                                        <a href="mailto:operations@trackpi.in" target="_blank" className="text-decoration-none ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]">operations@trackpi.in</a>
+                                        <img
+                                            className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px]"
+                                            src={mailIcon}
+                                            alt=""
+                                        />
+                                        <a
+                                            href="mailto:operations@trackpi.in"
+                                            target="_blank"
+                                            className="text-decoration-none ms-[10px] sm:ms-[20px] font-medium text-[#0A0A0A]"
+                                        >
+                                            operations@trackpi.in
+                                        </a>
                                     </div>
                                 </div>
                             </div>

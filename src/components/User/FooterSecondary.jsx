@@ -28,7 +28,6 @@ function FooterSecondary() {
     useEffect(() => {
         getAllFooterDatas();
     }, []);
-    // console.log(footerVideo);
 
     return (
         <>
@@ -138,46 +137,6 @@ function FooterSecondary() {
                                 </div>
                             </div>
                         </div>
-                        {/* {videoData.map((video, index) => (
-                                    <div
-                                        key={index}
-                                        className="text- col-lg-4 col-md-6 col-sm-12 m- "
-                                        onMouseEnter={() => handleHover(index)}
-                                        onMouseLeave={() => handleMouseLeave(index)}
-                                    >
-                                        <div className="relative w-full mb-2" style={{ paddingTop: "177.77%" }}>
-                                            <iframe
-                                                ref={(el) => (videoRefs.current[index] = el)}
-                                                src={
-                                                    video.isYouTube
-                                                        ? `${video.previewUrl}?autoplay=1&loop=1&mute=1`
-                                                        : video.previewUrl
-                                                }
-                                                className="absolute top-0 left-0 w-full h-full"
-                                                allow="autoplay; encrypted-media"
-                                                frameBorder="0"
-                                                scrolling="no"
-                                                allowFullScreen
-                                                loop
-                                                style={{
-                                                    borderRadius: "15px",
-                                                    border: "4px solid white",
-                                                    objectFit: "cover", // Ensures proper scaling of content inside iframe
-                                                }}
-                                                title={`${video.platform} Video`}
-                                            ></iframe>
-                                        </div>
-        
-                                        <a
-                                            href={video.link}
-                                            target="_blank"
-                                            className="slogen pb-2   rounded-none text-warning border-bottom border-warning "
-                                            style={{ textDecoration: "none", fontSize: "24px" }} 
-                                        >
-                                            View More
-                                        </a>
-                                    </div>
-                                ))} */}
                     </div>
                 </div>
                 <div className=" text-center py-[18px] sm:py-[20px] md:py-[30px] lg:py-[40px] xl:py-[50px] 2xl:py-[60px] grid gap-[18px] sm:gap-[20px] md:gap-[30px] lg:gap-[40px] xl:gap-[50px] 2xl:gap-[60px]">

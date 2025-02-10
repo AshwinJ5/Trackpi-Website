@@ -5,10 +5,9 @@ import deleteImg from "../../images/deleteimg.svg";
 import "../../CSS/partnershipAdmin.css";
 import DeletePopUp from "../../components/Admin/DeletePopUp";
 import baseURL from "../../Api Services/baseURL";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const PartnershipManagement = () => {
-    // store all datas from database
     const [allPartnersData, setAllPartnersData] = useState([]);
     const [isEditMode, setIsEditMode] = useState(false);
     const [deleteId, setDeleteId] = useState("");
@@ -19,10 +18,10 @@ const PartnershipManagement = () => {
     });
     const [editPartnershipDatas, setEditPartnershipDatas] = useState({});
     const [fileName, setFileName] = useState("Upload Image");
-        const [headingEditMode, setHeadingEditMode] = useState(false);
-        const [subHeadingEditMode, setSubHeadingEditMode] = useState(false);
-        const [heading, setHeading] = useState({ partnershipHeading: "" ,partnershipSubHeading:""});
-        
+    const [headingEditMode, setHeadingEditMode] = useState(false);
+    const [subHeadingEditMode, setSubHeadingEditMode] = useState(false);
+    const [heading, setHeading] = useState({ partnershipHeading: "", partnershipSubHeading: "" });
+
     // modal
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [dataDeleted, setDataDeleted] = useState("");
@@ -30,7 +29,7 @@ const PartnershipManagement = () => {
     const uploadImageAdd = (e) => {
         const file = e.target.files[0];
         if (file) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)&& file.size < 5 * 1024 * 1024) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type) && file.size < 5 * 1024 * 1024) {
                 setPatnershipDatas({ ...patnershipDatas, companylogo: file });
                 setFileName(file.name);
             } else {
@@ -44,7 +43,7 @@ const PartnershipManagement = () => {
     const uploadImageEdit = (e) => {
         const file = e.target.files[0];
         if (file) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type)&& file.size < 5 * 1024 * 1024) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file.type) && file.size < 5 * 1024 * 1024) {
                 setEditPartnershipDatas({ ...editPartnershipDatas, companylogo: file });
                 setFileName(file.name);
             } else {
@@ -79,7 +78,7 @@ const PartnershipManagement = () => {
 
     const getAllHeadings = async () => {
         try {
-            const response = await baseURL.get("/api/headingfornewspatnership/getallheading", );
+            const response = await baseURL.get("/api/headingfornewspatnership/getallheading");
             if (response.data && response.data.length > 0) {
                 setHeading(response.data[0]);
             }
@@ -90,42 +89,42 @@ const PartnershipManagement = () => {
 
     useEffect(() => {
         getAllPartners();
-        getAllHeadings()
+        getAllHeadings();
     }, []);
 
-    const editHeading=async (e)=>{
-        e.preventDefault()
+    const editHeading = async (e) => {
+        e.preventDefault();
         try {
             const formDatas = new FormData();
-            formDatas.append("partnershipHeading",heading.partnershipHeading);
-            formDatas.append("partnershipSubHeading",heading.partnershipSubHeading);
+            formDatas.append("partnershipHeading", heading.partnershipHeading);
+            formDatas.append("partnershipSubHeading", heading.partnershipSubHeading);
 
-            const response = await baseURL.patch('/api/headingfornewspatnership/updateallheading', formDatas, {
+            const response = await baseURL.patch("/api/headingfornewspatnership/updateallheading", formDatas, {
                 headers: {
                     Authorization: `Bearer ${adminToken}`,
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 },
             });
 
             if (response.status === 200) {
                 toast.success("Heading updated successfully!");
                 getAllHeadings();
-                setHeadingEditMode(false)
-                setSubHeadingEditMode(false)
+                setHeadingEditMode(false);
+                setSubHeadingEditMode(false);
             }
         } catch (error) {
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
-            }else if(error.response.status===304){
+            } else if (error.response.status === 304) {
                 toast.info("No changes detected");
             } else {
                 toast.error("An error occurred while updating heading.");
                 console.error("Error updating heading:", error);
-                setHeadingEditMode(false)
-                setSubHeadingEditMode(false)
+                setHeadingEditMode(false);
+                setSubHeadingEditMode(false);
             }
         }
-    }
+    };
 
     const addNewPatners = async (e) => {
         e.preventDefault();
@@ -168,7 +167,7 @@ const PartnershipManagement = () => {
             await baseURL.delete(`/api/partner/deletepartner/${deleteId}`, {
                 headers: { Authorization: `Bearer ${adminToken}` },
             });
-            toast.success('Partnershipdetails deleted successfully')
+            toast.success("Partnershipdetails deleted successfully");
             getAllPartners();
             setIsModalOpen(false);
         } catch (error) {
@@ -177,60 +176,49 @@ const PartnershipManagement = () => {
     };
     const editAPartnerDetails = async (e) => {
         e.preventDefault();
-    
-        // Validate input fields
+
         if (!editPartnershipDatas.description || !editPartnershipDatas.companyname) {
             toast.info("Please fill empty fields");
             return;
         }
-    
+
         try {
             const formData = new FormData();
             formData.append("companyname", editPartnershipDatas.companyname);
             formData.append("description", editPartnershipDatas.description);
-    
-            // Add companylogo to FormData only if it's a file
+
             if (editPartnershipDatas.companylogo instanceof File) {
                 formData.append("companylogo", editPartnershipDatas.companylogo);
             }
-    
-            // Send request with FormData
-            const response = await baseURL.patch(
-                `/api/partner/updatePartner/${editPartnershipDatas._id}`,
-                formData,
-                {
-                    headers: {
-                        Authorization: `Bearer ${adminToken}`, // Auth header
-                    },
-                }
-            );
-    
-            // Handle success
+
+            const response = await baseURL.patch(`/api/partner/updatePartner/${editPartnershipDatas._id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${adminToken}`,
+                },
+            });
+
             if (response.status === 200) {
-                getAllPartners(); // Refresh data
+                getAllPartners();
                 toast.success("Partnership updated successfully!");
-                setIsEditMode(false); // Exit edit mode
-                setFileName("Upload Image"); // Reset filename
+                setIsEditMode(false);
+                setFileName("Upload Image");
             }
         } catch (error) {
             setFileName("Upload Image");
-            
-            // Error handling
+
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
-            } else if(error.response.status===304){
+            } else if (error.response.status === 304) {
                 toast.info("No changes detected");
-            }else {
+            } else {
                 console.error("Error updating partner:", error);
                 toast.error("An error occurred while updating the partnership.");
-                
             }
         }
     };
-    
-        const inputRefHeading = useRef(null);
-        const inputRefSubHeading = useRef(null);
-    
+
+    const inputRefHeading = useRef(null);
+    const inputRefSubHeading = useRef(null);
 
     return (
         <div className="bg-white w-full">
@@ -241,42 +229,41 @@ const PartnershipManagement = () => {
                         <label className="block text-[14px] font-semibold">Heading</label>
                         <form onSubmit={editHeading} className="flex items-center gap-[20px]">
                             <input
-                            readOnly={!headingEditMode}
-                            ref={inputRefHeading}
+                                readOnly={!headingEditMode}
+                                ref={inputRefHeading}
                                 type="text"
                                 value={heading.partnershipHeading}
-                                onChange={(e) =>
-                                    setHeading({ ...heading, partnershipHeading: e.target.value })}
+                                onChange={(e) => setHeading({ ...heading, partnershipHeading: e.target.value })}
                                 className="border partnerInput rounded-lg px-[15px] h-[45px] w-3/5 text-[20px] font-bold"
                             />
-                            {!headingEditMode?<button className="bg-[#FF9D00] p-[10px] rounded-[8px]"
-                                                        onClick={(e) => {
-                                                            e.preventDefault();
-                                                            setHeadingEditMode(true)
-                                                            inputRefHeading.current.focus()
-                                                            
-                                                        }}
-                                                        >
-                                                            <img src={editImg} alt="Edit" />
-                                                        </button>:
-                                                        <div className=" flex justify-start gap-[10px]">
-                                                        <button
-                                                            className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
-                                                            // onClick={editFooterDetails}
-                                                        >
-                                                            Save
-                                                        </button>
-                                                        <button
-                                                            type="button"
-                                                            className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
-                                                            onClick={(e) => {
-                                                                e.preventDefault();
-                                                                setHeadingEditMode(false)                                 
-                                                            }}
-                                                        >
-                                                            Cancel
-                                                        </button>
-                                                    </div>}
+                            {!headingEditMode ? (
+                                <button
+                                    className="bg-[#FF9D00] p-[10px] rounded-[8px]"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setHeadingEditMode(true);
+                                        inputRefHeading.current.focus();
+                                    }}
+                                >
+                                    <img src={editImg} alt="Edit" />
+                                </button>
+                            ) : (
+                                <div className=" flex justify-start gap-[10px]">
+                                    <button className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]">
+                                        Save
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setHeadingEditMode(false);
+                                        }}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            )}
                         </form>
                     </div>
                     <div className=" grid gap-[10px]">
@@ -287,42 +274,40 @@ const PartnershipManagement = () => {
                                 ref={inputRefSubHeading}
                                 readOnly={!subHeadingEditMode}
                                 value={heading.partnershipSubHeading}
-                                onChange={(e) =>
-                                    setHeading({ ...heading, partnershipSubHeading: e.target.value })}
+                                onChange={(e) => setHeading({ ...heading, partnershipSubHeading: e.target.value })}
                                 className="border partnerInput rounded-lg px-[15px] h-[45px] w-3/5 text-[20px] font-semibold"
                             />
-                            {!subHeadingEditMode?<button className="bg-[#FF9D00] p-[10px] rounded-[8px] "
-                                                        onClick={(e) => {
-                                                            e.preventDefault();
-                                                            setSubHeadingEditMode(true)
-                                                            inputRefSubHeading.current.focus()
-                                                            
-                                                        }}
-                                                        >
-                                                            <img src={editImg} alt="Edit" />
-                                                        </button>:
-                                                        <div className=" flex justify-start gap-[10px]">
-                                                        <button
-                                                            className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]"
-                                                            // onClick={editFooterDetails}
-                                                        >
-                                                            Save
-                                                        </button>
-                                                        <button
-                                                            type="button"
-                                                            className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
-                                                            onClick={(e) => {
-                                                                e.preventDefault();
-                                                                setSubHeadingEditMode(false)                                 
-                                                            }}
-                                                        >
-                                                            Cancel
-                                                        </button>
-                                                    </div>}
+                            {!subHeadingEditMode ? (
+                                <button
+                                    className="bg-[#FF9D00] p-[10px] rounded-[8px] "
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setSubHeadingEditMode(true);
+                                        inputRefSubHeading.current.focus();
+                                    }}
+                                >
+                                    <img src={editImg} alt="Edit" />
+                                </button>
+                            ) : (
+                                <div className=" flex justify-start gap-[10px]">
+                                    <button className=" w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white h-[45px]">
+                                        Save
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className=" h-[45px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            setSubHeadingEditMode(false);
+                                        }}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            )}
                         </form>
                     </div>
                 </div>
-                {/* Add Client Form */}
                 <div id="editFormPartner" className="bg-white partnerContainer border rounded-lg grid p-[40px] gap-[40px]">
                     {!isEditMode ? (
                         <>
@@ -343,7 +328,10 @@ const PartnershipManagement = () => {
                                             />
                                         </div>
                                         <div className="relative">
-                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please upload an image of aspect ratio between 1:1 and 2:1 (eg: 600px * 600px or 1200px * 600px) with transparent background</div>
+                                            <div className="text-[12px] font-semibold text-red-400 mb-2">
+                                                * Please upload an image of aspect ratio between 1:1 and 2:1 (eg: 600px *
+                                                600px or 1200px * 600px) with transparent background
+                                            </div>
                                             <input
                                                 type="file"
                                                 id="fileInput1"
@@ -354,32 +342,16 @@ const PartnershipManagement = () => {
                                                 htmlFor="fileInput1"
                                                 className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                                             >
-                                                {/* {fileName1 ? (
-                                                <>
-                                                    <span>
-                                                        {fileName1.length > 15
-                                                            ? `${fileName1.substring(0, 15)}...`
-                                                            : fileName1}
-                                                    </span>
-                                                    <button
-                                                        onClick={handleRemoveFile1}
-                                                        className="ml-2 text-red-500 hover:text-red-700"
-                                                    >
-                                                        ✕
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <> */}
                                                 <div>{fileName}</div>
                                                 <img src={uploadImg} alt="Upload Icon" />
-                                                {/* </>
-                                            )} */}
                                             </label>
                                         </div>
                                     </div>
                                     <div className="flex flex-col w-2/3 gap-[10px]">
                                         <div className="text-[14px] font-semibold">Description</div>
-                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please try to give description less than in 150 letters.</div>
+                                        <div className="text-[12px] font-semibold text-red-400 mb-2">
+                                            * Please try to give description less than in 150 letters.
+                                        </div>
 
                                         <textarea
                                             value={patnershipDatas.description}
@@ -421,7 +393,10 @@ const PartnershipManagement = () => {
                                             <input
                                                 value={editPartnershipDatas.companyname}
                                                 onChange={(e) =>
-                                                    setEditPartnershipDatas({ ...editPartnershipDatas, companyname: e.target.value })
+                                                    setEditPartnershipDatas({
+                                                        ...editPartnershipDatas,
+                                                        companyname: e.target.value,
+                                                    })
                                                 }
                                                 type="text"
                                                 placeholder="Company Name"
@@ -429,7 +404,10 @@ const PartnershipManagement = () => {
                                             />
                                         </div>
                                         <div className="relative">
-                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please upload an image of aspect ratio between 1:1 and 2:1 (eg: 600px * 600px or 1200px * 600px) with transparent background</div>
+                                            <div className="text-[12px] font-semibold text-red-400 mb-2">
+                                                * Please upload an image of aspect ratio between 1:1 and 2:1 (eg: 600px *
+                                                600px or 1200px * 600px) with transparent background
+                                            </div>
                                             <input
                                                 type="file"
                                                 id="fileInput1"
@@ -440,36 +418,22 @@ const PartnershipManagement = () => {
                                                 htmlFor="fileInput1"
                                                 className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                                             >
-                                                {/* {fileName1 ? (
-                                                <>
-                                                    <span>
-                                                        {fileName1.length > 15
-                                                            ? `${fileName1.substring(0, 15)}...`
-                                                            : fileName1}
-                                                    </span>
-                                                    <button
-                                                        onClick={handleRemoveFile1}
-                                                        className="ml-2 text-red-500 hover:text-red-700"
-                                                    >
-                                                        ✕
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <> */}
                                                 <div>{fileName}</div>
-                                                {/* <img src={uploadImg} alt="Upload Icon" /> */}
-                                                {/* </>
-                                            )} */}
                                             </label>
                                         </div>
                                     </div>
                                     <div className="flex flex-col w-2/3 gap-[10px]">
                                         <div className="text-[14px] font-semibold">Description</div>
-                                        <div className="text-[12px] font-semibold text-red-400 mb-2">* Please try to give description less than in 150 letters.</div>
+                                        <div className="text-[12px] font-semibold text-red-400 mb-2">
+                                            * Please try to give description less than in 150 letters.
+                                        </div>
                                         <textarea
                                             value={editPartnershipDatas.description}
                                             onChange={(e) =>
-                                                setEditPartnershipDatas({ ...editPartnershipDatas, description: e.target.value })
+                                                setEditPartnershipDatas({
+                                                    ...editPartnershipDatas,
+                                                    description: e.target.value,
+                                                })
                                             }
                                             type="text"
                                             required

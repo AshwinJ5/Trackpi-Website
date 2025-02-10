@@ -4,11 +4,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import '../../CSS/header.css';
+import "../../CSS/header.css";
 
 function Header() {
     const [showNavbar, setShowNavbar] = useState(false);
-    const [expanded, setExpanded] = useState(false); 
+    const [expanded, setExpanded] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -47,7 +47,7 @@ function Header() {
                 className={`navbar px-md-2 font-bold text-base navbar-dark`}
                 fixed="top"
                 id="navbar"
-                expanded={expanded} 
+                expanded={expanded}
                 onToggle={(isExpanded) => setExpanded(isExpanded)}
             >
                 <Container fluid>
@@ -66,7 +66,7 @@ function Header() {
                                     to="/"
                                     className={`me-2.5 ${isActive("/") ? "active" : ""}`}
                                     id="navlink"
-                                    onClick={() => setExpanded(false)} 
+                                    onClick={() => setExpanded(false)}
                                 >
                                     HOME
                                 </Nav.Link>
@@ -76,7 +76,7 @@ function Header() {
                                 to="/about-trackpi"
                                 className={`me-2.5 ${isActive("/about-trackpi") ? "active" : ""}`}
                                 id="navlink"
-                                onClick={() => setExpanded(false)} 
+                                onClick={() => setExpanded(false)}
                             >
                                 ABOUT
                             </Nav.Link>
@@ -107,31 +107,41 @@ function Header() {
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/business-consulting-services", "#operations-training")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#operations-training")
+                                        }
                                     >
                                         Operation Training & Strategies
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/business-consulting-services", "#market-positioning")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#market-positioning")
+                                        }
                                     >
                                         Market Positioning & Branding
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/business-consulting-services", "#risk-management")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#risk-management")
+                                        }
                                     >
                                         Risk Management
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/business-consulting-services", "#financial-consulting")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#financial-consulting")
+                                        }
                                     >
                                         Financial Consulting
                                     </NavDropdown.Item>
                                     <NavDropdown.Item
                                         className="me-3"
-                                        onClick={() => handleNavigation("/business-consulting-services", "#asset-management")}
+                                        onClick={() =>
+                                            handleNavigation("/business-consulting-services", "#asset-management")
+                                        }
                                     >
                                         Asset Management
                                     </NavDropdown.Item>
@@ -150,7 +160,7 @@ function Header() {
                                 id="navlink"
                                 to="/employee-verification"
                                 target="_blank"
-                                onClick={() => setExpanded(false)} 
+                                onClick={() => setExpanded(false)}
                             >
                                 EMPLOYEE VERIFICATION
                                 <i className="fa-arrow-up-right-from-square fa-solid ms-1"></i>
@@ -160,7 +170,7 @@ function Header() {
                                 id="navlink"
                                 to="/contact-us"
                                 className={`${isActive("/contact-us") ? "active" : ""}`}
-                                onClick={() => setExpanded(false)} 
+                                onClick={() => setExpanded(false)}
                             >
                                 CONNECT US
                             </Nav.Link>

@@ -22,7 +22,6 @@ function OurServices() {
         <div className="services_main">
             <PopUp />
             <div className="overflow-x-hidden">
-                {/* Hero Section */}
                 <HeaderBanner
                     title="Working Together"
                     description="Trackpi is a trusted business consultant in Kerala, offering expert services in sales outsourcing, branding and marketing, sales training, hiring & retention, risk management, financial advice, asset management, and IT solutions. With years of experience and a commitment to delivering results, we help businesses strengthen operations and achieve sustainable growth."
@@ -30,7 +29,6 @@ function OurServices() {
                     class123={"headerbannerCenterContentOther"}
                 />
 
-                {/* Content Sections */}
                 <section id="sales-outsourcing" className=" w-full">
                     <ServicesSub
                         heading="Sales Outsourcing"
@@ -88,7 +86,6 @@ function OurServices() {
                     <MarketPositioning />
                 </section>
 
-                {/* Risk Management*/}
                 <section id="risk-management" className=" w-full">
                     <ServicesSub
                         heading="Risk Management"
@@ -101,7 +98,6 @@ function OurServices() {
                         img2={assetImg2}
                     />
                 </section>
-                {/* Financial Consulting */}
                 <section id="financial-consulting" className="w-full">
                     <ServicesSub
                         heading="Financial Consulting"
@@ -114,7 +110,6 @@ function OurServices() {
                         img2={financeImg2}
                     />
                 </section>
-                {/* Asset Management */}
                 <section id="asset-management" className="w-full">
                     <ServicesSub
                         heading="Asset Management"
@@ -127,7 +122,6 @@ function OurServices() {
                         img2={assetImg2}
                     />
                 </section>
-                {/* Asset Management */}
                 <section id="it-services" className="lg:mb-[50px] md:mb-[40px]  md:mb-[30px] mb-[20px] w-full">
                     <ServicesSub
                         heading="IT Services"

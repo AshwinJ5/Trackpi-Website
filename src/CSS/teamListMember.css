@@ -1,18 +1,17 @@
 @media (max-width: 640px) {
+    .scroll-snap-x {
+        scroll-snap-type: x mandatory;
+    }
 
-.scroll-snap-x {
-    scroll-snap-type: x mandatory;
-  }
-  
-  .scroll-snap-align-start {
-    scroll-snap-align: start;
-  }
-  
-  .scroll-snap-mandatory {
-    scroll-behavior: smooth;
-  }
-  .read{
-    display:flex;
-    justify-content: end;
-  }
+    .scroll-snap-align-start {
+        scroll-snap-align: start;
+    }
+
+    .scroll-snap-mandatory {
+        scroll-behavior: smooth;
+    }
+    .read {
+        display: flex;
+        justify-content: end;
+    }
 }

@@ -1,30 +1,30 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useInView = (options = {}) => {
-  const [isInView, setIsInView] = useState(false);
+    const [isInView, setIsInView] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the element is in view
-        ...options,
-      }
-    );
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInView(entry.isIntersecting);
+            },
+            {
+                threshold: 0.5,
+                ...options,
+            }
+        );
 
-    const element = document.querySelector(options.selector);
-    if (element) {
-      observer.observe(element);
-    }
+        const element = document.querySelector(options.selector);
+        if (element) {
+            observer.observe(element);
+        }
 
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, [options.selector]);
+        return () => {
+            if (element) {
+                observer.unobserve(element);
+            }
+        };
+    }, [options.selector]);
 
-  return isInView;
+    return isInView;
 };

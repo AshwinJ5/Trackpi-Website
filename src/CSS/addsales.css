@@ -1,17 +1,15 @@
 .border-en {
-    border-right: 2px solid rgba(0, 0, 0, 0.466); 
-    height: 400px; 
-  }
-  .plac::placeholder {
-    font-size: 12px; /* Adjust the size to your preference */
-  }
-  
-  .custom-phone-input input {
-    width: 250px !important; /* Target the input field */
+    border-right: 2px solid rgba(0, 0, 0, 0.466);
+    height: 400px;
+}
+.plac::placeholder {
+    font-size: 12px;
+}
+
+.custom-phone-input input {
+    width: 250px !important;
     font-size: 12px;
     border: 1px solid white;
-    box-shadow: -2px 2px 4px 0px rgba(10, 10, 10, 0.04), 
-                2px 1px 4px 0px rgba(10, 10, 10, 0.04), 
-                0px -2px 4px 0px rgba(10, 10, 10, 0.02);
-  }
-  
+    box-shadow: -2px 2px 4px 0px rgba(10, 10, 10, 0.04), 2px 1px 4px 0px rgba(10, 10, 10, 0.04),
+        0px -2px 4px 0px rgba(10, 10, 10, 0.02);
+}
