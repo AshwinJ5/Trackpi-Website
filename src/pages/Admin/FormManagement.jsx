@@ -5,7 +5,6 @@ import { FiExternalLink } from 'react-icons/fi';
 import baseURL from '../../Api Services/baseURL';
 import { Puff } from 'react-loader-spinner';
 
-
 function FormManagement() {
   const [forms, setForms] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,6 @@ function FormManagement() {
     const getFormView = async () => {
       try {
         const response = await baseURL.get('/contactForm/getforms');
-        console.log(response.data, 'response_Forms');
         setForms(response.data); // Assuming the API returns an array of projects
         setRefresh(response.data);
         setLoading(false);
@@ -31,9 +29,8 @@ function FormManagement() {
     };
 
     getFormView();
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  }, []);
 
-  // Group projects by date
   // Group projects by exact date (considering time correctly)
   const groupedContactForms = forms.reduce((acc, form) => {
     const date = new Date(form.createdAt); // Convert to Date object
@@ -46,26 +43,18 @@ function FormManagement() {
     return acc;
   }, {});
   // Sort dates in descending order so the latest date appears first
-const sortedDates = Object.keys(groupedContactForms).sort((a, b) => new Date(b) - new Date(a));
+  const sortedDates = Object.keys(groupedContactForms).sort(
+    (a, b) => new Date(b) - new Date(a)
+  );
 
   const handleViewDetails = form => {
-    console.log(form, 'formId');
     navigate(`/admin/form-details/${form._id}`, { state: form });
   };
 
   const handleExportCSV = async () => {
-    console.log('clicked');
-
     try {
-      // const token = localStorage.getItem('adminToken');  // Get token from localStorage
-
-      // if (!token) {
-      //   return console.error("Token is missing!");
-      // }
-
       const response = await baseURL.get('export/csv-data?type=form', {
         headers: {
-          // Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         responseType: 'blob', // Important for handling file download
@@ -89,7 +78,6 @@ const sortedDates = Object.keys(groupedContactForms).sort((a, b) => new Date(b) 
     }
   };
 
-  
   const formatDate = dateString => {
     const date = new Date(dateString);
     const formattedDate = new Intl.DateTimeFormat('en-GB', {
@@ -104,18 +92,17 @@ const sortedDates = Object.keys(groupedContactForms).sort((a, b) => new Date(b) 
     return formattedDate;
   };
 
-const formatTime = (dateString) => {
-  const date = new Date(dateString);
-  const formattedTime = new Intl.DateTimeFormat('en-GB', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
-  }).format(date);
-  
-  // Convert "am" or "pm" to uppercase
-  return formattedTime.replace(/am|pm/, (match) => match.toUpperCase());
-};
+  const formatTime = dateString => {
+    const date = new Date(dateString);
+    const formattedTime = new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    }).format(date);
 
+    // Convert "am" or "pm" to uppercase
+    return formattedTime.replace(/am|pm/, match => match.toUpperCase());
+  };
 
   return (
     <div className="bg-white w-full">
@@ -133,7 +120,6 @@ const formatTime = (dateString) => {
             </button>
           </div>
         </div>
-        {/* Table Content */}
 
         {loading ? (
           <div className="flex justify-center items-start mt-12 h-screen">
@@ -156,11 +142,9 @@ const formatTime = (dateString) => {
                   {formatDate(date)}
                 </div>
 
-                {/* Table */}
                 <div className="relative shadow-md sm:rounded-lg">
                   <div className="table-wrapper">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
-                      {/* Table Headers */}
                       <thead className="text-md font-bold text-black uppercase border-[#939393] border-b ">
                         <tr>
                           <th
@@ -221,7 +205,6 @@ const formatTime = (dateString) => {
                           </th>
                         </tr>
                       </thead>
-                      {/* Table Body */}
                       <tbody>
                         {groupedContactForms[date].map((form, formIndex) => (
                           <tr
@@ -287,19 +270,19 @@ const formatTime = (dateString) => {
                               }}
                             >
                               {formatTime(form.createdAt)}
-                              {/* {form.createdAt.split('T')[1].split('.')[0]}{' '} */}
-                              {/* Extract time */}
                             </td>
                             <td
                               className="text-[#FF9D00] font-bold text-center cursor-pointer px-2 py-3 items-center gap-2 min-w-[150px]"
                               onClick={() => handleViewDetails(form)}
-                              
                             >
-                              <div className="flex justify-center gap-2" style={{
-                                wordWrap: 'break-word',
-                                overflowWrap: 'break-word',
-                                boxSizing: 'border-box',
-                              }}>
+                              <div
+                                className="flex justify-center gap-2"
+                                style={{
+                                  wordWrap: 'break-word',
+                                  overflowWrap: 'break-word',
+                                  boxSizing: 'border-box',
+                                }}
+                              >
                                 View Details <FiExternalLink size={20} />
                               </div>
                             </td>

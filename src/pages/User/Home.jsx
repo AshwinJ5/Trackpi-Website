@@ -23,22 +23,6 @@ function Home() {
   const isInView3 = useInView({ selector: '.section33' });
   const [heading, setHeading] = useState({});
 
-  // const clients = [
-  //   { id: 1, logo: clientLogo1 },
-  //   { id: 2, logo: clientLogo2 },
-  //   { id: 3, logo: luminar },
-  //   { id: 4, logo: iidm },
-  //   { id: 5, logo: clientLogo1 },
-  //   { id: 6, logo: clientLogo2 },
-  //   { id: 7, logo: clientLogo1 },
-  //   { id: 8, logo: clientLogo2 },
-  //   { id: 9, logo: clientLogo1 },
-  //   { id: 10, logo: clientLogo2 },
-  //   { id: 11, logo: clientLogo1 },
-  //   { id: 12, logo: clientLogo2 },
-  //   { id: 13, logo: clientLogo1 },
-  //   { id: 14, logo: clientLogo2 },
-  // ];
   const [cards, setCards] = useState([]);
   const [clientsLogo, setClientsLogo] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,20 +32,6 @@ function Home() {
     window.innerWidth < 640 ? 2 : window.innerWidth < 1024 ? 3 : 4
   );
   const [isPaused, setIsPaused] = useState(false);
-
-  // Function to group cards based on the current cardsPerGroup value
-  // const groupCards = () => {
-  //   const groups = [];
-  //   for (let i = 0; i < cards.length; i += cardsPerGroup) {
-  //     groups.push(cards.slice(i, i + cardsPerGroup));
-  //   }
-  //   setGroupedCards(groups);
-  // };
-
-  // // // Initial grouping and on resize update
-  // useEffect(() => {
-  //   groupCards(); // Initial grouping
-  // }, [cards, cardsPerGroup]);
 
   useEffect(() => {
     setGroupedCards(() => {
@@ -76,12 +46,12 @@ function Home() {
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
-      let newCardsPerGroup = 4; // Default to 4 cards for large screens
+      let newCardsPerGroup = 4;
 
       if (window.innerWidth < 640) {
-        newCardsPerGroup = 2; // Only 1 card for small screens
+        newCardsPerGroup = 2;
       } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
-        newCardsPerGroup = 3; // 2 cards for medium screens
+        newCardsPerGroup = 3;
       }
 
       if (newCardsPerGroup !== cardsPerGroup) {
@@ -92,33 +62,6 @@ function Home() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [cardsPerGroup]);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     let newCardsPerGroup = 4;
-
-  //     if (window.innerWidth < 640) {
-  //       newCardsPerGroup = 1; // Show only 1 card at a time in small screens
-  //       setCards(prevCards => prevCards.slice(-4)); // Keep only last 4 images
-  //     } else if (window.innerWidth >= 640 && window.innerWidth < 1024) {
-  //       newCardsPerGroup = 3;
-  //     }
-
-  //     if (newCardsPerGroup !== cardsPerGroup) {
-  //       setCardsPerGroup(newCardsPerGroup);
-  //     }
-
-  //   };
-
-  //   window.addEventListener('resize', handleResize);
-  //   handleResize(); // Run on initial load
-
-  //   return () => window.removeEventListener('resize', handleResize);
-  // }, [cardsPerGroup]);
-
-  // useEffect(() => {
-  //   groupCards(); // Re-group cards when the data changes
-  // }, [cards, cardsPerGroup]);
 
   useEffect(() => {
     if (isPaused) return; // Pause interval when hovering
@@ -140,28 +83,6 @@ function Home() {
 
     return () => clearInterval(bulgeInterval);
   }, [groupedCards.length, cardsPerGroup, isPaused]);
-
-  // const intervalRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (isPaused) return;
-
-  //   intervalRef.current = setInterval(() => {
-  //     setBulgingCard(prev => {
-  //       const isLastCardInSlide = prev === cardsPerGroup - 1;
-
-  //       if (isLastCardInSlide) {
-  //         setCurrentIndex(prevIndex =>
-  //           prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
-  //         );
-  //         return 0;
-  //       }
-  //       return prev + 1;
-  //     });
-  //   }, 2000);
-
-  //   return () => clearInterval(intervalRef.current);
-  // }, [isPaused, cardsPerGroup]);
 
   const handleDotClick = index => {
     setCurrentIndex(index);
@@ -221,12 +142,12 @@ function Home() {
     const getClients = async () => {
       try {
         const response = await baseURL.get('api/partner/getpartner');
-        setClientsLogo(response.data); // Set the fetched data in clientsLogo state
+        setClientsLogo(response.data);
       } catch (e) {
         console.error(e);
       }
     };
-    getClients(); // Fetch client data on component mount
+    getClients();
   }, []);
   useEffect(() => {
     getAllHeadings();
@@ -300,8 +221,6 @@ function Home() {
           </h1>
         </div>
         <div className="relative bg-gradient-to-r from-[#FFC100] to-[#FF9D00]">
-          {/* <div className="relative bg-cyan-600"> */}
-          {/* Carousel */}
           {groupedCards.length > 0 ? (
             <div
               {...swipeHandlers}
@@ -354,34 +273,6 @@ function Home() {
                                 className="w-full h-full rounded-lg"
                               />
                             </a>
-                            {/* 
-                          <img
-                            src={card.logo}
-                            alt="Card_logo"
-                            className={`mx-auto lg:h-auto h-[100px] transition-transform ${
-                              cardIndex === bulgingCard
-                                ? 'md:scale-110'
-                                : 'scale-100'
-                            }`}
-                          />
-                          <h3
-                            className={`mt-0 lg:mt-4 font-bold text-[#FFC100] transition-transform ${
-                              cardIndex === bulgingCard
-                                ? 'md:text-xl'
-                                : 'text-lg'
-                            }`}
-                          >
-                            {card.title}
-                          </h3>
-                          <p
-                            className={`mt-2 text-white  transition-transform ${
-                              cardIndex === bulgingCard
-                                ? 'md:text-base '
-                                : 'text-sm'
-                            }`}
-                          >
-                            {card.description}
-                          </p> */}
                           </div>
                         </div>
                       ))}
@@ -393,19 +284,6 @@ function Home() {
           ) : (
             <p className="text-gray-500 text-center mx-6">No News available</p>
           )}
-
-          {/* Slide Dots */}
-          {/* <div className="absolute top-[110%] md:left-1/2 left-1/2 transform -translate-x-1/2 md:flex justify-center items-center space-x-2">
-            {dotsToRender.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  currentIndex === index ? 'bg-yellow-500 w-4' : 'bg-gray-400'
-                }`}
-              />
-            ))}
-          </div> */}
         </div>
 
         <div className="flex justify-between items-center">
@@ -432,30 +310,6 @@ function Home() {
               />
             ))}
           </div>
-          {/* For Mobile (numbers) */}
-          {/* <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2 block md:hidden dotsMob">
-            {groupedCards.length > 0 && (
-              <div className="text-lg font-semibold text-gray-700">
-                {groupedCards[currentIndex].map((_, index) => {
-                  // Find the global index of the card that bulges
-                  const globalIndex = currentIndex * cardsPerGroup + index + 1;
-
-                  return (
-                    <span key={index} className="text-[12px]">
-                      {bulgingCard === index ? (
-                        <>
-                          <span className="text-[#FFC100]">{globalIndex}</span>/
-                          {cards.length}
-                        </>
-                      ) : (
-                        ''
-                      )}
-                    </span>
-                  );
-                })}
-              </div>
-            )}
-          </div> */}
           <div className=" mt-4 sm:mx-2 md:mx-4 lg:mx-16 px-2">
             <a
               href="https://www.instagram.com/business_flash_news?igsh=eng2anQ4bjNmY3l4"
@@ -550,33 +404,6 @@ function Home() {
                 contact{' '}
               </a>{' '}
               Trackpi today for a brighter, more successful future.
-              {/* <a
-                href="/business-consulting-services"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: '#FF9D00',
-                  fontWeight: 'bold',
-                  textDecoration: 'none',
-                }}
-              >
-                expert solutions{' '}
-              </a>{' '}
-              that include detailed strategy planning. Looking to evolve your
-              business? Why wait,{' '}
-              <a
-                href="/contact-us"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: '#FF9D00',
-                  fontWeight: 'bold',
-                  textDecoration: 'none',
-                }}
-              >
-                Contact us{' '}
-              </a>{' '}
-              today. */}
             </motion.p>
           </div>
 

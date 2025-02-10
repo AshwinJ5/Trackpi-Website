@@ -8,7 +8,6 @@ const CreatorCard = ({ name, role, image }) => {
         boxShadow: '2px 2px 4px 0px #0A0A0A33', // Applying the specified shadow
       }}
     >
-      {/* Image with background */}
       <div className="bg-[#E3E5E8] flex justify-center pt-1 creatorImg">
         <img
           src={image}
@@ -17,10 +16,13 @@ const CreatorCard = ({ name, role, image }) => {
         />
       </div>
 
-      {/* Name & Role */}
       <div className="bg-white p-2 text-start">
-        <h4 className=" text-[12px] sm:text-[16px] md:text-[16px] lg:text-[20px] xl:text-[22px] font-semibold mb-1">{name}</h4>
-        <p className="  text-[10px] sm:text-[14px] md:text-[14px]  lg:text-[18px]  xl:text-[20px] text-gray-600  mb-0">{role}</p>
+        <h4 className=" text-[12px] sm:text-[16px] md:text-[16px] lg:text-[20px] xl:text-[22px] font-semibold mb-1">
+          {name}
+        </h4>
+        <p className="  text-[10px] sm:text-[14px] md:text-[14px]  lg:text-[18px]  xl:text-[20px] text-gray-600  mb-0">
+          {role}
+        </p>
       </div>
     </div>
   );

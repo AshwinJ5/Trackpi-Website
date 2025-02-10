@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
 import projectManageBack from '../../images/projectManageBack.svg';
 import { HiDownload } from 'react-icons/hi';
-// import baseURL from "../../Api Services/baseURL"
 import { SERVER_URL } from '../../Api Services/serverUrl';
-// SERVER_URL
+
 function ProjectManagementDetail() {
   const [fileUrl, setFileUrl] = useState('');
-  console.log(fileUrl, 'fileurlsss');
-
   const location = useLocation();
   const mockData = location.state;
 
@@ -168,24 +165,23 @@ function ProjectManagementDetail() {
                 overflow: 'auto',
               }}
             >
-              <div className="text-[18px] pb-[15px]">Summarize your project ideas.</div>
+              <div className="text-[18px] pb-[15px]">
+                Summarize your project ideas.
+              </div>
               <div className="text-[20px] font-bold">{mockData.summary}</div>
             </div>
           </div>
         </div>
-        {/* <img src="http://192.168.43.197:3001/assets/1736698412080.JPG" alt="" /> */}
 
         <div className="flex justify-center">
           <div className="w-[500px] h-[230px] grid text-white projectDetailsDocument">
             <div className="relative bg-[#0A0A0A] h-[200px] flex justify-center items-center text-center my-auto text-[22px] overflow-hidden group">
               {fileUrl ? (
                 <div className="relative w-full h-full">
-                  {/* Semi-transparent overlay */}
                   <div
                     className="absolute inset-0 bg-black bg-opacity-50 pointer-events-none"
                     style={{ zIndex: 1 }}
                   ></div>
-                  {/* PDF Viewer */}
                   <iframe
                     src={fileUrl}
                     className="w-full h-full"
@@ -198,7 +194,6 @@ function ProjectManagementDetail() {
                     scrolling="yes"
                     title="PDF Viewer"
                   ></iframe>
-                  {/* Download Icon */}
                   <a
                     href={fileUrl}
                     download="document.pdf"

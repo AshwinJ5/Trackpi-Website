@@ -18,7 +18,6 @@ function ProjectManagement() {
     const fetchProjects = async () => {
       try {
         const response = await baseURL.get('/api/projects/getAllProjects');
-        console.log(response.data, 'responseDataProjects');
         setProjects(response.data); // Assuming the API returns an array of projects
         setLoading(false);
       } catch (err) {
@@ -27,7 +26,7 @@ function ProjectManagement() {
     };
 
     fetchProjects();
-  }, [refresh]); // Empty dependency array means this effect runs once when the component mounts
+  }, [refresh]);
 
   // Group projects by date
   const groupedProjects = projects.reduce((acc, project) => {
@@ -39,26 +38,18 @@ function ProjectManagement() {
     return acc;
   }, {});
 
-  const sortedDates = Object.keys(groupedProjects).sort((a, b) => new Date(b) - new Date(a));
+  const sortedDates = Object.keys(groupedProjects).sort(
+    (a, b) => new Date(b) - new Date(a)
+  );
 
   const handleViewDetails = project => {
-    console.log(project, 'projectId');
     navigate(`/admin/project-details/${project._id}`, { state: project });
   };
 
   const handleExportCSV = async () => {
-    console.log('clicked');
-
     try {
-      // const token = localStorage.getItem('adminToken');  // Get token from localStorage
-
-      // if (!token) {
-      //   return console.error("Token is missing!");
-      // }
-
       const response = await baseURL.get('export/csv-data?type=project', {
         headers: {
-          // Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         responseType: 'blob', // Important for handling file download
@@ -82,8 +73,6 @@ function ProjectManagement() {
     }
   };
 
- 
-
   const formatDate = dateString => {
     const date = new Date(dateString);
     const formattedDate = new Intl.DateTimeFormat('en-GB', {
@@ -98,22 +87,20 @@ function ProjectManagement() {
     return formattedDate;
   };
 
-
-  const formatTime = (dateString) => {
+  const formatTime = dateString => {
     const date = new Date(dateString);
     const formattedTime = new Intl.DateTimeFormat('en-GB', {
       hour: '2-digit',
       minute: '2-digit',
       hour12: true,
     }).format(date);
-    
+
     // Convert "am" or "pm" to uppercase
-    return formattedTime.replace(/am|pm/, (match) => match.toUpperCase());
+    return formattedTime.replace(/am|pm/, match => match.toUpperCase());
   };
   return (
     <div className="bg-white w-full">
       <div className="py-[40px] px-[30px] grid gap-[30px]">
-        {/* Header */}
         <div className="flex justify-between items-center">
           <div className="text-[24px] font-bold">Project Management</div>
           <div>
@@ -126,7 +113,6 @@ function ProjectManagement() {
             </button>
           </div>
         </div>
-        {/* Table Content */}
         {loading ? (
           <div className="flex justify-center items-start mt-12 h-screen">
             <Puff
@@ -143,16 +129,13 @@ function ProjectManagement() {
           <div className="py-[10px] grid gap-[25px]">
             {sortedDates.map(date => (
               <div className="grid gap-[10px]" key={date}>
-                {/* Date Heading */}
                 <div className="text-[#FF9D00] text-[20px]">
                   {formatDate(date)}
                 </div>
 
-                {/* Table */}
                 <div className="relative shadow-md sm:rounded-lg ">
                   <div className="table-wrapper">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:[#939393] table-fixed">
-                      {/* Table Headers */}
                       <thead className="text-md font-bold text-black uppercase  ">
                         <tr>
                           <th
@@ -213,7 +196,6 @@ function ProjectManagement() {
                           </th>
                         </tr>
                       </thead>
-                      {/* Table Body */}
                       <tbody>
                         {groupedProjects[date].map((project, projectIndex) => (
                           <tr
@@ -278,7 +260,6 @@ function ProjectManagement() {
                                 boxSizing: 'border-box',
                               }}
                             >
-                              {/* {project.createdAt.split('T')[1].split('.')[0]}{' '} */}
                               {formatTime(project.createdAt)}{' '}
                             </td>
                             <td

@@ -1,10 +1,10 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CreatorCard from '../../components/User/teamCreatorsCard';
 import creator1 from '../../images/creator1.png';
 import creator2 from '../../images/creator2.png';
 import '../../CSS/User/Creators.css';
 import { SERVER_URL } from '../../Api Services/serverUrl';
-// Sample data
+
 const designers = [
   { name: 'Alifen Sunny', role: 'UI/UX Designer', image: creator1 },
   { name: 'V Ranjana Priya', role: 'UI/UX Designer', image: creator2 },
@@ -12,14 +12,15 @@ const designers = [
 
 const developers = [
   { name: 'Shalu V', role: 'React Developer', image: creator2 },
-  { name: 'Aswin Joseph', role: 'React Developer', image: `${SERVER_URL}/uploads/images/ashwin.jpeg` },
+  {
+    name: 'Aswin Joseph',
+    role: 'React Developer',
+    image: `${SERVER_URL}/uploads/images/ashwin.jpeg`,
+  },
   { name: 'Nidha Fathima', role: 'React Developer', image: creator2 },
 ];
-console.log(developers,"developers")
-
 
 const Creators = () => {
-
   return (
     <div className="w-full xl:mt-[150px] mt-[90px] mb-20 flex flex-col items-center">
       <h2 className=" text-[22px] md:text-[28px] lg:text-[62px] font-bold text-center text-[#FF9D00] mb-0 ">

@@ -27,50 +27,30 @@
   height: 85px;
 }
 
-/* Mobile Specific Adjustments */
-
-/* Default styles (for larger screens) */
 .carousel-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Default: 4 cards per row */
+  grid-template-columns: repeat(4, 1fr);
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
 }
 
 .carousel-card {
-  width: 100%; /* Use most of the screen width */
-  margin: 15px auto 15px; /* Center the card and add spacing below */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
-  border-radius: 8px; /* Rounded corners */
-}
-/* Adjust Card Text */
+  width: 100%;
+  margin: 15px auto 15px;
 
-/* .carousel-card img {
-  max-width: 100%;
-  height: auto;
-} */
-
-/* .carousel-card:hover {
-  transform: scale(1.05);
+  border-radius: 8px;
 }
 
-.carousel-card.scale-110 {
-  transform: scale(1.1);
-} */
-
-/* Responsive styles */
 @media (max-width: 1024px) {
   .carousel-grid {
-    grid-template-columns: repeat(3, 1fr); /* 2 cards per row for tablets */
+    grid-template-columns: repeat(3, 1fr);
     padding-left: 3rem;
     padding-right: 3rem;
   }
   .carousel-card {
-    padding: 0px; /* Reduce padding for mobile */
+    padding: 0px;
   }
-  .carousel-card img {
-    /* height: 250px; */
-  }
+
   .carousel-card p {
     text-align: center;
     font-size: 14px;
@@ -103,12 +83,12 @@
     padding: 3rem 1rem 1rem 1rem;
   }
   .carousel-grid {
-    grid-template-columns: repeat(2, 1fr); /* 1 card per row for mobile */
+    grid-template-columns: repeat(2, 1fr);
     padding-top: 0rem;
     padding-bottom: 0rem;
   }
   .carousel-card {
-    padding: 0px; /* Reduce padding for mobile */
+    padding: 0px;
     margin: 5px auto 5px;
   }
   .carousel-card img {
@@ -130,74 +110,3 @@
     height: 0.4rem;
   }
 }
-
-/* @media (max-width: 640px) {
-  .homeImg1 img {
-    height: 250px;
-    width: 100%;
-  }
-  .homeImg img {
-    height: 250px;
-    max-width: 100%;
-  }
-  .clientLogos {
-    margin-top: 1rem;
-  }
-
-  .carousel-container {
-    padding: 0 10px;
-    overflow-x: hidden;
-  }
-
-  .carousel-grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .carousel-card {
-    width: 100%;
-    height: auto;
-    margin: 15px auto 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-  }
-
-  .carousel-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .carousel-card p {
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: justify;
-  }
-
-  .newsHead {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  .newsHead h1 {
-    text-align: center;
-  }
-
-  .carousel-card img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  .view-more-btn {
-    text-align: center;
-  }
-  .carousel-container::-webkit-scrollbar {
-    display: none;
-  }
-  .carousel-container {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-} */
