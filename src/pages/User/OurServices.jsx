@@ -34,10 +34,13 @@ function OurServices() {
                         heading="Sales Outsourcing"
                         classname="bg_common"
                         title1="End-to-End Sales Outsourcing Solutions"
-                        description1="Select one of our sales outsourcing solutions and save time as we take care of your lead generation to deal closure activities. Our hand is always on the sales cycle, allowing our business to have strong growth over time. With business consulting services as one of our core functions, we redefine the direction of the business by aligning the strategies to goals placed before the business, enhancing your ability to grow faster."
+                        description1="Our sales outsourcing solutions enables a business to save time and speed up growth. We handle all the processes from lead generation to deal closing, which will allow you to focus on the core functions of the business while we generate revenue.  
+Using our expert sales team, we maintain a perfect cycle ensuring maximum business growth through higher conversions. From initial prospecting to closing sales, we help with everything by custom tailoring your business strategies to suit the need.  
+In today’s world, data is everything. Combining huge amounts of data with experience, we enhance efficiency and profitability by aligning your sales strategies with your business goals. Allow us to redefine your sales process and enable your business to scale faster."
                         img1={financeImg1}
-                        title2="Sales Performance Enhancement Services"
-                        description2="Take your team to the next level by hiring our sales performance enhancement services specialists. We have extensive experience working in the Kerala business environment and thus understand the formation of bottlenecks during the sales process and offer practical solutions for their elimination. Such a working experience allows a businessman to measure success in the quite dynamically changing marketplace, thus helping to remain competitive."
+                        title2="Accelerate Your Sales with Scalable Outsourcing"
+                        description2="Expanding your sales operations requires the right strategy, expertise, and flexibility. With the automation of processes and tasks, all the businesses receive a boost in revenue without the need to hire more full-time employees. This is why sales outsourcing solutions are so effective. 
+Everything starts from effective marketing techniques and approaches. We are the ones who will actively promote your brand. From lead generation to customer engagement to deal closing, we will handle the entire sales cycle for you. Your team will be fed comprehensive and relevant information that is sure to drive high levels of sales by combining data       analytics and customer engagement."
                         img2={financeImg2}
                     />
                 </section>
@@ -47,7 +50,7 @@ function OurServices() {
                         title1="Our Hiring Process:"
                         description1="We have an effective hiring process that makes talent search easier. We will work with you to understand what you are looking for and subsequently hire applicants who fit your qualifications and procedures. To us, recruitment is more about fitting in to the company culture than fulfilling the job requirements, and it enhances the chances of better productivity."
                         img1={hiring}
-                        title2="Transformer Role"
+                        title2="Transformational Role"
                         description2="Transform your workforce by hiring for those positions that have the greatest impact. Leveraging our experience in business consulting and in client retention, we help organizations in Kerala find and develop leaders who can create transformational change. These people help in driving growth and innovation in your company, which in turn adds tremendous value to your company and also creates an energized and engaged workforce."
                         img2={consult}
                     />

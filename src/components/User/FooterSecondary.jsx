@@ -77,7 +77,7 @@ function FooterSecondary() {
                                 <div className="text-center">
                                     <Link
                                         target="_blank"
-                                        className="text-decoration-none viewMoreFooterVideo pb-[5px] lg:pb-[12px] md:pb-[9px]  sm:pb-[7px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]"
+                                        className="text-decoration-none viewMoreFooterVideo pb-[3px] lg:pb-[10px] md:pb-[6px]  sm:pb-[5px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]"
                                         to={platformURLs.youtube}
                                     >
                                         View More
@@ -103,7 +103,7 @@ function FooterSecondary() {
                                 <div className="text-center">
                                     <Link
                                         target="_blank"
-                                        className="text-decoration-none viewMoreFooterVideo pb-[5px] lg:pb-[12px] md:pb-[9px]  sm:pb-[7px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]"
+                                        className="text-decoration-none viewMoreFooterVideo pb-[3px] lg:pb-[10px] md:pb-[6px]  sm:pb-[5px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]"
                                         to={platformURLs.insta}
                                     >
                                         View More
@@ -129,7 +129,7 @@ function FooterSecondary() {
                                 <div className="text-center">
                                     <Link
                                         target="_blank"
-                                        className="text-decoration-none viewMoreFooterVideo pb-[5px] lg:pb-[12px] md:pb-[9px]  sm:pb-[7px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]"
+                                        className="text-decoration-none viewMoreFooterVideo  pb-[3px] lg:pb-[10px] md:pb-[6px]  sm:pb-[5px] text-[#ffc100] text-[12px] md:text-[18px] sm:text-[14px]  lg:text-[20px] xl:text-[24px]"
                                         to={platformURLs.facebook}
                                     >
                                         View More
