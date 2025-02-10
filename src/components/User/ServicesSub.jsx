@@ -53,7 +53,6 @@ function ServicesSub({
             </motion.div>
             <div className="grid gap-[25px] sm:gap-[30px] md:gap-[50px] lg:gap-[70px] xl:gap-[90px] 2xl:gap-[100px]">
                 <div ref={refFirstSection} className="flex flex-col md:flex-row justify-between lg:gap-20 gap-10">
-                    {/* Text Section */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={inViewFirstSection ? { opacity: 1, x: 0 } : {}}
@@ -104,7 +103,6 @@ function ServicesSub({
                         </div>
                     </motion.div>
 
-                    {/* Image Section */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={inViewFirstSection ? { opacity: 1 } : {}}

@@ -1,4 +1,3 @@
-//import React from 'react';
 import OurTeam from "./OurTeam";
 import PopUp from "../../components/User/PopUp";
 import ConnectButtons from "../../components/ConnectButtons";

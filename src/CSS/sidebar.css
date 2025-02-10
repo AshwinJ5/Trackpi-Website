@@ -29,19 +29,19 @@
 }
 
 .sidebar nav li {
-  height: 35px; /* Adjust height to match the smaller icons */
+  height: 35px; 
   position: relative;
 }
 
 .sidebar  ul li a {
   color: white;
   display: flex;
-  align-items: center;  /* Vertically center the icon and text */
+  align-items: center;  
   justify-content: center;
   height: 100%;
   width: 100%;
   text-decoration: none;
-  padding-left: 15px; /* Adjust padding as needed */
+  padding-left: 15px; 
   border-bottom: 1px solid rgba(0, 0, 0, .4);
   transition: all .2s linear;
 }
@@ -75,9 +75,9 @@
 }
 
 .sidebar nav li a i {
-  font-size: 18px;  /* Adjusted icon size to make it smaller */
-  margin-right: 14px;  /* Space between icon and text */
-  height: 30px;  /* Set the icon height */
+  font-size: 18px;  
+  margin-right: 14px;  
+  height: 30px;  
   padding-top: 7.5px;
 }
 
@@ -114,12 +114,12 @@
     height: 196px;
   }
   .sidebar nav li {
-    height: 28px; /* Adjust height to match the smaller icons */
+    height: 28px;
   }
   .sidebar nav li a i {
-    font-size: 14px;  /* Adjusted icon size to make it smaller */
-    margin-right: 14px;  /* Space between icon and text */
-    height: 20px;  /* Set the icon height */
+    font-size: 14px;  
+    margin-right: 14px;  
+    height: 20px;  
     padding-top: 5px;
   }
 }

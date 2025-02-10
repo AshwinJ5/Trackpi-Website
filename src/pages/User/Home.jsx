@@ -270,9 +270,10 @@ function Home() {
         class123="headerbannerCenterContent"
         description={
           <>
-            Trackpi, your
+            Trackpi, your 
             <a
               href="/about-trackpi"
+              className=' mx-[5px] lg:mx-[7px]'
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -281,9 +282,9 @@ function Home() {
                 textDecoration: 'none',
               }}
             >
-              trusted business consulting firm
+              trusted business consulting firm,
             </a>
-            , helps you turn insights into actions. Our team will design
+             helps you turn insights into actions. Our team will design
             strategies and assist you with decision-making and other challenges
             you may face, resulting in streamlining your processes and
             increasing your chances of success with us.

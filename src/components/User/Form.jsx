@@ -37,7 +37,6 @@ function Details() {
             setSelectClass("selectConnect");
         }
     };
-    console.log(countryCode);
 
     const handlePhoneChange = (value, country) => {
         if (!value) {
@@ -48,14 +47,11 @@ function Details() {
         setNewDatas({ ...newDatas, phone: formattedPhone });
         setCountryCode(country.countryCode.toUpperCase());
         setPhone(`${country.dialCode}${value.slice(country.dialCode.length)}`);
-        // console.log(country.dialCode.length);
-
-        // console.log(formattedPhone);
     };
 
     const addNewForm = async (e) => {
         e.preventDefault();
-        if (!newDatas.fullName||!newDatas.info_from||!newDatas.message||!newDatas.email||!newDatas.location) {
+        if (!newDatas.fullName || !newDatas.info_from || !newDatas.message || !newDatas.email || !newDatas.location) {
             toast.info("All fields required");
             return;
         }
@@ -101,7 +97,6 @@ function Details() {
                 if (error.response.data) {
                     const errorMessage = error.response.data.error || "An error occurred";
                     toast.error(`${errorMessage}`);
-                    console.log(error);
                 } else {
                     toast.error("Server responded with an error.");
                 }
@@ -131,7 +126,7 @@ function Details() {
                             e.target.style.boxShadow = "0 0 1px black";
                         }}
                         onBlur={(e) => {
-                            e.target.style.borderColor = "#0A0A0ACC"; // Default border color on blur
+                            e.target.style.borderColor = "#0A0A0ACC";
                             e.target.style.boxShadow = "none";
                         }}
                         type="text"
@@ -166,7 +161,7 @@ function Details() {
                             e.target.style.boxShadow = "0 0 1px black";
                         }}
                         onBlur={(e) => {
-                            e.target.style.borderColor = "#0A0A0ACC"; // Default border color on blur
+                            e.target.style.borderColor = "#0A0A0ACC";
                             e.target.style.boxShadow = "none";
                         }}
                         type="text"
@@ -191,7 +186,7 @@ function Details() {
                             e.target.style.boxShadow = "0 0 1px black";
                         }}
                         onBlur={(e) => {
-                            e.target.style.borderColor = "#0A0A0ACC"; // Default border color on blur
+                            e.target.style.borderColor = "#0A0A0ACC";
                             e.target.style.boxShadow = "none";
                         }}
                         type="text"
@@ -224,7 +219,7 @@ function Details() {
                             e.target.style.boxShadow = "0 0 1px black";
                         }}
                         onBlur={(e) => {
-                            e.target.style.borderColor = "#0A0A0ACC"; // Default border color on blur
+                            e.target.style.borderColor = "#0A0A0ACC";
                             e.target.style.boxShadow = "none";
                         }}
                     >
@@ -264,7 +259,7 @@ function Details() {
                             e.target.style.boxShadow = "0 0 1px black";
                         }}
                         onBlur={(e) => {
-                            e.target.style.borderColor = "#0A0A0ACC"; // Default border color on blur
+                            e.target.style.borderColor = "#0A0A0ACC";
                             e.target.style.boxShadow = "none";
                         }}
                         as="textarea"

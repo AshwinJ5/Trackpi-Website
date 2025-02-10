@@ -1,5 +1,3 @@
-
-import EmployeeSales from "../../pages/User/EmployeeSales";
 import Personel from "../../pages/User/Personel";
 import MemberCard from "./memberCard";
 import { useState,useRef} from "react";
@@ -17,15 +15,15 @@ import "../../CSS/teamListMember.css";
    
   
     const handleCardClick = (employee) => {
-      setSelectedMember(employee); // Set the clicked member's data
-      setShowModal(true);        // Open the modal
+      setSelectedMember(employee); 
+      setShowModal(true);       
     
     };
     
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: -scrollRef.current.offsetWidth, // Scroll by container width
+        left: -scrollRef.current.offsetWidth, 
         behavior: "smooth",
       });
     }
@@ -34,15 +32,12 @@ import "../../CSS/teamListMember.css";
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
-        left: scrollRef.current.offsetWidth, // Scroll by container width
+        left: scrollRef.current.offsetWidth, 
         behavior: "smooth",
       });
     }
   };
 
-
-  //    // Slice employees array to limit to 6 employees 
-  // const displayedEmployees = employees?.slice(0, 6);
 
 
     return (
@@ -62,7 +57,6 @@ import "../../CSS/teamListMember.css";
                                 
                         </div>
                          
-                         {/* Scroll Buttons (Only for Mobile Screens) */}
                         <div className="sm:hidden flex justify-between items-center w-[calc(100vw-40px)]">
                         <button
                             onClick={scrollLeft}
@@ -83,7 +77,6 @@ import "../../CSS/teamListMember.css";
             </div>
              
       
-    {/* Render modal */}
       {selectedMember && (
         <Personel
           show={showModal}

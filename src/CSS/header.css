@@ -1,10 +1,8 @@
-/* Navbar base styles */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
-    /* background: #595252; #feee9e; */
     color: white;
     padding: 15px 20px;
     text-align: center;
@@ -29,44 +27,43 @@
     .navbar img {
         width: 80px;
     }
-    .navbar{
+    .navbar {
         height: 70px;
     }
-    .topBg::before{
+    .topBg::before {
         position: relative;
-       }
-     .topBg{
-         height: 71px;
-         background-color: rgba(10, 10, 10,.8);
-         position: absolute;
-         top: 0;
-       }
-     
+    }
+    .topBg {
+        height: 71px;
+        background-color: rgba(10, 10, 10, 0.8);
+        position: absolute;
+        top: 0;
+    }
 }
 
-/* Hidden state */
 .navbar.hidden {
     transform: translateY(-100%);
     opacity: 0;
 }
 
-/* Visible state */
 .navbar.visible {
     transform: translateY(0);
     opacity: 1;
 }
-.navbar .dropdown-menu, .custom-dropdown .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.8)!important;
+.navbar .dropdown-menu,
+.custom-dropdown .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.8) !important;
     border: none;
     box-shadow: none;
     margin: 0;
 }
 @media (max-width: 992px) {
-    .navbar .dropdown-menu, .custom-dropdown .dropdown-menu{
-        background-color: rgb(255, 255, 255, .5) !important;
+    .navbar .dropdown-menu,
+    .custom-dropdown .dropdown-menu {
+        background-color: rgb(255, 255, 255, 0.5) !important;
         color: white;
     }
-    .navbar-nav{
+    .navbar-nav {
         background-color: rgba(10, 10, 10, 0.8);
     }
 }
@@ -98,7 +95,6 @@
     color: #0a0a0a;
 }
 
-/* Navbar animation  */
 #navlink {
     position: relative;
     text-decoration: none;
@@ -127,7 +123,6 @@
     transition: transform 0.5s ease;
 }
 
-/* Ensure underline appears when hovering */
 #navlink:hover::before {
     transform: scaleX(1);
 }
@@ -149,12 +144,12 @@
 }
 
 .dropdown-menu .nav-link:hover {
-    color: #ffc100; /* Hover color for dropdown items */
+    color: #ffc100;
 }
 
 .dropdown-menu .nav-link.active {
     color: #ffc100;
-    font-weight: bold; /* Optional */
+    font-weight: bold;
 }
 #navlink:hover::before {
     transform: scaleX(1);
@@ -181,13 +176,13 @@
     #navlink::before {
         width: 100%;
     }
-     .dropdown-menu .dropdown-item , .dropdown-menu .dropdown-toggle{
+    .dropdown-menu .dropdown-item,
+    .dropdown-menu .dropdown-toggle {
         margin: auto;
         font-size: 12px !important;
         padding: 2px !important;
     }
     .navbar .nav-item {
-        margin:0;
+        margin: 0;
     }
-
 }
