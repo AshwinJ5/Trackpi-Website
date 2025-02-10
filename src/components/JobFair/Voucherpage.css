@@ -1,0 +1,95 @@
+/* Ensure full width layout */
+body, html {
+    width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Center content */
+  .main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Responsive Header */
+  @media (max-width: 768px) {
+    .header-content {
+      margin-left: 10px;
+      text-align: center;
+    }
+  
+    .logo-img {
+      width: 150px; /* Reduce logo size */
+    }
+  }
+  
+  /* Grid Layout for Cards (desktop view) */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row on desktop */
+    gap: 20px;
+    width: 100%; /* Ensure grid fills the available space */
+  }
+  
+  /* Ensure cards maintain structure in mobile view */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr; /* Stack cards in a single column on mobile */
+    }
+  
+    .tool-card {
+      width: 100%;
+      padding: 20px; /* Adjust padding */
+      margin-bottom: 20px; /* Ensure spacing between cards */
+      max-width: 680px; /* Ensure card doesn't shrink too much */
+    }
+  
+    /* Fix overlapping info icon and checkbox */
+    .tool-card .relative {
+      position: relative;
+      padding: 20px;
+      text-align: left;
+    }
+  
+    .tool-card input[type="checkbox"] {
+      position: absolute;
+      top: 10px;
+      right: 10px; /* Adjust position of checkbox */
+    }
+  
+    .tool-card .absolute.bottom-3.right-3 {
+      position: absolute;
+      bottom: 15px;
+      right: 10px; /* Move info icon further down to prevent overlap */
+    }
+  
+    /* Adjust the size of text */
+    .tool-card h3 {
+      font-size: 18px; /* Adjust title size */
+    }
+  
+    .tool-card h4 {
+      font-size: 14px; /* Adjust subtitle size */
+    }
+  
+    .tool-card p {
+      font-size: 13px; /* Adjust description size */
+    }
+  
+    /* Add proper spacing for the content */
+    .tool-card .mt-2 {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Background settings */
+  body {
+    background-image: url('./assets/JobfareBg.png'); /* Correct path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+  
