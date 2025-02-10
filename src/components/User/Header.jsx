@@ -51,7 +51,7 @@ function Header() {
                 onToggle={(isExpanded) => setExpanded(isExpanded)}
             >
                 <Container fluid>
-                    <Navbar.Brand href="" className="ms-md-3">
+                    <Navbar.Brand href="" className=" flex items-center justify-center">
                         <Link to={"/"} className="flex items-center text-decoration-none p-1">
                             <img src="src/images/trackpi_logo_one.png" alt="TrackPi Logo" />
                         </Link>
