@@ -5,19 +5,21 @@ import creator2 from '../../images/creator2.png';
 import '../../CSS/User/Creators.css';
 import { SERVER_URL } from '../../Api Services/serverUrl';
 
+
+
 const designers = [
-  { name: 'Alifen Sunny', role: 'UI/UX Designer', image: creator1 },
   { name: 'V Ranjana Priya', role: 'UI/UX Designer', image: creator2 },
+  { name: 'Alffen Sunny', role: 'UI/UX Designer', image: creator1 },
 ];
 
 const developers = [
-  { name: 'Shalu V', role: 'React Developer', image: creator2 },
+  { name: 'Shalu V', role: 'React Developer', image:`${SERVER_URL}/uploads/images/shalu.png` },
   {
     name: 'Aswin Joseph',
     role: 'React Developer',
     image: `${SERVER_URL}/uploads/images/ashwin.jpeg`,
   },
-  { name: 'Nidha Fathima', role: 'React Developer', image: creator2 },
+  { name: 'Nidha Fathima', role: 'React Developer', image:`${SERVER_URL}/uploads/images/Nidha.jpeg` },
 ];
 
 const Creators = () => {
