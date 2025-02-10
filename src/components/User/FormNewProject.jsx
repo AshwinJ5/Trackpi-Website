@@ -34,12 +34,11 @@ const FormNewProject = () => {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(formData, 'formDataa');
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [countryCode, setCountryCode] = useState("IN");
-  const [phone, setPhone] = useState("");
+  const [countryCode, setCountryCode] = useState('IN');
+  const [phone, setPhone] = useState('');
 
   // Save form data to sessionStorage whenever it changes
   useEffect(() => {
@@ -47,7 +46,6 @@ const FormNewProject = () => {
   }, [formData]);
 
   // Handle input change
-
   const handleChange = e => {
     const { id, type, checked, value } = e.target;
     setFormData(prevData => ({
@@ -63,6 +61,7 @@ const FormNewProject = () => {
       userType: e.target.value,
     });
   };
+
   // Handle file selection
   const handleFileChange = event => {
     const selectedFile = event.target.files[0];
@@ -90,13 +89,10 @@ const FormNewProject = () => {
     setFormData({ ...formData, contactNumber: formattedPhone });
     setCountryCode(country.countryCode.toUpperCase());
     setPhone(`${country.dialCode}${value.slice(country.dialCode.length)}`);
-    // console.log(formattedPhone);
   };
-
 
   // Handle form submission
   const handleSubmit = async e => {
-    console.log('Clicked Submit');
     e.preventDefault();
     setLoading(true);
 
@@ -109,9 +105,9 @@ const FormNewProject = () => {
       formDataToSend.append('projectFile', file);
     }
     if (!isValidNumber(`+${phone}`, countryCode)) {
-      toast.error("Please enter a valid phone number!");
+      toast.error('Please enter a valid phone number!');
       return;
-  }
+    }
     try {
       const response = await BaseURL.post(
         'api/projects/submit',
@@ -120,8 +116,6 @@ const FormNewProject = () => {
           headers: { 'Content-Type': 'multipart/form-data' },
         }
       );
-
-      console.log(response.data, 'Response Data');
 
       setFormData({
         ...initialFormData,
@@ -268,16 +262,7 @@ const FormNewProject = () => {
               value={formData.institute_company}
               onChange={handleChange}
               required
-            >
-              {/* <option value="" disabled selected>
-                Institute/Company Name
-              </option>
-              <option value="socialMedia">Social Media</option>
-              <option value="searchEngine">Search Engine</option>
-              <option value="friendFamily">Friend or Family</option>
-              <option value="advertisement">Advertisement</option>
-              <option value="other">Other</option> */}
-            </Form.Control>
+            ></Form.Control>
           </div>
 
           <div className="formInput">
@@ -397,7 +382,6 @@ const FormNewProject = () => {
                   <GoUpload className="inline-block mx-1.5" />
                 </>
               )}
-              {/* Message Display */}
             </label>
           </div>
 
