@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import JobFairReg from "../../components/JobFair/JobFairReg";
+import JobFairReg from "./JobFairReg";
 import "../../CSS/JobFair/jobs.css";
 
 function Jobs({ onClose }) {
@@ -39,7 +39,7 @@ function Jobs({ onClose }) {
               To begin your registration process, click on 'Proceed'!
             </p>
             <div className="d-flex justify-content-center">
-              <button className="btn-warning fw-bold px-4" onClick={handleClose}>
+              <button className="btn-warning fw-bold px-4" onClick={handleClose} >
                 Proceed
               </button>
             </div>

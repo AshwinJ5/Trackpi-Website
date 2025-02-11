@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import VoucherSection from "./VoucherSection";
+import VoucherSection from "../../pages/User/VoucherSection";
 import Cards from "./Cards";
 
 const EmployeeCard = () => {  
