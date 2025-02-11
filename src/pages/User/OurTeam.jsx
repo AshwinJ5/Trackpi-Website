@@ -4,11 +4,14 @@ import { Puff } from "react-loader-spinner";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
-
+import img1 from '../../images/business-consultants-kerala-modern-office-collaboration.jpg'
+import img2 from '../../images/business-consulting-services-professionals-meeting.jpg'
+import img3 from '../../images/business-consultant-kerala-professionals-formal-photo.jpg'
 import TeamListMemberCrd from "../../components/User/teamListMemberCrd";
 import "../../CSS/ourTeam.css";
 import Clients from "../../components/User/carousel";
 import baseURL from "../../Api Services/baseURL";
+
 function OurTeam() {
     const options = { threshold: 0.1 };
     const [heading, setHeading] = useState({});
@@ -84,11 +87,11 @@ function OurTeam() {
                             animate={inViewFirstSection ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.8 }}
                         >
-                            We are Trackpi
+                            We Are Trackpi
                         </motion.h1>
                         <div className="flex justify-center px-2 ">
                             <motion.img
-                                src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64ecb80f6f19b2addac4e0f1_image_WeAreTheReady1-p-800.webp"
+                                src={img1}
                                 alt="Team Image"
                                 className="rounded-lg w-[340px] h-[200px] md:h-[390px] 2xl:h-[490px] md:hidden object-cover "
                                 initial={{ opacity: 0, x: -50 }}
@@ -111,7 +114,7 @@ function OurTeam() {
                     </div>
                     <div className="md:w-1/2 flex md:justify-end hidden md:block">
                         <motion.img
-                            src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64ecb80f6f19b2addac4e0f1_image_WeAreTheReady1-p-800.webp"
+                            src={img1}
                             alt="Team Image"
                             className="shadow-lg rounded-lg w-full h-[300px] md:h-[390px] 2xl:h-[490px] flex object-cover"
                             initial={{ opacity: 0, x: -50 }}
@@ -123,10 +126,10 @@ function OurTeam() {
             </section>
             <section className="smallscreen section3 md:mt-20 flex flex-col items-center  md:gap-10 md:w-full h-full">
                 <div className="flex flex-col items-center ">
-                    <h1 className="fw-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl text-[#FFC100] ">
+                    <h1 className="fw-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl text-[#FFC100]">
                         {heading.partnershipHeading}
                     </h1>
-                    <h5 className="paras text-bold text-black text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl xl-leading-7 2xl:leading-10  ">
+                    <h5 className="paras font-semibold text-black text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl xl-leading-7 2xl:leading-10  ">
                         {heading.partnershipSubHeading}
                     </h5>
                 </div>
@@ -145,7 +148,7 @@ function OurTeam() {
                 >
                     <div className="md:w-1/2 flex md:justify-start hidden md:block">
                         <motion.img
-                            src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64495b02c779ff9ad9a7990f_image_OurPeopleForeground%402x-p-1080.webp"
+                            src={img3}
                             alt="Team Image"
                             className="shadow-lg rounded-lg w-full h-[300px] md:h-[390px] 2xl:h-[490px] object-cover"
                             initial={{ opacity: 0, x: -50 }}
@@ -160,11 +163,11 @@ function OurTeam() {
                             animate={inViewSecondSection ? { opacity: 1, x: 0 } : {}}
                             transition={{ duration: 0.8 }}
                         >
-                            Our people
+                            Our People
                         </motion.h1>
                         <div className="md:hidden flex justify-center px-10  ">
                             <motion.img
-                                src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64495b02c779ff9ad9a7990f_image_OurPeopleForeground%402x-p-1080.webp"
+                                src={img3}
                                 alt="Team Image"
                                 className=" rounded-lg w-[277px]  md:w-full h-[180px] md:h-[390px] 2xl:h-[490px] object-cover"
                                 initial={{ opacity: 0, x: -50 }}
@@ -209,7 +212,7 @@ function OurTeam() {
                         </motion.h1>
                         <div className="flex justify-center px-2">
                             <motion.img
-                                src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64495b2e1589c13e25e8db88_image_OurTeamForeground%402x-p-1080.webp"
+                                src={img2}
                                 alt=""
                                 className="rounded-lg w-[340px]  h-[180px] md:h-[390px] 2xl:h-[490px] md:hidden object-cover"
                                 initial={{ opacity: 0, x: -50 }}
@@ -254,7 +257,7 @@ function OurTeam() {
                     </div>
                     <div className="w-full hidden md:block  md:w-1/2 flex justify-center justify-end">
                         <motion.img
-                            src="https://cdn.prod.website-files.com/63f64214650d1272fb21690d/64495b2e1589c13e25e8db88_image_OurTeamForeground%402x-p-1080.webp"
+                            src={img2}
                             alt=""
                             className="shadow-lg rounded-lg w-full h-[300px] md:h-[390px] 2xl:h-[490px] object-cover"
                             initial={{ opacity: 0, x: -50 }}
@@ -268,7 +271,7 @@ function OurTeam() {
                 <Container fluid>
                     <Row>
                         <h1 className="fw-bold text-center text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-2   flex justify-center ">
-                            The Trackpi from A–Z
+                            Trackpi From A–Z
                         </h1>
                     </Row>
                     {loading ? (

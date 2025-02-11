@@ -30,7 +30,7 @@ function KeyBenefitServices() {
                     style={{ color: "#FFC100" }}
                     className=" text-[18px] sm:text-[20px] md:text-[24px] lg:text-[30px] xl:text-[37px] 2xl:text-5xl text-center font-bold "
                 >
-                    Our Training Offer Should Benefit You In These Ways
+                    Our Training Offer Should Benefit You in These Ways
                 </h1>
             </div>
             <div

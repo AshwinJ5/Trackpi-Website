@@ -69,7 +69,7 @@ function Connect() {
                 <Container fluid className="text-center ">
                     <Row className="mt-2 md:mt-5">
                         <h1 className="ready mb-[10px] sm:mb-[13px] md:mb-[17px] lg:mb-[20px]      text-[18px]  sm:text-[30px] lg:text-[40px] xl:text-[50px]    font-bold connect-text-Color ">
-                            You’re ready to <br /> take the next step
+                            You’re Ready to <br /> Take the Next Step
                         </h1>
 
                         <div className="  text-[12px]  sm:text-lg lg:text-xl xl:text-xl 2xl:text-2xl  font-medium">

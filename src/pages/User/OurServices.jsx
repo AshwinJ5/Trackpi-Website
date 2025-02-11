@@ -105,7 +105,7 @@ Everything starts from effective marketing techniques and approaches. We are the
                     <ServicesSub
                         heading="Financial Consulting"
                         classname="bg_common"
-                        title1="Financial Planning For Growth"
+                        title1="Financial Planning for Growth"
                         description1="Every business is unique, but what is a common theme across them is setting goals. Through setting goals, we can tailor our financial strategies to fulfill those goals. Forecasting, budgeting, and appropriate resource allocation are part of the package so that the business is ready for challenges but also growth. With a focus on achieving and sustaining success."
                         img1={financeImg1}
                         title2="Cash Flow Enhancement "

@@ -5,7 +5,7 @@ function TermsAndConditionForNewProject() {
     return (
         <>
             <ConnectButtons />
-            <div className="w-full xl:mt-[98px] mt-[80px] w-full">
+            <div className="w-full xl:mt-[98px] sm:mt-[80px] mt-[50px] w-full">
                 <div className="py-[30px] sm:py-[30px] md:py-[30px] lg:py-[45px]  p-[15px] sm:p-[20px] md:p-[40px] lg:p-[60px] xl:p-[65px] grid gap-[25px] sm:gap-[30px] md:gap-[40px] lg:gap-[50px] xl:gap-[50px]">
                     <div className="text-center text-[#FF9D00] text-[20px] sm:text-[24px] md:text-[30px] lg:text-[40px] xl:text-[62px] font-bold">
                         Terms and Conditions
