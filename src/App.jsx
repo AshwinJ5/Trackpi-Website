@@ -44,6 +44,7 @@ import TermsAndConditionForNewProject from "./pages/User/TermsAndConditionForNew
 import PrivateRoute from "./components/PrivateRoutes/PrivateRoutes";
 import Creators from "./pages/User/Creators";
 import Jobs from "./pages/User/jobs";
+import JobFairForm from "./pages/User/JobFairForm";
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -189,7 +190,8 @@ function App() {
                                         />
                                         <Route path="/admin/footer-management" element={<FooterManagement />} />
                                     </Route>
-                                    <Route path="job-fair" element={<Jobs />} />
+                                    <Route path="/job-fair" element={<Jobs />} />
+                                    <Route path="/job-fair/user" element={<JobFairForm />} />
 
                                     <Route path="/not-found" element={<Navigate to={"/not-found"} />} />
                                     <Route path="/*" element={<NotFound />} />

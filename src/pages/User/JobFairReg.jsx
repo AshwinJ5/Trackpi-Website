@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import HeaderSection from "./Header";
+import HeaderSection from "../../components/JobFair/Header";
+import { useNavigate } from "react-router-dom";
 import "../../CSS/JobFair/jobfairreg.css";
 
 function JobFairReg() {
@@ -13,6 +14,12 @@ function JobFairReg() {
     city: "",
     companySize: "",
   });
+
+  const nav = useNavigate()
+
+  const handleNext=()=>{
+    nav('/job-fair/user')
+  }
 
   const fetchLocationDetails = async (pin) => {
     if (pin.length !== 6) return;
@@ -66,7 +73,7 @@ function JobFairReg() {
               placeholder="Enter your company name"
               value={formData.companyName}
               onChange={handleChange}
-              required
+            
             />
           </div>
 
@@ -118,13 +125,13 @@ function JobFairReg() {
               value={formData.pincode}
               onChange={handleChange}
             />
-            <input type="text" name="country" className="custom-Input" placeholder="Country" value={formData.country} readOnly />
-            <input type="text" name="state" className="custom-Input" placeholder="State" value={formData.state} readOnly />
-            <input type="text" name="city" className="custom-Input" placeholder="City" value={formData.city} readOnly />
+            <input type="text" name="country" className="custom-Input" placeholder="Country" value={formData.country}  />
+            <input type="text" name="state" className="custom-Input" placeholder="State" value={formData.state}  />
+            <input type="text" name="city" className="custom-Input" placeholder="City" value={formData.city}  />
           </div>
 
           <div className="button-container mt-3">
-            <button type="submit" className="bt">Next</button>
+            <button type="submit" className="bt" onClick={handleNext}>Next</button>
           </div>
         </form>
       </div>

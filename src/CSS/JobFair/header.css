@@ -62,6 +62,9 @@
 }
 
 @media (max-width: 576px) {
+    .t1{
+        text-align: center;
+    }
     .t2 {
         font-size: 32px;
         text-align: center;
@@ -76,5 +79,41 @@
     }
     .logo-img {
         width: 140px;
+    }
+}
+
+
+/* Desktop Logo (Visible only on larger screens) */
+.desktop-logo {
+    width: 280px;
+}
+
+/* Mobile Header (Small Logo + Text on Black Background) */
+.mobile-header {
+    width: 100%;
+    background-color: black;
+    text-align: center;
+}
+
+.mobile-logo-img {
+    width: 80px;
+}
+
+.mobile-partner-text {
+    color: white;
+    font-size: 10px;
+}
+
+/* Hide Mobile Header on Desktop */
+@media (min-width: 768px) {
+    .mobile-header {
+        display: none;
+    }
+}
+
+/* Hide Desktop Logo & Contact Info Column on Mobile */
+@media (max-width: 768px) {
+    .desktop-header {
+        display: none;
     }
 }
