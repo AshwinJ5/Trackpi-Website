@@ -254,12 +254,12 @@ function Footer() {
                                                 src={mapimg}
                                                 alt=""
                                             />
-                                            <div className="text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium w-[190px] ms-[10px] sm:ms-[20px] addressFooter">
+                                            <div className="text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium  ms-[10px] sm:ms-[20px] addressFooter">
                                                 Trackpi Private Limited, 10E BCG Tower, Opp. CSEZ, Seaport-Airport Rd,
                                                 Kakkanad, Kochi, Kerala - 682037, India
                                             </div>
                                         </div>
-                                        <div className="sm:hidden block rounded-lg   footerForm footerInput2 text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium  ms-[10px] sm:ms-[20px] max-w-[240px]">
+                                        <div className="sm:hidden block rounded-lg   footerForm footerInput2 text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium  ms-[10px] sm:ms-[20px]  max-w-[240px]">
                                             <img
                                                 className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px] mx-auto mb-[5px]"
                                                 src={mapimg}
