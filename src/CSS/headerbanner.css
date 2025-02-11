@@ -180,22 +180,22 @@
     margin-top: 70px;
 }
 .bgOne {
-    background-image: url("../images/team.jpg");
+    background-image: url("../images/business-consulting-firm-team-thumbs-up-teamwork-success.jpg");
 }
 .bgTwo {
-    background-image: url("../images/img2.jpg");
+    background-image: url("../images/business-consultant-kerala-teamwork.jpg");
 }
 .bgThree {
-    background-image: url("../images/img4.jpg");
+    background-image: url("../images/business-consulting-firms-team-collaboration-laptop.jpg");
 }
 .bgFour {
-    background-image: url("../images/img3.jpg");
+    background-image: url("../images/best-business-consultants-kerala-teamwork-collaboration.jpg");
 }
 .bgFive {
-    background-image: url("../images/connect.jpg");
+    background-image: url("../images/business-development-consultant-handshake-collaboration.jpg");
 }
 .bgSix {
-    background-image: url("../images/project.jpg");
+    background-image: url("../images/business-consulting-companies-collaboration.jpg");
 }
 
 .bgOne::before,

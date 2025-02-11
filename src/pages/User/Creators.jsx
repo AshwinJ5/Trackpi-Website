@@ -1,63 +1,93 @@
-import React, { useEffect, useState } from 'react';
-import CreatorCard from '../../components/User/teamCreatorsCard';
-import creator1 from '../../images/creator1.png';
-import creator2 from '../../images/creator2.png';
-import '../../CSS/User/Creators.css';
-import { SERVER_URL } from '../../Api Services/serverUrl';
+import React from "react";
+import creator1 from "../../images/creator1.png";
+import creator2 from "../../images/creator2.png";
+import "../../CSS/User/Creators.css";
+import { SERVER_URL } from "../../Api Services/serverUrl";
 
 const designers = [
-  { name: 'Alifen Sunny', role: 'UI/UX Designer', image: creator1 },
-  { name: 'V Ranjana Priya', role: 'UI/UX Designer', image: creator2 },
+    { name: "Alifen Sunny", role: "UI/UX Designer", image: creator1 },
+    { name: "V Ranjana Priya", role: "UI/UX Designer", image: creator2 },
 ];
 
 const developers = [
-  { name: 'Shalu V', role: 'React Developer', image: creator2 },
-  {
-    name: 'Aswin Joseph',
-    role: 'React Developer',
-    image: `${SERVER_URL}/uploads/images/ashwin.jpeg`,
-  },
-  { name: 'Nidha Fathima', role: 'React Developer', image: creator2 },
+    { name: "Shalu V", role: "MERN Stack Developer", image: `${SERVER_URL}/uploads/creators/shalu.png` },
+    {
+        name: "Ashwin Joseph",
+        role: "MERN Stack Developer",
+        image: `${SERVER_URL}/uploads/creators/ashwin.jpeg`,
+    },
+    { name: "Nidha Fathima", role: "MERN Stack Developer", image: `${SERVER_URL}/uploads/creators/Nidha.jpeg` },
 ];
 
 const Creators = () => {
-  return (
-    <div className="w-full xl:mt-[150px] mt-[90px] mb-20 flex flex-col items-center">
-      <h2 className=" text-[22px] md:text-[28px] lg:text-[62px] font-bold text-center text-[#FF9D00] mb-0 ">
-        Creators
-      </h2>
-      {/* Designers Section */}
-      <div className="px-12">
-        <h3 className="text-[18px]  md:text-[24px] lg:text-[46px]  font-bold text-[#FFC100] text-center mt-4 sm:mt-4 md:mt-8 lg:mt-2 2xl:mt-8  sm:mb-2 md:mb-4 lg:mb-4 xl:mb-8 2xl:mb-10">
-          Designers
-        </h3>
-        <div className="flex justify-center gap-8 w-full custom-Cards ">
-          {designers.map((designer, index) => (
-            <CreatorCard key={index} {...designer} />
-          ))}
-        </div>
-
-        {/* Developers Section */}
-        <h3 className="text-[18px] md:text-[24px] lg:text-[46px]  font-bold text-[#FFC100] text-center mt-4 sm:mt-4 md:mt-8 lg:mt-12  2xl:mt-8 sm:mb-2 md:mb-4 lg:mb-4 xl:mb-8 2xl:mb-10 ">
-          Developers
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 gap-8 w-full custom-Cards">
-          {developers.map((developer, index) => (
-            <div
-              key={index}
-              className={`${
-                developers.length === 3 && index === 2
-                  ? 'col-span-2 flex justify-center lg:col-span-1'
-                  : ''
-              }`}
-            >
-              <CreatorCard {...developer} />
+    return (
+        <>
+            <div className="xl:mt-[98px] sm:mt-[80px] mt-[50px] creatorsMain">
+                <div className="py-[30px] sm:py-[30px] md:py-[30px] lg:py-[45px]  p-[15px] sm:p-[20px] md:p-[40px] lg:p-[60px] xl:p-[65px] grid gap-[20px] sm:gap-[25px] md:gap-[30px] lg:gap-[35px] xl:gap-[40px]">
+                    <div className="text-[20px] sm:text-[24px] md:text-[32px] lg:text-[48px] xl:text-[62px]  font-bold text-center text-[#FF9D00] mb-0 ">
+                        Creators
+                    </div>
+                    <div className="grid gap-[20px] sm:gap-[30px] md:gap-[40px] lg:gap-[60px] xl:gap-[80px]">
+                        <div className="gap-[15px] sm:gap-[20px] md:gap-[25px] lg:gap-[30px] grid">
+                            <div className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[38px] xl:text-[46px] font-bold text-center text-[#FFC100]">
+                                Designers
+                            </div>
+                            <div className="flex flex-wrap gap-[15px] sm:gap-[20px] md:gap-[30px] lg:gap-[40px] xl:gap-[50px] justify-center items-center">
+                                {designers.map((designer, index) => (
+                                    <div
+                                        key={index}
+                                        className="rounded-[10px] shadow-[2px_2px_4px_0px_#0A0A0A33,-2px_1px_4px_0px_#0A0A0A33,0px_-2px_4px_0px_#0A0A0A33] w-[300px] sm:w-[290px] md:w-[320px] lg:w-[30%]  max-w-[450px] aspect-[30/28] sm:aspect-[1] designers "
+                                    >
+                                        <img
+                                            className="w-full aspect-[1.38] object-contain object-top rounded-[10px]"
+                                            src={designer.image}
+                                            alt={designer.name}
+                                        />
+                                        <div className="px-[15px] py-[10px]">
+                                            <div className="font-semibold text-[16px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px]">
+                                                {designer.name}
+                                            </div>
+                                            <div className="font-medium text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] ">
+                                                {designer.role}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="gap-[15px] sm:gap-[20px] md:gap-[25px] lg:gap-[30px] grid">
+                            <div className="text-[18px] sm:text-[24px] md:text-[30px] lg:text-[38px] xl:text-[46px] font-bold text-center text-[#FFC100]">
+                                Developers
+                            </div>
+                            <div className="flex flex-wrap gap-[15px] sm:gap-[20px] md:gap-[30px] lg:gap-[40px] xl:gap-[50px] justify-center items-center">
+                                {developers.map((developer, index) => (
+                                    <div
+                                        key={index}
+                                        className="rounded-[10px] shadow-[2px_2px_4px_0px_#0A0A0A33,-2px_1px_4px_0px_#0A0A0A33,0px_-2px_4px_0px_#0A0A0A33] w-[300px]  sm:w-[290px] md:w-[320px] lg:w-[30%]  aspect-[30/28] sm:aspect-[1]  max-w-[450px] developers"
+                                    >
+                                        <img
+                                            className="w-full aspect-[1.38] object-cover object-top rounded-[10px]"
+                                            src={developer.image}
+                                            alt={developer.name}
+                                        />
+                                        <div className="px-[15px] py-[10px] grid  items-center ">
+                                            <div className="font-semibold text-[16px] sm:text-[20px] md:text-[24px] lg:text-[26px] xl:text-[32px]">
+                                                {developer.name}
+                                            </div>
+                                            <div className="font-medium text-[14px] sm:text-[16px] md:text-[18px] lg:text-[18px] xl:text-[24px] ">
+                                                {developer.role}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+        </>
+    );
 };
 
 export default Creators;

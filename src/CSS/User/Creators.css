@@ -1,34 +1,7 @@
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .custom-Cards {
-    gap: 2rem;
-  }
-  .creatorImg img {
-    width: 250px;
-    height: 240px;
-  }
-  .cardDiv {
-    width: 270px;
-  }
-}
-@media (max-width: 1024px) {
-  .cardDiv {
-    width: 250px;
-  }
-  .creatorImg img {
-    width: 200px;
-    height: 200px;
-  }
-}
-@media (max-width: 640px) {
-  .custom-Cards {
-    place-items: center;
-    gap: 1rem;
-  }
-  .creatorImg img {
-    width: 120px;
-    height: 120px;
-  }
-  .cardDiv {
-    width: 150px;
+
+@media (max-width: 350px) {
+  .creatorsMain .designers , .creatorsMain .developers {
+    width: 80vw ; 
+    height: 80vw ; 
   }
 }

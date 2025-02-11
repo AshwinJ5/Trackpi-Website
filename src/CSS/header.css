@@ -62,7 +62,6 @@
 .navbar .dropdown-menu,
 .custom-dropdown .dropdown-menu {
     background-color: rgba(255, 255, 255, 0.8) !important;
-    border: none;
     box-shadow: none;
     margin: 0;
 }
@@ -71,6 +70,7 @@
     .custom-dropdown .dropdown-menu {
         background-color: rgb(255, 255, 255, 0.5) !important;
         color: white;
+        border: none;
     }
     .navbar-nav {
         background-color: rgba(10, 10, 10, 0.8);
