@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Verify } from "react-puzzle-captcha";
 import "react-puzzle-captcha/dist/react-puzzle-captcha.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
-import Brochure from "../../components/User/Brochure";
 import "../../CSS/employverification.css";
 import baseURL from "../../Api Services/baseURL";
 import HeaderBanner from "../../components/User/HeaderBanner";
@@ -16,8 +15,6 @@ function EmployeeVerification() {
     const [modalShow, setModalShow] = useState(false);
     const [verifyInput, setVerifyInput] = useState("");
     const [employeeData, setEmployeeData] = useState({});
-    // console.log(verifyInput);
-    // console.log(employeeData);
 
     const navigate = useNavigate();
 
@@ -33,7 +30,6 @@ function EmployeeVerification() {
         setModalShow(true);
     };
 
-    // Handle CAPTCHA success
     const handleCaptchaSuccess = async () => {
         setCaptchaVerified(true);
         setModalShow(false);
@@ -107,14 +103,13 @@ function EmployeeVerification() {
             />
 
             <div className="px-[20px] sm:px-[30px] md:px-[40px] lg:px-[50px] xl:px-[65px] pb-[20px] sm:pb-[30px] md:pb-[40px] lg:pb-[50px] xl:pb-[65px]">
-                {/* Verification Form Section */}
                 <section className=" mb-14 w-100 ">
                     <div className="lg:w-[75%] sm:w-[80%] w-[89%] bg-white shadow-lg mx-auto p-4 rounded-lg gap-[15px] md:gap-[30px]  xl:gap-[50px] grid">
                         <div className="font-bold text-[18px] sm:text-[25px] md:text-[30px] lg:text-[40px] xl:text-[50px] 2xl:text-[60px] text-[#FFC100] text-center">
                             Employee Verification
                         </div>
                         <form onSubmit={handleSubmitVerify} className="grid gap-[15px] md:gap-[30px]  xl:gap-[50px]">
-                            <div style={{ fontWeight: "600" }} >
+                            <div style={{ fontWeight: "600" }}>
                                 <label
                                     className="block mb-2 text-[14px] sm:text-[18px] md:text-[21px] lg:text-[25px] xl:text-[30px]  text-dark"
                                     htmlFor="employeeId"
@@ -151,7 +146,7 @@ function EmployeeVerification() {
                 </section>
                 {loading && (
                     <div className="flex justify-center items-center fixed inset-0 bg-opacity-50 bg-yellow-500 z-50">
-                        <div className="spinner"></div> {/* Show the loader spinner */}
+                        <div className="spinner"></div>
                     </div>
                 )}
 
@@ -183,7 +178,7 @@ function EmployeeVerification() {
                             </div>
                         ))}
                     </div>
-                    {/* Modal for Captcha  */}
+
                     <Modal
                         size="sm"
                         aria-labelledby="captcha-modal"
@@ -200,7 +195,7 @@ function EmployeeVerification() {
                     </Modal>
                 </section>
             </div>
-            <ConnectButtons/>
+            <ConnectButtons />
         </div>
     );
 }

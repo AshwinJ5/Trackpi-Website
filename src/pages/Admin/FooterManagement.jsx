@@ -16,7 +16,6 @@ const FooterManagement = () => {
     const [imageEditMode, setImageEditMode] = useState(false);
     const [imageHeadingEditMode, setImageHeadingEditMode] = useState(false);
     const [videoHeading1EditMode, setVideoHeading1EditMode] = useState(false);
-    const [bannerHeading2EditMode, setBannerHeading2EditMode] = useState(false);
 
     const [footerVideoDetails, setFooterVideoDetails] = useState({});
     const [footerVideo, setFooterVideo] = useState({});
@@ -40,7 +39,6 @@ const FooterManagement = () => {
     useEffect(() => {
         getAllFooterDatas();
     }, []);
-    // console.log(footerVideoDetails);
     const editFooterDetailMainHeading = async (e) => {
         e.preventDefault();
         try {
@@ -60,7 +58,6 @@ const FooterManagement = () => {
                 setVideoHeading1EditMode(false);
             }
         } catch (error) {
-            // setFileName("Upload Image");
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
             } else if (error.response.status === 304) {
@@ -90,7 +87,6 @@ const FooterManagement = () => {
                 setImageHeadingEditMode(false);
             }
         } catch (error) {
-            // setFileName("Upload Image");
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
             } else if (error.response.status === 304) {
@@ -113,7 +109,6 @@ const FooterManagement = () => {
         try {
             const formData = new FormData();
 
-            // Dynamically append fields based on edit modes
             if (videoEditMode1) {
                 formData.append("videofile1", footerVideoDetails.videofile1);
                 formData.append("videourl1", footerVideoDetails.videourl1);
@@ -134,13 +129,10 @@ const FooterManagement = () => {
                 },
             });
 
-            console.log("Response status:", response.status);
-
             if (response.status === 200) {
                 getAllFooterDatas();
                 toast.success("Footer Details updated successfully!");
 
-                // Reset states
                 setVideoEditMode1(false);
                 setVideoEditMode2(false);
                 setVideoEditMode3(false);
@@ -149,7 +141,6 @@ const FooterManagement = () => {
                 setFileNameVideo3("Upload Video");
             }
         } catch (error) {
-            
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
             } else if (error.response.status === 304) {
@@ -191,12 +182,10 @@ const FooterManagement = () => {
                 setFileNameImage("Upload Image");
             }
         } catch (error) {
-            // setFileName("Upload Image");
             if (error.response && error.response.data) {
                 toast.error(`Error: ${error.response.data.message || "An error occurred"}`);
-            }else if (error.response.status === 304) {
+            } else if (error.response.status === 304) {
                 toast.info("No changes detected");
-                // setImageEditMode(false);
             } else {
                 toast.error("An error occurred while updating footer details.");
                 console.error("Error in updating footer details:", error);
@@ -207,7 +196,7 @@ const FooterManagement = () => {
     const uploadVideoAdd1 = (e) => {
         const file1 = e.target.files[0];
         if (file1) {
-            if (["video/mp4", "video/avi"].includes(file1.type)&& file1.size < 10 * 1024 * 1024) {
+            if (["video/mp4", "video/avi"].includes(file1.type) && file1.size < 10 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile1: file1 });
                 setFileNameVideo1(file1.name);
             } else {
@@ -221,7 +210,7 @@ const FooterManagement = () => {
     const uploadVideoAdd2 = (e) => {
         const file2 = e.target.files[0];
         if (file2) {
-            if (["video/mp4", "video/avi"].includes(file2.type)&& file2.size < 10 * 1024 * 1024) {
+            if (["video/mp4", "video/avi"].includes(file2.type) && file2.size < 10 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile2: file2 });
                 setFileNameVideo2(file2.name);
             } else {
@@ -233,10 +222,8 @@ const FooterManagement = () => {
     };
     const uploadVideoAdd3 = (e) => {
         const file3 = e.target.files[0];
-        console.log(file3.type);
-
         if (file3) {
-            if (["video/mp4", "video/avi"].includes(file3.type)&& file3.size < 10 * 1024 * 1024) {
+            if (["video/mp4", "video/avi"].includes(file3.type) && file3.size < 10 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, videofile3: file3 });
                 setFileNameVideo3(file3.name);
             } else {
@@ -249,7 +236,7 @@ const FooterManagement = () => {
     const uploadImageAdd = (e) => {
         const file4 = e.target.files[0];
         if (file4) {
-            if (["image/png", "image/jpg", "image/jpeg"].includes(file4.type)&& file4.size < 5 * 1024 * 1024) {
+            if (["image/png", "image/jpg", "image/jpeg"].includes(file4.type) && file4.size < 5 * 1024 * 1024) {
                 setFooterVideoDetails({ ...footerVideoDetails, imagefile: file4 });
                 setFileNameImage(file4.name);
             } else {
@@ -300,13 +287,6 @@ const FooterManagement = () => {
                                     type="text"
                                     className="border partnerInput rounded-lg px-[15px] h-[45px] w-1/2 text-[20px] font-semibold"
                                 />
-                                {/* <button type="submit" className="bg-[#FF9D00] p-[10px] rounded-[8px] h-[45px] w-[45px]"
-                                 onClick={(e) => {
-                                    e.preventDefault();
-                                    videoHeadingEditMode?setVideoHeadingEditMode(false):setVideoHeadingEditMode(true)
-                                }}>
-                                    <img src={editImg} alt="" />
-                                </button> */}
                                 {!videoHeading1EditMode ? (
                                     <button
                                         className="bg-[#FF9D00] p-[10px] rounded-[8px]"
@@ -342,7 +322,9 @@ const FooterManagement = () => {
                             </div>
                         </div>
                         <div className="grid py-[20px] gap-[30px] ">
-                        <div className="text-[12px] font-semibold text-red-400 pb-0">* Please upload a video of aspect ratio 9:16 (eg: 1080px * 1920px)</div>
+                            <div className="text-[12px] font-semibold text-red-400 pb-0">
+                                * Please upload a video of aspect ratio 9:16 (eg: 1080px * 1920px)
+                            </div>
                             <div className="flex  gap-[40px] items-center w-100">
                                 <div className="flex justify-between gap-[30px] w-100 items-center">
                                     <div className="videoBtn min-w-[120px] text-center">Video 1</div>
@@ -369,26 +351,8 @@ const FooterManagement = () => {
                                             htmlFor="fileInput1"
                                             className="uploadBtn flex items-center justify-center min-w-[200px] gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                                         >
-                                            {/* {fileName1 ? (
-                                                <>
-                                                    <span>
-                                                        {fileName1.length > 15
-                                                            ? `${fileName1.substring(0, 15)}...`
-                                                            : fileName1}
-                                                    </span>
-                                                    <button
-                                                        onClick={handleRemoveFile1}
-                                                        className="ml-2 text-red-500 hover:text-red-700"
-                                                    >
-                                                        ✕
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <> */}
                                             <div>{fileNameVideo1}</div>
                                             <img src={uploadImg} alt="Upload Icon" />
-                                            {/* </>
-                                            )} */}
                                         </label>
                                     </div>
                                     <button
@@ -429,26 +393,8 @@ const FooterManagement = () => {
                                             htmlFor="fileInput2"
                                             className="uploadBtn flex items-center justify-center min-w-[200px] gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                                         >
-                                            {/* {fileName2 ? (
-                                                <>
-                                                    <span>
-                                                        {fileName2.length > 15
-                                                            ? `${fileName2.substring(0, 15)}...`
-                                                            : fileName2}
-                                                    </span>
-                                                    <button
-                                                        onClick={handleRemoveFile2}
-                                                        className="ml-2 text-red-500 hover:text-red-700"
-                                                    >
-                                                        ✕
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <> */}
                                             <div>{fileNameVideo2}</div>
                                             <img src={uploadImg} alt="Upload Icon" />
-                                            {/* </>
-                                            )} */}
                                         </label>
                                     </div>
                                     <button
@@ -489,26 +435,8 @@ const FooterManagement = () => {
                                             htmlFor="fileInput3"
                                             className="uploadBtn flex items-center justify-center min-w-[200px] gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                                         >
-                                            {/* {fileName3 ? (
-                                                <>
-                                                    <span>
-                                                        {fileName3.length > 15
-                                                            ? `${fileName3.substring(0, 15)}...`
-                                                            : fileName3}
-                                                    </span>
-                                                    <button
-                                                        onClick={handleRemoveFile3}
-                                                        className="ml-2 text-red-500 hover:text-red-700"
-                                                    >
-                                                        ✕
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <> */}
                                             <div>{fileNameVideo3}</div>
                                             <img src={uploadImg} alt="Upload Icon" />
-                                            {/* </>
-                                            )} */}
                                         </label>
                                     </div>
                                     <button
@@ -634,7 +562,9 @@ const FooterManagement = () => {
                         </div>
                         <div className="flex gap-[30px] items-end justify-start">
                             <div className="relative w-[250px] ">
-                            <div className="text-[12px] font-semibold text-red-400 mb-2">*Please upload an image of aspect ratio 3.1:1  (eg: 1240px * 400px)</div>                    
+                                <div className="text-[12px] font-semibold text-red-400 mb-2">
+                                    *Please upload an image of aspect ratio 3.1:1 (eg: 1240px * 400px)
+                                </div>
                                 <input
                                     type="file"
                                     id="fileInput"
@@ -646,71 +576,42 @@ const FooterManagement = () => {
                                     htmlFor="fileInput"
                                     className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                                 >
-                                    {/* {fileName ? (
-                                        <>
-                                            <span>
-                                                {fileName.length > 15 ? `${fileName.substring(0, 15)}...` : fileName}
-                                            </span>
-                                            <button
-                                                onClick={handleRemoveFile}
-                                                className="ml-2 text-red-500 hover:text-red-700"
-                                            >
-                                                ✕
-                                            </button>
-                                        </>
-                                    ) : (
-                                        <> */}
                                     <div>{fileNameImage}</div>
                                     <img src={uploadImg} alt="Upload Icon" />
-                                    {/* </>
-                                    )} */}
                                 </label>
                             </div>
                             <div>
-                                {!imageEditMode?<button
-                                    type="submit"
-                                    className="bg-[#FF9D00] p-[10px] rounded-[8px]"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        imageEditMode ? setImageEditMode(false) : setImageEditMode(true);
-                                    }}
-                                >
-                                    <img src={editImg} alt="" />
-                                </button>:
-                                <div className=" flex justify-center gap-[30px]">
-                                <button
-                                    type="submit"
-                                    className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white"
-                                    onClick={editFooterBannerDetails}
-                                >
-                                    Submit
-                                </button>
-                                <button
-                                    type="button"
-                                    className="p-[10px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
-                                    onClick={cancelBannerUpdate}
-                                >
-                                    Cancel
-                                </button>
-                            </div>}
+                                {!imageEditMode ? (
+                                    <button
+                                        type="submit"
+                                        className="bg-[#FF9D00] p-[10px] rounded-[8px]"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            imageEditMode ? setImageEditMode(false) : setImageEditMode(true);
+                                        }}
+                                    >
+                                        <img src={editImg} alt="" />
+                                    </button>
+                                ) : (
+                                    <div className=" flex justify-center gap-[30px]">
+                                        <button
+                                            type="submit"
+                                            className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white"
+                                            onClick={editFooterBannerDetails}
+                                        >
+                                            Submit
+                                        </button>
+                                        <button
+                                            type="button"
+                                            className="p-[10px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
+                                            onClick={cancelBannerUpdate}
+                                        >
+                                            Cancel
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
-                        {/* <div className=" flex justify-center gap-[30px]">
-                            <button
-                                type="submit"
-                                className="p-[10px] w-[200px] bg-[#FF9D00] rounded-[10px] font-bold text-white"
-                                onClick={editFooterBannerDetails}
-                            >
-                                Submit
-                            </button>
-                            <button
-                                type="button"
-                                className="p-[10px] w-[200px] text-[#FF9D00] border-[2px] border-[#FF9D00] font-medium rounded-[10px] font-bold"
-                                onClick={cancelBannerUpdate}
-                            >
-                                Cancel
-                            </button>
-                        </div> */}
                     </form>
                     <div>
                         <img

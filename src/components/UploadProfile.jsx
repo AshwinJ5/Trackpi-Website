@@ -8,7 +8,7 @@ const UploadProfile = () => {
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={(e) => console.log(e.target.files[0])} // Replace with actual file handling logic
+        onChange={(e) => console.log(e.target.files[0])} 
       />
       <label
         htmlFor="profile-upload"

@@ -12,119 +12,108 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     box-shadow: 0 8px 15px rgba(255, 179, 0, 0), 0 4px 6px rgba(255, 179, 0, 1);
-  }
-.backcolor{
-  background: rgba(255, 179, 0, 1);
+}
+.backcolor {
+    background: rgba(255, 179, 0, 1);
 }
 .personnelimg {
     position: absolute;
-    top: calc(230px - 110px); /* 50% of the image in orange and 50% in white */
+    top: calc(230px - 110px);
     left: 50%;
     transform: translate(-50%, 0);
     height: 200px;
     width: 280px;
     z-index: 1;
-  }
-  .modhead{
+}
+.modhead {
     height: 230px;
-  }
-  .modbod{
+}
+.modbod {
     height: auto;
-  }
-  /* Responsive Design Adjustments */
-  @media (min-width: 768px) {
-   
+}
+@media (min-width: 768px) {
     .personnelimg {
-      top: calc(230px - 110px); /* More space for larger screens */
+        top: calc(230px - 110px);
     }
-  }
-  
-  @media (min-width: 1024px) {
+}
+
+@media (min-width: 1024px) {
     .personnelimg {
-      top: calc(230px - 110px); /* Adjusting for larger screen sizes */
+        top: calc(230px - 110px);
     }
-  }
-  
-  @media (min-width: 1280px) {
+}
+
+@media (min-width: 1280px) {
     .personnelimg {
-      top: calc(230px - 110px); /* Even more space for extra-large screens */
+        top: calc(230px - 110px);
     }
-  }
-  /* For mobile screens */
+}
 @media (max-width: 640px) {
     .modal-content {
-        width: 50%; /* Reduce modal width */
+        width: 50%;
         max-width: 300px;
-        height: auto; /* Total modal height */
+        height: auto;
         margin: auto;
-       
-        
-      }
-    
-    .personnelfirst{
+    }
+
+    .personnelfirst {
         height: 130px;
         padding: 20px;
-       
     }
     .personnelimg {
-      top: calc(230px - 140px); /* Adjust top positioning */
-      height: 100px; /* Adjust image height */
-      width: 150px; /* Adjust image width */
+        top: calc(230px - 140px);
+        height: 100px;
+        width: 150px;
     }
-  
+
     .personnelfirst h2 {
-      font-size: 18px;
-      font-weight: 300px; /* Adjust title font size */
+        font-size: 18px;
+        font-weight: 300px;
     }
-  
+
     .personnelfirst p {
-      font-size: 15px; /* Adjust designation font size */
-      line-height: 14px !important;
+        font-size: 15px;
+        line-height: 14px !important;
     }
-  
+
     .personnelfirst button {
-      width: 25px; /* Adjust close button size */
-      height: 25px;
-      font-size: 20px;
+        width: 25px;
+        height: 25px;
+        font-size: 20px;
     }
-  
+
     .modal-header {
-      height: 130px; /* Adjust modal header height */
-      padding: 10px;
-      
-     
+        height: 130px;
+        padding: 10px;
     }
-  
+
     .modal-body {
-      height: auto; /* Adjust modal body height */
-      
-      font-size: 12px; /* Adjust text size */
-      padding: 2px; /* Adjust padding for body */
-      
+        height: auto;
+
+        font-size: 12px;
+        padding: 2px;
     }
-  
+
     .modal-body p {
-      font-size: 12px; /* Smaller font for self-introduction text */
-      line-height: 14.4px;
+        font-size: 12px;
+        line-height: 14.4px;
     }
-  
+
     .modal-body .flex {
-      gap: 10px; /* Reduce gap between social icons */
+        gap: 10px;
     }
-  
+
     .modal-body .flex svg {
-      width: 25px; /* Adjust icon size */
-      height: 25px;
-     padding-bottom: 5px;
+        width: 25px;
+        height: 25px;
+        padding-bottom: 5px;
     }
-  }
-  @media (max-width: 640px) {
-    .buttcross{
-      
-      font-size: 23px !important;
+}
+@media (max-width: 640px) {
+    .buttcross {
+        font-size: 23px !important;
     }
-    .desig{
-      font-size: 15px !important;
+    .desig {
+        font-size: 15px !important;
     }
-  
-  }
+}

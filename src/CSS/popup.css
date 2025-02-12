@@ -19,9 +19,8 @@
     color: gray;
     font-weight: 400;
 }
-/* Custom CSS */
 .custom-modal .modal-content {
-    border-radius: 20px !important; /* Adjust the value as needed */
+    border-radius: 20px !important; 
     max-height: 100vh;
     height: max-content;
     max-width: 624px;
@@ -54,7 +53,7 @@
 .popupForm ul {
     margin: 0 ;
     padding: 0 !important;
-    list-style: none ; /* Optional: removes bullet points */
+    list-style: none ; 
   }
   
 
@@ -151,6 +150,3 @@
         font-size: 17px;
     }
     }
-    /* .connectPhoneInput .flag-dropdown , .connectPhoneInput .open{
-        border-radius:20px 0 0 20px   !important;
-    } */

@@ -4,8 +4,6 @@ import { Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useInView } from '../../components/User/UseInView';
 import { Link } from 'react-router-dom';
-import home1 from '../../images/home1.png';
-import home2 from '../../images/home2.png';
 import ConnectButtons from '../../components/ConnectButtons';
 import { Carousel } from 'react-bootstrap';
 import HeaderBanner from '../../components/User/HeaderBanner';
@@ -15,7 +13,9 @@ import Marquee from 'react-fast-marquee';
 import baseURL from '../../Api Services/baseURL';
 import { SERVER_URL } from '../../Api Services/serverUrl';
 import { useSwipeable } from 'react-swipeable';
-import revised from '../../images/revised.jpg';
+import img1 from '../../images/business-consulting-firm-businessman-boxing-gloves.jpg';
+import img2 from '../../images/business-consultants-kerala-strategy-chess-game.jpg';
+import img3 from '../../images/business-consultant-kerala-businesswoman-data-trends.jpg';
 
 function Home() {
   const isInView1 = useInView({ selector: '.section1' });
@@ -191,9 +191,10 @@ function Home() {
         class123="headerbannerCenterContent"
         description={
           <>
-            Trackpi, your
+            Trackpi, your 
             <a
               href="/about-trackpi"
+              className=' mx-[5px] lg:mx-[7px]'
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -202,9 +203,9 @@ function Home() {
                 textDecoration: 'none',
               }}
             >
-              trusted business consulting firm
+              trusted business consulting firm,
             </a>
-            , helps you turn insights into actions. Our team will design
+             helps you turn insights into actions. Our team will design
             strategies and assist you with decision-making and other challenges
             you may face, resulting in streamlining your processes and
             increasing your chances of success with us.
@@ -329,7 +330,7 @@ function Home() {
           <h1 className="text-[#FFC100] font-extrabold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl">
             {heading.partnershipHeading}
           </h1>
-          <h4 className="fw-bold text-[#0A0A0A] text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
+          <h4 className="fw-semibold text-[#0A0A0A] text-xs md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
             {heading.partnershipSubHeading}
           </h4>
         </Row>
@@ -368,11 +369,11 @@ function Home() {
           {/* Text Section */}
           <div className="w-full">
             <motion.h1
-              className="font-bold text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl   pb-3 hidden lg:block "
+              className="font-bold   text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl   pb-3 hidden lg:block "
               animate={{ y: isInView1 ? 10 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              We see the challenge
+              We See the Challenge
             </motion.h1>
             <motion.p
               className="text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
@@ -410,11 +411,11 @@ function Home() {
           {/* Image Section */}
           <div className="w-full">
             <h1 className="font-bold text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3 text-center  block lg:hidden">
-              We see the challenge
+            We See the Challenge
             </h1>
             <div className="flex-justify-center imgMob">
               <motion.img
-                src={home1}
+                src={img1}
                 alt="Strategic Procurement"
                 className="shadow-lg rounded-[15px] md:rounded-[10px] w-full  h-[180px] sm:h-[300px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView1 ? 1.02 : 1 }}
@@ -432,12 +433,12 @@ function Home() {
           transition={{ duration: 0.8, ease: 'easeInOut' }}
         >
           <div className="w-full">
-            <h1 className="font-bold text-black text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3  block lg:hidden text-center">
-              We need to shift our thinking
+            <h1 className="font-bold   text-black text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3  block lg:hidden text-center">
+              We Need to Shift Our Thinking
             </h1>
             <div className="px-10 lg:px-0 ">
               <motion.img
-                src={revised}
+                src={img2}
                 alt="Strategic Procurement"
                 className="shadow-lg rounded-lg w-full h-[180px] sm:h-[300px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView2 ? 1.02 : 1 }}
@@ -447,11 +448,11 @@ function Home() {
           </div>
           <div className="w-full">
             <motion.h1
-              className="font-bold text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  pb-3  hidden lg:block "
+              className="font-bold text-lg   md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  pb-3  hidden lg:block "
               animate={{ y: isInView2 ? 10 : 0 }}
               transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              We need to shift our thinking
+              We Need to Shift Our Thinking
             </motion.h1>
             <motion.p
               className="text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
@@ -516,7 +517,7 @@ function Home() {
             </h1>
             <div className="mt-3 w-full imgMob">
               <motion.img
-                src={home2}
+                src={img3}
                 alt="Strategic Procurement"
                 className="shadow-lg  rounded-[15px] md:rounded-[10px] w-full h-[180px] sm:h-[300px] md:h-[390px] lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView3 ? 1.02 : 1 }}
