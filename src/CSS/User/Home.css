@@ -7,7 +7,9 @@
 .bg_common {
   background-color: #ffc100;
 }
-
+.bgSectionsOne {
+  margin-bottom: 2rem;
+}
 .bgSections h1 {
   padding-bottom: 1rem;
 }
