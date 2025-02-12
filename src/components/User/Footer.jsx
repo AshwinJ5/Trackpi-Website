@@ -52,7 +52,7 @@ function Footer() {
                                             rel="noopener noreferrer"
                                             style={{
                                                 color: "#FF9D00",
-                                                fontWeight: "bold",
+                                                fontWeight: "regular",
                                                 textDecoration: "none",
                                             }}
                                         >
