@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import HeaderSection from "../../components/JobFair/Header";
 import { useNavigate } from "react-router-dom";
+import { registerCompany } from "../../Api Services/jobfairApi";
 import "../../CSS/JobFair/jobfairreg.css";
 
 function JobFairReg() {
@@ -15,11 +16,25 @@ function JobFairReg() {
     companySize: "",
   });
 
-  const nav = useNavigate()
+  const [errors, setErrors] = useState({});
+  const [isPincodeValid, setIsPincodeValid] = useState(true);
+  const navigate = useNavigate();
 
-  const handleNext=()=>{
-    nav('/job-fair/user')
-  }
+  const validateForm = () => {
+    let tempErrors = {};
+    if (!formData.companyName) tempErrors.companyName = "Company name is required";
+    if (!formData.industry) tempErrors.industry = "Industry is required";
+    if (!formData.companySize) tempErrors.companySize = "Company size is required";
+    if (!formData.pincode) tempErrors.pincode = "Pincode is required";
+    if (formData.pincode.length !== 6) tempErrors.pincode = "Pincode must be 6 digits";
+    if (!isPincodeValid) tempErrors.pincode = "Invalid pincode";
+    if (formData.website && !/^https?:\/\/.+\..+/.test(formData.website)) {
+      tempErrors.website = "Invalid website URL";
+    }
+
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
   const fetchLocationDetails = async (pin) => {
     if (pin.length !== 6) return;
@@ -28,33 +43,46 @@ function JobFairReg() {
       const response = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
       const data = await response.json();
 
-      if (data[0].Status === "Success") {
+      if (data?.[0]?.Status === "Success" && data[0]?.PostOffice?.length) {
         setFormData((prev) => ({
           ...prev,
-          city: data[0].PostOffice[0].District || "Unknown",
-          state: data[0].PostOffice[0].State || "Unknown",
+          city: data[0].PostOffice[0]?.District || "Unknown",
+          state: data[0].PostOffice[0]?.State || "Unknown",
         }));
+        setIsPincodeValid(true);
       } else {
         setFormData((prev) => ({ ...prev, city: "Invalid Pincode", state: "Invalid Pincode" }));
+        setIsPincodeValid(false);
       }
     } catch (error) {
       console.error("Error fetching location:", error);
+      setIsPincodeValid(false);
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value.trim() }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
 
     if (name === "pincode" && value.length === 6) {
       fetchLocationDetails(value);
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted", formData);
-    // Add form submission logic here
+    if (!validateForm()) return;
+
+    try {
+      const response = await registerCompany(formData);
+      console.log("Form submitted:", response.data);
+      navigate("/job-fair/user");
+    } catch (error) {
+      console.error("Error submitting form:", error.response?.data || error.message);
+    }
   };
 
   return (
@@ -65,7 +93,9 @@ function JobFairReg() {
           <h3 className="form-title">Company Information</h3>
 
           <div className="form-group">
-            <label>Company Name <span className="text-danger">*</span></label>
+            <label>
+              Company Name <span className="text-danger">*</span>
+            </label>
             <input
               type="text"
               name="companyName"
@@ -73,21 +103,30 @@ function JobFairReg() {
               placeholder="Enter your company name"
               value={formData.companyName}
               onChange={handleChange}
-            
             />
+            {errors.companyName && <span className="error-text">{errors.companyName}</span>}
           </div>
 
           <div className="form-group">
-            <label>Industry/Domain Name <span className="text-danger">*</span></label>
+            <label>
+              Industry/Domain Name <span className="text-danger">*</span>
+            </label>
             <select name="industry" className="custom-Select" value={formData.industry} onChange={handleChange}>
               <option value="">Select Industry</option>
-              <option>Healthcare & Pharmaceuticals</option>
-              <option>Information Technology (IT) & Services</option>
-              <option>Financial Services</option>
-              <option>Education & E-Learning</option>
-              <option>Manufacturing & Engineering</option>
-              <option>Retail & E-commerce</option>
+              {[
+                "Healthcare & Pharmaceuticals",
+                "Information Technology (IT) & Services",
+                "Financial Services",
+                "Education & E-Learning",
+                "Manufacturing & Engineering",
+                "Retail & E-commerce",
+              ].map((industry) => (
+                <option key={industry} value={industry}>
+                  {industry}
+                </option>
+              ))}
             </select>
+            {errors.industry && <span className="error-text">{errors.industry}</span>}
           </div>
 
           <div className="form-group">
@@ -100,19 +139,22 @@ function JobFairReg() {
               value={formData.website}
               onChange={handleChange}
             />
+            {errors.website && <span className="error-text">{errors.website}</span>}
           </div>
 
           <div className="form-group">
-            <label>Company Size <span className="text-danger">*</span></label>
+            <label>
+              Company Size <span className="text-danger">*</span>
+            </label>
             <select name="companySize" className="custom-Select" value={formData.companySize} onChange={handleChange}>
               <option value="">Select Company Size</option>
-              <option>1-10 employees</option>
-              <option>11-50 employees</option>
-              <option>101-500 employees</option>
-              <option>1,001-5,000 employees</option>
-              <option>5,001-10,000 employees</option>
-              <option>10,000+ employees</option>
+              {["1-10", "11-50", "101-500", "1,001-5,000", "5,001-10,000", "10,000+"].map((size) => (
+                <option key={size} value={size}>
+                  {size}
+                </option>
+              ))}
             </select>
+            {errors.companySize && <span className="error-text">{errors.companySize}</span>}
           </div>
 
           <label>Company Location</label>
@@ -121,17 +163,19 @@ function JobFairReg() {
               type="text"
               name="pincode"
               className="custom-Input"
-              placeholder="Zip Code"
+              placeholder="Pin Code"
               value={formData.pincode}
               onChange={handleChange}
             />
-            <input type="text" name="country" className="custom-Input" placeholder="Country" value={formData.country}  />
-            <input type="text" name="state" className="custom-Input" placeholder="State" value={formData.state}  />
-            <input type="text" name="city" className="custom-Input" placeholder="City" value={formData.city}  />
+            {errors.pincode && <span className="error-text">{errors.pincode}</span>}
+
+            <input type="text" name="country" className="custom-Input" placeholder="Country" value={formData.country} readOnly />
+            <input type="text" name="state" className="custom-Input" placeholder="State" value={formData.state} readOnly />
+            <input type="text" name="city" className="custom-Input" placeholder="City" value={formData.city} readOnly />
           </div>
 
           <div className="button-container mt-3">
-            <button type="submit" className="bt" onClick={handleNext}>Next</button>
+            <button type="submit" className="bt">Next</button>
           </div>
         </form>
       </div>
