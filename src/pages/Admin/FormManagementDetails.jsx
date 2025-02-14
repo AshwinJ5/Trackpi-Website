@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import projectManageBack from '../../images/projectManageBack.svg';
 import '../../CSS/Admin/projectManagement.css';
 
 function FormManagementDetails() {
@@ -36,7 +35,7 @@ function FormManagementDetails() {
             >
               <button className="w-[120px] h-[40px] rounded-[10px] text-white bg-[#FF9D00] flex gap-[10px] justify-center items-center">
                 <div>
-                  <img className="m-auto" src={projectManageBack} alt="" />
+                  <img className="m-auto" src="/assets/svg/projectManageBack.svg" alt="" />
                 </div>
                 <div className="text-[18px] font-semibold">Back</div>
               </button>

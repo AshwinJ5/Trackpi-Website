@@ -10,12 +10,12 @@ import { Modal } from "react-bootstrap";
 import { FaXTwitter } from "react-icons/fa6";
 import "../../CSS/personnel.css";
 import { Link } from "react-router-dom";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 function Personel({ show, onHide, employee }) {
     const [profileImage, setProfileImage] = useState(null);
     useEffect(() => {
         if (employee && employee.image) {
-            const imageUrl = `${SERVER_URL}${employee.image}`; 
+            const imageUrl = `${import.meta.env.VITE_SERVER_URL}${employee.image}`; 
             setProfileImage(imageUrl); 
         }
     }, [employee]);

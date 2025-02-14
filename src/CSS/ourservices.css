@@ -2,7 +2,7 @@
     background-color: #ffc100;
 }
 .bgSections {
-    background: url("../images/bgservises2.svg") no-repeat;
+    background: url("/assets/svg/bgservises2.svg") no-repeat;
     background-size: cover;
     width: 100vw;
     height: 100%;

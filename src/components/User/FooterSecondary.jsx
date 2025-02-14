@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../../CSS/footer.css";
 import { Link } from "react-router-dom";
 import baseURL from "../../Api Services/baseURL";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 
 function FooterSecondary() {
     const videoRefs = useRef([]);
@@ -71,7 +71,7 @@ function FooterSecondary() {
                                         autoPlay
                                         loop
                                         className=" rounded-[10px] border-[4px] border-[#ffffff] w-auto "
-                                        src={`${SERVER_URL}${footerVideo.videofile1}`}
+                                        src={`${import.meta.env.VITE_SERVER_URL}${footerVideo.videofile1}`}
                                     ></video>
                                 </Link>
                                 <div className="text-center">
@@ -97,7 +97,7 @@ function FooterSecondary() {
                                         autoPlay
                                         loop
                                         className=" rounded-[10px] border-[4px] border-[#ffffff]    w-auto "
-                                        src={`${SERVER_URL}${footerVideo.videofile2}`}
+                                        src={`${import.meta.env.VITE_SERVER_URL}${footerVideo.videofile2}`}
                                     ></video>
                                 </Link>
                                 <div className="text-center">
@@ -123,7 +123,7 @@ function FooterSecondary() {
                                         autoPlay
                                         loop
                                         className=" rounded-[10px] border-[4px] border-[#ffffff] w-auto "
-                                        src={`${SERVER_URL}${footerVideo.videofile3}`}
+                                        src={`${import.meta.env.VITE_SERVER_URL}${footerVideo.videofile3}`}
                                     ></video>
                                 </Link>
                                 <div className="text-center">
@@ -147,7 +147,7 @@ function FooterSecondary() {
                         {footerVideo.imageheading}
                     </div>
                     <div>
-                        <img src={`${SERVER_URL}${footerVideo.imagefile}`} className="w-100 " alt="banner" />
+                        <img src={`${import.meta.env.VITE_SERVER_URL}${footerVideo.imagefile}`} className="w-100 " alt="banner" />
                     </div>
                 </div>
             </div>

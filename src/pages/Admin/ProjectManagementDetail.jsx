@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, useLocation, Link } from 'react-router-dom';
-import projectManageBack from '../../images/projectManageBack.svg';
-import { HiDownload } from 'react-icons/hi';
-import { SERVER_URL } from '../../Api Services/serverUrl';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
+
+import { HiDownload } from "react-icons/hi";
 
 function ProjectManagementDetail() {
-  const [fileUrl, setFileUrl] = useState('');
+  const [fileUrl, setFileUrl] = useState("");
   const location = useLocation();
   const mockData = location.state;
 
-  const formatDate = dateString => {
+  const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const formattedDate = new Intl.DateTimeFormat('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
+    const formattedDate = new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
       hour12: true,
     }).format(date);
 
@@ -24,7 +23,7 @@ function ProjectManagementDetail() {
   };
 
   useEffect(() => {
-    const url = `${SERVER_URL}${mockData?.file}`;
+    const url = `${import.meta.env.VITE_SERVER_URL}${mockData?.file}`;
     setFileUrl(url);
   }, [mockData.file]);
 
@@ -40,11 +39,15 @@ function ProjectManagementDetail() {
 
             <Link
               className="text-decoration-none"
-              to={'/admin/project-management'}
+              to={"/admin/project-management"}
             >
               <button className="w-[120px] h-[40px] rounded-[10px] text-white bg-[#FF9D00] flex gap-[10px] justify-center items-center">
                 <div>
-                  <img className="m-auto" src={projectManageBack} alt="" />
+                  <img
+                    className="m-auto"
+                    src="/assets/svg/projectManageBack.svg"
+                    alt=""
+                  />
                 </div>
                 <div className="text-[18px] font-semibold">Back</div>
               </button>
@@ -94,12 +97,12 @@ function ProjectManagementDetail() {
             <div
               className="projectDetailsBorderDiv min-h-[180px] break-words whitespace-normal max-w-full"
               style={{
-                wordWrap: 'break-word',
-                overflowWrap: 'break-word',
-                boxSizing: 'border-box',
-                wordBreak: 'break-word',
-                maxWidth: '100%',
-                overflow: 'auto',
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
+                boxSizing: "border-box",
+                wordBreak: "break-word",
+                maxWidth: "100%",
+                overflow: "auto",
               }}
             >
               <div className="text-[18px] pb-[15px] ">
@@ -123,12 +126,12 @@ function ProjectManagementDetail() {
             <div
               className="projectDetailsBorderDiv min-h-[110px] break-words whitespace-normal max-w-full"
               style={{
-                wordWrap: 'break-word',
-                overflowWrap: 'break-word',
-                boxSizing: 'border-box',
-                wordBreak: 'break-word',
-                maxWidth: '100%',
-                overflow: 'auto',
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
+                boxSizing: "border-box",
+                wordBreak: "break-word",
+                maxWidth: "100%",
+                overflow: "auto",
               }}
             >
               <div className="text-[18px] pb-[15px]">
@@ -139,12 +142,12 @@ function ProjectManagementDetail() {
             <div
               className="projectDetailsBorderDiv min-h-[180px] break-words whitespace-normal max-w-full"
               style={{
-                wordWrap: 'break-word',
-                overflowWrap: 'break-word',
-                boxSizing: 'border-box',
-                wordBreak: 'break-word',
-                maxWidth: '100%',
-                overflow: 'auto',
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
+                boxSizing: "border-box",
+                wordBreak: "break-word",
+                maxWidth: "100%",
+                overflow: "auto",
               }}
             >
               <div className="text-[18px] pb-[15px]">
@@ -157,12 +160,12 @@ function ProjectManagementDetail() {
             <div
               className="projectDetailsBorderDiv min-h-[180px] break-words whitespace-normal max-w-full"
               style={{
-                wordWrap: 'break-word',
-                overflowWrap: 'break-word',
-                boxSizing: 'border-box',
-                wordBreak: 'break-word',
-                maxWidth: '100%',
-                overflow: 'auto',
+                wordWrap: "break-word",
+                overflowWrap: "break-word",
+                boxSizing: "border-box",
+                wordBreak: "break-word",
+                maxWidth: "100%",
+                overflow: "auto",
               }}
             >
               <div className="text-[18px] pb-[15px]">
@@ -186,10 +189,10 @@ function ProjectManagementDetail() {
                     src={fileUrl}
                     className="w-full h-full"
                     style={{
-                      border: 'none',
-                      position: 'relative',
+                      border: "none",
+                      position: "relative",
                       zIndex: 0,
-                      overflow: 'auto',
+                      overflow: "auto",
                     }}
                     scrolling="yes"
                     title="PDF Viewer"

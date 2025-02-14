@@ -3,7 +3,7 @@ import "../../CSS/addsales.css";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RiImageAddLine } from "react-icons/ri";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 import PhoneInput from "react-phone-input-2";
 import baseURL from "../../Api Services/baseURL";
 function AddSales() {
@@ -81,12 +81,12 @@ function AddSales() {
     }, [id, employeeData]);
     useEffect(() => {
         if (employeeData && employeeData.profileImage) {
-            setProfileImage(`${SERVER_URL}${employeeData.profileImage}`);
+            setProfileImage(`${import.meta.env.VITE_SERVER_URL}${employeeData.profileImage}`);
         }
     }, [employeeData]);
     useEffect(() => {
         if (employeeData && employeeData.businessCard) {
-            setBusinessCard(`${SERVER_URL}${employeeData.businessCard}`);
+            setBusinessCard(`${import.meta.env.VITE_SERVER_URL}${employeeData.businessCard}`);
         }
     }, [employeeData]);
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import logo from '../../images/trackpi_logo_one.png';
 import { useNavigate } from 'react-router-dom';
 import baseURL from '../../Api Services/baseURL';
 import { jwtDecode } from 'jwt-decode';
@@ -56,7 +55,7 @@ function AdminLogin() {
     >
       <Row className="px-3 py-2">
         <Col sm={12} className="d-flex justify-content-center">
-          <img src={logo} alt="logo" className="img-fluid" width={200} />
+          <img src="/assets/images/trackpi_logo_one.png" alt="logo" className="img-fluid" width={200} />
         </Col>
         <Col sm={12}>
           <h3 className="font-bold text-center mt-5 mb-4">Login</h3>

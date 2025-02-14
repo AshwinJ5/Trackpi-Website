@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import hiring from "../images/hiring.jpg";
-import consult from "../images/consult.jpg";
+
 
 function Hiring() {
     const options = { threshold: 0.1 };
@@ -48,7 +47,7 @@ function Hiring() {
                     </motion.div>
                     <div className="md:w-1/2 p-4 w-100">
                         <motion.img
-                            src={hiring}
+                            src="/assets/images/hiring.jpg"
                             alt="Hiring Process"
                             className="w-full rounded-lg shadow-lg"
                             initial={{ opacity: 0, x: -50 }}
@@ -76,7 +75,7 @@ function Hiring() {
                     </motion.div>
                     <div className="md:w-1/2 p-4 w-100">
                         <motion.img
-                            src={consult}
+                            src="/assets/images/consult.jpg"
                             alt="Transformer Role"
                             className="w-full rounded-lg shadow-lg"
                             initial={{ opacity: 0, x: 50 }}

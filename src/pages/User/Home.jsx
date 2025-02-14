@@ -1,26 +1,23 @@
 // Created by Shalu
-import React, { useState, useEffect, useRef } from 'react';
-import { Row } from 'react-bootstrap';
-import { motion } from 'framer-motion';
-import { useInView } from '../../components/User/UseInView';
-import { Link } from 'react-router-dom';
-import ConnectButtons from '../../components/ConnectButtons';
-import { Carousel } from 'react-bootstrap';
-import HeaderBanner from '../../components/User/HeaderBanner';
-import '../../CSS/User/Home.css';
-import PopUp from '../../components/User/PopUp';
-import Marquee from 'react-fast-marquee';
-import baseURL from '../../Api Services/baseURL';
-import { SERVER_URL } from '../../Api Services/serverUrl';
-import { useSwipeable } from 'react-swipeable';
-import img1 from '../../images/business-consulting-firm-businessman-boxing-gloves.jpg';
-import img2 from '../../images/business-consultants-kerala-strategy-chess-game.jpg';
-import img3 from '../../images/business-consultant-kerala-businesswoman-data-trends.jpg';
+import React, { useState, useEffect, useRef } from "react";
+import { Row } from "react-bootstrap";
+import { motion } from "framer-motion";
+import { useInView } from "../../components/User/UseInView";
+import { Link } from "react-router-dom";
+import ConnectButtons from "../../components/ConnectButtons";
+import { Carousel } from "react-bootstrap";
+import HeaderBanner from "../../components/User/HeaderBanner";
+import "../../CSS/User/Home.css";
+import PopUp from "../../components/User/PopUp";
+import Marquee from "react-fast-marquee";
+import baseURL from "../../Api Services/baseURL";
+
+import { useSwipeable } from "react-swipeable";
 
 function Home() {
-  const isInView1 = useInView({ selector: '.section1' });
-  const isInView2 = useInView({ selector: '.section2' });
-  const isInView3 = useInView({ selector: '.section33' });
+  const isInView1 = useInView({ selector: ".section1" });
+  const isInView2 = useInView({ selector: ".section2" });
+  const isInView3 = useInView({ selector: ".section33" });
   const [heading, setHeading] = useState({});
 
   const [cards, setCards] = useState([]);
@@ -59,20 +56,20 @@ function Home() {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [cardsPerGroup]);
 
   useEffect(() => {
     if (isPaused) return; // Pause interval when hovering
 
     const bulgeInterval = setInterval(() => {
-      setBulgingCard(prev => {
+      setBulgingCard((prev) => {
         const isLastCardInSlide = prev === cardsPerGroup - 1;
 
         if (isLastCardInSlide) {
           // Move to the next slide after the last card
-          setCurrentIndex(prevIndex =>
+          setCurrentIndex((prevIndex) =>
             prevIndex === groupedCards.length - 1 ? 0 : prevIndex + 1
           );
           return 0; // Reset to first card of the next slide
@@ -84,19 +81,19 @@ function Home() {
     return () => clearInterval(bulgeInterval);
   }, [groupedCards.length, cardsPerGroup, isPaused]);
 
-  const handleDotClick = index => {
+  const handleDotClick = (index) => {
     setCurrentIndex(index);
     setBulgingCard(0); // Reset bulging card on dot click
   };
 
-  const handleMouseEnter = cardIndex => {
+  const handleMouseEnter = (cardIndex) => {
     setBulgingCard(cardIndex);
     setIsPaused(true); // Pause the interval on hover
   };
 
   const handleMouseLeave = () => {
     setIsPaused(false); // Resume autoplay
-    setCurrentIndex(prevIndex => {
+    setCurrentIndex((prevIndex) => {
       const isLastCardInSlide = bulgingCard === cardsPerGroup - 1;
 
       if (isLastCardInSlide) {
@@ -105,7 +102,7 @@ function Home() {
       return prevIndex;
     });
 
-    setBulgingCard(prevBulgingCard => {
+    setBulgingCard((prevBulgingCard) => {
       const isLastCardInSlide = prevBulgingCard === cardsPerGroup - 1;
 
       if (isLastCardInSlide) {
@@ -115,7 +112,7 @@ function Home() {
     });
   };
 
-  const handleTouchStart = cardIndex => {
+  const handleTouchStart = (cardIndex) => {
     setBulgingCard(cardIndex); // Mimic hover on touch devices
   };
 
@@ -125,9 +122,9 @@ function Home() {
   useEffect(() => {
     const getNews = async () => {
       try {
-        const response = await baseURL.get('api/news/newsdetails');
+        const response = await baseURL.get("api/news/newsdetails");
         const sortedCards = response.data
-          .filter(card => card.updatedAt) // Exclude cards without `updatedAt`
+          .filter((card) => card.updatedAt) // Exclude cards without `updatedAt`
           .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)) // Sort descending
           .slice(0, 12); // Take the latest 12 items
         setCards(sortedCards);
@@ -141,7 +138,7 @@ function Home() {
   useEffect(() => {
     const getClients = async () => {
       try {
-        const response = await baseURL.get('api/partner/getpartner');
+        const response = await baseURL.get("api/partner/getpartner");
         setClientsLogo(response.data);
       } catch (e) {
         console.error(e);
@@ -156,27 +153,27 @@ function Home() {
   const getAllHeadings = async () => {
     try {
       const response = await baseURL.get(
-        '/api/headingfornewspatnership/getallheading'
+        "/api/headingfornewspatnership/getallheading"
       );
       if (response.data && response.data.length > 0) {
         setHeading(response.data[0]);
       }
     } catch (error) {
-      console.error('Error fetching haeding data:', error);
+      console.error("Error fetching haeding data:", error);
     }
   };
 
-  const handleSwipe = direction => {
-    if (direction === 'LEFT' && currentIndex < groupedCards.length - 1) {
+  const handleSwipe = (direction) => {
+    if (direction === "LEFT" && currentIndex < groupedCards.length - 1) {
       setCurrentIndex(currentIndex + 1); // Move to the next slide
-    } else if (direction === 'RIGHT' && currentIndex > 0) {
+    } else if (direction === "RIGHT" && currentIndex > 0) {
       setCurrentIndex(currentIndex - 1); // Move to the previous slide
     }
   };
 
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => handleSwipe('LEFT'),
-    onSwipedRight: () => handleSwipe('RIGHT'),
+    onSwipedLeft: () => handleSwipe("LEFT"),
+    onSwipedRight: () => handleSwipe("RIGHT"),
     preventScrollOnSwipe: true,
     trackMouse: true, // Allows swipe handling on desktop with a mouse
   });
@@ -191,21 +188,21 @@ function Home() {
         class123="headerbannerCenterContent"
         description={
           <>
-            Trackpi, your 
+            Trackpi, your
             <a
               href="/about-trackpi"
-              className=' mx-[5px] lg:mx-[7px]'
+              className=" mx-[5px] lg:mx-[7px]"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: '#FF9D00',
-                fontWeight: 'regular',
-                textDecoration: 'none',
+                color: "#FF9D00",
+                fontWeight: "regular",
+                textDecoration: "none",
               }}
             >
               trusted business consulting firm,
             </a>
-             helps you turn insights into actions. Our team will design
+            helps you turn insights into actions. Our team will design
             strategies and assist you with decision-making and other challenges
             you may face, resulting in streamlining your processes and
             increasing your chances of success with us.
@@ -239,8 +236,8 @@ function Home() {
                     <div
                       className={`grid carousel-grid ${
                         cardsPerGroup === 1
-                          ? 'grid-cols-1'
-                          : 'grid-cols-1 md:grid-cols-4'
+                          ? "grid-cols-1"
+                          : "grid-cols-1 md:grid-cols-4"
                       } place-content-center gap-10   lg:px-20 `}
                     >
                       {group.map((card, cardIndex) => (
@@ -248,8 +245,8 @@ function Home() {
                           key={cardIndex}
                           className={`carousel-card flex-shrink-0 w-full rounded-lg  text-center transform transition-transform duration-500 cursor-pointer ${
                             cardIndex === bulgingCard
-                              ? 'scale-105 sm:scale-125 md:scale-110 lg:scale-110 xl:scale-110 2xl:scale-105'
-                              : 'scale-95 2xl:scale-90'
+                              ? "scale-105 sm:scale-125 md:scale-110 lg:scale-110 xl:scale-110 2xl:scale-105"
+                              : "scale-95 2xl:scale-90"
                           }`}
                           onMouseEnter={() => handleMouseEnter(cardIndex)}
                           onMouseLeave={handleMouseLeave}
@@ -259,8 +256,8 @@ function Home() {
                           <div
                             className={`transform transition-transform  duration-500 imgDiv ${
                               cardIndex === bulgingCard
-                                ? 'md:scale-105'
-                                : 'scale-100'
+                                ? "md:scale-105"
+                                : "scale-100"
                             }`}
                           >
                             <a
@@ -269,7 +266,9 @@ function Home() {
                               rel="noopener noreferrer"
                             >
                               <img
-                                src={`${SERVER_URL}${card.newsFile}`}
+                                src={`${import.meta.env.VITE_SERVER_URL}${
+                                  card.newsFile
+                                }`}
                                 alt={`News ${card.id}`}
                                 className="w-full h-full rounded-lg"
                               />
@@ -298,7 +297,7 @@ function Home() {
                 View More
               </button>
             </a>
-          </div>{' '}
+          </div>{" "}
           {/* For Desktop (dots) */}
           <div className="mt-4 sm:mx-2 md:mx-4 lg:mx-16 md:flex justify-center items-center space-x-1 md:space-x-2  dotsMob">
             {dotsToRender.map((_, index) => (
@@ -306,7 +305,7 @@ function Home() {
                 key={index}
                 onClick={() => handleDotClick(index)}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300  ${
-                  currentIndex === index ? 'bg-yellow-500 w-4' : 'bg-gray-400'
+                  currentIndex === index ? "bg-yellow-500 w-4" : "bg-gray-400"
                 }`}
               />
             ))}
@@ -346,7 +345,9 @@ function Home() {
                 >
                   <img
                     className=" h-full  mx-auto"
-                    src={`${SERVER_URL}${images.companylogo}`}
+                    src={`${import.meta.env.VITE_SERVER_URL}${
+                      images.companylogo
+                    }`}
                     alt={`Client ${index + 1}`}
                   />
                 </div>
@@ -364,21 +365,21 @@ function Home() {
         <motion.div
           className="flex flex-col-reverse lg:flex-row gap-[1rem] sm:gap-4 md:gap-8 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
           animate={{ y: isInView1 ? 10 : 0 }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           {/* Text Section */}
           <div className="w-full">
             <motion.h1
               className="font-bold   text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl   pb-3 hidden lg:block "
               animate={{ y: isInView1 ? 10 : 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               We See the Challenge
             </motion.h1>
             <motion.p
               className="text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
               animate={{ y: isInView1 ? 5 : 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               Running a business without expert guidance can lead to unnecessary
               actions, poor planning, and missed opportunities. Challenges like
@@ -397,13 +398,13 @@ function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: '#FF9D00',
-                  fontWeight: 'regular',
-                  textDecoration: 'none',
+                  color: "#FF9D00",
+                  fontWeight: "regular",
+                  textDecoration: "none",
                 }}
               >
-                contact{' '}
-              </a>{' '}
+                contact{" "}
+              </a>{" "}
               Trackpi today for a brighter, more successful future.
             </motion.p>
           </div>
@@ -411,15 +412,15 @@ function Home() {
           {/* Image Section */}
           <div className="w-full">
             <h1 className="font-bold text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3 text-center  block lg:hidden">
-            We See the Challenge
+              We See the Challenge
             </h1>
             <div className="flex-justify-center imgMob">
               <motion.img
-                src={img1}
+                src="/assets/images/business-consulting-firm-businessman-boxing-gloves.jpg"
                 alt="Strategic Procurement"
                 className="shadow-lg rounded-[15px] md:rounded-[10px] w-full  h-[180px] sm:h-[300px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView1 ? 1.02 : 1 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </div>
           </div>
@@ -430,7 +431,7 @@ function Home() {
         <motion.div
           className="flex flex-col lg:flex-row gap-[1rem] sm:gap-4 md:gap-8 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
           animate={{ y: isInView2 ? 10 : 0 }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <div className="w-full">
             <h1 className="font-bold   text-black text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl pb-3  block lg:hidden text-center">
@@ -438,11 +439,11 @@ function Home() {
             </h1>
             <div className="px-10 lg:px-0 ">
               <motion.img
-                src={img2}
+                src="/assets/images/business-consultants-kerala-strategy-chess-game.jpg"
                 alt="Strategic Procurement"
                 className="shadow-lg rounded-lg w-full h-[180px] sm:h-[300px] md:h-[390px]  lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView2 ? 1.02 : 1 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </div>
           </div>
@@ -450,14 +451,14 @@ function Home() {
             <motion.h1
               className="font-bold text-lg   md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl  pb-3  hidden lg:block "
               animate={{ y: isInView2 ? 10 : 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               We Need to Shift Our Thinking
             </motion.h1>
             <motion.p
               className="text-justify text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  text-[#0A0A0A]"
               animate={{ y: isInView2 ? 5 : 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               Every business has secret strengths just waiting to shine. To
               truly grow and succeed, companies must embrace innovative ideas
@@ -481,20 +482,20 @@ function Home() {
         <motion.div
           className="flex flex-col-reverse lg:flex-row gap-[1rem] sm:gap-4 md:gap-8 lg:gap-20 xl:gap-20 2xl:gap-32 items-center"
           animate={{ y: isInView3 ? 10 : 0 }}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <div className="flex flex-col w-full">
             <motion.h1
               className="font-bold text-[#FFC100] text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl   text-start sm:text-center   hidden lg:block"
               animate={{ y: isInView3 ? 5 : 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               Outdated Practices Won’t Drive Future Success
             </motion.h1>
             <motion.p
               className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[19px] 2xl:text-[26px] xl:leading-7 2xl:leading-10  sm:mt-0 lg:mt-8 mb-3 text-justify"
               animate={{ y: isInView3 ? 5 : 0 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
             >
               The business landscape is evolving rapidly, and relying on
               outdated methods can hold your company back. To stay ahead in
@@ -517,11 +518,11 @@ function Home() {
             </h1>
             <div className="mt-3 w-full imgMob">
               <motion.img
-                src={img3}
+                src="/assets/images/business-consultant-kerala-businesswoman-data-trends.jpg"
                 alt="Strategic Procurement"
                 className="shadow-lg  rounded-[15px] md:rounded-[10px] w-full h-[180px] sm:h-[300px] md:h-[390px] lg:h-[390px] 2xl:h-[600px] object-cover"
                 animate={{ scale: isInView3 ? 1.02 : 1 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </div>
           </div>

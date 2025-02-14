@@ -53,7 +53,7 @@ function Header() {
                 <Container fluid>
                     <Navbar.Brand href="" className=" flex items-center justify-center">
                         <Link to={"/"} className="flex items-center text-decoration-none p-1">
-                            <img src="src/images/trackpi_logo_one.png" alt="TrackPi Logo" />
+                            <img src="/assets/images/trackpi_logo_one.png" alt="TrackPi Logo" />
                         </Link>
                     </Navbar.Brand>
 

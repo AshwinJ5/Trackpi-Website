@@ -1,6 +1,6 @@
 /* JobFairReg Container */
 .cnt {
-  background-image: url('../../images/JobfairBg.png');
+  background-image: url('/assets/images/JobfairBg.png');
   background-position: center;
   background-size: cover;
   /* Ensures the background image covers the full page */

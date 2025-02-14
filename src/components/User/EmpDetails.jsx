@@ -4,7 +4,6 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState, useEffect } from "react";
-import { SERVER_URL } from "../../Api Services/serverUrl";
 import "../../CSS/employeedet.css";
 import { Link } from "react-router-dom";
 import { Puff } from "react-loader-spinner";
@@ -28,7 +27,7 @@ const EmpDetails = ({ employeeData }) => {
     const [profileImage, setProfileImage] = useState(null);
     useEffect(() => {
         if (employeeData && employeeData.profileImage) {
-            const imageUrl = `${SERVER_URL}${employeeData.profileImage}`;
+            const imageUrl = `${import.meta.env.VITE_SERVER_URL}${employeeData.profileImage}`;
             setProfileImage(imageUrl);
         }
     }, [employeeData]);

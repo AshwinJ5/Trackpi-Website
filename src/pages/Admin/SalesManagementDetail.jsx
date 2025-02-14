@@ -4,7 +4,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import EmpDetails from "../../components/User/EmpDetails";
 import { Puff } from "react-loader-spinner";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 
 function SalesManagementDetail() {
     const location = useLocation();
@@ -55,7 +55,7 @@ function SalesManagementDetail() {
                     >
                         {employeeData.businessCard ? (
                             <img
-                                src={`${SERVER_URL}${employeeData.businessCard}#toolbar=0`}
+                                src={`${import.meta.env.VITE_SERVER_URL}${employeeData.businessCard}#toolbar=0`}
                                 className="w-[225px] md:w-[500px] h-[300px] rounded-lg"
                                 style={{ border: "none", objectFit: "cover" }}
                                 title="Business Card"

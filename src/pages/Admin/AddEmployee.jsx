@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { toast } from "react-toastify";
 import { RiImageAddLine } from "react-icons/ri";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import { SERVER_URL } from "../../Api Services/serverUrl";
 import baseURL from "../../Api Services/baseURL";
 
 function AddEmployee() {
@@ -58,7 +57,7 @@ function AddEmployee() {
     }, [id, employeeData]);
     useEffect(() => {
         if (employeeData && employeeData.image) {
-            setProfileImage(`${SERVER_URL}${employeeData.image}`);
+            setProfileImage(`${import.meta.env.VITE_SERVER_URL}${employeeData.image}`);
         }
     }, [employeeData]);
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import uploadImg from "../images/uploadimg.svg";
 import baseURL from "../Api Services/baseURL";
 import { toast } from "react-toastify";
 
@@ -92,7 +91,7 @@ function AddNews({ newsData, getAllNews }) {
                         className="uploadBtn flex items-center justify-center gap-[15px] px-[20px] py-[10px] h-[42px] rounded-[10px] text-[#FF9D00] cursor-pointer"
                     >
                         <div>{fileName}</div>
-                        <img src={uploadImg} alt="Upload Icon" />
+                        <img src="/assets/svg/uploadimg.svg" alt="Upload Icon" />
                     </label>
                 </div>
             </div>

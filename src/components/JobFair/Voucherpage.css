@@ -87,7 +87,7 @@ body, html {
   
   /* Background settings */
   body {
-    background-image: url('./assets/JobfareBg.png'); /* Correct path */
+    background-image: url('/assets/images/JobfareBg.png'); /* Correct path */
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;

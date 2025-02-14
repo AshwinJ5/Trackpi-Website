@@ -3,7 +3,6 @@ import { FaRegEdit } from "react-icons/fa";
 import { IoMdArrowBack } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import EmpDetails from "../../components/User/EmpDetails";
-import { SERVER_URL } from "../../Api Services/serverUrl";
 import { Puff } from "react-loader-spinner";
 
 const InternManagementDetail = () => {
@@ -75,7 +74,7 @@ const InternManagementDetail = () => {
                             {employeeData.Certificate ? (
                                 <>
                                     <img
-                                        src={`${SERVER_URL}${employeeData.Certificate}#toolbar=0`}
+                                        src={`${import.meta.env.VITE_SERVER_URL}${employeeData.Certificate}#toolbar=0`}
                                         title="Internship Certificate"
                                         className="w-full h-full rounded-lg"
                                         style={{

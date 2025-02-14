@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "../../images/tpl.png";
-import logoutImg from "../../images/logout.svg";
+
 import "../../CSS/adminsidebar.css";
 import { toast } from "react-toastify";
 import { Modal, Button } from "react-bootstrap";
@@ -97,7 +96,7 @@ const AdminSidebar = () => {
         <div className="h-screen adminsidebarMain flex">
             <div className="tabSideMain flex flex-col justify-between items-center py-3">
                 <div className="mx-auto relative top-[10px]">
-                    <img src={logo} className="h-[75px] " alt="Company Logo" />
+                    <img src="/assets/images/tpl.png" className="h-[75px] " alt="Company Logo" />
                 </div>
                 <div className="flex flex-col justify-between items-center secondDivAdminsidebar">
                     <div className="grid gap-[10px] text-[16px] w-[260px]">
@@ -113,7 +112,7 @@ const AdminSidebar = () => {
                     </div>
                     <div className="flex flex-col justify-between items-center font-semibold">
                         <div className="flex gap-[5px] px-[30px] py-[13px] cursor-pointer" onClick={onLogOut}>
-                            <img src={logoutImg} alt="Logout" /> Logout
+                            <img src="/assets/svg/logout.svg" alt="Logout" /> Logout
                         </div>
                     </div>
                 </div>

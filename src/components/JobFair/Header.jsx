@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import logo from '../../images/trackpil.png';
 import { IoCallOutline, IoMailOutline } from "react-icons/io5";
 import "../../CSS/JobFair/header.css";
 
@@ -8,7 +7,7 @@ function HeaderSection() {
     return (
         <>
             <div className="mobile-header d-md-none d-flex justify-content-between">
-                <img src={logo} alt="TrackPi Job Fair Logo" className="mobile-logo-img" />
+                <img src="/assets/images/trackpil.png" alt="TrackPi Job Fair Logo" className="mobile-logo-img" />
                 <div className="mobile-header-content">
                     <h6 className="mobile-partner-text fw-bold">Your Strategic Growth Partner</h6>
                     <div className="contact-info d-flex">
@@ -38,7 +37,7 @@ function HeaderSection() {
 
                     {/* Right Section */}
                     <Col lg={3} md={4} className="text-md-end text-center d-none d-md-flex flex-column align-items-md-end align-items-center desktop-header">
-                        <img src={logo} alt="TrackPi Job Fair Logo" className='desktop-logo img-fluid' />
+                        <img src="/assets/images/trackpil.png" alt="TrackPi Job Fair Logo" className='desktop-logo img-fluid' />
                         <h6 className="fw-bold">Your Strategic Growth Partner</h6>
                         <div className="contact-info ">
                             <p className="mb-1 d-flex align-items-center gap-1 justify-content-md-end justify-content-center">
