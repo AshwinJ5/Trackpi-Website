@@ -529,7 +529,7 @@ function Home() {
       </section>
 
       <div className="shadow-bottom">
-        <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 flex justify-center px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto  2xl:pt-28 xl:pt-24 md:pt-20 pt-8 lg:pb-16  md:pb-12 pb-8 h-full w-full relative sm:mt-12 lg:mt-20  bg-[#FFC100] bgSections">
+        <section className="mt-8 sm:mt-12 md:mt-24 lg:mt-24 xl:mt-28 2xl:mt-28 flex justify-center px-6 lg:px-20 xl:px-24 2xl:px-32 mx-auto  2xl:pt-28 xl:pt-24 md:pt-20 pt-8 lg:pb-16  md:pb-12 pb-8 h-full w-full relative sm:mt-12 lg:mt-20  bg-[#FFC100] bgSectionsOne bgSections">
           <div className="flex flex-col gap-2 justify-center items-center text-center">
             <h1 className="text-black font-bold  xl:leading-tight   text-lg md:text-3xl lg:text-4xl xl:text-[subHeading] 2xl:text-5xl ">
               We're Ready to Help
