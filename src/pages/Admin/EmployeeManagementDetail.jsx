@@ -5,7 +5,6 @@ import { IoMdArrowBack } from "react-icons/io";
 import { RiFacebookCircleLine } from "react-icons/ri";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { SERVER_URL } from "../../Api Services/serverUrl";
 import { FaXTwitter } from "react-icons/fa6";
 
 function EmployeeManagementDetail() {
@@ -48,7 +47,7 @@ function EmployeeManagementDetail() {
 
     useEffect(() => {
         if (employeeData && employeeData.image) {
-            const imageUrl = `${SERVER_URL}${employeeData.image}`;
+            const imageUrl = `${import.meta.env.VITE_SERVER_URL}${employeeData.image}`;
             setProfileImage(imageUrl);
         }
     }, [employeeData]);

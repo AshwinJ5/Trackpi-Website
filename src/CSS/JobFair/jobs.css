@@ -14,7 +14,7 @@
 
 /* Custom Popup Box */
 .custom-popup-box {
-  background-image: url('../../images/popup.png');
+  background-image: url('/assets/images/popup.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

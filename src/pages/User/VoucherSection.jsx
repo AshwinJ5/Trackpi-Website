@@ -1,15 +1,25 @@
 import React, { useState } from "react";
-import './Voucherpage.css';
-import voucher1 from "./assets/sales_consultation.svg";
-import voucher2 from "./assets/operational_consultation.svg"; 
-import voucher3 from "./assets/sales_training.svg"; 
-import voucher4 from "./assets/branding_and_marketing.svg"; 
+import "./Voucherpage.css";
+
+import voucher3 from "./assets/sales_training.svg";
 
 const vouchers = [
-  { id: 1, title: "sales_consultation", image: voucher1 },
-  { id: 2, title: "operational_consultation", image: voucher2 },
+  {
+    id: 1,
+    title: "sales_consultation",
+    image: "/assets/svg/sales_consultation.svg",
+  },
+  {
+    id: 2,
+    title: "operational_consultation",
+    image: "/assets/svg/operational_consultation.svg",
+  },
   { id: 3, title: "sales_training", image: voucher3 },
-  { id: 4, title: "branding_and_marketing", image: voucher4 },
+  {
+    id: 4,
+    title: "branding_and_marketing",
+    image: "/assets/svg/branding_and_marketing.svg",
+  },
 ];
 
 const VoucherSection = () => {
@@ -30,14 +40,19 @@ const VoucherSection = () => {
         Choose Your Complimentary Gifts!
       </h2>
       <p className="text-center text-sm text-gray-700 mt-2">
-        To thank you for participating in our online job fair, we are offering special and free gifts to help expand your business.
+        To thank you for participating in our online job fair, we are offering
+        special and free gifts to help expand your business.
       </p>
 
       {/* Voucher Container */}
       <div className="bg-[#0A0A0A33] rounded-[20px] p-6 mt-6">
         <div className="flex justify-center items-center w-full relative">
-          <h3 className="text-lg font-bold text-black text-center">Special Offers on Trackpi Services</h3>
-          <p className="absolute right-0 text-sm text-gray-700">{selectedVouchers.length} / 2 Selected</p>
+          <h3 className="text-lg font-bold text-black text-center">
+            Special Offers on Trackpi Services
+          </h3>
+          <p className="absolute right-0 text-sm text-gray-700">
+            {selectedVouchers.length} / 2 Selected
+          </p>
         </div>
 
         {/* Voucher List - One per Row */}
@@ -53,15 +68,21 @@ const VoucherSection = () => {
                   onChange={() => handleCheckboxChange(voucher.id)}
                 />
               </div>
-              <img src={voucher.image} alt={voucher.title} className="w-full rounded-md shadow-md" />
+              <img
+                src={voucher.image}
+                alt={voucher.title}
+                className="w-full rounded-md shadow-md"
+              />
             </div>
           ))}
         </div>
 
         {/* Footer Text */}
         <p className="text-center text-sm text-black font-bold mt-6">
-          Choose any 2 vouchers from the 4 options above, and note that each <span className="text-red-600">*</span><br />
-          voucher is valid for single use only. 
+          Choose any 2 vouchers from the 4 options above, and note that each{" "}
+          <span className="text-red-600">*</span>
+          <br />
+          voucher is valid for single use only.
         </p>
       </div>
     </div>

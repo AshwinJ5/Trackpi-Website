@@ -1,12 +1,12 @@
 import "../../CSS/teamListMember.css";
 import React, { useEffect, useState } from "react";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 function MemberCard({ employee, onCardClick }) {
     const [profileImage, setProfileImage] = useState(null);
 
     useEffect(() => {
         if (employee && employee.image) {
-            const imageUrl = `${SERVER_URL}${employee.image}`;
+            const imageUrl = `${import.meta.env.VITE_SERVER_URL}${employee.image}`;
             setProfileImage(imageUrl);
         }
     }, [employee]);

@@ -3,12 +3,15 @@
 .footerBanner {
     box-shadow: -2px 2px 4px 0 #0a0a0a26, 2px 1px 4px 0 #0a0a0a26;
 }
+
 .uploadBtn {
     border: 2px #ff9d00 solid;
 }
+
 .partnerInput {
     outline: none;
 }
+
 .partnerContainer textarea {
     resize: none;
 }
@@ -17,10 +20,12 @@
     border: 2px #0a0a0a solid;
     color: #0a0a0a;
 }
+
 .newsBtnActive {
     background-color: #ff9d00;
     color: white;
 }
+
 .newsBtnInactive {
     background-color: white;
     color: #ff9d00;
@@ -36,60 +41,74 @@
 }
 
 .connectusModalMain .connectusModal {
-    background: url("../images/popupbg.svg") no-repeat !important;
+    background: url("/assets/svg/popupbg.svg") no-repeat !important;
     background-position: right !important;
     background-size: contain !important;
 }
+
 @media (max-width: 640px) {
     .connectusModalMain .connectusModal {
         background: none !important;
     }
 }
+
 @media (max-width: 393px) {
     .connectusModalMain .connectusModal {
         gap: 15px;
     }
+
     .connectusModalMain .connectPopupDivOuter {
         width: 80%;
     }
+
     .connectusModalMain .connectPopupDivOuter .headingOne {
         font-size: 16px;
     }
+
     .connectusModalMain .connectPopupDivOuter .headingTwo {
         font-size: 14px;
         gap: 13px;
         line-height: 19.2px;
     }
+
     .connectusModalMain .connectPopupDivOuter .headingThree {
         font-size: 13px;
     }
+
     .connectusModalMain .connectPopupDivOuter .sectionOne {
         font-size: 10px;
     }
 }
+
 @media (max-width: 640px) {
     .connectusModalMain .connectPopupDivOuter .headingThree {
         text-align: justify;
         text-align-last: center;
     }
 }
+
 @media (max-width: 363px) {
     .connectusModalMain .connectusModal {
         gap: 12px;
     }
+
     .connectusModalMain .connectPopupDivOuter {
         width: 80%;
     }
+
     .connectusModalMain .connectPopupDivOuter .headingOne {
         font-size: 15px;
     }
+
     .connectusModalMain .connectPopupDivOuter .headingTwo {
         font-size: 12px;
         gap: 12px;
     }
+
     .connectusModalMain .connectPopupDivOuter .headingThree {
         font-size: 11px;
     }
+
     .connectusModalMain .connectPopupDivOuter .sectionOne {
         font-size: 10px;
     }

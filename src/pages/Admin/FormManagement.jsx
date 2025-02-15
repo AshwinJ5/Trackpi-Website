@@ -306,8 +306,8 @@ export default FormManagement;
 {
   /* import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import importImg from "../../images/import.svg";
-import viewMoreImg from "../../images/viewMore.svg";
+import importImg from "/assets/svg/import.svg";
+import viewMoreImg from "/assets/svg/viewMore.svg";
 import "../../CSS/projectManagement.css";
 
 function FormManagement() {

@@ -3,13 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 import EmpDetails from "../../components/User/EmpDetails";
 import "../../CSS/employeeinternship.css";
 import { Worker, Viewer } from "@react-pdf-viewer/core";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 
 function EmployeeSales() {
     const location = useLocation();
     const employeeData = location.state?.rowDatas || {};
 
-    const businessCardURL = `${SERVER_URL}${employeeData.businessCard}`;
+    const businessCardURL = `${import.meta.env.VITE_SERVER_URL}${employeeData.businessCard}`;
 
     const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ function EmployeeSales() {
                     {" "}
                     {employeeData.businessCard ? (
                         <img
-                            src={`${SERVER_URL}${employeeData.businessCard}`}
+                            src={`${import.meta.env.VITE_SERVER_URL}${employeeData.businessCard}`}
                             className="w-full h-full rounded-lg"
                             style={{ border: "none", objectFit: "cover" }}
                             title="Business Card"

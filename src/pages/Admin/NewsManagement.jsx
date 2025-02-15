@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import editImg from "../../images/editbtn.svg";
-import deleteImg from "../../images/deleteimg.svg";
 import AddNews from "../../components/AddNews";
 import EditNews from "../../components/EditNews";
 import DeletePopUp from "../../components/Admin/DeletePopUp";
 import baseURL from "../../Api Services/baseURL";
-import { SERVER_URL } from "../../Api Services/serverUrl";
 import { toast } from "react-toastify";
 
 const NewsManagement = () => {
@@ -147,7 +144,7 @@ const NewsManagement = () => {
                                         setHeadingEditMode(true);
                                     }}
                                 >
-                                    <img src={editImg} alt="Edit" />
+                                    <img src="/assets/svg/editbtn.svg" alt="Edit" />
                                 </button>
                             ) : (
                                 <div className=" flex justify-start gap-[10px]">
@@ -205,7 +202,7 @@ const NewsManagement = () => {
                                             className="bg-[#FF9D00] w-[60px] h-[56px] rounded-bl-[6px] rounded-tr-[90%]"
                                         >
                                             <img
-                                                src={editImg}
+                                                src="/assets/svg/editbtn.svg"
                                                 alt="Edit"
                                                 className="h-[24px] w-[24px] relative top-[18px] left-[14px]"
                                             />
@@ -219,14 +216,14 @@ const NewsManagement = () => {
                                             className="bg-[#FF9D00] w-[60px] h-[56px] rounded-br-[6px] rounded-tl-[90%]"
                                         >
                                             <img
-                                                src={deleteImg}
+                                                src="/assets/svg/deleteimg.svg"
                                                 alt="Delete"
                                                 className="h-[24px] w-[24px] relative top-[18px] left-[21px]"
                                             />
                                         </div>
                                     </div>
                                     <img
-                                        src={`${SERVER_URL}${news.newsFile}`}
+                                        src={`${import.meta.env.VITE_SERVER_URL}${news.newsFile}`}
                                         className="w-full h-full rounded-[6px]"
                                         alt={`News ${index + 1}`}
                                     />

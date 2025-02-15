@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../CSS/ourTeam.css";
 import baseURL from "../../Api Services/baseURL";
-import { SERVER_URL } from "../../Api Services/serverUrl";
+
 
 function Clients() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -150,7 +150,7 @@ function Clients() {
                             >
                                 <div className="bg-[#FFFFFF63]  w-[60%] 2xl:w-[60%] lg:aspect-[2/.9] aspect-[2/.7] flex items-center">
                                     <img
-                                        src={`${SERVER_URL}${partner.companylogo}`}
+                                        src={`${import.meta.env.VITE_SERVER_URL}${partner.companylogo}`}
                                         alt={partner.companyname}
                                         className="logo m-auto "
                                     />

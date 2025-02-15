@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import trackpiLogo from "../../images/trackpil.png";
 import "../../CSS/User/loader.css";
 
 function Loader() {
@@ -9,7 +8,7 @@ function Loader() {
         <>
             <div className="text-center  loader_main">
                 <div className="">
-                    <img src={trackpiLogo} ref={imageRef} className=" mx-auto mb-3 image-animation" alt="TrackPi Logo" />
+                    <img src="/assets/images/trackpil.png" ref={imageRef} className=" mx-auto mb-3 image-animation" alt="TrackPi Logo" />
                 </div>
             </div>
         </>

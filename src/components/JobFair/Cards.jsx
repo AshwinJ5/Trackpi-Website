@@ -1,37 +1,42 @@
 import React, { useState } from "react";
 import ToolCard from "./ToolCard";
-import './Voucherpage.css';
-import logoImg from "./images/trackpi_logo.png";
+import "./Voucherpage.css";
 
 const toolsData = [
   {
     title: "My ToDo’s",
     subtitle: "To Do App",
-    description: "My ToDo’s helps you stay organized, boost productivity and enhance team collaboration with effective task management and reminders.",
-    logo: logoImg
+    description:
+      "My ToDo’s helps you stay organized, boost productivity and enhance team collaboration with effective task management and reminders.",
+    logo: "/assets/images/trackpi_logo.png",
   },
   {
     title: "HabitSnc",
     subtitle: "Habit Tracker",
-    description: "Build and maintain positive habits with progress tracking and stay motivated in building positive habits for Your growth.",
-    logo: logoImg
+    description:
+      "Build and maintain positive habits with progress tracking and stay motivated in building positive habits for Your growth.",
+    logo: "/assets/images/trackpi_logo.png",
   },
   {
     title: "Expenzor",
     subtitle: "Personal Expense Tracker",
-    description: "Expenzor lets you easily manage and categorize expenses, providing insights to help with budgeting.",
-    logo: logoImg
+    description:
+      "Expenzor lets you easily manage and categorize expenses, providing insights to help with budgeting.",
+    logo: "/assets/images/trackpi_logo.png",
   },
   {
     title: "DayLog",
     subtitle: "Digital Diary / Journal",
-    description: "Securely record thoughts, notes, and important events, Maintain personal or work-related notes.",
-    logo: logoImg
-  }
+    description:
+      "Securely record thoughts, notes, and important events, Maintain personal or work-related notes.",
+    logo: "/assets/images/trackpi_logo.png",
+  },
 ];
 
 const Cards = () => {
-  const [checkedState, setCheckedState] = useState(new Array(toolsData.length).fill(false));
+  const [checkedState, setCheckedState] = useState(
+    new Array(toolsData.length).fill(false)
+  );
 
   const handleCheckboxChange = (index) => {
     const updatedCheckedState = checkedState.map((item, idx) =>
@@ -62,16 +67,14 @@ const Cards = () => {
         </div>
 
         <p className="text-center text-gray-800 mt-6 px-4 sm:px-10 md:px-20">
-          The apps will be branded with your company logo and customized color theme for employee use.
+          The apps will be branded with your company logo and customized color
+          theme for employee use.
         </p>
       </div>
 
       <div className="rounded-lg p-6 mt-6">
         <div className="flex justify-end">
-          <input
-            type="checkbox"
-            className="w-5 h-5 border rounded mr-2"
-          />
+          <input type="checkbox" className="w-5 h-5 border rounded mr-2" />
           <label className="text-gray-900 text-sm font-medium">
             I don’t want any complimentary gift
           </label>

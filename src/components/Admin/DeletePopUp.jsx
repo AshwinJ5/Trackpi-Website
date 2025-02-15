@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import deleteImg from "../../images/deletePopupimg.svg";
 
 function DeletePopUp({ onClose, dataDeleted, datas, functions }) {
     const [isAnimating, setIsAnimating] = useState(false);
@@ -29,7 +28,7 @@ function DeletePopUp({ onClose, dataDeleted, datas, functions }) {
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="flex justify-start items-center gap-[10px] mb-4">
-                        <img className="h-[30px] w-[30px]" src={deleteImg} alt="Delete Icon" />
+                        <img className="h-[30px] w-[30px]" src="/assets/svg/deletePopupimg.svg" alt="Delete Icon" />
                         <div className="text-[#FF9D00] text-[24px] font-bold">Delete {datas}</div>
                     </div>
                     <p className="text-[#0A0A0A] text-[18px] font-semibold mb-6">
