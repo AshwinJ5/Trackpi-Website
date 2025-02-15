@@ -220,12 +220,12 @@ const FooterManagement = () => {
     if (file1) {
       if (
         ["video/mp4", "video/avi"].includes(file1.type) &&
-        file1.size < 10 * 1024 * 1024
+        file1.size < 400 * 1024 * 1024
       ) {
         setFooterVideoDetails({ ...footerVideoDetails, videofile1: file1 });
         setFileNameVideo1(file1.name);
       } else {
-        toast.info("Upload a AVI or MP4 file under 10 MB.");
+        toast.info("Upload a AVI or MP4 file under 400 MB.");
         setFooterVideoDetails({ ...footerVideoDetails, videofile1: null });
         setFileNameVideo1("Upload Video");
       }
@@ -237,12 +237,12 @@ const FooterManagement = () => {
     if (file2) {
       if (
         ["video/mp4", "video/avi"].includes(file2.type) &&
-        file2.size < 10 * 1024 * 1024
+        file2.size < 400 * 1024 * 1024
       ) {
         setFooterVideoDetails({ ...footerVideoDetails, videofile2: file2 });
         setFileNameVideo2(file2.name);
       } else {
-        toast.info("Upload a AVI or MP4 file under 10 MB.");
+        toast.info("Upload a AVI or MP4 file under 400 MB.");
         setFooterVideoDetails({ ...footerVideoDetails, videofile2: null });
         setFileNameVideo2("Upload Video");
       }
@@ -253,12 +253,12 @@ const FooterManagement = () => {
     if (file3) {
       if (
         ["video/mp4", "video/avi"].includes(file3.type) &&
-        file3.size < 10 * 1024 * 1024
+        file3.size < 400 * 1024 * 1024
       ) {
         setFooterVideoDetails({ ...footerVideoDetails, videofile3: file3 });
         setFileNameVideo3(file3.name);
       } else {
-        toast.info("Upload a AVI or MP4 file under 10 MB.");
+        toast.info("Upload a AVI or MP4 file under 400 MB.");
         setFooterVideoDetails({ ...footerVideoDetails, videofile3: null });
         setFileNameVideo3("Upload Video");
       }
