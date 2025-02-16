@@ -341,7 +341,7 @@ function Home() {
               clientsLogo.map((images, index) => (
                 <div
                   key={index}
-                  className="w-[80px] bg-[#FFFFFF63] sm:w-[110px] md:w-[140px] lg:w-[180px]  h-[34px] sm:h-[40px] md:h-[50px] lg:h-[80px] sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
+                  className="w-[80px] bg-[#ffffff] sm:w-[110px] md:w-[140px] lg:w-[180px]  h-[34px] sm:h-[40px] md:h-[50px] lg:h-[80px] sm:mx-[12px] md:mx-[18px] lg:mx-[21px] xl:mx-[25px] mx-[7.5px]"
                 >
                   <img
                     className=" h-full  mx-auto"

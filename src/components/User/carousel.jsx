@@ -148,7 +148,7 @@ function Clients() {
                                     margin: "0 10px",
                                 }}
                             >
-                                <div className="bg-[#FFFFFF63]  w-[60%] 2xl:w-[60%] lg:aspect-[2/.9] aspect-[2/.7] flex items-center">
+                                <div className="bg-[#fff]  w-[60%] 2xl:w-[60%] lg:aspect-[2/.9] aspect-[2/.7] flex items-center">
                                     <img
                                         src={`${import.meta.env.VITE_SERVER_URL}${partner.companylogo}`}
                                         alt={partner.companyname}
