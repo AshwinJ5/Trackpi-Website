@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Enriqueta:wght@400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lateef:wght@200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
+
+.inagurationMain{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background:url('/assets/svg/inagurationbg.svg' )no-repeat center;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inagurationSecond{
+    position: relative;
+    z-index: 10;
+    border-radius: 30px;
+    background:url('/assets/svg/inagurationsecondbg.svg' )no-repeat center , linear-gradient(to right, rgba(255, 255, 255, 1) , rgba(255, 161, 13, 1));
+
+    background-size: cover;
+    background-position: left;    
+    width: 90%;
+    height: 90%;
+    box-shadow: 
+    -2px 2px 4px 9px rgba(10, 10, 10, 0.2),
+     2px 1px 4px 0px rgba(10, 10, 10, 0.2),
+     0px -2px 4px 0px rgba(10, 10, 10, 0.2);
+}
+.inagurationImgOne{
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    opacity: .5;
+    mix-blend-mode: plus-lighter;
+}
+.inagurationImgTwo{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    opacity: .9;
+}
+.k2d{
+    font-family: "K2D", serif;
+}
+.montserrat{
+    font-family: "Montserrat", serif;
+}
+.righteous{
+    font-family: "Righteous", serif;
+}
+.encodeSans{
+    font-family: "Encode Sans Semi Expanded", serif;
+}
+.enriqueta{
+    font-family: "Enriqueta", serif;
+}
+.lateef{
+    font-family: "Lateef", serif;
+}
+.interFont{
+    font-family: "Inter", serif;
+}
+.inagurationPerson{
+    border-radius:520px ;
+}
+.inagurationSecond a{
+    text-decoration: none;
+    cursor: pointer;
+    border: 3px solid white;
+    outline: 2px solid #FAA613;
+}
+.firstDivIng,.secondDivIng{
+    display: flex;
+}
+.thirdDivIng,.fourDivIng{
+    display: none;
+}
+@media (max-width: 1023px) {
+    .firstDivIng,.secondDivIng{
+        display: none;
+    }
+    .thirdDivIng,.fourDivIng{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .inagurationSecond a{
+        text-decoration: none;
+        cursor: pointer;
+        border: 1.5px solid white;
+        outline: 1px solid #FAA613;
+    }
+    .inagurationSecond{
+        width: 85%;
+        height: 85%;
+        background-position: left;
+    }
+    .inagurationMain{
+        background-position: left;
+    }
+}

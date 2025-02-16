@@ -177,7 +177,7 @@ function Footer() {
                 </li>
               </ul>
             </div>
-            <div className="xl:w-max lg:w-[20%] sm:w-max w-[180px] mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]  footerServices">
+            <div className="xl:w-max lg:w-[20%] sm:w-max w-[50%] mb-0 grid gap-[10px] sm:gap-[12px] md:gap-[15px] lg:gap-[18px] xl:gap-[20px]  footerServices ms-[10px] sm:ms-0">
               <h5 className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]  mb-0 text-left">
                 Services
               </h5>
@@ -250,7 +250,7 @@ function Footer() {
               </ul>
             </div>
             <div className="w-full   lg:w-max sm:mt-0  join_us_div">
-              <div className="lg:grid md:flex  lg:gap-2  flex justify-between  joinInput">
+              <div className="lg:grid md:flex  lg:gap-2  flex justify-between  joinInput ">
                 <div className="grid gap-[8px] sm:w-max w-50 text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] join_div_right">
                   <div className=" font-bold text-[16px] sm:text-[18px] md:text-[20px] lg:text-[20px] xl:text-[23px]  2xl:text-[26px]">
                     Contact
@@ -288,13 +288,13 @@ function Footer() {
                         src="/assets/images/circle.png"
                         alt=""
                       />
-                      <div className="text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium  ms-[10px] sm:ms-[20px] addressFooter">
+                      <div className="text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium  ms-[10px] sm:ms-[10px] addressFooter">
                         Trackpi Private Limited, 10E BCG Tower, Opp. CSEZ,
                         Seaport-Airport Rd, Kakkanad, Kochi, Kerala - 682037,
                         India
                       </div>
                     </div>
-                    <div className="sm:hidden block rounded-lg   footerForm footerInput2 text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium  ms-[10px] sm:ms-[20px]  max-w-[240px]">
+                    <div className="sm:hidden block rounded-lg   footerForm footerInput2 text-[12px] sm:text-[13.5px] md:text-[14px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] font-medium    max-w-[240px]">
                       <img
                         className="lg:h-[30px] md:h-[27px] sm:h-[24px] h-[20px] lg:w-[30px] md:w-[27px] sm:w-[24px] w-[20px] mx-auto mb-[5px]"
                         src="/assets/images/circle.png"

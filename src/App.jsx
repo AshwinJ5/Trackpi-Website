@@ -45,6 +45,7 @@ import PrivateRoute from "./components/PrivateRoutes/PrivateRoutes";
 import Creators from "./pages/User/Creators";
 import Jobs from "./pages/User/jobs";
 import JobFairForm from "./pages/User/JobFairForm";
+import Inaguration from "./pages/User/Inaguration";
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -94,7 +95,7 @@ function App() {
             ) : (
                 <>
                     {showHeaderFooter && <Header />}
-                    {!isAdminRoute && !isNotFoundRoute && location.pathname !== "/admin/admin-login" && <Sidebar />}
+                    {!isAdminRoute && !isNotFoundRoute && location.pathname !== "/admin/admin-login" && location.pathname !== "/inaguration" && <Sidebar />}
                     <div style={isAdminRoute ? { display: "flex" } : {}}>
                         {isAdminRoute && !isNotFoundRoute && <AdminSidebar />}
                         <div style={isAdminRoute ? { width: "100%", overflowY: "scroll", height: "100%" } : {}}>
@@ -102,6 +103,7 @@ function App() {
                             <div style={isAdminRoute ? styles.content : null}>
                                 <Routes>
                                     <Route path="/" element={<Home />} />
+                                    <Route path="/inaguration" element={<Inaguration />} />
                                     <Route path="/about-trackpi" element={<About />} />
                                     <Route path="/business-consulting-services" element={<OurServices />} />
                                     <Route path="/employee-verification" element={<EmployeeVerification />} />

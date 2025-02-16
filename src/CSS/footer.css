@@ -157,14 +157,17 @@ footer .form-control:focus {
 @media (max-width: 710px) and (min-width: 640px) {
     .join_div_left,
     .join_div_right {
-        width: 100vw !important;
+        width: 50% !important;
     }
-    .joinInput {
-        width: 50%;
+    .join_us_div .joinInput {
+        width: 100% ;
         display: flex !important;
     }
     .join_us_div {
-        width: 100vw !important;
+        width: 100% !important;
+    }
+    .footerServices{
+        width: 50%;
     }
 
 }
