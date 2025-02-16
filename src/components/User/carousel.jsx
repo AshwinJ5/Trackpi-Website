@@ -157,8 +157,8 @@ function Clients() {
                                 </div>
                                 <h3 className="company-name">{partner.companyname}</h3>
                                 <p className="description text-justify">
-                                    {partner.description.length > 150
-                                        ? `${partner.description.substring(0, 150)}...`
+                                    {partner.description.length > 200
+                                        ? `${partner.description.substring(0, 200)}...`
                                         : partner.description}
                                 </p>
                             </div>
