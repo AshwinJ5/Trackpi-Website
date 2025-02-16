@@ -152,7 +152,7 @@ function TermsAndConditionForNewProject() {
                             <div className="text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[24px] text-justify">
                                 For any questions or concerns about these Terms, please contact us: <br /> <br />
                                 Trackpi Private Limited <br /> Email ID: operations@trackpi.in <br /> Phone: +91 80781 79646{" "}
-                                <br /> Address: Trackpi Pvt Ltd, KC Arcade, Near TV Centre, CSEZ, Ernakulam, Kerala, 682037{" "}
+                                <br /> Address: Trackpi Private Limited, 10E BCG Tower, Opp. CSEZ, Seaport-Airport Rd, Kakkanad, Kochi, Kerala - 682037, India
                             </div>
                         </div>
                     </div>
