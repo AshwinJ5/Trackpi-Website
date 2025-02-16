@@ -22,7 +22,7 @@ function Inaguration() {
                                 <div className="k2d  text-center  xl:text-[75px] text-[55px] 2xl:text-[95px]">
                                     LAUNCHING
                                 </div>
-                                <div className="text-left text-right  xl:text-[70px] text-[55px] 2xl:text-[90px]">
+                                <div className="text-left text-right  xl:text-[70px] text-[55px] 2xl:text-[90px] corinthia">
                                     Ceremony
                                 </div>
                             </div>
@@ -91,10 +91,12 @@ function Inaguration() {
                             <div className="grid w-full max-w-[547px] font-semibold ">
                                 <div className="k2d  text-left  text-[55px]">GRAND</div>
                                 <div className="k2d  text-center  text-[55px] ">LAUNCHING</div>
-                                <div className="text-left text-right  text-[55px] ">Ceremony</div>
+                                <div className="text-left text-right font-bold text-[55px] corinthia">Ceremony</div>
                             </div>
                             <div className="flex w-full">
-                                <img src={img1} className="w-1/2 ms-[20px]" alt="" />
+                              <div className="w-1/2 flex justify-end items-center">
+                                <img src={img1} className=" max-w-[281px]  ms-[20px]" alt="" />
+                                </div>
                                 <div className="flex flex-col items-center justify-center gap-[8px] text-center  me-[20px] w-1/2">
                                     <div className=" text-[22px] font-semibold enriqueta">www.trackpi.in</div>
                                     <div className=" text-[15px] encodeSans">
