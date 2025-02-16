@@ -2,7 +2,7 @@ import React from "react";
 import { RiDownload2Fill } from "react-icons/ri";
 
 const Brochure = () => {
-    const pdfPath = "/images/Technical_Round_Assignment.pdf";
+    const pdfPath = "/assets/pdf/Technical_Round_Assignment.pdf";
 
     return (
         <>
