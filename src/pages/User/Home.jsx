@@ -387,7 +387,6 @@ function Home() {
               competitive can quickly become overwhelming. Without trusted
               business consultants in Kerala, companies may face compliance
               risks and higher costs, hindering their potential for success.
-              <br />
               At Trackpi, the leading business consulting firm in Kerala, we
               specialize in addressing these challenges head-on. Our expert
               business management consultants provide detailed strategy planning
@@ -466,8 +465,7 @@ function Home() {
               growing, finding new ways to improve and succeed. With the
               guidance of a trusted business consultant in Kerala, you can break
               free from outdated habits and discover new opportunities for
-              growth. <br />
-              At Trackpi, the leading business consulting firm in Kerala, we
+              growth. At Trackpi, the leading business consulting firm in Kerala, we
               help businesses build future-ready capabilities. Our expert
               consultants deliver strategies that empower companies to become
               more resilient, innovative, and successful in today’s competitive
@@ -501,7 +499,7 @@ function Home() {
               outdated methods can hold your company back. To stay ahead in
               today’s competitive market, businesses need forward-thinking
               strategies that align with current trends and future demands.
-              <br /> At Trackpi, the No. 1 business consulting firm in Kerala,
+              At Trackpi, the No. 1 business consulting firm in Kerala,
               we specialize in crafting innovative, tailor-made strategies that
               drive growth and position businesses for long-term success. Our
               expert consultants ensure your business is proactive and prepared
