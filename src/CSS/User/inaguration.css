@@ -21,7 +21,9 @@
     background-size: cover;
     background-position: contain ;    
     width: 90%;
+    max-width: 1800px;
     height: 90%;
+    max-height:1200px ;
     box-shadow: 
     -2px 2px 4px 9px rgba(10, 10, 10, 0.2),
      2px 1px 4px 0px rgba(10, 10, 10, 0.2),
