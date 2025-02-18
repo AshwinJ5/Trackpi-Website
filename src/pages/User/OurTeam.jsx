@@ -105,14 +105,7 @@ function OurTeam() {
               animate={inViewFirstSection ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              Trackpi is one of the best business consultants in Kerala,
-              assisting clients in fulfilling their objectives. Based in Kochi,
-              our team is highly experienced in developing strategies that
-              promote growth and development. With our expert commercial
-              development consulting services, we help businesses thrive in a
-              competitive environment. As one of the leading business
-              consultants in Kerala, we confidently position ourselves as the
-              most qualified firm to excel in this field.
+              Trackpi is one of the best business consulting firms in Kerala. We have a highly experienced team that develops strategies to promote growth and development. With our expert consulting services, we help businesses thrive in a competitive environment. Our customer-focused strategy guarantees customized solutions that promote effectiveness and sustained success.
             </motion.p>
           </div>
           <div className="md:w-1/2 flex md:justify-end hidden md:block">
