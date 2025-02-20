@@ -46,6 +46,7 @@ import Creators from "./pages/User/Creators";
 import Jobs from "./pages/User/jobs";
 import JobFairForm from "./pages/User/JobFairForm";
 import Inaguration from "./pages/User/Inaguration";
+import JobFairCards from "./pages/User/JobFairCards";
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -194,7 +195,7 @@ function App() {
                                     </Route>
                                     <Route path="/job-fair" element={<Jobs />} />
                                     <Route path="/job-fair/user" element={<JobFairForm />} />
-
+                                    <Route path="/job-fair/cards" element={<JobFairCards />} />
                                     <Route path="/not-found" element={<Navigate to={"/not-found"} />} />
                                     <Route path="/*" element={<NotFound />} />
                                 </Routes>
