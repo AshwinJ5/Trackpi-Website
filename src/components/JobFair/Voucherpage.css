@@ -1,95 +1,161 @@
 /* Ensure full width layout */
 body, html {
-    width: 100vw;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
+  width: 100vw;
+  overflow-x: hidden;  /* Prevent any horizontal overflow */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Apply box-sizing universally */
+}
+
+/* Center content */
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.gift-checkbox-wrapper {  /* Or whatever the actual class name is */
+  display: flex!important;
+  justify-content: flex-end!important;
+  width: 100% !important;
+  padding-right: 10px !important;
+}
+
+/* Gray background for div */
+.gray-background {
+  background-color: rgba(10, 10, 10, 0.2);
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+/* ✅ Default Grid Layout - Desktop (No changes here) */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default 2 cards per row */
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+/* Grid Layout for Cards (desktop view) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two cards per row on desktop */
+  gap: 20px;
+  width: 100%; /* Ensure grid fills the available space */
+  justify-content: center; /* Center the cards in the grid */
+  align-items: center; /* Align items centrally */
+}
+
+/* Increase card height for desktop view only */
+@media (min-width: 769px) {
+  .tool-card {
+    height: 260px; /* Increased height for desktop view */
   }
-  
-  /* Center content */
-  .main-container {
+}
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;  /* Prevent horizontal overflow on mobile */
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 10px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+  }
+  /* Gray background adjustments for mobile */
+  .gray-background {
+    width: calc(100% - 20px); /* Set to 100% minus side margins */
+    margin: 0 20px; /* Add margin to ensure proper spacing */
+    box-sizing: border-box; /* Include padding inside the width */
+  }
+
+  /* Grid Layout (mobile view) */
+  .grid {
+    display: flex; /* Use flexbox for mobile */
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 3px; /* Further reduced gap between cards */
+    width: 80%; /* Ensure grid fills the available space */
+    align-items: center; /* Center the cards vertically */
+    margin-left: auto; /* Center-align the div horizontally */
+    margin-right: auto; /* Center-align the div horizontally */
+  }
+
+  /* Updated card styling for mobile */
+  .tool-card {
+    width: 100%; /* Each card takes full width of its grid cell */
+    height: 180px; /* Reduced height */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
   }
-  
-  /* Responsive Header */
-  @media (max-width: 768px) {
-    .header-content {
-      margin-left: 10px;
-      text-align: center;
-    }
-  
-    .logo-img {
-      width: 150px; /* Reduce logo size */
-    }
+
+  /* Logo inside the card */
+  .tool-card .logo-container {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 2px; /* Adjust logo spacing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  
-  /* Grid Layout for Cards (desktop view) */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two cards per row on desktop */
-    gap: 20px;
-    width: 100%; /* Ensure grid fills the available space */
+
+  .tool-card .logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
-  
-  /* Ensure cards maintain structure in mobile view */
-  @media (max-width: 768px) {
-    .grid {
-      grid-template-columns: 1fr; /* Stack cards in a single column on mobile */
-    }
-  
-    .tool-card {
-      width: 100%;
-      padding: 20px; /* Adjust padding */
-      margin-bottom: 20px; /* Ensure spacing between cards */
-      max-width: 680px; /* Ensure card doesn't shrink too much */
-    }
-  
-    /* Fix overlapping info icon and checkbox */
-    .tool-card .relative {
-      position: relative;
-      padding: 20px;
-      text-align: left;
-    }
-  
-    .tool-card input[type="checkbox"] {
-      position: absolute;
-      top: 10px;
-      right: 10px; /* Adjust position of checkbox */
-    }
-  
-    .tool-card .absolute.bottom-3.right-3 {
-      position: absolute;
-      bottom: 15px;
-      right: 10px; /* Move info icon further down to prevent overlap */
-    }
-  
-    /* Adjust the size of text */
-    .tool-card h3 {
-      font-size: 18px; /* Adjust title size */
-    }
-  
-    .tool-card h4 {
-      font-size: 14px; /* Adjust subtitle size */
-    }
-  
-    .tool-card p {
-      font-size: 13px; /* Adjust description size */
-    }
-  
-    /* Add proper spacing for the content */
-    .tool-card .mt-2 {
-      margin-top: 10px;
-    }
+
+  /* Adjust text size and reduce gaps inside the card */
+  .tool-card h3 {
+    font-size:1px; /* Reduced title size */
+    line-height: 1;
+     /* Reduce margin between title and subtitle */
+    text-align: center;
   }
-  
-  /* Background settings */
-  body {
-    background-image: url('/assets/images/JobfareBg.png'); /* Correct path */
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+
+  .tool-card h4 {
+    font-size: 10px; /* Increased subtitle size */
+    /* Reduce margin between subtitle and description */
+    text-align: center;
+    line-height: 0;
   }
-  
+
+  .tool-card p {
+    font-size: 8px; /* Increased description size */
+    margin-bottom: 0; /* Remove any unnecessary margin */
+    text-align: center;
+    line-height: 1;
+  }
+
+  .tool-card .mt-2 {
+    margin-top: 0; /* Remove any extra margin */
+  }
+
+  .tool-card .mt-2.flex-grow {
+    width: calc(100% - 20px); /* Adjust div width inside card */
+    margin: 0 10px; /* Margin for inner elements */
+    box-sizing: border-box;
+  }
+}
+
+/* Background settings */
+body {
+  background-image: url('./assets/JobfareBg.png'); /* Correct path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
